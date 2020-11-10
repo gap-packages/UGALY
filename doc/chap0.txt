@@ -6,10 +6,10 @@
                        [1X Universal Groups Acting LocallY [101X
   
   
-                                      0.97
+                                      v1.0
   
   
-                                6 November 2020
+                                10 November 2020
   
   
                                 Khalil Hannouch
