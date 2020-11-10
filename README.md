@@ -1,6 +1,6 @@
 # The package
 
-<Package>UGALY</Package> (<B>U</B>niversal <B>G</B>roups <B>A</B>cting <B>L</B>ocall<B>Y</B>) is a <B>GAP</B> package that provides methods to create, analyse and find local actions of universal groups acting on locally finite regular trees, following Burger-Mozes and Tornier.
+<Package>UGALY</Package> (<B>U</B>niversal <B>G</B>roups <B>A</B>cting <B>L</B>ocall<B>Y</B>) is a <a href="https://www.gap-system.org/">GAP</a> package that provides methods to create, analyse and find local actions of universal groups acting on locally finite regular trees, following <a href="http://www.numdam.org/item/PMIHES_2000__92__113_0/">Burger-Mozes</a> and <a href="https://arxiv.org/abs/2002.09876">Tornier</a>.
 
 # Development
 
