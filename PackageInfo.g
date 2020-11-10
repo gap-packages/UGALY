@@ -10,7 +10,7 @@ SetPackageInfo( rec(
 
 PackageName := "UGALY",
 Subtitle := "Universal Groups Acting LocallY",
-Version := "1.00",
+Version := "1.0",
 Date := "10/11/2020", # dd/mm/yyyy format
 License := "GPL-3.0-or-later",
 
