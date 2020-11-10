@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Discreteness">
+<Heading>Discreteness</Heading>
+
+<P/>
+ This chapter contains functions that are related to the discreteness property (D) presented in Proposition 3.12 of <Cite Key="Tor20"/>.
+<Section Label="Section_condition_D">
+<Heading>The discreteness condition (D)</Heading>
+
+ Said proposition shows that for a given <Math>F\le \mathrm{Aut}(B_{d,k})</Math> the group <Math>\mathrm{U}_{k}(F)</Math> is discrete if and only if the maximal compatible subgroup <Math>C(F)</Math> of <Math>F</Math> satisfies condition (D): <Display>\forall \omega \in \Omega: F_{T_{\omega}}=\{\mathrm{id}\},</Display> where <Math>T_{\omega}</Math> is the <Math>k-1</Math>-neighbourhood of the the edge <Math>(b,b_{\omega})</Math> inside <Math>B_{d,k}</Math>. In other words, <Math>F</Math> satisfies (D) if and only if the compatibility set <Math>C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}</Math>.
+ We distinguish between <Math>F</Math> satisfying condition (D) and <Math>\mathrm{U}_{k}(F)</Math> being discrete with the methods <Ref Func="SatisfiesD"/> and <Ref Func="IsDiscrete"/> below.
+</Section>
+
+
+<Section Label="Chapter_Discreteness_Section_Discreteness">
+<Heading>Discreteness</Heading>
+
+<ManSection>
+  <Func Arg="d,k,F" Name="SatisfiesD" />
+ <Returns> <K>true</K> if <A>F</A> satisfies the discreteness condition (D), and <K>false</K> otherwise.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> G:=GAMMA(3,SymmetricGroup(3));
+Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
+gap> SatisfiesD(3,2,G);
+true
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,F" Name="IsDiscrete" />
+ <Returns> <K>true</K> if <Math>\mathrm{U}_{k}(F)</Math> is discrete, and <K>false</K> otherwise.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>. The condition that <Math>\mathrm{U}_{k}(F)</Math> is discrete is equivalent to <Math>C(F)</Math> satisfying the discreteness condition (D).
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> G:=GAMMA(3,SymmetricGroup(3));
+Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
+gap> IsDiscrete(3,2,G);
+true
+]]></Example>
+
+
+<P/>
+<Example><![CDATA[
+gap> IsDiscrete(3,2,Group((1,2)));
+true
+gap> SatisfiesD(3,2,Group((1,2)));
+false
+gap> C:=MaximalCompatibleSubgroup(3,2,Group((1,2)));
+Group(())
+gap> SatisfiesD(3,2,C);
+true
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Discreteness_Section_Cocycles">
+<Heading>Cocycles</Heading>
+
+ Subgroups <Math>F\le\mathrm{Aut}(B_{d,k})</Math> that satisfy both (C) and (D) admit an involutive compatibility cocycle, i.e. a map <Math>z:F\times\{1,\ldots,d\}\to F</Math> that satisfies certain properties, see <Cite Key="Tor20" Where="Section 3.2.2"/>. When <Math>F</Math> satisfies just (C), it may still admit an involutive compatibility cocycle. In this case, F admits an extension <Math>\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})</Math> that satisfies both (C) and (D). Involutive compatibility cocycles can be searched for using <Ref Func="InvolutiveCompatibilityCocycle"/> and <Ref Func="AllInvolutiveCompatibilityCocycles"/> below.
+<ManSection>
+  <Func Arg="d,k,F" Name="InvolutiveCompatibilityCocycle" />
+ <Returns>an involutive compatibility cocycle of <A>F</A>, which is a mapping <A>F</A><Math>\times</Math><C>[1..d]</C><Math>\to</Math><A>F</A> with certain properties, if it exists, and <K>fail</K> otherwise. When <A>k</A> <Math>=1</Math>, the standard cocycle is returned. 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a compatible subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> z:=InvolutiveCompatibilityCocycle(3,1,AlternatingGroup(3));
+MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], 
+  [ (1,3,2), 1 ], [ (1,3,2), 2 ], [ (1,3,2), 3 ], [ (1,2,3), 1 ], 
+  [ (1,2,3), 2 ], [ (1,2,3), 3 ] 
+ ]), Alt( [ 1 .. 3 ] ), function( s ) ... end )
+gap> a:=Random(AlternatingGroup(3));; dir:=Random([1..3]);;
+gap> a; Image(z,[a,dir]);
+(1,3,2)
+(1,3,2)
+]]></Example>
+
+
+<P/>
+<Example><![CDATA[
+gap> G:=GAMMA(3,AlternatingGroup(3));
+Group([ (1,4,5)(2,3,6) ])
+gap> InvolutiveCompatibilityCocycle(3,2,G);
+MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], 
+  [ (1,5,4)(2,6,3), 1 ], [ (1,5,4)(2,6,3), 2 ], [ (1,5,4)(2,6,3), 3 ], 
+  [ (1,4,5)(2,3,6), 1 ], [ (1,4,5)(2,3,6), 2 ], [ (1,4,5)(2,3,6), 3 ] 
+ ]), Group([ (1,4,5)(2,3,6) ]), function( s ) ... end )
+gap> InvolutiveCompatibilityCocycle(3,2,AutB(3,2));
+fail
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,F" Name="AllInvolutiveCompatibilityCocycles" />
+ <Returns>the list of all involutive compatibility cocycles of <Math>F</Math>. 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <Math>d\in\mathbb{N}_{\ge 3}</Math>, a radius <Math>k\in\mathbb{N}</Math>, and a compatible subgroup <Math>F\le \mathrm{Aut}(B_{d,k})</Math>.
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> S3:=SymmetricGroup(3);;
+gap> Size(AllInvolutiveCompatibilityCocycles(3,1,S3));
+4
+gap> Size(AllInvolutiveCompatibilityCocycles(3,2,GAMMA(3,S3)));
+1
+]]></Example>
+
+
+</Section>
+
+
+</Chapter>
+

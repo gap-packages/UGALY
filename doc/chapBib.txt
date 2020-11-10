@@ -1,0 +1,20 @@
+  
+  
+  [1XReferences[101X
+  
+  [[20XBEW15[120X]  [16XBanks, C., Elder, M. and Willis, G.[116X, [17XSimple groups of automorphisms
+  of  trees  determined  by their actions on finite subtrees[117X, [18XJournal of Group
+  Theory[118X, [19X18[119X, 2 (2015), 235--261.
+  
+  [[20XBM00[120X]  [16XBurger,  M.  and  Mozes,  S.[116X,  [17XGroups acting on trees: from local to
+  global  structure[117X,  [18XPublications  Math{\'e}matiques de l'IH{\'E}S[118X, Springer,
+  [19X92[119X, 1 (2000), 113--150.
+  
+  [[20XSer80[120X] [16XSerre, J. P.[116X, [17XTrees[117X, Springer (1980).
+  
+  [[20XTor20[120X]  [16XTornier,  S.[116X,  [17XGroups acting on trees with prescribed local action[117X,
+  [18Xarxiv preprint: 2002.09876[118X (2020).
+  
+  
+  
+  [32X

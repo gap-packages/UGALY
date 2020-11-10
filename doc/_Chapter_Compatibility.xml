@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Compatibility">
+<Heading>Compatibility</Heading>
+
+<P/>
+<Section Label="Section_condition_C">
+<Heading>The compatibility condition (C)</Heading>
+
+ A subgroup <Math>F\le\mathrm{Aut}(B_{d,k})</Math> satifies the compatibility condition (C) if and only if if <Math>\mathrm{U}_{k}(F)</Math> is locally action isomorphic to <Math>F</Math>, see <Cite Key="Tor20" Where="Proposition 3.8"/>. The term <E>compatibility</E> comes from the following translation of this condition into properties of the <Math>(k-1)</Math>-local actions of elements of <Math>F</Math>: The group <Math>F</Math> satisfies (C) if and only if <Display>\forall \alpha\in F\ \forall\omega\in\Omega\ \exists\beta\in F:\ \sigma_{k-1}(\alpha,b)=\sigma_{k-1}(\beta,b_{\omega}),\ \sigma_{k-1}(\alpha,b_{\omega})=\sigma_{k-1}(\beta,b).</Display>
+</Section>
+
+
+<Section Label="Section_compatible_elements">
+<Heading>Compatible elements</Heading>
+
+ This section is concerned with testing compatibility of two given elements (<Ref Func="AreCompatibleElements"/>) and finding an/all elements that is/are compatible with a given one (<Ref Func="CompatibleElement"/>, <Ref Func="CompatibilitySet"/>).
+<ManSection>
+  <Func Arg="d,k,aut1,aut2,dir" Name="AreCompatibleElements" />
+ <Returns> <K>true</K> if <A>aut1</A> and <A>aut2</A> are compatible with each other in direction <A>dir</A>, and <K>false</K> otherwise.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, two automorphisms <A>aut1</A>, <A>aut2</A> <Math>\in\mathrm{Aut}(B_{d,k})</Math>, and a direction <A>dir</A> <Math>\in</Math><C>[1..d]</C>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> AreCompatibleElements(3,1,(1,2),(1,2,3),1);
+true
+gap> AreCompatibleElements(3,1,(1,2),(1,2,3),2);
+false
+]]></Example>
+
+
+<P/>
+<Example><![CDATA[
+gap> a:=(1,3,5)(2,4,6);; a in AutB(3,2);
+true
+gap> LocalAction(1,3,2,a,[]); LocalAction(1,3,2,a,[1]);
+(1,2,3)
+(1,2)
+gap> b:=(1,4)(2,3);; b in AutB(3,2);
+true
+gap> LocalAction(1,3,2,b,[]); LocalAction(1,3,2,b,[1]);
+(1,2)
+(1,2,3)
+
+gap> AreCompatibleElements(3,2,a,b,1);
+true
+gap> AreCompatibleElements(3,2,a,b,3);
+false
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,F,aut,dir" Name="CompatibleElement" />
+ <Returns> an element of <A>F</A> that is compatible with <A>aut</A> in direction <A>dir</A> if one exists, and <K>fail</K> otherwise.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>, an element <A>aut</A> <Math>\in</Math> <A>F</A>, and a direction <A>dir</A> <Math>\in</Math><C>[1..d]</C>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> a:=Random(AutB(5,1)); dir:=Random([1..5]);
+(1,3,2,5)
+4
+gap> CompatibleElement(5,1,AutB(5,1),a,dir);
+(1,3,2,5)
+]]></Example>
+
+
+<P/>
+<Example><![CDATA[
+gap> a:=(1,3,5)(2,4,6);; a in AutB(3,2);
+true
+gap> CompatibleElement(3,2,AutB(3,2),a,1);
+(1,4,2,3)
+]]></Example>
+
+
+<ManSection Label="CompatibilitySet">
+<Heading>CompatibilitySet</Heading>
+  <Oper Arg="d,k,F,aut,dir" Name="CompatibilitySet" Label="for d, k, F, aut, dir"/>
+  <Oper Arg="d,k,F,aut,dirs" Name="CompatibilitySet" Label="for d, k, F, aut, dirs"/>
+ <Description>
+<P/>
+ <List>
+	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>aut</A>, <A>dir</A></Mark>
+	<Item> 
+		Returns: the list of elements of <A>F</A> that are compatible with <A>aut</A> in direction <A>dir</A>.
+<P/>
+		The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>, an automorphism <A>aut</A> <Math>\in F</Math>, and a direction <A>dir</A> <Math>\in</Math><C>[1..d]</C>.
+	</Item>
+	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>aut</A>, <A>dirs</A></Mark>
+	<Item>
+		Returns: the list of elements of <A>F</A> that are compatible with <A>aut</A> in all directions of <A>dirs</A>.
+<P/>
+		The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>, an automorphism <A>aut</A> <Math>\in F</Math>, and a sublist of directions <A>dirs</A> <Math>\subseteq</Math><C>[1..d]</C>.
+	</Item>
+ </List>
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> F:=TransitiveGroup(4,3);
+D(4)
+gap> aut:=(1,3);; aut in F;
+true
+gap> CompatibilitySet(4,1,SymmetricGroup(4),aut,1);
+RightCoset(Sym( [ 2 .. 4 ] ),(1,3))
+gap> CompatibilitySet(4,1,F,aut,1);
+RightCoset(Group([ (2,4) ]),(1,3))
+gap> CompatibilitySet(4,1,F,aut,[1,3]);
+RightCoset(Group([ (2,4) ]),(1,3))
+gap> CompatibilitySet(4,1,F,aut,[1,2]);
+RightCoset(Group(()),(1,3))
+]]></Example>
+
+
+<P/>
+<ManSection>
+  <Func Arg="d,k,auts" Name="AssembleAutomorphism" />
+ <Returns> the automorphism <Math>(</Math><C>aut</C><Math>,(</Math><A>auts</A><Math>[</Math><C>i</C><Math>])_{i=1}^{d})</Math> of <Math>B_{d,k+1}</Math>, where <C>aut</C> is implicit in <Math>(</Math><A>auts</A><Math>[</Math><C>i</C><Math>])_{i=1}^{d}</Math>.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a list <A>auts</A> of <A>d</A> automorphisms <Math>(</Math><A>auts</A><Math>[</Math><C>i</C><Math>])_{i=1}^{d}</Math> of <Math>B_{d,k}</Math> which comes from an element <Math>(</Math><C>aut</C><Math>,(</Math><A>auts</A><Math>[</Math><C>i</C><Math>])_{i=1}^{d})</Math> of <Math>\mathrm{Aut}(B_{d,k+1})</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> aut:=Random(AutB(3,2));
+(1,2)(3,6)(4,5)
+gap> auts:=[];;
+gap> for i in [1..3] do auts[i]:=CompatibleElement(3,2,AutB(3,2),aut,i); od;
+gap> auts;
+[ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,5,3)(2,6,4) ]
+gap> a:=AssembleAutomorphism(3,2,auts);
+(1,3)(2,4)(5,11)(6,12)(7,9)(8,10)
+gap> a in AutB(3,3); 
+true
+gap> LocalAction(2,3,3,a,[]);
+(1,2)(3,6)(4,5)
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Compatibility_Section_Compatible_subgroups">
+<Heading>Compatible subgroups</Heading>
+
+ Using the methods of Section <Ref Sect="Section_compatible_elements"/>, this section provides methods to test groups for the compatibility condition and search for compatible subgroups inside a given group, e.g. <Math>\mathrm{Aut}(B_{d,k})</Math>, or with a certain image under some projection.
+<ManSection>
+  <Func Arg="d,k,F" Name="MaximalCompatibleSubgroup" />
+ <Returns>The maximal compatible subgroup <Math>C(F)</Math> of <A>F</A>. 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> MaximalCompatibleSubgroup(3,1,Group((1,2)));
+Group([ (1,2) ])
+gap> MaximalCompatibleSubgroup(3,2,Group((1,2)));
+Group(())
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,F" Name="IsCompatible" />
+ <Returns><K>true</K> if <A>F</A> satisfies the compatibility condition (C), and <K>false</K> otherwise. 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> D:=DELTA(3,SymmetricGroup(3));
+Group([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])
+gap> IsCompatible(3,2,D);
+true
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,F" Name="CompatibleSubgroups" />
+ <Returns>the list of all compatible subgroups of <A>F</A>. 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>. This method calls <C>AllSubgroups</C> on <Math>F</Math> and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Func="ConjugacyClassRepsCompatibleSubgroups"/> or <Ref Func="ConjugacyClassRepsCompatibleSubgroupsWithProjection"/> for computations.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> G:=GAMMA(3,SymmetricGroup(3));
+Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
+gap> list:=CompatibleSubgroups(3,2,G);
+[ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,3)(2,4)(5,6) ]), 
+  Group([ (1,6)(2,5)(3,4) ]), Group([ (1,4,5)(2,3,6) ]), Group([ (1,4,5)
+  (2,3,6), (1,3)(2,4)(5,6) ]) ]
+gap> Size(list);
+6
+gap> Size(AllSubgroups(SymmetricGroup(3)));
+6
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,F" Name="ConjugacyClassRepsCompatibleSubgroups" />
+ <Returns>a list of compatible representatives of conjugacy classes of <A>F</A> that contain a compatible subgroup. 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> ConjugacyClassRepsCompatibleSubgroups(3,2,AutB(3,2));
+[ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,4,5)(2,3,6) ]), 
+  Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)
+  (2,4,5) ]), Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), 
+  Group([ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,2)(5,6), (1,2)(3,4) ]), 
+  Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(5,6), (1,2)(3,4) ]), 
+  Group([ (5,6), (3,4), (1,2), (1,3,5)(2,4,6), (3,5)(4,6) ]) ]
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,r,F" Name="ConjugacyClassRepsCompatibleSubgroupsWithProjection" />
+ <Returns> a list of compatible representatives of conjugacy classes of <Math>\mathrm{Aut}(B_{d,k})</Math> that contain a compatible subgroup which projects to <A>F</A> <Math>\le\mathrm{Aut}(B_{d,r})</Math>.
+  
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, a radius <A>r</A><Math>\in</Math><C>[1..k]</C>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,r})</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> S3:=SymmetricGroup(3);;
+gap> ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,S3);
+[ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), Group([ (1,2)(3,4)
+  (5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), Group([ (3,4)(5,6), (1,2)
+  (3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), Group([ (3,4)(5,6), (1,2)
+  (3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), Group([ (3,4)(5,6), (1,2)
+  (3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
+gap> A3:=AlternatingGroup(3);;
+gap> ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,A3);
+[ Group([ (1,4,5)(2,3,6) ]) ]
+]]></Example>
+
+
+<P/>
+<Example><![CDATA[
+gap> F:=SymmetricGroup(3);;
+gap> rho:=SignHomomorphism(F);;
+gap> H1:=PI(2,3,F,rho,[0,1]);;
+gap> H2:=PI(2,3,F,rho,[1]);;
+gap> Size(ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,3,2,H1));
+2
+gap> Size(ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,3,2,H2));
+4
+]]></Example>
+
+
+</Section>
+
+
+</Chapter>
+

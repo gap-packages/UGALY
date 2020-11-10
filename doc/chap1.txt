@@ -1,0 +1,66 @@
+  
+  [1X1 [33X[0;0YIntroduction[133X[101X
+  
+  [33X[0;0YLet   [23X\Omega[123X  be  a  set  of  cardinality  [23Xd\in\mathbb{N}_{\ge  3}[123X  and  let
+  [23XT_{d}=(V,E)[123X  be  the [23Xd[123X-regular tree. We follow Serre's graph theory notation
+  [Ser80]. Given a subgroup [23XH[123X of the automorphism group [23X\mathrm{Aut}(T_{d})[123X of
+  [23XT_{d}[123X,  and  a  vertex  [23Xx\in  V[123X,  the  stabilizer  [23XH_{x}[123X of [23Xx[123X in [23XH[123X induces a
+  permutation  group  on  the set [23XE(x):=\{e\in E\mid o(e)=x\}[123X of edges issuing
+  from  [23Xx[123X.  We  say that [23XH[123X is locally "P" if for every [23Xx\in V[123X said permutation
+  group  satisfies  the  property  "P",  e.g. being transitive, semiprimitive,
+  quasiprimitive or [23X2[123X-transitive. In [BM00], Burger-Mozes develop a remarkable
+  structure  theory  of closed, non-discrete, locally quasiprimitive subgroups
+  of [23X\mathrm{Aut}(T_{d})[123X, which resembles the theory of semisimple Lie groups.
+  They  complement  this structure theory with a particularly accessible class
+  of  subgroups  of  [23X\mathrm{Aut}(T_{d})[123X  with  prescribed local action: Given
+  [23XF\le\mathrm{Sym}(\Omega)[123X  their  universal  group [23X\mathrm{U}(F)[123X is closed in
+  [23X\mathrm{Aut}(T_{d})[123X,  vertex-transitive,  compactly  generated  and  locally
+  permutation isomorphic to [23XF[123X. It is discrete if and only if [23XF[123X is semiregular.
+  When  [23XF[123X  is  transitive,  [23X\mathrm{U}(F)[123X  is  maximal up to conjugation among
+  vertex-transitive   subgroups   of   [23X\mathrm{Aut}(T_{d})[123X  that  are  locally
+  permutation isomorphic to [23XF[123X, hence [13Xuniversal[113X.[133X
+  
+  [33X[0;0YThis  construction  was  generalized by the second author in [Tor20]: In the
+  spirit  of  [23Xk[123X-closures  of  groups  acting on trees developed in [BEW15], we
+  generalize  the universal group construction by prescribing the local action
+  on  balls  of  a  given radius [23Xk\in\mathbb{N}[123X, the Burger-Mozes construction
+  corresponding  to  the case [23Xk=1[123X. Fix a tree [23XB_{d,k}[123X which is isomorphic to a
+  ball  of  radius  [23Xk[123X  in  the labelled tree [23XT_{d}[123X and let [23Xl_{x}^{k}:B(x,k)\to
+  B_{d,k}[123X ([23Xx\in V[123X) be the unique label-respecting isomorphism. Then[133X
+  
+  
+  [24X[33X[0;6Y\sigma_{k}:\mathrm{Aut}(T_{d})\times   V\to\mathrm{Aut}(B_{d,k}),\  (g,x)\to
+  l_{gx}^{k}\circ g\circ (l_{x}^{k})^{-1}[133X
+  
+  [124X
+  
+  [33X[0;0Ycaptures the [13X[23Xk[123X-local action[113X of [23Xg[123X at the vertex [23Xx\in V[123X.[133X
+  
+  [33X[0;0YWith    this    we    can    make    the    following    defintition:    Let
+  [23XF\!\le\!\mathrm{Aut}(B_{d,k})[123X. Define[133X
+  
+  
+  [24X[33X[0;6Y\mathrm{U}_{k}(F):=\{g\in\mathrm{Aut}(T_{d})\mid     \forall     x\in    V:\
+  \sigma_{k}(g,x)\in F\}.[133X
+  
+  [124X
+  
+  [33X[0;0YWhile  [23X\mathrm{U}_{k}(F)[123X  is  always closed, vertex-transitive and compactly
+  generated,  other  properties  of [23X\mathrm{U}(F)[123X do [13Xnot[113X carry over. Foremost,
+  the  group  [23X\mathrm{U}_{k}(F)[123X need not be locally action isomorphic to [23XF[123X and
+  we say that [23XF\le\mathrm{Aut}(B_{d,k})[123X satisfies condition (C) if it is. This
+  can  be  viewed  as  an  interchangeability  condition on neighbouring local
+  actions,  see  Section  [14X3.1[114X.  There  is also a discreteness condition (D) on
+  [23XF\le\mathrm{Aut}(B_{d,k})[123X  in  terms of certain stabilizers in [23XF[123X under which
+  [23X\mathrm{U}_{k}(F)[123X is discrete, see Section [14X5.1[114X.[133X
+  
+  [33X[0;0Y[5XUGALY[105X   provides   methods   to  create,  analyse  and  find  local  actions
+  [23XF\le\mathrm{Aut}(B_{d,k})[123X  that  satisfy condition (C) and/or (D), including
+  the  constructions  [23X\Gamma[123X,  [23X\Delta[123X,  [23X\Phi[123X,  [23X\Sigma[123X,  and  [23X\Pi[123X  developed in
+  [Tor20].  It  was  developed  within  the Zero-Dimensional Symmetry Research
+  Group  ([7Xhttps://zerodimensional.group/"[107X)  in  the School of Mathematical and
+  Physical                                                            Sciences
+  ([7Xhttps://www.newcastle.edu.au/school/mathematical-and-physical-sciences[107X)  at
+  The  University  of  Newcastle  ([7Xhttps://www.newcastle.edu.au/[107X) as part of a
+  project course taken by the first author, supervised by the second author.[133X
+  

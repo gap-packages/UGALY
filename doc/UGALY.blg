@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: UGALY.aux
+The style file: alpha.bst
+Database file #1: UGALY.bib
+You've used 4 entries,
+            2543 wiz_defined-function locations,
+            586 strings with 4896 characters,
+and the built_in function-call counts, 1429 in all, are:
+= -- 140
+> -- 60
+< -- 2
++ -- 19
+- -- 19
+* -- 100
+:= -- 251
+add.period$ -- 12
+call.type$ -- 4
+change.case$ -- 22
+chr.to.int$ -- 4
+cite$ -- 4
+duplicate$ -- 58
+empty$ -- 106
+format.name$ -- 25
+if$ -- 281
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 5
+newline$ -- 23
+num.names$ -- 12
+pop$ -- 21
+preamble$ -- 1
+purify$ -- 27
+quote$ -- 0
+skip$ -- 45
+stack$ -- 0
+substring$ -- 78
+swap$ -- 4
+text.length$ -- 2
+text.prefix$ -- 2
+top$ -- 0
+type$ -- 28
+warning$ -- 0
+while$ -- 14
+width$ -- 7
+write$ -- 52

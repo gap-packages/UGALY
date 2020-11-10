@@ -1,0 +1,268 @@
+  
+  [1X3 [33X[0;0YCompatibility[133X[101X
+  
+  
+  [1X3.1 [33X[0;0YThe compatibility condition (C)[133X[101X
+  
+  [33X[0;0YA  subgroup  [23XF\le\mathrm{Aut}(B_{d,k})[123X  satifies the compatibility condition
+  (C)  if  and only if if [23X\mathrm{U}_{k}(F)[123X is locally action isomorphic to [23XF[123X,
+  see  [Tor20,  Proposition  3.8].  The  term  [13Xcompatibility[113X  comes  from  the
+  following  translation  of this condition into properties of the [23X(k-1)[123X-local
+  actions of elements of [23XF[123X: The group [23XF[123X satisfies (C) if and only if[133X
+  
+  
+  [24X[33X[0;6Y\forall    \alpha\in    F\   \forall\omega\in\Omega\   \exists\beta\in   F:\
+  \sigma_{k-1}(\alpha,b)=\sigma_{k-1}(\beta,b_{\omega}),\
+  \sigma_{k-1}(\alpha,b_{\omega})=\sigma_{k-1}(\beta,b).[133X
+  
+  [124X
+  
+  
+  [1X3.2 [33X[0;0YCompatible elements[133X[101X
+  
+  [33X[0;0YThis  section  is concerned with testing compatibility of two given elements
+  ([2XAreCompatibleElements[102X  ([14X3.2-1[114X))  and  finding  an/all  elements that is/are
+  compatible  with  a  given  one ([2XCompatibleElement[102X ([14X3.2-2[114X), [2XCompatibilitySet[102X
+  ([14X3.2-3[114X)).[133X
+  
+  [1X3.2-1 AreCompatibleElements[101X
+  
+  [33X[1;0Y[29X[2XAreCompatibleElements[102X( [3Xd[103X, [3Xk[103X, [3Xaut1[103X, [3Xaut2[103X, [3Xdir[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X  if [3Xaut1[103X and [3Xaut2[103X are compatible with each other in direction
+            [3Xdir[103X, and [9Xfalse[109X otherwise.[133X
+  
+  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
+  [3Xk[103X  [23X\in\mathbb{N}[123X, two automorphisms [3Xaut1[103X, [3Xaut2[103X [23X\in\mathrm{Aut}(B_{d,k})[123X, and
+  a direction [3Xdir[103X [23X\in[123X[10X[1..d][110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XAreCompatibleElements(3,1,(1,2),(1,2,3),1);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XAreCompatibleElements(3,1,(1,2),(1,2,3),2);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa:=(1,3,5)(2,4,6);; a in AutB(3,2);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLocalAction(1,3,2,a,[]); LocalAction(1,3,2,a,[1]);[127X[104X
+    [4X[28X(1,2,3)[128X[104X
+    [4X[28X(1,2)[128X[104X
+    [4X[25Xgap>[125X [27Xb:=(1,4)(2,3);; b in AutB(3,2);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLocalAction(1,3,2,b,[]); LocalAction(1,3,2,b,[1]);[127X[104X
+    [4X[28X(1,2)[128X[104X
+    [4X[28X(1,2,3)[128X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XAreCompatibleElements(3,2,a,b,1);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XAreCompatibleElements(3,2,a,b,3);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X3.2-2 CompatibleElement[101X
+  
+  [33X[1;0Y[29X[2XCompatibleElement[102X( [3Xd[103X, [3Xk[103X, [3XF[103X, [3Xaut[103X, [3Xdir[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Yan  element  of  [3XF[103X that is compatible with [3Xaut[103X in direction [3Xdir[103X if
+            one exists, and [9Xfail[109X otherwise.[133X
+  
+  [33X[0;0YThe  arguments  of  this  method are a degree [3Xd[103X, a radius [3Xk[103X, a subgroup [3XF[103X of
+  [23X\mathrm{Aut}(B_{d,k})[123X, an element [3Xaut[103X [23X\in[123X [3XF[103X, and a direction [3Xdir[103X [23X\in[123X[10X[1..d][110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa:=Random(AutB(5,1)); dir:=Random([1..5]);[127X[104X
+    [4X[28X(1,3,2,5)[128X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XCompatibleElement(5,1,AutB(5,1),a,dir);[127X[104X
+    [4X[28X(1,3,2,5)[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa:=(1,3,5)(2,4,6);; a in AutB(3,2);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XCompatibleElement(3,2,AutB(3,2),a,1);[127X[104X
+    [4X[28X(1,4,2,3)[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X3.2-3 [33X[0;0YCompatibilitySet[133X[101X
+  
+  [33X[1;0Y[29X[2XCompatibilitySet[102X( [3Xd[103X, [3Xk[103X, [3XF[103X, [3Xaut[103X, [3Xdir[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XCompatibilitySet[102X( [3Xd[103X, [3Xk[103X, [3XF[103X, [3Xaut[103X, [3Xdirs[103X ) [32X operation[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X, [3Xaut[103X[8X, [3Xdir[103X[8X[108X
+        [33X[0;6YReturns:  the  list  of  elements of [3XF[103X that are compatible with [3Xaut[103X in
+        direction [3Xdir[103X.[133X
+  
+        [33X[0;6YThe  arguments  of  this  method  are  a  degree  [3Xd[103X, a radius [3Xk[103X, and a
+        subgroup  [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X, an automorphism [3Xaut[103X [23X\in F[123X, and a
+        direction [3Xdir[103X [23X\in[123X[10X[1..d][110X.[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X, [3Xaut[103X[8X, [3Xdirs[103X[8X[108X
+        [33X[0;6YReturns: the list of elements of [3XF[103X that are compatible with [3Xaut[103X in all
+        directions of [3Xdirs[103X.[133X
+  
+        [33X[0;6YThe  arguments  of  this  method  are  a  degree  [3Xd[103X, a radius [3Xk[103X, and a
+        subgroup  [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X, an automorphism [3Xaut[103X [23X\in F[123X, and a
+        sublist of directions [3Xdirs[103X [23X\subseteq[123X[10X[1..d][110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=TransitiveGroup(4,3);[127X[104X
+    [4X[28XD(4)[128X[104X
+    [4X[25Xgap>[125X [27Xaut:=(1,3);; aut in F;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XCompatibilitySet(4,1,SymmetricGroup(4),aut,1);[127X[104X
+    [4X[28XRightCoset(Sym( [ 2 .. 4 ] ),(1,3))[128X[104X
+    [4X[25Xgap>[125X [27XCompatibilitySet(4,1,F,aut,1);[127X[104X
+    [4X[28XRightCoset(Group([ (2,4) ]),(1,3))[128X[104X
+    [4X[25Xgap>[125X [27XCompatibilitySet(4,1,F,aut,[1,3]);[127X[104X
+    [4X[28XRightCoset(Group([ (2,4) ]),(1,3))[128X[104X
+    [4X[25Xgap>[125X [27XCompatibilitySet(4,1,F,aut,[1,2]);[127X[104X
+    [4X[28XRightCoset(Group(()),(1,3))[128X[104X
+  [4X[32X[104X
+  
+  [1X3.2-4 AssembleAutomorphism[101X
+  
+  [33X[1;0Y[29X[2XAssembleAutomorphism[102X( [3Xd[103X, [3Xk[103X, [3Xauts[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ythe automorphism [23X([123X[10Xaut[110X[23X,([123X[3Xauts[103X[23X[[123X[10Xi[110X[23X])_{i=1}^{d})[123X of [23XB_{d,k+1}[123X, where [10Xaut[110X
+            is implicit in [23X([123X[3Xauts[103X[23X[[123X[10Xi[110X[23X])_{i=1}^{d}[123X.[133X
+  
+  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
+  [3Xk[103X  [23X\in\mathbb{N}[123X,  and a list [3Xauts[103X of [3Xd[103X automorphisms [23X([123X[3Xauts[103X[23X[[123X[10Xi[110X[23X])_{i=1}^{d}[123X of
+  [23XB_{d,k}[123X   which   comes   from   an   element  [23X([123X[10Xaut[110X[23X,([123X[3Xauts[103X[23X[[123X[10Xi[110X[23X])_{i=1}^{d})[123X  of
+  [23X\mathrm{Aut}(B_{d,k+1})[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xaut:=Random(AutB(3,2));[127X[104X
+    [4X[28X(1,2)(3,6)(4,5)[128X[104X
+    [4X[25Xgap>[125X [27Xauts:=[];;[127X[104X
+    [4X[25Xgap>[125X [27Xfor i in [1..3] do auts[i]:=CompatibleElement(3,2,AutB(3,2),aut,i); od;[127X[104X
+    [4X[25Xgap>[125X [27Xauts;[127X[104X
+    [4X[28X[ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,5,3)(2,6,4) ][128X[104X
+    [4X[25Xgap>[125X [27Xa:=AssembleAutomorphism(3,2,auts);[127X[104X
+    [4X[28X(1,3)(2,4)(5,11)(6,12)(7,9)(8,10)[128X[104X
+    [4X[25Xgap>[125X [27Xa in AutB(3,3); [127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLocalAction(2,3,3,a,[]);[127X[104X
+    [4X[28X(1,2)(3,6)(4,5)[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X3.3 [33X[0;0YCompatible subgroups[133X[101X
+  
+  [33X[0;0YUsing  the  methods  of  Section  [14X3.2[114X, this section provides methods to test
+  groups  for  the compatibility condition and search for compatible subgroups
+  inside  a  given  group, e.g. [23X\mathrm{Aut}(B_{d,k})[123X, or with a certain image
+  under some projection.[133X
+  
+  [1X3.3-1 MaximalCompatibleSubgroup[101X
+  
+  [33X[1;0Y[29X[2XMaximalCompatibleSubgroup[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YThe maximal compatible subgroup [23XC(F)[123X of [3XF[103X.[133X
+  
+  [33X[0;0YThe arguments of this method are a degree [3Xd[103X, a radius [3Xk[103X, and a subgroup [3XF[103X of
+  [23X\mathrm{Aut}(B_{d,k})[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XMaximalCompatibleSubgroup(3,1,Group((1,2)));[127X[104X
+    [4X[28XGroup([ (1,2) ])[128X[104X
+    [4X[25Xgap>[125X [27XMaximalCompatibleSubgroup(3,2,Group((1,2)));[127X[104X
+    [4X[28XGroup(())[128X[104X
+  [4X[32X[104X
+  
+  [1X3.3-2 IsCompatible[101X
+  
+  [33X[1;0Y[29X[2XIsCompatible[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X  if  [3XF[103X  satisfies  the compatibility condition (C), and [9Xfalse[109X
+            otherwise.[133X
+  
+  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
+  [3Xk[103X [23X\in\mathbb{N}[123X, and a subgroup [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XD:=DELTA(3,SymmetricGroup(3));[127X[104X
+    [4X[28XGroup([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])[128X[104X
+    [4X[25Xgap>[125X [27XIsCompatible(3,2,D);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X3.3-3 CompatibleSubgroups[101X
+  
+  [33X[1;0Y[29X[2XCompatibleSubgroups[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ythe list of all compatible subgroups of [3XF[103X.[133X
+  
+  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
+  [3Xk[103X  [23X\in\mathbb{N}[123X,  and  a  subgroup  [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X. This method
+  calls  [10XAllSubgroups[110X  on  [23XF[123X  and  is  therefore  slow.  Use for instructional
+  purposes       on       small       examples       only,       and       use
+  [2XConjugacyClassRepsCompatibleSubgroups[102X               ([14X3.3-4[114X)               or
+  [2XConjugacyClassRepsCompatibleSubgroupsWithProjection[102X        ([14X3.3-5[114X)       for
+  computations.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG:=GAMMA(3,SymmetricGroup(3));[127X[104X
+    [4X[28XGroup([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])[128X[104X
+    [4X[25Xgap>[125X [27Xlist:=CompatibleSubgroups(3,2,G);[127X[104X
+    [4X[28X[ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,3)(2,4)(5,6) ]), [128X[104X
+    [4X[28X  Group([ (1,6)(2,5)(3,4) ]), Group([ (1,4,5)(2,3,6) ]), Group([ (1,4,5)[128X[104X
+    [4X[28X  (2,3,6), (1,3)(2,4)(5,6) ]) ][128X[104X
+    [4X[25Xgap>[125X [27XSize(list);[127X[104X
+    [4X[28X6[128X[104X
+    [4X[25Xgap>[125X [27XSize(AllSubgroups(SymmetricGroup(3)));[127X[104X
+    [4X[28X6[128X[104X
+  [4X[32X[104X
+  
+  [1X3.3-4 ConjugacyClassRepsCompatibleSubgroups[101X
+  
+  [33X[1;0Y[29X[2XConjugacyClassRepsCompatibleSubgroups[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya  list  of  compatible  representatives of conjugacy classes of [3XF[103X
+            that contain a compatible subgroup.[133X
+  
+  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
+  [3Xk[103X [23X\in\mathbb{N}[123X, and a subgroup [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleSubgroups(3,2,AutB(3,2));[127X[104X
+    [4X[28X[ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,4,5)(2,3,6) ]), [128X[104X
+    [4X[28X  Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)[128X[104X
+    [4X[28X  (2,4,5) ]), Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), [128X[104X
+    [4X[28X  Group([ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,2)(5,6), (1,2)(3,4) ]), [128X[104X
+    [4X[28X  Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(5,6), (1,2)(3,4) ]), [128X[104X
+    [4X[28X  Group([ (5,6), (3,4), (1,2), (1,3,5)(2,4,6), (3,5)(4,6) ]) ][128X[104X
+  [4X[32X[104X
+  
+  [1X3.3-5 ConjugacyClassRepsCompatibleSubgroupsWithProjection[101X
+  
+  [33X[1;0Y[29X[2XConjugacyClassRepsCompatibleSubgroupsWithProjection[102X( [3Xd[103X, [3Xk[103X, [3Xr[103X, [3XF[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya  list  of  compatible  representatives  of  conjugacy classes of
+            [23X\mathrm{Aut}(B_{d,k})[123X  that  contain  a  compatible subgroup which
+            projects to [3XF[103X [23X\le\mathrm{Aut}(B_{d,r})[123X.[133X
+  
+  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
+  [3Xk[103X    [23X\in\mathbb{N}[123X,   a   radius   [3Xr[103X[23X\in[123X[10X[1..k][110X,   and   a   subgroup   [3XF[103X   of
+  [23X\mathrm{Aut}(B_{d,r})[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS3:=SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,S3);[127X[104X
+    [4X[28X[ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), Group([ (1,2)(3,4)[128X[104X
+    [4X[28X  (5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), Group([ (3,4)(5,6), (1,2)[128X[104X
+    [4X[28X  (3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), Group([ (3,4)(5,6), (1,2)[128X[104X
+    [4X[28X  (3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), Group([ (3,4)(5,6), (1,2)[128X[104X
+    [4X[28X  (3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ][128X[104X
+    [4X[25Xgap>[125X [27XA3:=AlternatingGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,A3);[127X[104X
+    [4X[28X[ Group([ (1,4,5)(2,3,6) ]) ][128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(F);;[127X[104X
+    [4X[25Xgap>[125X [27XH1:=PI(2,3,F,rho,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XH2:=PI(2,3,F,rho,[1]);;[127X[104X
+    [4X[25Xgap>[125X [27XSize(ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,3,2,H1));[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XSize(ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,3,2,H2));[127X[104X
+    [4X[28X4[128X[104X
+  [4X[32X[104X
+  

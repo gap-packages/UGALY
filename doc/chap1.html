@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (UGALY) - Chapter 1: Introduction</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap1"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap1_mj.html">[MathJax on]</a></p>
+<p><a id="X7DFB63A97E67C0A1" name="X7DFB63A97E67C0A1"></a></p>
+<div class="ChapSects"><a href="chap1.html#X7DFB63A97E67C0A1">1 <span class="Heading">Introduction</span></a>
+</div>
+
+<h3>1 <span class="Heading">Introduction</span></h3>
+
+<p>Let <span class="Math">\Omega</span> be a set of cardinality <span class="Math">d\in\mathbb{N}_{\ge 3}</span> and let <span class="Math">T_{d}=(V,E)</span> be the <span class="Math">d</span>-regular tree. We follow Serre's graph theory notation <a href="chapBib.html#biBSer80">[Ser80]</a>. Given a subgroup <span class="Math">H</span> of the automorphism group <span class="Math">\mathrm{Aut}(T_{d})</span> of <span class="Math">T_{d}</span>, and a vertex <span class="Math">x\in V</span>, the stabilizer <span class="Math">H_{x}</span> of <span class="Math">x</span> in <span class="Math">H</span> induces a permutation group on the set <span class="Math">E(x):=\{e\in E\mid o(e)=x\}</span> of edges issuing from <span class="Math">x</span>. We say that <span class="Math">H</span> is locally "P" if for every <span class="Math">x\in V</span> said permutation group satisfies the property "P", e.g. being transitive, semiprimitive, quasiprimitive or <span class="Math">2</span>-transitive. In <a href="chapBib.html#biBBM00a">[BM00]</a>, Burger-Mozes develop a remarkable structure theory of closed, non-discrete, locally quasiprimitive subgroups of <span class="Math">\mathrm{Aut}(T_{d})</span>, which resembles the theory of semisimple Lie groups. They complement this structure theory with a particularly accessible class of subgroups of <span class="Math">\mathrm{Aut}(T_{d})</span> with prescribed local action: Given <span class="Math">F\le\mathrm{Sym}(\Omega)</span> their universal group <span class="Math">\mathrm{U}(F)</span> is closed in <span class="Math">\mathrm{Aut}(T_{d})</span>, vertex-transitive, compactly generated and locally permutation isomorphic to <span class="Math">F</span>. It is discrete if and only if <span class="Math">F</span> is semiregular. When <span class="Math">F</span> is transitive, <span class="Math">\mathrm{U}(F)</span> is maximal up to conjugation among vertex-transitive subgroups of <span class="Math">\mathrm{Aut}(T_{d})</span> that are locally permutation isomorphic to <span class="Math">F</span>, hence <em>universal</em>.</p>
+
+<p>This construction was generalized by the second author in <a href="chapBib.html#biBTor20">[Tor20]</a>: In the spirit of <span class="Math">k</span>-closures of groups acting on trees developed in <a href="chapBib.html#biBBEW15">[BEW15]</a>, we generalize the universal group construction by prescribing the local action on balls of a given radius <span class="Math">k\in\mathbb{N}</span>, the Burger-Mozes construction corresponding to the case <span class="Math">k=1</span>. Fix a tree <span class="Math">B_{d,k}</span> which is isomorphic to a ball of radius <span class="Math">k</span> in the labelled tree <span class="Math">T_{d}</span> and let <span class="Math">l_{x}^{k}:B(x,k)\to B_{d,k}</span> (<span class="Math">x\in V</span>) be the unique label-respecting isomorphism. Then</p>
+
+<p class="pcenter">\sigma_{k}:\mathrm{Aut}(T_{d})\times V\to\mathrm{Aut}(B_{d,k}),\ (g,x)\to l_{gx}^{k}\circ g\circ (l_{x}^{k})^{-1}</p>
+
+<p>captures the <em><span class="Math">k</span>-local action</em> of <span class="Math">g</span> at the vertex <span class="Math">x\in V</span>.</p>
+
+<p>With this we can make the following defintition: Let <span class="Math">F\!\le\!\mathrm{Aut}(B_{d,k})</span>. Define</p>
+
+<p class="pcenter">\mathrm{U}_{k}(F):=\{g\in\mathrm{Aut}(T_{d})\mid \forall x\in V:\ \sigma_{k}(g,x)\in F\}.</p>
+
+<p>While <span class="Math">\mathrm{U}_{k}(F)</span> is always closed, vertex-transitive and compactly generated, other properties of <span class="Math">\mathrm{U}(F)</span> do <em>not</em> carry over. Foremost, the group <span class="Math">\mathrm{U}_{k}(F)</span> need not be locally action isomorphic to <span class="Math">F</span> and we say that <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> satisfies condition (C) if it is. This can be viewed as an interchangeability condition on neighbouring local actions, see Section <a href="chap3.html#X81B0CAE97D161B97"><span class="RefLink">3.1</span></a>. There is also a discreteness condition (D) on <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> in terms of certain stabilizers in <span class="Math">F</span> under which <span class="Math">\mathrm{U}_{k}(F)</span> is discrete, see Section <a href="chap5.html#X7B8BCB2681070C9C"><span class="RefLink">5.1</span></a>.</p>
+
+<p><strong class="pkg">UGALY</strong> provides methods to create, analyse and find local actions <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> that satisfy condition (C) and/or (D), including the constructions <span class="Math">\Gamma</span>, <span class="Math">\Delta</span>, <span class="Math">\Phi</span>, <span class="Math">\Sigma</span>, and <span class="Math">\Pi</span> developed in <a href="chapBib.html#biBTor20">[Tor20]</a>. It was developed within the <span class="URL"><a href=" https://zerodimensional.group/"">Zero-Dimensional Symmetry Research Group</a></span> in the <span class="URL"><a href=" https://www.newcastle.edu.au/school/mathematical-and-physical-sciences">School of Mathematical and Physical Sciences</a></span> at <span class="URL"><a href=" https://www.newcastle.edu.au/">The University of Newcastle</a></span> as part of a project course taken by the first author, supervised by the second author.</p>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

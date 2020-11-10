@@ -1,0 +1,25 @@
+\begin{thebibliography}{BEW15}
+
+\bibitem[BEW15]{BEW15}
+C.~Banks, M.~Elder, and G.~Willis.
+\newblock Simple groups of automorphisms of trees determined by their actions
+  on finite subtrees.
+\newblock {\em Journal of Group Theory}, 18(2):235--261, 2015.
+
+\bibitem[BM00]{BM00a}
+M.~Burger and S.~Mozes.
+\newblock Groups acting on trees: from local to global structure.
+\newblock {\em Publications Math{\'e}matiques de l'IH{\'E}S}, 92(1):113--150,
+  2000.
+
+\bibitem[Ser80]{Ser80}
+J.~P. Serre.
+\newblock {\em Trees}.
+\newblock Springer, 1980.
+
+\bibitem[Tor20]{Tor20}
+S.~Tornier.
+\newblock Groups acting on trees with prescribed local action.
+\newblock {\em arxiv preprint: 2002.09876}, 2020.
+
+\end{thebibliography}

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Preliminaries">
+<Heading>Preliminaries</Heading>
+
+ We recall the following notation from the Introduction which is essential throughout this manual, cf. <Cite Key="Tor20"/>. Let <Math>\Omega</Math> be a set of cardinality <Math>d\in\mathbb{N}_{\ge 3}</Math> and let <Math>T_{d}=(V,E)</Math> denote the <Math>d</Math>-regular tree, following the graph theory notation in <Cite Key="Ser80"/>. A <E>labelling</E> <Math>l</Math> of <Math>T_{d}</Math> is a map <Math>l:E\to\Omega</Math> such that for every <Math>x\in V</Math> the restriction <Math>l_{x}:E(x)\to\Omega,\ e\mapsto l(e)</Math> is a bijection, and <Math>l(e)=l(\overline{e})</Math> for all <Math>e\in E</Math>. For every <Math>k\in\mathbb{N}</Math>, fix a tree <Math>B_{d,k}</Math> which is isomorphic to a ball of radius <Math>k</Math> around a vertex in <Math>T_{d}</Math> and carry over the labelling of <Math>T_{d}</Math> to <Math>B_{d,k}</Math> via the chosen isomorphism. We denote the center of <Math>B_{d,k}</Math> by <Math>b</Math>.
+<P/>
+ For every <Math>x\in V</Math> there is a unique, label-respecting isomorphism <Math>l_{x}^{k}:B(x,k)\to B_{d,k}</Math>. We define the <E><Math>k</Math>-local action</E> <Math>\sigma_{k}(g,x)\in\mathrm{Aut}(B_{d,k})</Math> of an automorphism <Math>g\!\in\!\mathrm{Aut}(T_{d})</Math> at a vertex <Math>x\in V</Math> via the map <Display>\sigma_{k}:\mathrm{Aut}(T_{d})\times V\to\mathrm{Aut}(B_{d,k}), \sigma_{k}(g,x)\mapsto \sigma_{k}(g,x):=l_{gx}^{k}\circ g\circ (l_{x}^{k})^{-1}.</Display>
+<Section Label="Chapter_Preliminaries_Section_Finite_balls">
+<Heading>Finite balls</Heading>
+
+ The automorphism groups of the finite labelled balls <Math>B_{d,k}</Math> lie at the center of this package. The method <Ref Func="AutB"/> produces these automorphism groups as iterated wreath products. The result is a permutation group on the set of leaves of <Math>B_{d,k}</Math>.
+<ManSection>
+  <Func Arg="d,k" Name="AutB" />
+ <Returns> the group <Math>\mathrm{Aut}(B_{d,k})</Math> as a permutation group of the <Math>d\cdot (d-1)^{k-1}</Math> leaves of <Math>B_{d,k}</Math>.
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math> and a radius <A>k</A> <Math>\in\mathbb{N}_{0}</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> G:=AutB(3,2);
+Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+gap> Size(G);
+48
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Preliminaries_Section_Addresses_and_leaves">
+<Heading>Addresses and leaves</Heading>
+
+ The vertices at distance <Math>n</Math> from the center <Math>b</Math> of <Math>B_{d,k}</Math> are addressed as elements of the set <Display>\Omega^{(n)}:=\{(\omega_{1},\ldots,\omega_{n})\in\Omega^{n}\mid \forall l\in\{1,\ldots,n-1\}:\ \omega_{l}\neq\omega_{l+1}\},</Display> i.e. as lists of length <Math>n</Math> of elements from <C>[1..d]</C> such that no two consecutive entries are equal. They are ordered according to the lexicographic order on <Math>\Omega^{(n)}</Math>. The center <Math>b</Math> itself is addressed by the empty list <C>[]</C>. Note that the leaves of <Math>B_{d,k}</Math> correspond to elements of <Math>\Omega^{(k)}</Math>.
+<ManSection>
+  <Func Arg="d,k" Name="Addresses" />
+ <Returns> a list of all addresses of vertices in <Math>B_{d,k}</Math> in ascending order with respect to length, lexicographically ordered within each level. See <Ref Func="AddressOfLeaf"/> and <Ref Func="LeafOfAddress"/> for the correspondence between the leaves of <Math>B_{d,k}</Math> and addresses of length <A>k</A>.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math> and a radius <A>k</A> <Math>\in\mathbb{N}_{0}</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> Addresses(3,1);
+[ [  ], [ 1 ], [ 2 ], [ 3 ] ]
+gap> Addresses(3,2);
+[ [  ], [ 1 ], [ 2 ], [ 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], 
+[ 3, 1 ], [ 3, 2 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k" Name="LeafAddresses" />
+ <Returns> a list of addresses of the leaves of <Math>B_{d,k}</Math> in lexicographic order.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math> and a radius <A>k</A> <Math>\in\mathbb{N}_{0}</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> LeafAddresses(3,2);
+[ [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,lf" Name="AddressOfLeaf" />
+ <Returns> the address of the leaf <A>lf</A> of <Math>B_{d,k}</Math> with respect to the lexicographic order.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a leaf <A>lf</A> of <Math>B_{d,k}</Math>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> AddressOfLeaf(3,2,1);
+[ 1, 2 ]
+gap> AddressOfLeaf(3,3,1);
+[ 1, 2, 1 ]
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,addr" Name="LeafOfAddress" />
+ <Returns> the smallest leaf (integer) whose address has <A>addr</A> as a prefix.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and an address <A>addr</A>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> LeafOfAddress(3,2,[1,2]);
+1
+gap> LeafOfAddress(3,2,[3]);
+5
+gap> LeafOfAddress(3,2,[]);
+1
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,aut,addr" Name="ImageAddress" />
+ <Returns> the address of the image of the vertex represented by <A>addr</A> under the automorphism <A>aut</A> of <Math>B_{d,k}</Math>.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, an automorphism <A>aut</A> of <Math>B_{d,k}</Math>, and an address <A>addr</A>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> ImageAddress(3,2,(1,2),[1,2]);
+[ 1, 3 ]
+gap> ImageAddress(3,2,(1,2),[1]);
+[ 1 ]
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="addr1,addr2" Name="ComposeAddresses" />
+ <Returns> the concatenation of the addresses <A>addr1</A> and <A>addr2</A> with reduction as per <Cite Key="Tor20" Where="Section 3.2"/>.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are two addresses <A>addr1</A> and <A>addr2</A>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> ComposeAddresses([1,3],[2,1]);  
+[ 1, 3, 2, 1 ]
+gap> ComposeAddresses([1,3,2],[2,1]);
+[ 1, 3, 1 ]
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Preliminaries_Section_Local_actions">
+<Heading>Local actions</Heading>
+
+<ManSection>
+  <Func Arg="r,d,k,aut,addr" Name="LocalAction" />
+ <Returns> the <A>r</A>-local action <Math>\sigma_{r}(</Math><A>aut</A>,<A>addr</A><Math>)</Math> of the automorphism <A>aut</A> of <Math>B_{d,k}</Math> at the vertex represented by the address <A>addr</A>.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a radius <A>r</A>, a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, an automorphism <A>aut</A> of <Math>B_{d,k}</Math>, and an address <A>addr</A>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> a:=(1,3,5)(2,4,6);; a in AutB(3,2);
+true
+gap> LocalAction(2,3,2,a,[]);
+(1,3,5)(2,4,6)
+gap> LocalAction(1,3,2,a,[]);
+(1,2,3)
+gap> LocalAction(1,3,2,a,[1]);
+(1,2)
+]]></Example>
+
+
+<P/>
+<Example><![CDATA[
+gap> b:=Random(AutB(3,4));
+(1,20,4,17,2,19,3,18)(5,22,8,23,6,21,7,24)(9,10)(13,16,14,15)
+gap> LocalAction(2,3,4,b,[3,1]);
+(1,4)(2,3)
+gap> LocalAction(3,3,4,b,[3,1]);
+Error, the sum of input argument r=3 and the length of input argument
+addr=[ 3, 1 ] must not exceed input argument k=4
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="d,k,F,r" Name="Projection" Label="for d, k, F, r"/>
+ <Returns> the restriction of the projection map <Math>\mathrm{Aut}(B_{d,k})\to\mathrm{Aut}(B_{d,r})</Math> to <A>F</A>.
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>, and a projection radius <A>r</A> <Math>\le</Math> <A>k</A>.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> F:=GAMMA(4,3,SymmetricGroup(3));
+Group([ (1,16,19)(2,15,20)(3,13,18)(4,14,17)(5,10,23)(6,9,24)(7,12,22)
+  (8,11,21), (1,9)(2,10)(3,12)(4,11)(5,15)(6,16)(7,13)(8,14)(17,21)(18,22)
+  (19,24)(20,23) ])
+gap> pr:=Projection(3,4,F,2);
+<action homomorphism>
+gap> a:=Random(F);; Image(pr,a);
+(1,4,5)(2,3,6)
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="d,k,F,r" Name="ImageOfProjection" />
+ <Returns> the image <Math>\sigma_{r}(F,b)</Math> of the restriction of the projection map <Math>\mathrm{Aut}(B_{d,k})\to\mathrm{Aut}(B_{d,r})</Math> to <A>F</A>.
+ 
+ 
+</Returns>
+ <Description>
+ The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>, and a projection radius <A>r</A> <Math>\le</Math> <A>k</A>. This method uses <Ref Func="LocalAction"/> on generators rather than <Ref Oper="Projection" Label="for d, k, F, r"/> on the group to compute the image.
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<Example><![CDATA[
+gap> AutB(3,2);
+Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+gap> ImageOfProjection(3,2,AutB(3,2),1);
+Group([ (), (), (), (1,2,3), (1,2) ])
+]]></Example>
+
+
+</Section>
+
+
+</Chapter>
+
