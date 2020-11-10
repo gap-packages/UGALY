@@ -12,4 +12,4 @@ UGALY is maintained by <a href="https://www.newcastle.edu.au/profile/stephan-tor
 
 # License
 
-UGALY is free software; you can redistribute and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+UGALY is free software; you can redistribute and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a> as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
