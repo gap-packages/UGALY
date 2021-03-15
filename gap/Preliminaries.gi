@@ -100,16 +100,16 @@ function(d,k,lf)
 		addr:=[];
 		l:=ShallowCopy(lf);
 		# first entry
-		Add(addr,Int(Ceil(Float(l/((d-1)^(k-1))))));
-		l:=l-Int(Ceil(Float(l/((d-1)^(k-1))))-1)*((d-1)^(k-1));
+		Add(addr,QuoInt(l,(d-1)^(k-1))+SignInt(RemInt(l,(d-1)^(k-1))));
+		l:=l-(QuoInt(l,(d-1)^(k-1))+SignInt(RemInt(l,(d-1)^(k-1))))*((d-1)^(k-1));
 		# higher entries
 		for i in [2..k] do
-			if addr[i-1]<=Int(Ceil(Float(l/((d-1)^(k-i))))) then
-				Add(addr,Int(Ceil(Float(l/((d-1)^(k-i)))))+1);
+			if addr[i-1]<=QuoInt(l,(d-1)^(k-i))+SignInt(RemInt(l,(d-1)^(k-i))) then
+				Add(addr,QuoInt(l,(d-1)^(k-i))+SignInt(RemInt(l,(d-1)^(k-i)))+1);
 			else
-				Add(addr,Int(Ceil(Float(l/((d-1)^(k-i))))));
+				Add(addr,QuoInt(l,(d-1)^(k-i))+SignInt(RemInt(l,(d-1)^(k-i))));
 			fi;
-			l:=l-Int(Ceil(Float(l/((d-1)^(k-i))))-1)*((d-1)^(k-i));
+			l:=l-(QuoInt(l,(d-1)^(k-i))+SignInt(RemInt(l,(d-1)^(k-i))))*((d-1)^(k-i));
 		od;
 		return addr;
 	fi;
