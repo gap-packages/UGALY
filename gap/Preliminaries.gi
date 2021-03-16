@@ -12,7 +12,7 @@ function(d,k)
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
 	elif k<0 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
+		Error("input argument k=",k," must be an integer greater than or equal to 0");
 	elif k=0 then
 		return Group(());
 	else
@@ -94,8 +94,8 @@ function(d,k,lf)
 	
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<0 then
-		Error("input argument k=",k," must be an integer greater than or equal to 0");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif lf<1 or lf>d*(d-1)^(k-1) then
 		Error("input argument lf=",lf" must be an integer in the range [1..d*(d-1)^(k-1)]");
 	elif k=0 then
@@ -129,8 +129,8 @@ function(d,k,addr)
 
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<0 then
-		Error("input argument k=",k," must be an integer greater than or equal to 0");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif Length(addr)>k then
 		Error("input argument add=",addr," must have length at most k=",k);
 	elif addr=[] then
@@ -181,8 +181,8 @@ function(r,d,k,aut,addr)
 		Error("input argument r=",r," must be an integer greater than or equal to 1");
 	elif d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<0 then
-		Error("input argument k=",k," must be an integer greater than or equal to 0");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif Length(addr)>k-1 then
 		Error("input argument add=",addr," must have length at most ",k-1);
 	elif r+Length(addr)>k then
@@ -215,7 +215,7 @@ function(d,k,F,r)
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
 	elif k<0 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
+		Error("input argument k=",k," must be an integer greater than or equal to 0");
 	elif k=0 then
 		return IdentityMapping(Group(()));
 	elif r>k then
@@ -251,7 +251,7 @@ function(d,k,F,r)
 	
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<0 then
+	elif k<1 then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif r<=0 or r>k then
 		Error("input argument r=",r," must be an integer in the range [1..k]");

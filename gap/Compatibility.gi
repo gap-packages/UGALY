@@ -9,8 +9,12 @@ InstallGlobalFunction( AreCompatibleElements,
 function(d,k,aut1,aut2,dir)
 	local lf, im_dir, im_lf;
 
-	if k<1 then
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	elif dir<1 or dir>d then
+		Error("input argument dir=",dir," must be in the range [1..",d,"]");
 	elif k=1 then
 		if dir^aut1=dir^aut2 then
 			return true;
@@ -40,7 +44,9 @@ InstallGlobalFunction( CompatibleElement,
 function(d,k,F,aut,dir)
 	local pr, K, aut_dir, r, reps, b, compatible, lf, im_lf;
 
-	if k<1 then
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif k=1 then 
 		return aut;
@@ -82,8 +88,12 @@ InstallMethod( CompatibilitySet, "for d,k,F,aut,dir",
 function(d,k,F,aut,dir)
 	local r, K;
 
-	if k<1 then
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	elif dir<1 or dir>d then
+		Error("input argument dir=",dir," must be in the range [1..",d,"]");
 	elif k=1 then
 		return RightCoset(Stabilizer(F,dir),aut);
 	else
@@ -100,7 +110,9 @@ InstallMethod( CompatibilitySet, "for d,k,F,aut,dirs",
 function(d,k,F,aut,dirs)
 	local comp_sets, dn, r, p, K;
 
-	if k<1 then
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif k=1 then
 		return RightCoset(Stabilizer(F,dirs,OnTuples),aut);
@@ -120,16 +132,22 @@ InstallGlobalFunction( AssembleAutomorphism,
 function(d,k,auts)
 	local aut, i, l, addr, im_addr;
 
-	aut:=[];
-	for i in [1..d] do
-		for l in [(i-1)*(d-1)^k+1..i*(d-1)^k] do
-			addr:=AddressOfLeaf(d,k+1,l);
-			im_addr:=ImageAddress(d,k,auts[i],[addr[1]]);
-			Append(im_addr,ImageAddress(d,k,auts[i],addr{[2..k+1]}));
-			Add(aut,LeafOfAddress(d,k+1,im_addr));
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	else
+		aut:=[];
+		for i in [1..d] do
+			for l in [(i-1)*(d-1)^k+1..i*(d-1)^k] do
+				addr:=AddressOfLeaf(d,k+1,l);
+				im_addr:=ImageAddress(d,k,auts[i],[addr[1]]);
+				Append(im_addr,ImageAddress(d,k,auts[i],addr{[2..k+1]}));
+				Add(aut,LeafOfAddress(d,k+1,im_addr));
+			od;
 		od;
-	od;
-	return PermList(aut);
+		return PermList(aut);
+	fi;
 end );
 
 ##################################################################################################################
@@ -137,6 +155,12 @@ end );
 InstallGlobalFunction( MaximalCompatibleSubgroup,
 function(d,k,F)
 	local grps, poss, pos, i, G;
+	
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	fi;
 	
 	if IsCompatible(d,k,F) then
 		return F;
@@ -162,16 +186,22 @@ end );
 InstallGlobalFunction( IsCompatible,
 function(d,k,F)
 	local gens, a, dir, r, b;
-
-	gens:=SmallGeneratingSet(F);
-	for a in gens do
-		for dir in [1..d] do
-			if CompatibleElement(d,k,F,a,dir)=fail then
-				return false;
-			fi;
-		od;	
-	od;
-	return true;
+	
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	else
+		gens:=SmallGeneratingSet(F);
+		for a in gens do
+			for dir in [1..d] do
+				if CompatibleElement(d,k,F,a,dir)=fail then
+					return false;
+				fi;
+			od;	
+		od;
+		return true;
+	fi;
 end );
 
 ##################################################################################################################
@@ -179,12 +209,18 @@ end );
 InstallGlobalFunction( CompatibleSubgroups,
 function(d,k,F)
 	local grps, H;
-
-	grps:=[];
-	for H in AllSubgroups(F) do
-		if IsCompatible(d,k,H) then Add(grps,H); fi;
-	od;
-	return grps;
+	
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	else
+		grps:=[];
+		for H in AllSubgroups(F) do
+			if IsCompatible(d,k,H) then Add(grps,H); fi;
+		od;
+		return grps;
+	fi;
 end );
 
 ##################################################################################################################
@@ -192,17 +228,23 @@ end );
 InstallGlobalFunction( ConjugacyClassRepsCompatibleSubgroups, 
 function(d,k,F)
 	local reps, H, class;
-
-	reps:=[];
-	for class in ConjugacyClassesSubgroups(F) do
-		for H in class do
-			if IsCompatible(d,k,H) then
-				Add(reps,H);
-				break;
-			fi;
+	
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	else
+		reps:=[];
+		for class in ConjugacyClassesSubgroups(F) do
+			for H in class do
+				if IsCompatible(d,k,H) then
+					Add(reps,H);
+					break;
+				fi;
+			od;
 		od;
-	od;
-	return reps;
+		return reps;
+	fi;
 end );
 
 ##################################################################################################################
@@ -211,7 +253,11 @@ InstallGlobalFunction( ConjugacyClassRepsCompatibleSubgroupsWithProjection,
 function(d,k,r,F)
 	local reps, G_k, G_r, C, class, H, new, i;
 
-	if r>k then
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	elif r>k then
 		Error("input argument k=",k," must be bigger than or equal to input argument r=",r);
 	elif k=r then
 		return F;
