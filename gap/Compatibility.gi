@@ -159,10 +159,8 @@ function(d,k,F)
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
 	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
-	fi;
-	
-	if IsCompatible(d,k,F) then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");	
+	elif IsCompatible(d,k,F) then
 		return F;
 	else
 		# go through subgroup lattice, starting at the top
