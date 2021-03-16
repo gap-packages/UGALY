@@ -5,7 +5,7 @@
 #
 ##################################################################################################################
 
-InstallGlobalFunction( AutB, 
+InstallGlobalFunction( AutB,
 function(d,k)
 	local S_d_1, W, i;
 
@@ -31,7 +31,7 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( Addresses, 
+InstallGlobalFunction( Addresses,
 function(d,k)
 	local addrs, temp_addrs, temp_addr, j, a, r, i;
 
@@ -69,7 +69,7 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( LeafAddresses, 
+InstallGlobalFunction( LeafAddresses,
 function(d,k)
 	local addrs, n;
 
@@ -88,11 +88,17 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( AddressOfLeaf, 
+InstallGlobalFunction( AddressOfLeaf,
 function(d,k,lf)
 	local addr, l, i;
 	
-	if k=0 then
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<0 then
+		Error("input argument k=",k," must be an integer greater than or equal to 0");
+	elif lf<1 or lf>d*(d-1)^(k-1) then
+		Error("input argument lf=",lf" must be an integer in the range [1..d*(d-1)^(k-1)]");
+	elif k=0 then
 		return [];
 	elif k=1 then
 		return [lf];
@@ -117,11 +123,17 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( LeafOfAddress, 
+InstallGlobalFunction( LeafOfAddress,
 function(d,k,addr)
 	local lf, i;
 
-	if addr=[] then
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<0 then
+		Error("input argument k=",k," must be an integer greater than or equal to 0");
+	elif Length(addr)>k then
+		Error("input argument add=",addr," must have length at most k=",k);
+	elif addr=[] then
 		return 1;
 	else
 		lf:=(addr[1]-1)*(d-1)^(k-1)+1;
@@ -138,14 +150,14 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( ImageAddress, 
+InstallGlobalFunction( ImageAddress,
 function(d,k,aut,addr)
 	return AddressOfLeaf(d,k,LeafOfAddress(d,k,addr)^aut){[1..Length(addr)]};
 end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( ComposeAddresses, 
+InstallGlobalFunction( ComposeAddresses,
 function(addr1,addr2)
 	if addr1=[] then
 		return addr2;
@@ -161,12 +173,18 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( LocalAction, 
+InstallGlobalFunction( LocalAction,
 function(r,d,k,aut,addr)
 	local sphere_b_r, sphere_addr_r, a, perm, im_addr_rev, i, im_a;
 	
 	if r<=0 then
 		Error("input argument r=",r," must be an integer greater than or equal to 1");
+	elif d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<0 then
+		Error("input argument k=",k," must be an integer greater than or equal to 0");
+	elif Length(addr)>k-1 then
+		Error("input argument add=",addr," must have length at most ",k-1);
 	elif r+Length(addr)>k then
 		Error("the sum of input argument r=",r," and the length of input argument addr=",addr," must not exceed input argument k=",k);
 	else
@@ -227,9 +245,16 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( ImageOfProjection, 
+InstallGlobalFunction( ImageOfProjection,
 function(d,k,F,r)
 	local gens, list, a;
+	
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<0 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	elif r<=0 or r>k then
+		Error("input argument r=",r," must be an integer in the range [1..k]");
 	
 	# for a a large collection of Fs, this seems to be faster than passing to a small generating set of F first
 	# also appears faster than using the map provided by "Projection(d,k,F,r)"
