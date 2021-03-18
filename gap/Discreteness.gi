@@ -9,7 +9,11 @@ InstallGlobalFunction( SatisfiesD,
 function(d,k,F)
 	local K, dir;
 
-	if k=1 then
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	elif k=1 then
 		if IsSemiRegular(F,[1..d]) then
 			return true;
 		else
@@ -33,7 +37,11 @@ InstallGlobalFunction( IsDiscrete,
 function(d,k,F)
 	local CF;
 
-	if k=1 then
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	elif k=1 then
 		CF:=F;
 	else		
 		CF:=MaximalCompatibleSubgroup(d,k,F);
@@ -47,16 +55,24 @@ InstallGlobalFunction( IsCocycle,
 function(d,k,F,z)
 	local a, b, dir;
 
-	for a in F do
-		for b in GeneratorsOfGroup(F) do
-			for dir in [1..d] do
-				if not Image(z,[b*a,dir])=Image(z,[b,dir])*Image(z,[a,dir^LocalAction(1,d,k,b,[])]) then
-					return false;
-				fi;
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	elif not IsMapping(z) then
+		Error("input argument z=",z," must be an involutive compatibility cocycle of F=",F);
+	else
+		for a in F do
+			for b in GeneratorsOfGroup(F) do
+				for dir in [1..d] do
+					if not Image(z,[b*a,dir])=Image(z,[b,dir])*Image(z,[a,dir^LocalAction(1,d,k,b,[])]) then
+						return false;
+					fi;
+				od;
 			od;
 		od;
-	od;
-	return true;
+		return true;
+	fi;
 end );
 
 ##################################################################################################################
@@ -114,8 +130,12 @@ end );
 InstallGlobalFunction( InvolutiveCompatibilityCocycle, 
 function(d,k,F)
 	local gens, C, i, a, comp_sets, dir, iter, c, z;
-
-	if k=1 then
+	
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	elif k=1 then
 		# trivial cocycle
 		gens:=GeneratorsOfGroup(F);
 		c:=[];
@@ -152,26 +172,34 @@ InstallGlobalFunction( AllInvolutiveCompatibilityCocycles,
 function(d,k,F)
 	local iccs, gens, C, i, a, comp_sets, dir, iter, c, z;
 
-	iccs:=[];
-	# change to a small generating set of F
-	gens:=SmallGeneratingSet(F);
-	F:=GroupWithGenerators(gens);
-	# initialize compatibility sets
-	C:=[];
-	for a in gens do
-		comp_sets:=[];
-		for dir in [1..d] do
-			Add(comp_sets,CompatibilitySet(d,k,F,a,dir));
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	elif not IsMapping(z) then
+		Error("input argument z=",z," must be an involutive compatibility cocycle of F=",F);
+	else
+		iccs:=[];
+		# change to a small generating set of F
+		gens:=SmallGeneratingSet(F);
+		F:=GroupWithGenerators(gens);
+		# initialize compatibility sets
+		C:=[];
+		for a in gens do
+			comp_sets:=[];
+			for dir in [1..d] do
+				Add(comp_sets,CompatibilitySet(d,k,F,a,dir));
+			od;
+			Add(C,Cartesian(comp_sets));
 		od;
-		Add(C,Cartesian(comp_sets));
-	od;
-	# for each possibility, check i.c.c.
-	iter:=IteratorOfCartesianProduct(C);
-	for c in iter do
-		z:=CocycleMap(d,k,F,c);
-		if IsInvolutive(d,k,F,z) and IsCocycle(d,k,F,z) then
-			Add(iccs,z);
-		fi;
-	od;
-	return iccs;
+		# for each possibility, check i.c.c.
+		iter:=IteratorOfCartesianProduct(C);
+		for c in iter do
+			z:=CocycleMap(d,k,F,c);
+			if IsInvolutive(d,k,F,z) and IsCocycle(d,k,F,z) then
+				Add(iccs,z);
+			fi;
+		od;
+		return iccs;
+	fi;
 end );
