@@ -159,7 +159,7 @@ DeclareGlobalFunction( "LeafOfAddress" );
 #! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, an automorphism <A>aut</A> of $B_{d,k}$, and an address <A>addr</A>.
 #!
 #! @Returns
-#! the address of the image of the vertex represented by <A>addr</A> under the automorphism <A>aut</A> of $B_{d,k}$.
+#! the address of the image of the vertex represented by the address <A>addr</A> under the automorphism <A>aut</A> of $B_{d,k}$.
 #!
 #! @Arguments d,k,aut,addr
 #!
