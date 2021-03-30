@@ -5,6 +5,27 @@
 #
 ##################################################################################################################
 
+InstallMethod(LocalAction, "for d,k,F (creator)", [IsInt, IsInt, IsPermGroup],
+function(d,k,F)
+	local la_F;
+	
+	if d<3 then
+		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif k<0 then
+		Error("input argument k=",k," must be an integer greater than or equal to 0");
+	else	
+		la_F:=F;
+		SetFilterObj(la_F,IsLocalAction);
+				
+		Setter(LocalActionDegree)(la_F,d);
+		Setter(LocalActionRadius)(la_F,k);
+		
+		return la_F;
+	fi;
+end );
+
+##################################################################################################################
+
 InstallGlobalFunction( AutB,
 function(d,k)
 	local S_d_1, W, i;
@@ -14,7 +35,7 @@ function(d,k)
 	elif k<0 then
 		Error("input argument k=",k," must be an integer greater than or equal to 0");
 	elif k=0 then
-		return Group(());
+		return LocalAction(d,0,Group(()));
 	else
 		# k=1
 		W:=SymmetricGroup(d);
@@ -25,7 +46,7 @@ function(d,k)
 				W:=WreathProduct(S_d_1,W);
 			od;
 		fi;
-		return W;
+		return LocalAction(d,k,W);
 	fi;
 end );
 
@@ -173,7 +194,8 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( LocalAction,
+InstallMethod( LocalAction, "for r,d,k,aut,addr",
+[IsInt, IsInt, IsInt, IsPerm, IsList],
 function(r,d,k,aut,addr)
 	local sphere_b_r, sphere_addr_r, a, perm, im_addr_rev, i, im_a;
 	
@@ -207,19 +229,18 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( Projection, "for d,k,F,r",
-[IsInt, IsInt, IsPermGroup, IsInt],
-function(d,k,F,r)
-	local S_d_1, W, prs, i, pr;
+InstallMethod( Projection, "for F,r",
+[IsLocalAction, IsInt],
+function(F,r)
+	local d, k, S_d_1, W, prs, i, pr;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
 
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<0 then
-		Error("input argument k=",k," must be an integer greater than or equal to 0");
-	elif k=0 then
+	if k=0 then
 		return IdentityMapping(Group(()));
 	elif r>k then
-		Error("input argument r=",r," must be an integer less than or equal to input argument k=",k);
+		Error("input argument r=",r," must be an integer less than or equal to the radius k=",k," of input argument F=",F);
 	elif r=k then
 		return IdentityMapping(F);
 	else
@@ -246,23 +267,22 @@ end );
 ##################################################################################################################
 
 InstallGlobalFunction( ImageOfProjection,
-function(d,k,F,r)
-	local gens, list, a;
+function(F,r)
+	local d, k, gens, list, a;
 	
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
-	elif r<=0 or r>k then
-		Error("input argument r=",r," must be an integer in the range [1..k]");
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+		
+	if r<=0 or r>k then
+		Error("input argument r=",r," must be an integer in the range [1..k=",k,"], where k is the radius of input argument F",F);
 	else	
-		# for a a large collection of Fs, this seems to be faster than passing to a small generating set of F first
-		# also appears faster than using the map provided by "Projection(d,k,F,r)"
+		# for a a large collection of F's, this seems to be faster than passing to a small generating set of F first
+		# also appears faster than using the map provided by "Projection(F,r)"
 		if IsTrivial(F) then
 			return Group(());
 		else
 			list:=[];
-			for a in GeneratorsOfGroup(F) do Add(list,LocalAction(r,d,k,a,[])); od;	
+			for a in GeneratorsOfGroup(F) do Add(list,LocalAction(r,d,k,a,[])); od;
 			return Group(list);
 		fi;
 	fi;

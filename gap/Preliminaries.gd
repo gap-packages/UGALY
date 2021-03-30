@@ -51,6 +51,24 @@
 #! For every $x\in V$ there is a unique, label-respecting isomorphism $l_{x}^{k}:B(x,k)\to B_{d,k}$. We define the <E>$k$-local action</E> $\sigma_{k}(g,x)\in\mathrm{Aut}(B_{d,k})$ of an automorphism $g\!\in\!\mathrm{Aut}(T_{d})$ at a vertex $x\in V$ via the map $$\sigma_{k}:\mathrm{Aut}(T_{d})\times V\to\mathrm{Aut}(B_{d,k}), \sigma_{k}(g,x)\mapsto \sigma_{k}(g,x):=l_{gx}^{k}\circ g\circ (l_{x}^{k})^{-1}.$$
 
 ##################################################################################################################
+#! @Section Local actions
+##################################################################################################################
+
+DeclareCategory("IsLocalAction",IsPermGroup);
+
+DeclareAttribute("LocalActionDegree",IsLocalAction);
+DeclareAttribute("LocalActionRadius",IsLocalAction);
+DeclareAttribute("MaximalCompatibleSubgroup",IsLocalAction);
+DeclareAttribute("InvolutiveCompatibilityCocycle",IsLocalAction);
+DeclareAttribute("AllInvolutiveCompatibilityCocycles",IsLocalAction);
+
+DeclareProperty("SatisfiesC",IsLocalAction);
+DeclareProperty("SatisfiesD",IsLocalAction);
+DeclareProperty("IsDiscrete",IsLocalAction);
+
+DeclareOperation("LocalAction",[IsInt, IsInt, IsPermGroup]);
+
+##################################################################################################################
 #! @Section Finite balls
 ##################################################################################################################
 
@@ -60,7 +78,7 @@
 #! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$ and a radius <A>k</A> $\in\mathbb{N}_{0}$.
 #!
 #! @Returns
-#! the group $\mathrm{Aut}(B_{d,k})$ as a permutation group of the $d\cdot (d-1)^{k-1}$ leaves of $B_{d,k}$.
+#! the local action $\mathrm{Aut}(B_{d,k})$ as a permutation group of the $d\cdot (d-1)^{k-1}$ leaves of $B_{d,k}$.
 #!
 #! @Arguments d,k
 DeclareGlobalFunction( "AutB" );
@@ -202,8 +220,8 @@ DeclareGlobalFunction( "ComposeAddresses" );
 #! the <A>r</A>-local action $\sigma_{r}($<A>aut</A>,<A>addr</A>$)$ of the automorphism <A>aut</A> of $B_{d,k}$ at the vertex represented by the address <A>addr</A>.
 #!
 #! @Arguments r,d,k,aut,addr
-#!
-DeclareGlobalFunction( "LocalAction" );
+#! @Label for r, d, k, aut, addr
+DeclareOperation("LocalAction",[IsInt, IsInt, IsInt, IsPerm, IsList]);
 #!
 #! @BeginExampleSession
 #! gap> a:=(1,3,5)(2,4,6);; a in AutB(3,2);
@@ -229,14 +247,14 @@ DeclareGlobalFunction( "LocalAction" );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$, and a projection radius <A>r</A> $\le$ <A>k</A>.
+#! The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$, and a projection radius <A>r</A> $\le$ <A>k</A>.
 #!
 #! @Returns
 #! the restriction of the projection map $\mathrm{Aut}(B_{d,k})\to\mathrm{Aut}(B_{d,r})$ to <A>F</A>.
 #!
-#! @Arguments d,k,F,r
-#! @Label for d, k, F, r
-DeclareOperation( "Projection" , [IsInt, IsInt, IsPermGroup, IsInt]);
+#! @Arguments F,r
+#! @Label for F, r
+DeclareOperation( "Projection" , [IsLocalAction, IsInt]);
 #!
 #! @BeginExampleSession
 #! gap> F:=GAMMA(4,3,SymmetricGroup(3));
@@ -253,12 +271,12 @@ DeclareOperation( "Projection" , [IsInt, IsInt, IsPermGroup, IsInt]);
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$, and a projection radius <A>r</A> $\le$ <A>k</A>. This method uses <Ref Func="LocalAction"/> on generators rather than <Ref Oper="Projection" Label="for d, k, F, r"/> on the group to compute the image.
+#! The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$, and a projection radius <A>r</A> $\le$ <A>k</A>. This method uses <Ref Oper="LocalAction" Label="for r, d, k, aut, addr"/> on generators rather than <Ref Oper="Projection" Label="for F, r"/> on the group to compute the image.
 #!
 #! @Returns
-#! the image $\sigma_{r}(F,b)$ of the restriction of the projection map $\mathrm{Aut}(B_{d,k})\to\mathrm{Aut}(B_{d,r})$ to <A>F</A>.
+#! the local action $\sigma_{r}(F,b)\le\mathrm{Aut}(B_{d,r}).
 #!
-#! @Arguments d,k,F,r
+#! @Arguments F,r
 #!
 DeclareGlobalFunction( "ImageOfProjection" );
 #!
