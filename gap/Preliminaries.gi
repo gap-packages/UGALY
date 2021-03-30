@@ -97,7 +97,7 @@ function(d,k,lf)
 	elif k<1 then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif lf<1 or lf>d*(d-1)^(k-1) then
-		Error("input argument lf=",lf" must be an integer in the range [1..d*(d-1)^(k-1)]");
+		Error("input argument lf=",lf," must be an integer in the range [1..d*(d-1)^(k-1)]");
 	elif k=0 then
 		return [];
 	elif k=1 then
@@ -255,14 +255,15 @@ function(d,k,F,r)
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif r<=0 or r>k then
 		Error("input argument r=",r," must be an integer in the range [1..k]");
-	
-	# for a a large collection of Fs, this seems to be faster than passing to a small generating set of F first
-	# also appears faster than using the map provided by "Projection(d,k,F,r)"
-	if IsTrivial(F) then
-		return Group(());
-	else
-		list:=[];
-		for a in GeneratorsOfGroup(F) do Add(list,LocalAction(r,d,k,a,[])); od;	
-		return Group(list);
+	else	
+		# for a a large collection of Fs, this seems to be faster than passing to a small generating set of F first
+		# also appears faster than using the map provided by "Projection(d,k,F,r)"
+		if IsTrivial(F) then
+			return Group(());
+		else
+			list:=[];
+			for a in GeneratorsOfGroup(F) do Add(list,LocalAction(r,d,k,a,[])); od;	
+			return Group(list);
+		fi;
 	fi;
 end );

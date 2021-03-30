@@ -431,10 +431,10 @@ InstallGlobalFunction( PI,
 function(l,d,F,rho,R)
 	local i, gens, G, A, indx, a;
 
-	if d<3 then
+	if l<1 then
+		Error("input argument l=",l," must be an integer greater than or equal to 1");
+	elif d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif not IsMapping(rho) then
 		Error("input argument rho=",rho," must be a homomorphism");
 	elif not IsList(R) then
@@ -557,8 +557,6 @@ function(d,F,K)
 
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	else
 		gens:=[];
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,a)); od;
