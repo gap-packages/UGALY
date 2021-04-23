@@ -29,7 +29,7 @@
 #!
 #! @Arguments d,k,F
 #!
-DeclareGlobalFunction( "SatisfiesD" );
+#DeclareGlobalFunction( "SatisfiesD" );
 #!
 #! @BeginExampleSession
 #! gap> G:=GAMMA(3,SymmetricGroup(3));
@@ -48,7 +48,7 @@ DeclareGlobalFunction( "SatisfiesD" );
 #!
 #! @Arguments d,k,F
 #!
-DeclareGlobalFunction( "IsDiscrete" );
+#DeclareGlobalFunction( "IsDiscrete" );
 #!
 #! @BeginExampleSession
 #! gap> G:=GAMMA(3,SymmetricGroup(3));
@@ -101,7 +101,7 @@ DeclareGlobalFunction( "CocycleMap" );
 #!
 #! @Arguments d,k,F
 #!
-DeclareGlobalFunction( "InvolutiveCompatibilityCocycle" );
+#DeclareGlobalFunction( "InvolutiveCompatibilityCocycle" );
 #!
 #! @BeginExampleSession
 #! gap> z:=InvolutiveCompatibilityCocycle(3,1,AlternatingGroup(3));
@@ -135,7 +135,7 @@ DeclareGlobalFunction( "InvolutiveCompatibilityCocycle" );
 #!
 #! @Arguments d,k,F
 #!
-DeclareGlobalFunction( "AllInvolutiveCompatibilityCocycles" );
+#DeclareGlobalFunction( "AllInvolutiveCompatibilityCocycles" );
 #!
 #! @BeginExampleSession
 #! gap> S3:=SymmetricGroup(3);;

@@ -166,7 +166,7 @@ DeclareGlobalFunction( "AssembleAutomorphism" );
 #!
 #! @Arguments F
 #!
-DeclareOperation( "MaximalCompatibleSubgroup",[IsLocalAction]);
+#DeclareOperation( "MaximalCompatibleSubgroup",[IsLocalAction]);
 #!
 #! @BeginExampleSession
 #! gap> MaximalCompatibleSubgroup(3,1,Group((1,2)));
@@ -186,7 +186,7 @@ DeclareOperation( "MaximalCompatibleSubgroup",[IsLocalAction]);
 #!
 DeclareGlobalFunction( "IsCompatible" );
 
-DeclareSynonym( "SatisfiesC", IsCompatible );
+#DeclareSynonym( "SatisfiesC", IsCompatible );
 #!
 #! @BeginExampleSession
 #! gap> D:=DELTA(3,SymmetricGroup(3));

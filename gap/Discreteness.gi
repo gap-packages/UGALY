@@ -5,20 +5,17 @@
 #
 ##################################################################################################################
 
-InstallGlobalFunction( SatisfiesD,
-function(d,k,F)
-	local K, dir;
+InstallMethod( SatisfiesD, "for F", [IsLocalAction],
+function(F)
+	local d, k, K, dir;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
 
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	if k=0 then
+		return true;
 	elif k=1 then
-		if IsSemiRegular(F,[1..d]) then
-			return true;
-		else
-			return false;
-		fi;
+		return IsSemiRegular(F,[1..d]);
 	else		
 		K:=Kernel(RestrictedMapping(Projection(AutB(d,k)),F));
 		for dir in [1..d] do;
@@ -33,20 +30,21 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( IsDiscrete,
-function(d,k,F)
-	local CF;
+InstallMethod( IsDiscrete, "for F", [IsLocalAction],
+function(F)
+	local d, k, CF;
 
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+
+	if k=0 then
+		return true;
 	elif k=1 then
 		CF:=F;
 	else		
-		CF:=MaximalCompatibleSubgroup(d,k,F);
+		CF:=LocalAction(d,k,MaximalCompatibleSubgroup(F));
 	fi;
-	return SatisfiesD(d,k,CF);
+	return SatisfiesD(CF);
 end );
 
 ##################################################################################################################
@@ -127,15 +125,14 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( InvolutiveCompatibilityCocycle, 
-function(d,k,F)
-	local gens, C, i, a, comp_sets, dir, iter, c, z;
+InstallMethod( InvolutiveCompatibilityCocycle, "for F", [IsLocalAction],
+function(F)
+	local d, k, gens, C, i, a, comp_sets, dir, iter, c, z;
 	
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
-	elif k=1 then
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+	
+	if k=0 or k=1 then
 		# trivial cocycle
 		gens:=GeneratorsOfGroup(F);
 		c:=[];
@@ -168,16 +165,15 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( AllInvolutiveCompatibilityCocycles,
-function(d,k,F)
-	local iccs, gens, C, i, a, comp_sets, dir, iter, c, z;
+InstallMethod( AllInvolutiveCompatibilityCocycles, "for F", [IsLocalAction],
+function(F)
+	local d, k, iccs, gens, C, i, a, comp_sets, dir, iter, c, z;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
 
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
-	elif not IsMapping(z) then
-		Error("input argument z=",z," must be an involutive compatibility cocycle of F=",F);
+	if k=0 then
+		return [InvolutiveCompatibilityCocycle(F)];
 	else
 		iccs:=[];
 		# change to a small generating set of F

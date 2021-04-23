@@ -114,7 +114,7 @@ function(F,aut,dirs)
 	k:=LocalActionRadius(F);
 
 	if not IsSubset([1..d],dirs) then
-		Error("input argument dirs=",dirs," must be a subset of [1..",d"]");
+		Error("input argument dirs=",dirs," must be a subset of [1..",d,"]");
 	elif k=0 then
 		return F;
 	elif k=1 then
