@@ -57,12 +57,12 @@ DeclareGlobalFunction( "AreCompatibleElements" );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$, an element <A>aut</A> $\in$ <A>F</A>, and a direction <A>dir</A> $\in$<C>[1..d]</C>.
+#! The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$, an element <A>aut</A> $\in$ <A>F</A>, and a direction <A>dir</A> $\in$<C>[1..d]</C>.
 #!
 #! @Returns
 #! an element of <A>F</A> that is compatible with <A>aut</A> in direction <A>dir</A> if one exists, and <K>fail</K> otherwise.
 #!
-#! @Arguments d,k,F,aut,dir
+#! @Arguments F,aut,dir
 #!
 DeclareGlobalFunction( "CompatibleElement" );
 #!
@@ -87,27 +87,27 @@ DeclareGlobalFunction( "CompatibleElement" );
 #! @GroupTitle CompatibilitySet
 #!
 #! <List>
-#!	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>aut</A>, <A>dir</A></Mark>
+#!	<Mark>for the arguments <A>F</A>, <A>aut</A>, <A>dir</A></Mark>
 #!	<Item> 
 #!		Returns: the list of elements of <A>F</A> that are compatible with <A>aut</A> in direction <A>dir</A>.
 #!
-#!		The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$, an automorphism <A>aut</A> $\in F$, and a direction <A>dir</A> $\in$<C>[1..d]</C>.
+#!		The arguments of this method are a local action <A>F</A> of $\le\mathrm{Aut}(B_{d,k})$, an automorphism <A>aut</A> $\in F$, and a direction <A>dir</A> $\in$<C>[1..d]</C>.
 #!	</Item>
-#!	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>aut</A>, <A>dirs</A></Mark>
+#!	<Mark>for the arguments <A>F</A>, <A>aut</A>, <A>dirs</A></Mark>
 #!	<Item>
 #!		Returns: the list of elements of <A>F</A> that are compatible with <A>aut</A> in all directions of <A>dirs</A>.
 #!
-#!		The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$, an automorphism <A>aut</A> $\in F$, and a sublist of directions <A>dirs</A> $\subseteq$<C>[1..d]</C>.
+#!		The arguments of this method are a local action <A>F</A> of $\le\mathrm{Aut}(B_{d,k})$, an automorphism <A>aut</A> $\in F$, and a sublist of directions <A>dirs</A> $\subseteq$<C>[1..d]</C>.
 #!	</Item>
 #! </List>
 #!
-#! @Arguments d,k,F,aut,dir
-#! @Label for d, k, F, aut, dir
-DeclareOperation( "CompatibilitySet" , [IsInt, IsInt, IsPermGroup, IsPerm, IsInt]);
+#! @Arguments F,aut,dir
+#! @Label for F, aut, dir
+DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsInt]);
 #!
-#! @Arguments d,k,F,aut,dirs
-#! @Label for d, k, F, aut, dirs
-DeclareOperation( "CompatibilitySet" , [IsInt, IsInt, IsPermGroup, IsPerm, IsList]);
+#! @Arguments F,aut,dirs
+#! @Label for F, aut, dirs
+DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsList]);
 #!
 #! @BeginExampleSession
 #! gap> F:=TransitiveGroup(4,3);
@@ -160,13 +160,13 @@ DeclareGlobalFunction( "AssembleAutomorphism" );
 #! Using the methods of Section <Ref Sect="Section_compatible_elements"/>, this section provides methods to test groups for the compatibility condition and search for compatible subgroups inside a given group, e.g. $\mathrm{Aut}(B_{d,k})$, or with a certain image under some projection.
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#! The argument of this method is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$.
 #!
 #! @Returns The maximal compatible subgroup $C(F)$ of <A>F</A>.
 #!
-#! @Arguments d,k,F
+#! @Arguments F
 #!
-DeclareGlobalFunction( "MaximalCompatibleSubgroup" );
+DeclareOperation( "MaximalCompatibleSubgroup",[IsLocalAction]);
 #!
 #! @BeginExampleSession
 #! gap> MaximalCompatibleSubgroup(3,1,Group((1,2)));

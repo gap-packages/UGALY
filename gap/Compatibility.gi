@@ -41,14 +41,13 @@ end );
 ##################################################################################################################
 
 InstallGlobalFunction( CompatibleElement, 
-function(d,k,F,aut,dir)
-	local pr, K, aut_dir, r, reps, b, compatible, lf, im_lf;
+function(F,aut,dir)
+	local d, k, pr, K, aut_dir, r, reps, b, compatible, lf, im_lf;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
 
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
-	elif k=1 then 
+	if k=0 or k=1 then
 		return aut;
 	else
 		# k>=2
@@ -83,17 +82,18 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( CompatibilitySet, "for d,k,F,aut,dir",
-[IsInt, IsInt, IsPermGroup, IsPerm, IsInt],
-function(d,k,F,aut,dir)
-	local r, K;
+InstallMethod( CompatibilitySet, "for F,aut,dir",
+[IsLocalAction, IsPerm, IsInt],
+function(F,aut,dir)
+	local d, k, r, K;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
 
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
-	elif dir<1 or dir>d then
+	if dir<1 or dir>d then
 		Error("input argument dir=",dir," must be in the range [1..",d,"]");
+	elif k=0 then
+		return F;
 	elif k=1 then
 		return RightCoset(Stabilizer(F,dir),aut);
 	else
@@ -105,15 +105,18 @@ function(d,k,F,aut,dir)
 	fi;
 end );
 
-InstallMethod( CompatibilitySet, "for d,k,F,aut,dirs",
-[IsInt, IsInt, IsPermGroup, IsPerm, IsList],
-function(d,k,F,aut,dirs)
-	local comp_sets, dn, r, p, K;
+InstallMethod( CompatibilitySet, "for F,aut,dirs",
+[IsLocalAction, IsPerm, IsList],
+function(F,aut,dirs)
+	local d, k, comp_sets, dn, r, p, K;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
 
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	if not IsSubset([1..d],dirs) then
+		Error("input argument dirs=",dirs," must be a subset of [1..",d"]");
+	elif k=0 then
+		return F;
 	elif k=1 then
 		return RightCoset(Stabilizer(F,dirs,OnTuples),aut);
 	else
@@ -152,14 +155,15 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( MaximalCompatibleSubgroup,
-function(d,k,F)
-	local grps, poss, pos, i, G;
+InstallMethod( MaximalCompatibleSubgroup, "for F", [IsLocalAction],
+function(F)
+	local d, k, grps, poss, pos, i, G;
 	
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+	
+	if k=0 then
+		return F;
 	elif IsCompatible(d,k,F) then
 		return F;
 	else
