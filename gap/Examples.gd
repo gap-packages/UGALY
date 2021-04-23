@@ -99,7 +99,7 @@ DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsMapping]);
 #! <List>
 #!	<Mark>for the arguments <A>d</A>, <A>F</A></Mark>
 #!	<Item> 
-#!		Returns: the group $\Gamma($<A>F</A>$)=\{(a,(a)_{\omega})\mid a\in F\}\le\mathrm{Aut}(B_{d,2})$.
+#!		Returns: the local action $\Gamma($<A>F</A>$)=\{(a,(a)_{\omega})\mid a\in F\}\le\mathrm{Aut}(B_{d,2})$.
 #!
 #!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, and a subgroup <A>F</A> of $S_{d}$.
 #!	</Item>
@@ -113,7 +113,7 @@ DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsMapping]);
 #!	<Item>
 #!		Returns: the group $\Gamma_{z}($<A>F</A>$)=\{(a,($<A>z</A>$(a,\omega))_{\omega\in\Omega})\mid a\in$<A>F</A>$\}\le\mathrm{Aut}(B_{d,k+1})$.
 #!
-#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$, and an involutive compatibility cocycle <A>z</A> of <A>F</A> (see <Ref Func="InvolutiveCompatibilityCocycle"/>).
+#!		The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ and an involutive compatibility cocycle <A>z</A> of <A>F</A> (see <Ref Func="InvolutiveCompatibilityCocycle"/>).
 #!	</Item>
 #! </List>
 #!
@@ -125,9 +125,9 @@ DeclareOperation( "GAMMA" , [IsInt, IsPermGroup]);
 #! @Label for l, d, F
 DeclareOperation( "GAMMA" , [IsInt, IsInt, IsPermGroup]);
 #!
-#! @Arguments d,k,F,z
-#! @Label for d, k, F, z
-DeclareOperation( "GAMMA" , [IsInt, IsInt, IsPermGroup, IsMapping]);
+#! @Arguments F,z
+#! @Label for F, z
+DeclareOperation( "GAMMA" , [IsLocalAction, IsMapping]);
 #!
 #! @BeginExampleSession
 #! gap> F:=TransitiveGroup(4,3);;
@@ -232,13 +232,13 @@ DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup]);
 #!	<Item>
 #!		Returns: the group $\Phi_{k}($<A>F</A>$)=\{(a,(a_{\omega})_{\omega})\mid a\in $<A>F</A>$,\ \forall \omega\in\Omega:\ a_{\omega}\in C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$.
 #!
-#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$ and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#!		The argument of this method is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$.
 #!	</Item>
 #!	<Mark>for the arguments <A>l</A>, <A>d</A>, <A>k</A>, <A>F</A></Mark>
 #!	<Item> 
 #!		Returns: the group $\Phi^{l}($<A>F</A>$)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}($<A>F</A>$)\le\mathrm{Aut}(B_{d,l})$.
 #!
-#!		The arguments of this method are a radius <A>l</A> $\in\mathbb{N}$, a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}_{\le l}$ and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#!		The arguments of this method are a radius <A>l</A> $\in\mathbb{N}$ and a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$.
 #!	</Item>
 #! </List>
 #!
@@ -246,13 +246,13 @@ DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup]);
 #! @Label for d, F
 DeclareOperation( "PHI" , [IsInt, IsPermGroup]);
 #!
-#! @Arguments d,k,F
-#! @Label for d, k, F
-DeclareOperation( "PHI" , [IsInt, IsInt, IsPermGroup]);
+#! @Arguments F
+#! @Label for F
+DeclareOperation( "PHI" , [IsLocalAction]);
 #!
-#! @Arguments l,d,k,F
-#! @Label for l, d, k, F
-DeclareOperation( "PHI" , [IsInt, IsInt, IsInt, IsPermGroup]);
+#! @Arguments l,F
+#! @Label for l, F
+DeclareOperation( "PHI" , [IsInt, IsLocalAction]);
 #!
 #! @BeginExampleSession
 #! gap> PHI(3,SymmetricGroup(3));
@@ -328,7 +328,7 @@ DeclareOperation( "PHI" , [IsInt, IsInt, IsInt, IsPermGroup]);
 #!	<Item>
 #!		Returns: the group $\Phi_{k}($<A>F</A>$,$<A>P</A>$)=\{(\alpha,(\alpha_{\omega})_{\omega})\mid \alpha\in <A>F</A>,\ \alpha_{\omega}\in C_{F}(\alpha,\omega)$ constant w.r.t. <A>P</A>$\}\le\mathrm{Aut}(B_{d,k+1})$.
 #!
-#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$, and a partition <A>P</A> of <C>[1..d]</C> preserverd by $\pi$<A>F</A> $\le S_{d}$. This method assumes that all compatibility sets with respect to a partition element are non-empty and that all compatibility sets of the identity with respect to a partition element are non-trivial.
+#!		The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ and a partition <A>P</A> of <C>[1..d]</C> preserverd by $\pi$<A>F</A> $\le S_{d}$. This method assumes that all compatibility sets with respect to a partition element are non-empty and that all compatibility sets of the identity with respect to a partition element are non-trivial.
 #!	</Item>
 #! </List>
 #!
@@ -340,9 +340,9 @@ DeclareOperation( "PHI" , [IsInt, IsPermGroup, IsPermGroup]);
 #! @Label for d, F, P
 DeclareOperation( "PHI" , [IsInt, IsPermGroup, IsList]);
 #!
-#! @Arguments d,k,F,P
-#! @Label for d, k, F, P
-DeclareOperation( "PHI" , [IsInt, IsInt, IsPermGroup, IsList]);
+#! @Arguments F,P
+#! @Label for F, P
+DeclareOperation( "PHI" , [IsLocalAction, IsList]);
 #!
 #! @BeginExampleSession
 #! gap> F:=SymmetricGroup(4);;
@@ -527,7 +527,7 @@ DeclareGlobalFunction( "PI" );
 #!	<Item>
 #!		Returns: the list of kernels $K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})$ that are normalized by $\Gamma_{z}($<A>F</A>$)$ and such that for all $k\in K$ and $\omega\in\Omega$ there is $k_{\omega}\in K$ with $\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}$.
 #!
-#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$ that satisfies (C), and an involutive compatibility cocycle <A>z</A> of <A>F</A> (see <Ref Func="InvolutiveCompatibilityCocycle"/>). It can be used in the method <Ref Oper="SIGMA"/>.
+#!		The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ that satisfies (C) and an involutive compatibility cocycle <A>z</A> of <A>F</A> (see <Ref Func="InvolutiveCompatibilityCocycle"/>). It can be used in the method <Ref Oper="SIGMA"/>.
 #!	</Item>
 #! </List>
 #!
@@ -535,9 +535,9 @@ DeclareGlobalFunction( "PI" );
 #! @Label for d, F
 DeclareOperation( "CompatibleKernels" , [IsInt, IsPermGroup]);
 #!
-#! @Arguments d,k,F,z
-#! @Label for d, k, F, z
-DeclareOperation( "CompatibleKernels" , [IsInt, IsInt, IsPermGroup, IsMapping]);
+#! @Arguments F,z
+#! @Label for F, z
+DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping]);
 #!
 #! @BeginExampleSession
 #! gap> CompatibleKernels(3,SymmetricGroup(3));
@@ -574,7 +574,7 @@ DeclareOperation( "CompatibleKernels" , [IsInt, IsInt, IsPermGroup, IsMapping]);
 #!	<Item>
 #!		Returns: the semidirect product $\Sigma_{z}($<A>F</A>$,$<A>K</A>$)\le\mathrm{Aut}(B_{d,k+1})$.
 #!
-#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$ that satisfies (C), and a kernel <A>K</A> that is compatible for <A>F</A> with respect to the involutive compatibility cocycle <A>z</A> (see <Ref Func="InvolutiveCompatibilityCocycle"/> and <Ref Oper="CompatibleKernels"/>) of <A>F</A>.
+#!		The arguments of this method are a local action <A>F</A> of $\mathrm{Aut}(B_{d,k})$ that satisfies (C) and a kernel <A>K</A> that is compatible for <A>F</A> with respect to the involutive compatibility cocycle <A>z</A> (see <Ref Func="InvolutiveCompatibilityCocycle"/> and <Ref Oper="CompatibleKernels"/>) of <A>F</A>.
 #!	</Item>
 #! </List>
 #!
@@ -582,9 +582,9 @@ DeclareOperation( "CompatibleKernels" , [IsInt, IsInt, IsPermGroup, IsMapping]);
 #! @Label for d, F, K
 DeclareOperation( "SIGMA" , [IsInt, IsPermGroup, IsPermGroup]);
 #!
-#! @Arguments d,k,F,K,z
-#! @Label for d, k, F, K, z
-DeclareOperation( "SIGMA" , [IsInt, IsInt, IsPermGroup, IsPermGroup, IsMapping]);
+#! @Arguments F,K,z
+#! @Label for F, K, z
+DeclareOperation( "SIGMA" , [IsLocalAction, IsPermGroup, IsMapping]);
 #!
 #! @BeginExampleSession
 #! gap> S3:=SymmetricGroup(3);;

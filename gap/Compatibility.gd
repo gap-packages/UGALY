@@ -249,7 +249,7 @@ DeclareGlobalFunction( "ConjugacyClassRepsCompatibleSubgroups" );
 #! @Returns
 #! a list of compatible representatives of conjugacy classes of $\mathrm{Aut}(B_{d,k})$ that contain a compatible subgroup which projects to <A>F</A> $\le\mathrm{Aut}(B_{d,r})$.
 #! 
-#! @Arguments r,F
+#! @Arguments l,F
 #!
 DeclareGlobalFunction( "ConjugacyClassRepsCompatibleSubgroupsWithProjection" );
 #!

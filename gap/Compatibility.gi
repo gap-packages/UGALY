@@ -155,7 +155,8 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( MaximalCompatibleSubgroup, "for F", [IsLocalAction],
+InstallMethod( MaximalCompatibleSubgroup, "for F",
+[IsLocalAction],
 function(F)
 	local d, k, grps, poss, pos, i, G;
 	
@@ -175,17 +176,18 @@ function(F)
 			poss:=Positions(grps,Group(()));
 			for pos in poss do Remove(grps,pos); od;
 			for G in grps do
-				if SatisfiesC(LocalAction(d,k,G)) then return G; fi;
+				if SatisfiesC(LocalAction(d,k,G)) then return LocalAction(d,k,G); fi;
 			od;
 		od;	
 		# no non-trivial compatible subgroup
-		return Group(());
+		return LocalAction(d,k,Group(()));
 	fi;	
 end );
 
 ##################################################################################################################
 
-InstallMethod( SatisfiesC, "for F", [IsLocalAction],
+InstallMethod( SatisfiesC, "for F",
+[IsLocalAction],
 function(F)
 	local d, k, gens, a, dir, r, b;
 	
@@ -255,33 +257,33 @@ end );
 ##################################################################################################################
 
 InstallGlobalFunction( ConjugacyClassRepsCompatibleSubgroupsWithProjection, 
-function(r,F)
-	local d, k, reps, G_k, G_r, C, class, H, new, i;
+function(l,F)
+	local d, k, reps, G_k, G_l, C, class, H, new, i;
 	
 	d:=LocalActionDegree(F);
 	k:=LocalActionRadius(F);
 
-	if r<k then return
-		Error("input argument r=",r," must be an integer greater than or equal to the radius k=",k," of input argument F=",F);
-	elif r=k then
+	if l<k then return
+		Error("input argument l=",l," must be an integer greater than or equal to the radius k=",k," of input argument F=",F);
+	elif l=k then
 		return F;
 	else
 		reps:=[];
 		G_k:=AutB(d,k);
-		G_r:=AutB(d,r);
-		# initialize Phi^{r}(F)
-		C:=PHI(r,F);
+		G_l:=AutB(d,l);
+		# initialize Phi^{l}(F)
+		C:=PHI(l,F);
 		# search
 		for class in ConjugacyClassesSubgroups(C) do
-			if not IsConjugate(G_k,ImageOfProjection(LocalAction(d,r,class[1]),k),F) then continue; fi;
+			if not IsConjugate(G_k,ImageOfProjection(LocalAction(d,l,class[1]),k),F) then continue; fi;
 			for H in class do
-				if not ImageOfProjection(LocalAction(d,r,class[1]),k)=F then continue; fi;
-				if SatisfiesC(d,r,H) then
+				if not ImageOfProjection(LocalAction(d,l,class[1]),k)=F then continue; fi;
+				if SatisfiesC(d,l,H) then
 					new:=true;
 					for i in [Length(reps),Length(reps)-1..1] do
-						if IsConjugate(G_r,H,reps[i]) then new:=false; break; fi;
+						if IsConjugate(G_l,H,reps[i]) then new:=false; break; fi;
 					od;
-					if new then Add(reps,LocalAction(d,r,H)); fi;
+					if new then Add(reps,LocalAction(d,l,H)); fi;
 					break;
 				fi;
 			od;

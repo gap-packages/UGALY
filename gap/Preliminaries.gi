@@ -279,11 +279,11 @@ function(F,r)
 		# for a a large collection of F's, this seems to be faster than passing to a small generating set of F first
 		# also appears faster than using the map provided by "Projection(F,r)"
 		if IsTrivial(F) then
-			return Group(());
+			return LocalAction(d,r,Group(()));
 		else
 			list:=[];
 			for a in GeneratorsOfGroup(F) do Add(list,LocalAction(r,d,k,a,[])); od;
-			return Group(list);
+			return LocalAction(d,r,Group(list));
 		fi;
 	fi;
 end );

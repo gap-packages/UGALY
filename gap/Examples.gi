@@ -92,10 +92,12 @@ function(d,F)
 	
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif not IsSubgroup(SymmetricGroup(d),F) then
+		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
 	else
 		gens:=[];
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(2,d,a)); od;
-		return Group(gens);
+		return LocalAction(d,2,Group(gens));
 	fi;
 end );
 
@@ -108,28 +110,31 @@ function(l,d,F)
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
 	elif l<1 then
 		Error("input argument l=",l," must be an integer greater than or equal to 1");
+	elif not IsSubgroup(SymmetricGroup(d),F) then
+		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
 	elif l=1 then
 		return F;
 	else
 		gens:=[];
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(l,d,a)); od;
-		return Group(gens);
+		return LocalAction(d,l,Group(gens));
 	fi;
 end );
 
-InstallMethod( GAMMA, "for d,k,F,z",
-[IsInt, IsInt, IsPermGroup, IsMapping],
-function(d,k,F,z)
-	local gens, a, tuple, dir;
+InstallMethod( GAMMA, "for F,z",
+[IsLocalAction, IsMapping],
+function(F,z)
+	local d, k, gens, a, tuple, dir;
 	
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+	
+	if k=0 then
+		return LocalAction(d,1,Group(()));
 	else
 		gens:=[()];
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,k,a,z)); od;
-		return Group(gens);
+		return LocalAction(d,k+1,Group(gens));
 	fi;
 end );
 
@@ -160,7 +165,7 @@ function(d,F)
 			for i in [1..d] do Add(auts,a^trans[i]); od;
 			Add(gens,AssembleAutomorphism(d,1,auts));
 		od;
-		return Group(gens);
+		return LocalAction(d,2,Group(gens));
 	fi;
 end );
 
@@ -187,8 +192,8 @@ function(d,F,C)
 			auts:=[];
 			for i in [1..d] do Add(auts,a^trans[i]); od;
 			Add(gens,AssembleAutomorphism(d,1,auts));
-			od;
-	return Group(gens);
+		od;
+		return LocalAction(d,2,Group(gens));
 	fi;
 end );
 
@@ -202,6 +207,8 @@ function(d,F)
 	# $\Phi(F)$
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif not IsSubgroup(SymmetricGroup(d),F) then
+		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
 	else
 		gens:=[];
 		# F-section: $\Gamma(F)$
@@ -212,7 +219,7 @@ function(d,F)
 				Add(gens,gamma(2,d,a,[i]));
 			od;
 		od;
-		return Group(gens);
+		return LocalAction(d,2,Group(gens));
 	fi;
 end );
 
@@ -222,8 +229,8 @@ function(d,F,N)
 	local gens, a, auts;
 
 	# $\Phi(F,N)$
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	if not IsSubgroup(SymmetricGroup(d),F) then
+		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
 	elif not IsTransitive(F,[1..d]) then
 		Error("input argument F=",F," must be a transitive subgroup of SymmetricGroup(d=",d,")");
 	elif not IsNormal(Stabilizer(F,1),N) then
@@ -238,7 +245,7 @@ function(d,F,N)
 			auts[1]:=a;
 			Add(gens,AssembleAutomorphism(d,1,auts));
 		od;
-		return Group(gens);
+		return LocalAction(d,2,Group(gens));
 	fi;
 end );
 
@@ -250,6 +257,8 @@ function(d,F,P)
 	# $\Phi(F,P)$
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif not IsSubgroup(SymmetricGroup(d),F) then
+		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
 	elif not IsDuplicateFree(Concatenation(P)) or not Union(P)=[1..d] then
 		Error("input argument P=",P," must be a block system for F=",F,"\n");
 	else
@@ -266,32 +275,33 @@ function(d,F,P)
 				Add(gens,AssembleAutomorphism(d,1,auts));
 			od;
 		od;
-		return Group(gens);
+		return LocalAction(d,2,Group(gens));
 	fi;
 end );
 
-InstallMethod( PHI, "for d,k,F",
-[IsInt, IsInt, IsPermGroup],
-function(d,k,F)
-	local gens, gens_F, comp_sets, dir, a, auts;
+InstallMethod( PHI, "for F",
+[IsLocalAction],
+function(F)
+	local d, k, gens, gens_F, comp_sets, dir, a, auts;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
 
 	# $\Phi_{k}(F)$
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	if k=0 then
+		return LocalAction(d,1,Group(()));
 	else
 		gens:=[()];
 		gens_F:=SmallGeneratingSet(F);
 		# initialize compatibility sets of the identity
 		comp_sets:=[];
 		for dir in [1..d] do
-			Add(comp_sets,CompatibilitySet(d,k,F,(),dir));
+			Add(comp_sets,CompatibilitySet(F,(),dir));
 		od;
 		# F-section
 		for a in gens_F do
 			auts:=[];
-			for dir in [1..d] do Add(auts,CompatibleElement(d,k,F,a,dir)); od;
+			for dir in [1..d] do Add(auts,CompatibleElement(F,a,dir)); od;
 			Add(gens,AssembleAutomorphism(d,k,auts));
 		od;
 		# kernel
@@ -302,25 +312,26 @@ function(d,k,F)
 				Add(gens,AssembleAutomorphism(d,k,auts));
 			od;		
 		od;
-		return Group(gens);
+		return LocalAction(d,k+1,Group(gens));
 	fi;
 end );
 
-InstallMethod( PHI, "for l,d,k,F",
-[IsInt, IsInt, IsInt, IsPermGroup],
-function(l,d,k,F)
-	local gens, a, addrs, gens_stabs, addr, G, i;
+InstallMethod( PHI, "for l,F",
+[IsInt, IsLocalAction],
+function(l,F)
+	local d, k, gens, a, addrs, gens_stabs, addr, G, i;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
 	
 	# $\Phi^{l}(F)$
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
-	elif l<1 then
-		Error("input argument l=",l," must be an integer greater than or equal to 1");	
+	if l<k then
+		Error("input argument l+",l," must be an integer greater than or equal to the radius k=",k," of input argument F=",F);
+	elif k=0 then
+		return LocalAction(d,l,Group(()));
 	elif k=1 then
 		gens:=[];
-		# subgroup $\Gamma(F)$
+		# subgroup $\Gamma^{l}(F)$
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(l,d,a)); od;
 		# initialize addresses and generators of stabilizers
 		addrs:=Addresses(d,l-1);
@@ -335,23 +346,24 @@ function(l,d,k,F)
 				Add(gens,gamma(l,d,a,addr));
 			od;
 		od;
-		return Group(gens);
+		return LocalAction(d,l,Group(gens));
 	else
 		G:=F;
-		for i in [k..l-1] do G:=PHI(d,i,G); od;
+		for i in [k..l-1] do G:=PHI(G); od;
 		return G;
 	fi;
 end );
 
-InstallMethod( PHI, "for d,k,F,P",
-[IsInt, IsInt, IsPermGroup, IsList],
-function(d,k,F,P)
-	local gens, gens_F, a, auts, i, r, dir;
+InstallMethod( PHI, "for F,P",
+[IsLocalAction, IsList],
+function(F,P)
+	local d, k, gens, gens_F, a, auts, i, r, dir;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
 
 	# $\Phi_{k}(F,P)
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
+	if k=0 then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif not IsDuplicateFree(Concatenation(P)) or not Union(P)=[1..d] then
 		Error("input argument P=",P," must be a block system for $\\pi(F)$=",ImageOfProjection(d,k,F,1),"\n");
@@ -362,30 +374,22 @@ function(d,k,F,P)
 		for a in gens_F do
 			auts:=ListWithIdenticalEntries(d,());
 			for i in [1..Length(P)] do
-				r:=Representative(CompatibilitySet(d,k,F,a,P[i]));
+				r:=Representative(CompatibilitySet(F,a,P[i]));
 				for dir in P[i] do auts[dir]:=r; od;
 			od;
 			Add(gens,AssembleAutomorphism(d,k,auts));
 		od;
 		# kernel
 		for i in [1..Length(P)] do
-			for a in GeneratorsOfGroup(AsGroup(CompatibilitySet(d,k,F,(),P[i]))) do
+			for a in GeneratorsOfGroup(AsGroup(CompatibilitySet(F,(),P[i]))) do
 				auts:=ListWithIdenticalEntries(d,());
 				for dir in P[i] do auts[dir]:=a; od;
 				Add(gens,AssembleAutomorphism(d,k,auts));
 			od;		
 		od;
-		return Group(gens);
+		return LocalAction(d,k+1,Group(gens));
 	fi;
 end );
-
-##################################################################################################################
-
-InstallGlobalFunction( AbelianizationHomomorphism,
-function(F)
-	return NaturalHomomorphismByNormalSubgroup(F,DerivedSubgroup(F));
-end );
-
 
 ##################################################################################################################
 
@@ -399,6 +403,13 @@ function(F)
 				return ();
 			fi;
 		end);
+end );
+
+##################################################################################################################
+
+InstallGlobalFunction( AbelianizationHomomorphism,
+function(F)
+	return NaturalHomomorphismByNormalSubgroup(F,DerivedSubgroup(F));
 end );
 
 ##################################################################################################################
@@ -435,14 +446,16 @@ function(l,d,F,rho,R)
 		Error("input argument l=",l," must be an integer greater than or equal to 1");
 	elif d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif not IsSubgroup(SymmetricGroup(d),F) then
+		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
 	elif not IsMapping(rho) then
 		Error("input argument rho=",rho," must be a homomorphism");
 	elif not IsList(R) then
 		Error("input argument R=",R," must be a list of radii");
 	elif R=[] then
-		return PHI(l,d,1,F);
+		return PHI(l,LocalAction(d,1,F));
 	elif R=[0] then
-		return PHI(l,d,1,Kernel(rho));
+		return PHI(l,LocalAction(d,1,Kernel(rho)));
 	else
 		# check point stabilizer surjectivity
 		for i in [1..l] do
@@ -451,7 +464,7 @@ function(l,d,F,rho,R)
 			fi;
 		od;
 		# construction
-		G:=PHI(l,d,1,F);
+		G:=PHI(l,LocalAction(d,1,F));
 		A:=Range(rho);
 		indx:=Size(A);
 		gens:=[()];
@@ -460,7 +473,7 @@ function(l,d,F,rho,R)
 			if SpheresProduct(d,l,a,rho,R)=One(A) then Add(gens,a); fi;
 		until Index(G,Group(gens))=indx;
 	
-		return Group(gens);
+		return LocalAction(d,l,Group(gens));
 	fi;
 end );
 
@@ -473,6 +486,8 @@ function(d,F)
 
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif not IsSubgroup(SymmetricGroup(d),F) then
+		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
 	else
 		kernels:=[];
 		G:=Kernel(RestrictedMapping(Projection(AutB(d,2)),PHI(d,F)));
@@ -506,19 +521,20 @@ function(d,F)
 	fi;
 end) ;
 
-InstallMethod( CompatibleKernels, "for d,k,F,z",
-[IsInt, IsInt, IsPermGroup, IsMapping],
-function(d,k,F,z)
-	local kernels, G, D, class, K, compatible, a, c, dir, c_dir;
+InstallMethod( CompatibleKernels, "for F,z",
+[IsLocalAction, IsMapping],
+function(F,z)
+	local d, k, kernels, G, D, class, K, compatible, a, c, dir, c_dir;
 
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+
+	if k=0 then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	else
 		kernels:=[];	
-		G:=Kernel(RestrictedMapping(Projection(AutB(d,k+1)),PHI(d,k,F)));
-		D:=GAMMA(d,k,F,z);
+		G:=Kernel(RestrictedMapping(Projection(AutB(d,k+1)),PHI(F)));
+		D:=GAMMA(F,z);
 		for class in ConjugacyClassesSubgroups(G) do
 			for K in class do
 				compatible:=true;
@@ -557,27 +573,31 @@ function(d,F,K)
 
 	if d<3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
+	elif not IsSubgroup(SymmetricGroup(d),F) then
+		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
 	else
 		gens:=[];
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,a)); od;
 		Append(gens,ShallowCopy(GeneratorsOfGroup(K)));
-		return Group(gens);
+		return LocalAction(d,2,Group(gens));
 	fi;
 end );
 
-InstallMethod( SIGMA, "for d,k,F,K,z",
-[IsInt, IsInt, IsPermGroup, IsPermGroup, IsMapping],
-function(d,k,F,K,z)
-	local gens, a;
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
+InstallMethod( SIGMA, "for F,K,z",
+[IsLocalAction, IsPermGroup, IsMapping],
+function(F,K,z)
+	local d, k, gens, a;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+	
+	if k<1 then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	else
 		gens:=[];
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,k,a,z)); od;
 		Append(gens,ShallowCopy(GeneratorsOfGroup(K)));
-		return Group(gens);
+		return LocalAction(d,k+1,Group(gens));
 	fi;
 end );
 
