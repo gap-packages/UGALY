@@ -32,9 +32,8 @@ end );
 
 InstallMethod( IsDiscrete, "for F", [IsLocalAction],
 function(F)
-	local d, k, CF;
+	local k, CF;
 
-	d:=LocalActionDegree(F);
 	k:=LocalActionRadius(F);
 
 	if k=0 then
@@ -42,7 +41,7 @@ function(F)
 	elif k=1 then
 		CF:=F;
 	else		
-		CF:=LocalAction(d,k,MaximalCompatibleSubgroup(F));
+		CF:=MaximalCompatibleSubgroup(F);
 	fi;
 	return SatisfiesD(CF);
 end );
