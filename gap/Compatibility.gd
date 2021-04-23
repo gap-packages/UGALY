@@ -184,7 +184,8 @@ DeclareGlobalFunction( "AssembleAutomorphism" );
 #!
 #! @Arguments d,k,F
 #!
-DeclareGlobalFunction( "IsCompatible" );
+#DeclareGlobalFunction( "IsCompatible" );
+# now SatisfiesC
 
 #DeclareSynonym( "SatisfiesC", IsCompatible );
 #!
@@ -198,11 +199,11 @@ DeclareGlobalFunction( "IsCompatible" );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$. This method calls <C>AllSubgroups</C> on $F$ and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Func="ConjugacyClassRepsCompatibleSubgroups"/> or <Ref Func="ConjugacyClassRepsCompatibleSubgroupsWithProjection"/> for computations.
+#! The argument of this method is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$. This method calls <C>AllSubgroups</C> on $F$ and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Func="ConjugacyClassRepsCompatibleSubgroups"/> or <Ref Func="ConjugacyClassRepsCompatibleSubgroupsWithProjection"/> for computations.
 #!
 #! @Returns the list of all compatible subgroups of <A>F</A>.
 #!
-#! @Arguments d,k,F
+#! @Arguments F
 #!
 DeclareGlobalFunction( "CompatibleSubgroups" );
 #!
@@ -222,11 +223,11 @@ DeclareGlobalFunction( "CompatibleSubgroups" );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#! The argument of this method is a local action <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
 #!
 #! @Returns a list of compatible representatives of conjugacy classes of <A>F</A> that contain a compatible subgroup.
 #!
-#! @Arguments d,k,F
+#! @Arguments F
 #!
 DeclareGlobalFunction( "ConjugacyClassRepsCompatibleSubgroups" );
 #!
@@ -243,12 +244,12 @@ DeclareGlobalFunction( "ConjugacyClassRepsCompatibleSubgroups" );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, a radius <A>r</A>$\in$<C>[1..k]</C>, and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,r})$.
+#! The arguments of this method are a radius <A>r</A> $\in\mathbb{N}$, and a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ for some $k\le r$.
 #!
 #! @Returns
 #! a list of compatible representatives of conjugacy classes of $\mathrm{Aut}(B_{d,k})$ that contain a compatible subgroup which projects to <A>F</A> $\le\mathrm{Aut}(B_{d,r})$.
 #! 
-#! @Arguments d,k,r,F
+#! @Arguments r,F
 #!
 DeclareGlobalFunction( "ConjugacyClassRepsCompatibleSubgroupsWithProjection" );
 #!

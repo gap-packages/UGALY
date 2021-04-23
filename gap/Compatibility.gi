@@ -164,7 +164,7 @@ function(F)
 	
 	if k=0 then
 		return F;
-	elif IsCompatible(d,k,F) then
+	elif SatisfiesC(F) then
 		return F;
 	else
 		# go through subgroup lattice, starting at the top
@@ -175,7 +175,7 @@ function(F)
 			poss:=Positions(grps,Group(()));
 			for pos in poss do Remove(grps,pos); od;
 			for G in grps do
-				if IsCompatible(d,k,G) then return G; fi;
+				if SatisfiesC(LocalAction(d,k,G)) then return G; fi;
 			od;
 		od;	
 		# no non-trivial compatible subgroup
@@ -185,14 +185,15 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( IsCompatible,
-function(d,k,F)
-	local gens, a, dir, r, b;
+InstallMethod( SatisfiesC, "for F", [IsLocalAction],
+function(F)
+	local d, k, gens, a, dir, r, b;
 	
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+	
+	if k=0 or k=1 then
+		return true;
 	else
 		gens:=SmallGeneratingSet(F);
 		for a in gens do
@@ -209,17 +210,18 @@ end );
 ##################################################################################################################
 
 InstallGlobalFunction( CompatibleSubgroups,
-function(d,k,F)
-	local grps, H;
+function(F)
+	local d, k, grps, H;
 	
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+	
+	if k=0 or k=1 then
+		return AllSubgroups(F);
 	else
 		grps:=[];
 		for H in AllSubgroups(F) do
-			if IsCompatible(d,k,H) then Add(grps,H); fi;
+			if SatisfiesC(LocalAction(d,k,H)) then Add(grps,LocalAction(d,k,H)); fi;
 		od;
 		return grps;
 	fi;
@@ -228,19 +230,20 @@ end );
 ##################################################################################################################
 
 InstallGlobalFunction( ConjugacyClassRepsCompatibleSubgroups, 
-function(d,k,F)
-	local reps, H, class;
+function(F)
+	local d, k, reps, H, class;
 	
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+	
+	if k=0 or k=1 then
+		return ConjugacyClassesSubgroups(F);	
 	else
 		reps:=[];
 		for class in ConjugacyClassesSubgroups(F) do
 			for H in class do
-				if IsCompatible(d,k,H) then
-					Add(reps,H);
+				if SatisfiesC(LocalAction(d,k,H)) then
+					Add(reps,LocalAction(d,k,H));
 					break;
 				fi;
 			od;
@@ -252,35 +255,33 @@ end );
 ##################################################################################################################
 
 InstallGlobalFunction( ConjugacyClassRepsCompatibleSubgroupsWithProjection, 
-function(d,k,r,F)
-	local reps, G_k, G_r, C, class, H, new, i;
+function(r,F)
+	local d, k, reps, G_k, G_r, C, class, H, new, i;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
 
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
-	elif r>k then
-		Error("input argument k=",k," must be bigger than or equal to input argument r=",r);
-	elif k=r then
+	if r<k then return
+		Error("input argument r=",r," must be an integer greater than or equal to the radius k=",k," of input argument F=",F);
+	elif r=k then
 		return F;
 	else
 		reps:=[];
 		G_k:=AutB(d,k);
 		G_r:=AutB(d,r);
-		# initialize Phi^{k}(F)
-		C:=PHI(k,d,r,F);
+		# initialize Phi^{r}(F)
+		C:=PHI(r,F);
 		# search
 		for class in ConjugacyClassesSubgroups(C) do
-			if not IsConjugate(G_r,ImageOfProjection(d,k,class[1],r),F) then continue; fi;
+			if not IsConjugate(G_k,ImageOfProjection(LocalAction(d,r,class[1]),k),F) then continue; fi;
 			for H in class do
-				if not ImageOfProjection(d,k,class[1],r)=F then continue; fi;
-				if IsCompatible(d,k,H) then
-					# if there is no optional parameter, check conjugacy in AutB(d,k)
+				if not ImageOfProjection(LocalAction(d,r,class[1]),k)=F then continue; fi;
+				if SatisfiesC(d,r,H) then
 					new:=true;
 					for i in [Length(reps),Length(reps)-1..1] do
-						if IsConjugate(G_k,H,reps[i]) then new:=false; break; fi;
+						if IsConjugate(G_r,H,reps[i]) then new:=false; break; fi;
 					od;
-					if new then Add(reps,H); fi;
+					if new then Add(reps,LocalAction(d,r,H)); fi;
 					break;
 				fi;
 			od;
