@@ -103,11 +103,11 @@ DeclareGlobalFunction( "CompatibleElement" );
 #!
 #! @Arguments F,aut,dir
 #! @Label for F, aut, dir
-DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsInt]);
+DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsInt] );
 #!
 #! @Arguments F,aut,dirs
 #! @Label for F, aut, dirs
-DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsList]);
+DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsList] );
 #!
 #! @BeginExampleSession
 #! gap> F:=TransitiveGroup(4,3);
@@ -166,7 +166,7 @@ DeclareGlobalFunction( "AssembleAutomorphism" );
 #!
 #! @Arguments F
 #!
-DeclareAttribute("MaximalCompatibleSubgroup", IsLocalAction);
+DeclareAttribute( "MaximalCompatibleSubgroup", IsLocalAction );
 #!
 #! @BeginExampleSession
 #! gap> MaximalCompatibleSubgroup(3,1,Group((1,2)));
@@ -184,7 +184,7 @@ DeclareAttribute("MaximalCompatibleSubgroup", IsLocalAction);
 #!
 #! @Arguments F
 #!
-DeclareProperty("SatisfiesC",IsLocalAction);
+DeclareProperty( "SatisfiesC" , IsLocalAction );
 #!
 #! @BeginExampleSession
 #! gap> D:=DELTA(3,SymmetricGroup(3));
@@ -226,7 +226,7 @@ DeclareGlobalFunction( "CompatibleSubgroups" );
 #!
 #! @Arguments F
 #!
-DeclareGlobalFunction( "ConjugacyClassRepsCompatibleSubgroups" );
+DeclareAttribute( "ConjugacyClassRepsCompatibleSubgroups" , IsLocalAction );
 #!
 #! @BeginExampleSession
 #! gap> ConjugacyClassRepsCompatibleSubgroups(3,2,AutB(3,2));

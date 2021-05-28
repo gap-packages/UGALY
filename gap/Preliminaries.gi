@@ -313,21 +313,20 @@ function(F,r)
 	
 	if not IsLocalAction(F) then
 		Error("input argument F=",F," must be a local action");
+	elif not (IsInt(r) and r in [1..LocalActionRadius(F)]) then
+		Error("input argument r=",r," must be an integer in the range [1..k=",k,"], where k is the radius of input argument F=",F);
 	else
 		d:=LocalActionDegree(F);
 		k:=LocalActionRadius(F);
-		if not (IsInt(r) and r in [1..k]) then
-			Error("input argument r=",r," must be an integer in the range [1..k=",k,"], where k is the radius of input argument F",F);
-		else	
-			# for a a large collection of F's, this seems to be faster than passing to a small generating set of F first
-			# also appears faster than using the map provided by "Projection(F,r)"
-			if IsTrivial(F) then
-				return LocalAction(d,r,Group(()));
-			else
-				list:=[];
-				for a in GeneratorsOfGroup(F) do Add(list,LocalAction(r,d,k,a,[])); od;
-				return LocalAction(d,r,Group(list));
-			fi;
+	
+		# for a a large collection of F's, this seems to be faster than passing to a small generating set of F first
+		# also appears faster than using the map provided by "Projection(F,r)"
+		if IsTrivial(F) then
+			return LocalAction(d,r,Group(()));
+		else
+			list:=[];
+			for a in GeneratorsOfGroup(F) do Add(list,LocalAction(r,d,k,a,[])); od;
+			return LocalAction(d,r,Group(list));
 		fi;
 	fi;
 end );

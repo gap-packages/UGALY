@@ -9,33 +9,38 @@ InstallGlobalFunction( AreCompatibleElements,
 function(d,k,aut1,aut2,dir)
 	local lf, im_dir, im_lf;
 
-	if d<3 then
+	if not (IsInt(d) and d>=3) then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
+	elif not (IsInt(k) and k>=1) then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
-	elif dir<1 or dir>d then
+	elif not IsPerm(aut1) then
+		Error("input argument aut1=",aut1," must be an element of AutB(d,k)");
+	elif not IsPerm(aut2) then
+		Error("input argument aut1=",aut2," must be an element of AutB(d,k)");
+	elif not (IsInt(r) and r in [1..d]) then
 		Error("input argument dir=",dir," must be in the range [1..",d,"]");
-	elif k=1 then
-		if dir^aut1=dir^aut2 then
-			return true;
-		else
-			return false;
-		fi;
 	else
-		# k>=2
-		for lf in [(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)] do
-			im_lf:=AddressOfLeaf(d,k,lf^aut1);
-			if not im_lf{[2..k]}=ImageAddress(d,k,aut2,AddressOfLeaf(d,k,lf){[2..k]}) then
+		if k=1 then
+			if dir^aut1=dir^aut2 then
+				return true;
+			else
 				return false;
 			fi;
+		else
+			# k>=2
+			for lf in [(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)] do
+				im_lf:=AddressOfLeaf(d,k,lf^aut1);
+				if not im_lf{[2..k]}=ImageAddress(d,k,aut2,AddressOfLeaf(d,k,lf){[2..k]}) then
+					return false;
+				fi;
 
-			im_lf:=AddressOfLeaf(d,k,lf^aut2);
-			if not im_lf{[2..k]}=ImageAddress(d,k,aut1,AddressOfLeaf(d,k,lf){[2..k]}) then
-				return false;
-			fi;
-		od;
-		return true;
-	fi;
+				im_lf:=AddressOfLeaf(d,k,lf^aut2);
+				if not im_lf{[2..k]}=ImageAddress(d,k,aut1,AddressOfLeaf(d,k,lf){[2..k]}) then
+					return false;
+				fi;
+			od;
+			return true;
+		fi;
 end );
 
 ##################################################################################################################
@@ -44,39 +49,47 @@ InstallGlobalFunction( CompatibleElement,
 function(F,aut,dir)
 	local d, k, pr, K, aut_dir, r, reps, b, compatible, lf, im_lf;
 	
-	d:=LocalActionDegree(F);
-	k:=LocalActionRadius(F);
+	if not IsLocalAction(F) then
+		Error("input argument F=",F," must be a local action");
+	elif not IsPerm(aut) then
+		Error("input argument aut=",aut," must be an element of AutB(d,k)");
+	elif not (IsInt(dir) and dir in [1..LocalActionDegree(F)]) then
+		Error("input argument dir=",dir," must be an integer in the range [1..d=",LocalActionDegree(F),"], where d is the degree of input argument F=",F);
+	else		
+		d:=LocalActionDegree(F);
+		k:=LocalActionRadius(F);
 
-	if k=0 or k=1 then
-		return aut;
-	else
-		# k>=2
-		# search in the correct coset of the kernel (inner local action condition)
-		pr:=RestrictedMapping(Projection(AutB(d,k)),F);
-		K:=Kernel(pr);
-		aut_dir:=LocalAction(k-1,d,k,aut,[dir]);
-		if not aut_dir in Range(pr) then
-			return fail;
+		if k=0 or k=1 then
+			return aut;
 		else
-			r:=PreImagesRepresentative(pr,aut_dir);
-			if r=fail then return fail; fi;
-		fi;
-		# generate representatives for the action on the relevant leaves
-		reps:=ShallowCopy(AsList(RightTransversal(K,Stabilizer(K,[(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)],OnTuples))));
-		Apply(reps,x->x*r);
-		# test outer local action condition
-		for b in reps do
-			compatible:=true;
-			for lf in [(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)] do
-				im_lf:=AddressOfLeaf(d,k,lf^b);
-				if not im_lf{[2..k]}=ImageAddress(d,k,aut,AddressOfLeaf(d,k,lf){[2..k]}) then
-					compatible:=false;
-					break;
-				fi;
+			# k>=2
+			# search in the correct coset of the kernel (inner local action condition)
+			pr:=RestrictedMapping(Projection(AutB(d,k)),F);
+			K:=Kernel(pr);
+			aut_dir:=LocalAction(k-1,d,k,aut,[dir]);
+			if not aut_dir in Range(pr) then
+				return fail;
+			else
+				r:=PreImagesRepresentative(pr,aut_dir);
+				if r=fail then return fail; fi;
+			fi;
+			# generate representatives for the action on the relevant leaves
+			reps:=ShallowCopy(AsList(RightTransversal(K,Stabilizer(K,[(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)],OnTuples))));
+			Apply(reps,x->x*r);
+			# test outer local action condition
+			for b in reps do
+				compatible:=true;
+				for lf in [(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)] do
+					im_lf:=AddressOfLeaf(d,k,lf^b);
+					if not im_lf{[2..k]}=ImageAddress(d,k,aut,AddressOfLeaf(d,k,lf){[2..k]}) then
+						compatible:=false;
+						break;
+					fi;
+				od;
+				if compatible then return b; fi;
 			od;
-			if compatible then return b; fi;
-		od;
-		return fail;
+			return fail;
+		fi;
 	fi;
 end );
 
@@ -86,22 +99,24 @@ InstallMethod( CompatibilitySet, "for F,aut,dir",
 [IsLocalAction, IsPerm, IsInt],
 function(F,aut,dir)
 	local d, k, r, K;
-	
-	d:=LocalActionDegree(F);
-	k:=LocalActionRadius(F);
 
-	if dir<1 or dir>d then
-		Error("input argument dir=",dir," must be in the range [1..",d,"]");
-	elif k=0 then
-		return F;
-	elif k=1 then
-		return RightCoset(Stabilizer(F,dir),aut);
+	if not dir in [1..LocalActionDegree(F)] then
+		Error("input argument dir=",dir," must be in the range [1..",LocalActionDegree(F),"]");
 	else
-		# k>=2		
-		r:=CompatibleElement(d,k,F,aut,dir);
-		if r=fail then return []; fi;
-		K:=Kernel(RestrictedMapping(Projection(AutB(d,k)),F));
-		return RightCoset(Stabilizer(K,[(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)],OnTuples),r);		
+		d:=LocalActionDegree(F);
+		k:=LocalActionRadius(F);
+	
+		if k=0 then
+			return F;
+		elif k=1 then
+			return RightCoset(Stabilizer(F,dir),aut);
+		else
+			# k>=2		
+			r:=CompatibleElement(d,k,F,aut,dir);
+			if r=fail then return []; fi;
+			K:=Kernel(RestrictedMapping(Projection(AutB(d,k)),F));
+			return RightCoset(Stabilizer(K,[(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)],OnTuples),r);		
+		fi;
 	fi;
 end );
 
@@ -109,23 +124,25 @@ InstallMethod( CompatibilitySet, "for F,aut,dirs",
 [IsLocalAction, IsPerm, IsList],
 function(F,aut,dirs)
 	local d, k, comp_sets, dn, r, p, K;
-	
-	d:=LocalActionDegree(F);
-	k:=LocalActionRadius(F);
 
-	if not IsSubset([1..d],dirs) then
-		Error("input argument dirs=",dirs," must be a subset of [1..",d,"]");
-	elif k=0 then
-		return F;
-	elif k=1 then
-		return RightCoset(Stabilizer(F,dirs,OnTuples),aut);
+	if not IsSubset([1..LocalActionDegree(F)],dirs) then
+		Error("input argument dirs=",dirs," must be a subset of [1..",LocalActionDegree(F),"]");
 	else
-		# k>=2
-		comp_sets:=[];
-		for dn in dirs do
-			Add(comp_sets,CompatibilitySet(d,k,F,aut,dn));
-		od;
-		return Intersection(comp_sets);	
+		d:=LocalActionDegree(F);
+		k:=LocalActionRadius(F);
+		
+		if k=0 then
+			return F;
+		elif k=1 then
+			return RightCoset(Stabilizer(F,dirs,OnTuples),aut);
+		else
+			# k>=2
+			comp_sets:=[];
+			for dn in dirs do
+				Add(comp_sets,CompatibilitySet(d,k,F,aut,dn));
+			od;
+			return Intersection(comp_sets);	
+		fi;
 	fi;
 end );
 
@@ -135,10 +152,12 @@ InstallGlobalFunction( AssembleAutomorphism,
 function(d,k,auts)
 	local aut, i, l, addr, im_addr;
 
-	if d<3 then
+	if not d>=3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
+	elif not k>=1 then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	elif not IsList(auts) then
+		Error("input argument auts=",auts," must be a list of automorphisms of B_{d,k}");
 	else
 		aut:=[];
 		for i in [1..d] do
@@ -231,10 +250,11 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( ConjugacyClassRepsCompatibleSubgroups, 
+InstallMethod( ConjugacyClassRepsCompatibleSubgroups, "for F",
+[IsLocalAction],
 function(F)
 	local d, k, reps, H, class;
-	
+		
 	d:=LocalActionDegree(F);
 	k:=LocalActionRadius(F);
 	
@@ -260,34 +280,38 @@ InstallGlobalFunction( ConjugacyClassRepsCompatibleSubgroupsWithProjection,
 function(l,F)
 	local d, k, reps, G_k, G_l, C, class, H, new, i;
 	
-	d:=LocalActionDegree(F);
-	k:=LocalActionRadius(F);
-
-	if l<k then return
-		Error("input argument l=",l," must be an integer greater than or equal to the radius k=",k," of input argument F=",F);
-	elif l=k then
-		return F;
-	else
-		reps:=[];
-		G_k:=AutB(d,k);
-		G_l:=AutB(d,l);
-		# initialize Phi^{l}(F)
-		C:=PHI(l,F);
-		# search
-		for class in ConjugacyClassesSubgroups(C) do
-			if not IsConjugate(G_k,ImageOfProjection(LocalAction(d,l,class[1]),k),F) then continue; fi;
-			for H in class do
-				if not ImageOfProjection(LocalAction(d,l,class[1]),k)=F then continue; fi;
-				if SatisfiesC(d,l,H) then
-					new:=true;
-					for i in [Length(reps),Length(reps)-1..1] do
-						if IsConjugate(G_l,H,reps[i]) then new:=false; break; fi;
-					od;
-					if new then Add(reps,LocalAction(d,l,H)); fi;
-					break;
-				fi;
+	if not IsLocalAction(F) then
+		Error("input argument F=",F," must be a local action");
+	elif not (IsInt(l) and l>=LocalActionRadius(F)) then return
+		Error("input argument l=",l," must be an integer greater than or equal to the radius k=",LocalActionRadius(F)," of input argument F=",F);	
+	else	
+		d:=LocalActionDegree(F);
+		k:=LocalActionRadius(F);
+		
+		if l=k then
+			return F;
+		else
+			reps:=[];
+			G_k:=AutB(d,k);
+			G_l:=AutB(d,l);
+			# initialize Phi^{l}(F)
+			C:=PHI(l,F);
+			# search
+			for class in ConjugacyClassesSubgroups(C) do
+				if not IsConjugate(G_k,ImageOfProjection(LocalAction(d,l,class[1]),k),F) then continue; fi;
+				for H in class do
+					if not ImageOfProjection(LocalAction(d,l,class[1]),k)=F then continue; fi;
+					if SatisfiesC(d,l,H) then
+						new:=true;
+						for i in [Length(reps),Length(reps)-1..1] do
+							if IsConjugate(G_l,H,reps[i]) then new:=false; break; fi;
+						od;
+						if new then Add(reps,LocalAction(d,l,H)); fi;
+						break;
+					fi;
+				od;
 			od;
-		od;
-		return reps;
+			return reps;
+		fi;
 	fi;
 end );
