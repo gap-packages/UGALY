@@ -17,7 +17,7 @@
 #! @Acknowledgements
 ##################################################################################################################
 
-#! The second author owes thanks to Marc Burger and George Willis for their support and acknowledges contributions from the SNSF Doc.Mobility fellowship 172120 and the ARC Discovery Project 120100996 to the development of an early version of this codebase. In its present form, the development of <Package>UGALY</Package> was made possible by the ARC Laureate Fellowship 170100032.
+#! The second author owes thanks to Marc Burger and George Willis for their support and acknowledges contributions from the SNSF Doc.Mobility fellowship 172120 and the ARC Discovery Project DP120100996 to the development of an early version of this codebase. In its present form, the development of <Package>UGALY</Package> was made possible by the ARC Laureate Fellowship FL170100032 and the ARC DECRA Fellowship DE210100180.
 
 ##################################################################################################################
 ##################################################################################################################
@@ -54,19 +54,78 @@
 #! @Section Local actions
 ##################################################################################################################
 
-DeclareCategory("IsLocalAction",IsPermGroup);
+#! @Description
+#! Groups acting on the trees $B_{d,k}$ are stored together with their degree (<Ref Attr="LocalActionDegree"/>), radius (<Ref Attr="LocalActionRadius"/> and other attributes in this category.
+#!
+DeclareCategory( "IsLocalAction" , IsPermGroup );
+#!
+#! @BeginExampleSession
+#! to do
+#! @EndExampleSession
 
-DeclareAttribute("LocalActionDegree",IsLocalAction);
-DeclareAttribute("LocalActionRadius",IsLocalAction);
-DeclareAttribute("MaximalCompatibleSubgroup",IsLocalAction);
-DeclareAttribute("InvolutiveCompatibilityCocycle",IsLocalAction);
-DeclareAttribute("AllInvolutiveCompatibilityCocycles",IsLocalAction);
+##################################################################################################################
 
-DeclareProperty("SatisfiesC",IsLocalAction);
-DeclareProperty("SatisfiesD",IsLocalAction);
-DeclareProperty("IsDiscrete",IsLocalAction);
+#! @Description
+#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}_{0}$ and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#!
+#! @Returns
+#! the regular rooted tree group $G$ as an object of the category <Ref Filt="IsLocalAction"/>, checking that <A>F</A> is indeed a subgroup of $\mathrm{Aut}(B_{d,k})$.
+#!
+#! @Arguments d,k,F
+#!
+DeclareOperation( "LocalAction" , [IsInt, IsInt, IsPermGroup] );
+#!
+#! @BeginExampleSession
+#! to do
+#! @EndExampleSession
 
-DeclareOperation("LocalAction",[IsInt, IsInt, IsPermGroup]);
+##################################################################################################################
+
+#! @Description
+#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}_{0}$ and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#!
+#! @Returns
+#! the regular rooted tree group $G$ as an object of the category <Ref Filt="IsLocalAction"/>, without checking that <A>F</A> is indeed a subgroup of $\mathrm{Aut}(B_{d,k})$.
+#!
+#! @Arguments d,k,F
+#!
+DeclareOperation( "LocalActionNC" , [IsInt, IsInt, IsPermGroup] );
+#!
+#! @BeginExampleSession
+#! to do
+#! @EndExampleSession
+
+##################################################################################################################
+
+#! @Description
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
+#!
+#! @Returns
+#! the degree <A>d</A> of the ball $B_{d,k}$ that $F$ is acting on.
+#!
+#! @Arguments F
+#!
+DeclareAttribute( "LocalActionDegree" , IsLocalAction);
+#!
+#! @BeginExampleSession
+#! to do
+#! @EndExampleSession
+
+##################################################################################################################
+
+#! @Description
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
+#!
+#! @Returns
+#! the radius <A>k</A> of the ball $B_{d,k}$ that $F$ is acting on.
+#!
+#! @Arguments F
+#!
+DeclareAttribute( "LocalActionRadius" , IsLocalAction );
+#!
+#! @BeginExampleSession
+#! to do
+#! @EndExampleSession
 
 ##################################################################################################################
 #! @Section Finite balls
@@ -81,6 +140,7 @@ DeclareOperation("LocalAction",[IsInt, IsInt, IsPermGroup]);
 #! the local action $\mathrm{Aut}(B_{d,k})$ as a permutation group of the $d\cdot (d-1)^{k-1}$ leaves of $B_{d,k}$.
 #!
 #! @Arguments d,k
+#!
 DeclareGlobalFunction( "AutB" );
 #!
 #! @BeginExampleSession
@@ -221,7 +281,8 @@ DeclareGlobalFunction( "ComposeAddresses" );
 #!
 #! @Arguments r,d,k,aut,addr
 #! @Label for r, d, k, aut, addr
-DeclareOperation("LocalAction",[IsInt, IsInt, IsInt, IsPerm, IsList]);
+#!
+DeclareOperation( "LocalAction" , [IsInt, IsInt, IsInt, IsPerm, IsList] );
 #!
 #! @BeginExampleSession
 #! gap> a:=(1,3,5)(2,4,6);; a in AutB(3,2);
@@ -254,7 +315,8 @@ DeclareOperation("LocalAction",[IsInt, IsInt, IsInt, IsPerm, IsList]);
 #!
 #! @Arguments F,r
 #! @Label for F, r
-DeclareOperation( "Projection" , [IsLocalAction, IsInt]);
+#!
+DeclareOperation( "Projection" , [IsLocalAction, IsInt] );
 #!
 #! @BeginExampleSession
 #! gap> F:=GAMMA(4,3,SymmetricGroup(3));

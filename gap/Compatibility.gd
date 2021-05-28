@@ -160,13 +160,13 @@ DeclareGlobalFunction( "AssembleAutomorphism" );
 #! Using the methods of Section <Ref Sect="Section_compatible_elements"/>, this section provides methods to test groups for the compatibility condition and search for compatible subgroups inside a given group, e.g. $\mathrm{Aut}(B_{d,k})$, or with a certain image under some projection.
 
 #! @Description
-#! The argument of this method is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$.
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
 #!
-#! @Returns The maximal compatible subgroup $C(F)$ of <A>F</A>.
+#! @Returns The local action $C($<A>F</A>$)\le\mathrm{Aut}(B_{d,k})$, which is the maximal compatible subgroup of <A>F</A>.
 #!
 #! @Arguments F
 #!
-#DeclareOperation( "MaximalCompatibleSubgroup",[IsLocalAction]);
+DeclareAttribute("MaximalCompatibleSubgroup", IsLocalAction);
 #!
 #! @BeginExampleSession
 #! gap> MaximalCompatibleSubgroup(3,1,Group((1,2)));
@@ -178,16 +178,13 @@ DeclareGlobalFunction( "AssembleAutomorphism" );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#! The argument of this property is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
 #!
 #! @Returns <K>true</K> if <A>F</A> satisfies the compatibility condition (C), and <K>false</K> otherwise.
 #!
-#! @Arguments d,k,F
+#! @Arguments F
 #!
-#DeclareGlobalFunction( "IsCompatible" );
-# now SatisfiesC
-
-#DeclareSynonym( "SatisfiesC", IsCompatible );
+DeclareProperty("SatisfiesC",IsLocalAction);
 #!
 #! @BeginExampleSession
 #! gap> D:=DELTA(3,SymmetricGroup(3));

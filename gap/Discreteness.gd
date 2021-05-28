@@ -22,14 +22,14 @@
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
 #!
 #! @Returns
 #! <K>true</K> if <A>F</A> satisfies the discreteness condition (D), and <K>false</K> otherwise.
 #!
-#! @Arguments d,k,F
+#! @Arguments F
 #!
-#DeclareGlobalFunction( "SatisfiesD" );
+DeclareProperty( "SatisfiesD", IsLocalAction );
 #!
 #! @BeginExampleSession
 #! gap> G:=GAMMA(3,SymmetricGroup(3));
@@ -41,14 +41,14 @@
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$. The condition that $\mathrm{U}_{k}(F)$ is discrete is equivalent to $C(F)$ satisfying the discreteness condition (D).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
 #!
 #! @Returns
 #! <K>true</K> if $\mathrm{U}_{k}(F)$ is discrete, and <K>false</K> otherwise.
 #!
-#! @Arguments d,k,F
+#! @Arguments F
 #!
-#DeclareGlobalFunction( "IsDiscrete" );
+DeclareProperty( "IsDiscrete" , IsLocalAction );
 #!
 #! @BeginExampleSession
 #! gap> G:=GAMMA(3,SymmetricGroup(3));
@@ -95,13 +95,13 @@ DeclareGlobalFunction( "CocycleMap" );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, and a compatible subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="IsCompatible"/>).
 #!
 #! @Returns an involutive compatibility cocycle of <A>F</A>, which is a mapping <A>F</A>$\times$<C>[1..d]</C>$\to$<A>F</A> with certain properties, if it exists, and <K>fail</K> otherwise. When <A>k</A> $=1$, the standard cocycle is returned.
 #!
-#! @Arguments d,k,F
+#! @Arguments F
 #!
-#DeclareGlobalFunction( "InvolutiveCompatibilityCocycle" );
+DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #!
 #! @BeginExampleSession
 #! gap> z:=InvolutiveCompatibilityCocycle(3,1,AlternatingGroup(3));
@@ -130,12 +130,13 @@ DeclareGlobalFunction( "CocycleMap" );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree $d\in\mathbb{N}_{\ge 3}$, a radius $k\in\mathbb{N}$, and a compatible subgroup $F\le \mathrm{Aut}(B_{d,k})$.
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="IsCompatible"/>).
+#!
 #! @Returns the list of all involutive compatibility cocycles of $F$.
 #!
-#! @Arguments d,k,F
+#! @Arguments F
 #!
-#DeclareGlobalFunction( "AllInvolutiveCompatibilityCocycles" );
+DeclareAttribute( "AllInvolutiveCompatibilityCocycles" , IsLocalAction);
 #!
 #! @BeginExampleSession
 #! gap> S3:=SymmetricGroup(3);;
