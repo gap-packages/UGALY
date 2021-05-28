@@ -233,7 +233,7 @@ function(d,F,N)
 	# $\Phi(F,N)$
 	if not d>=3 then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	if not IsSubgroup(SymmetricGroup(d),F) then
+	elif not IsSubgroup(SymmetricGroup(d),F) then
 		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
 	elif not IsTransitive(F,[1..d]) then
 		Error("input argument F=",F," must be a transitive subgroup of SymmetricGroup(d=",d,")");

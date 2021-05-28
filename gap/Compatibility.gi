@@ -17,7 +17,7 @@ function(d,k,aut1,aut2,dir)
 		Error("input argument aut1=",aut1," must be an element of AutB(d,k)");
 	elif not IsPerm(aut2) then
 		Error("input argument aut1=",aut2," must be an element of AutB(d,k)");
-	elif not (IsInt(r) and r in [1..d]) then
+	elif not (IsInt(dir) and dir in [1..d]) then
 		Error("input argument dir=",dir," must be in the range [1..",d,"]");
 	else
 		if k=1 then
@@ -41,6 +41,7 @@ function(d,k,aut1,aut2,dir)
 			od;
 			return true;
 		fi;
+	fi;
 end );
 
 ##################################################################################################################
