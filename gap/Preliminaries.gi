@@ -233,8 +233,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( LocalAction, "for r,d,k,aut,addr",
-[IsInt, IsInt, IsInt, IsPerm, IsList],
+InstallMethod( LocalAction, "for r,d,k,aut,addr", [IsInt, IsInt, IsInt, IsPerm, IsList],
 function(r,d,k,aut,addr)
 	local sphere_b_r, sphere_addr_r, a, perm, im_addr_rev, i, im_a;
 	
@@ -268,8 +267,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( Projection, "for F,r",
-[IsLocalAction, IsInt],
+InstallMethod( Projection, "for F,r", [IsLocalAction, IsInt],
 function(F,r)
 	local d, k, S_d_1, W, prs, i, pr;
 	

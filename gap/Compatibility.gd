@@ -1,5 +1,5 @@
 #
-# Ugaly: Universal Groups Acting LocallY
+# UGALY: Universal Groups Acting LocallY
 #
 #! @Chapter Introduction
 #! @Chapter Preliminaries

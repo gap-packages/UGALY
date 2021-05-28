@@ -1,5 +1,5 @@
 #
-# Ugaly: Universal Groups Acting LocallY
+# UGALY: Universal Groups Acting LocallY
 #
 #! @Chapter Introduction
 #! @Chapter Preliminaries
@@ -136,7 +136,7 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #!
 #! @Arguments F
 #!
-DeclareAttribute( "AllInvolutiveCompatibilityCocycles" , IsLocalAction);
+DeclareAttribute( "AllInvolutiveCompatibilityCocycles" , IsLocalAction );
 #!
 #! @BeginExampleSession
 #! gap> S3:=SymmetricGroup(3);;

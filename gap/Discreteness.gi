@@ -52,24 +52,16 @@ InstallGlobalFunction( IsCocycle,
 function(d,k,F,z)
 	local a, b, dir;
 
-	if d<3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif k<1 then
-		Error("input argument k=",k," must be an integer greater than or equal to 1");
-	elif not IsMapping(z) then
-		Error("input argument z=",z," must be an involutive compatibility cocycle of F=",F);
-	else
-		for a in F do
-			for b in GeneratorsOfGroup(F) do
-				for dir in [1..d] do
-					if not Image(z,[b*a,dir])=Image(z,[b,dir])*Image(z,[a,dir^LocalAction(1,d,k,b,[])]) then
-						return false;
-					fi;
-				od;
+	for a in F do
+		for b in GeneratorsOfGroup(F) do
+			for dir in [1..d] do
+				if not Image(z,[b*a,dir])=Image(z,[b,dir])*Image(z,[a,dir^LocalAction(1,d,k,b,[])]) then
+					return false;
+				fi;
 			od;
 		od;
-		return true;
-	fi;
+	od;
+	return true;
 end );
 
 ##################################################################################################################
@@ -91,6 +83,7 @@ end );
 
 InstallGlobalFunction( Cocycle,
 function(d,k,F,c,pr,gens_free,w,dir)
+
 	if Length(w)=0 then
 		return ();
 	elif Length(w)=1 then

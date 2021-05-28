@@ -1,5 +1,5 @@
 #
-# Ugaly: Universal Groups Acting LocallY
+# UGALY: Universal Groups Acting LocallY
 #
 #! @Chapter Introduction
 #! @Chapter Preliminaries
@@ -46,19 +46,19 @@
 #!
 #! @Arguments d,a
 #! @Label for d, a
-DeclareOperation( "gamma" , [IsInt, IsPerm]);
+DeclareOperation( "gamma" , [IsInt, IsPerm] );
 #!
 #! @Arguments l,d,a
 #! @Label for l, d, a
-DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm]);
+DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm] );
 #!
 #! @Arguments l,d,s,addr
 #! @Label for l, d, s, addr
-DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsList]);
+DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsList] );
 #!
 #! @Arguments d,k,aut,z
 #! @Label for d, k, aut, z
-DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsMapping]);
+DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsMapping] );
 #!
 #! @BeginExampleSession
 #! gap> gamma(3,(1,2));
@@ -119,15 +119,15 @@ DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsMapping]);
 #!
 #! @Arguments d,F
 #! @Label for d, F
-DeclareOperation( "GAMMA" , [IsInt, IsPermGroup]);
+DeclareOperation( "GAMMA" , [IsInt, IsPermGroup] );
 #!
 #! @Arguments l,d,F
 #! @Label for l, d, F
-DeclareOperation( "GAMMA" , [IsInt, IsInt, IsPermGroup]);
+DeclareOperation( "GAMMA" , [IsInt, IsInt, IsPermGroup] );
 #!
 #! @Arguments F,z
 #! @Label for F, z
-DeclareOperation( "GAMMA" , [IsLocalAction, IsMapping]);
+DeclareOperation( "GAMMA" , [IsLocalAction, IsMapping] );
 #!
 #! @BeginExampleSession
 #! gap> F:=TransitiveGroup(4,3);;
@@ -177,11 +177,11 @@ DeclareOperation( "GAMMA" , [IsLocalAction, IsMapping]);
 #!
 #! @Arguments d,F
 #! @Label for d, F
-DeclareOperation( "DELTA" , [IsInt, IsPermGroup]);
+DeclareOperation( "DELTA" , [IsInt, IsPermGroup] );
 #!
 #! @Arguments d,F,C
 #! @Label for d, F, C
-DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup]);
+DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup] );
 #!
 #! @BeginExampleSession
 #! gap> F:=SymmetricGroup(3);;
@@ -244,15 +244,15 @@ DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup]);
 #!
 #! @Arguments d,F
 #! @Label for d, F
-DeclareOperation( "PHI" , [IsInt, IsPermGroup]);
+DeclareOperation( "PHI" , [IsInt, IsPermGroup] );
 #!
 #! @Arguments F
 #! @Label for F
-DeclareOperation( "PHI" , [IsLocalAction]);
+DeclareOperation( "PHI" , [IsLocalAction] );
 #!
 #! @Arguments l,F
 #! @Label for l, F
-DeclareOperation( "PHI" , [IsInt, IsLocalAction]);
+DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #!
 #! @BeginExampleSession
 #! gap> PHI(3,SymmetricGroup(3));
@@ -334,15 +334,15 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction]);
 #!
 #! @Arguments d,F,N
 #! @Label for d, F, N
-DeclareOperation( "PHI" , [IsInt, IsPermGroup, IsPermGroup]);
+DeclareOperation( "PHI" , [IsInt, IsPermGroup, IsPermGroup] );
 #!
 #! @Arguments d,F,P
 #! @Label for d, F, P
-DeclareOperation( "PHI" , [IsInt, IsPermGroup, IsList]);
+DeclareOperation( "PHI" , [IsInt, IsPermGroup, IsList] );
 #!
 #! @Arguments F,P
 #! @Label for F, P
-DeclareOperation( "PHI" , [IsLocalAction, IsList]);
+DeclareOperation( "PHI" , [IsLocalAction, IsList] );
 #!
 #! @BeginExampleSession
 #! gap> F:=SymmetricGroup(4);;
@@ -533,11 +533,11 @@ DeclareGlobalFunction( "PI" );
 #!
 #! @Arguments d,F
 #! @Label for d, F
-DeclareOperation( "CompatibleKernels" , [IsInt, IsPermGroup]);
+DeclareOperation( "CompatibleKernels" , [IsInt, IsPermGroup] );
 #!
 #! @Arguments F,z
 #! @Label for F, z
-DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping]);
+DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping] );
 #!
 #! @BeginExampleSession
 #! gap> CompatibleKernels(3,SymmetricGroup(3));
@@ -580,11 +580,11 @@ DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping]);
 #!
 #! @Arguments d,F,K
 #! @Label for d, F, K
-DeclareOperation( "SIGMA" , [IsInt, IsPermGroup, IsPermGroup]);
+DeclareOperation( "SIGMA" , [IsInt, IsPermGroup, IsPermGroup] );
 #!
 #! @Arguments F,K,z
 #! @Label for F, K, z
-DeclareOperation( "SIGMA" , [IsLocalAction, IsPermGroup, IsMapping]);
+DeclareOperation( "SIGMA" , [IsLocalAction, IsPermGroup, IsMapping] );
 #!
 #! @BeginExampleSession
 #! gap> S3:=SymmetricGroup(3);;
