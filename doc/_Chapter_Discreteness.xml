@@ -18,13 +18,13 @@
 <Heading>Discreteness</Heading>
 
 <ManSection>
-  <Func Arg="d,k,F" Name="SatisfiesD" />
+  <Prop Arg="F" Name="SatisfiesD" Label="for IsLocalAction"/>
  <Returns> <K>true</K> if <A>F</A> satisfies the discreteness condition (D), and <K>false</K> otherwise.
  
  
 </Returns>
  <Description>
- The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>).
 <P/>
  </Description>
 </ManSection>
@@ -40,13 +40,13 @@ true
 
 
 <ManSection>
-  <Func Arg="d,k,F" Name="IsDiscrete" />
+  <Prop Arg="F" Name="IsDiscrete" Label="for IsLocalAction"/>
  <Returns> <K>true</K> if <Math>\mathrm{U}_{k}(F)</Math> is discrete, and <K>false</K> otherwise.
  
  
 </Returns>
  <Description>
- The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>. The condition that <Math>\mathrm{U}_{k}(F)</Math> is discrete is equivalent to <Math>C(F)</Math> satisfying the discreteness condition (D).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>).
 <P/>
  </Description>
 </ManSection>
@@ -82,12 +82,12 @@ true
 
  Subgroups <Math>F\le\mathrm{Aut}(B_{d,k})</Math> that satisfy both (C) and (D) admit an involutive compatibility cocycle, i.e. a map <Math>z:F\times\{1,\ldots,d\}\to F</Math> that satisfies certain properties, see <Cite Key="Tor20" Where="Section 3.2.2"/>. When <Math>F</Math> satisfies just (C), it may still admit an involutive compatibility cocycle. In this case, F admits an extension <Math>\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})</Math> that satisfies both (C) and (D). Involutive compatibility cocycles can be searched for using <Ref Func="InvolutiveCompatibilityCocycle"/> and <Ref Func="AllInvolutiveCompatibilityCocycles"/> below.
 <ManSection>
-  <Func Arg="d,k,F" Name="InvolutiveCompatibilityCocycle" />
+  <Attr Arg="F" Name="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/>
  <Returns>an involutive compatibility cocycle of <A>F</A>, which is a mapping <A>F</A><Math>\times</Math><C>[1..d]</C><Math>\to</Math><A>F</A> with certain properties, if it exists, and <K>fail</K> otherwise. When <A>k</A> <Math>=1</Math>, the standard cocycle is returned. 
  
 </Returns>
  <Description>
- The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a compatible subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="IsCompatible"/>).
 <P/>
  </Description>
 </ManSection>
@@ -122,12 +122,13 @@ fail
 
 
 <ManSection>
-  <Func Arg="d,k,F" Name="AllInvolutiveCompatibilityCocycles" />
+  <Attr Arg="F" Name="AllInvolutiveCompatibilityCocycles" Label="for IsLocalAction"/>
  <Returns>the list of all involutive compatibility cocycles of <Math>F</Math>. 
  
 </Returns>
  <Description>
- The arguments of this method are a degree <Math>d\in\mathbb{N}_{\ge 3}</Math>, a radius <Math>k\in\mathbb{N}</Math>, and a compatible subgroup <Math>F\le \mathrm{Aut}(B_{d,k})</Math>.
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="IsCompatible"/>).
+<P/>
  </Description>
 </ManSection>
 

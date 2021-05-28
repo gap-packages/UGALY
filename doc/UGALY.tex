@@ -139,8 +139,9 @@ or (at your option) any later version. \mbox{}}\\[1cm]
 \logpage{[ 0, 0, 3 ]}
  The second author owes thanks to Marc Burger and George Willis for their
 support and acknowledges contributions from the SNSF Doc.Mobility fellowship
-172120 and the ARC Discovery Project 120100996 to the development of an early
-version of this codebase. In its present form, the development of \textsf{UGALY} was made possible by the ARC Laureate Fellowship 170100032. \mbox{}}\\[1cm]
+172120 and the ARC Discovery Project DP120100996 to the development of an
+early version of this codebase. In its present form, the development of \textsf{UGALY} was made possible by the ARC Laureate Fellowship FL170100032 and the ARC DECRA
+Fellowship DE210100180. \mbox{}}\\[1cm]
 \newpage
 
 \def\contentsname{Contents\logpage{[ 0, 0, 4 ]}}
@@ -175,7 +176,7 @@ l_{gx}^{k}\circ g\circ (l_{x}^{k})^{-1}\]
 of $\mathrm{U}(F)$ do \emph{not} carry over. Foremost, the group $\mathrm{U}_{k}(F)$ need not be locally action isomorphic to $F$ and we say that $F\le\mathrm{Aut}(B_{d,k})$ satisfies condition (C) if it is. This can be viewed as an interchangeability
 condition on neighbouring local actions, see Section \ref{Section_condition_C}. There is also a discreteness condition (D) on $F\le\mathrm{Aut}(B_{d,k})$ in terms of certain stabilizers in $F$ under which $\mathrm{U}_{k}(F)$ is discrete, see Section \ref{Section_condition_D}. 
 
- \textsf{UGALY} provides methods to create, analyse and find local actions $F\le\mathrm{Aut}(B_{d,k})$ that satisfy condition (C) and/or (D), including the constructions $\Gamma$, $\Delta$, $\Phi$, $\Sigma$, and $\Pi$ developed in \cite{Tor20}. It was developed within the \href{ https://zerodimensional.group/"} {Zero-Dimensional Symmetry Research Group} in the \href{ https://www.newcastle.edu.au/school/mathematical-and-physical-sciences} {School of Mathematical and Physical Sciences} at \href{ https://www.newcastle.edu.au/} {The University of Newcastle} as part of a project course taken by the first author, supervised by the
+ \textsf{UGALY} provides methods to create, analyse and find local actions $F\le\mathrm{Aut}(B_{d,k})$ that satisfy condition (C) and/or (D), including the constructions $\Gamma$, $\Delta$, $\Phi$, $\Sigma$, and $\Pi$ developed in \cite{Tor20}. This package was developed within the \href{ https://zerodimensional.group/"} {Zero-Dimensional Symmetry Research Group} in the \href{ https://www.newcastle.edu.au/school/mathematical-and-physical-sciences} {School of Mathematical and Physical Sciences} at \href{ https://www.newcastle.edu.au/} {The University of Newcastle} as part of a project course taken by the first author, supervised by the
 second author. }
 
    
@@ -191,221 +192,134 @@ throughout this manual, cf. \cite{Tor20}. Let $\Omega$ be a set of cardinality $
 \sigma_{k}(g,x)\mapsto \sigma_{k}(g,x):=l_{gx}^{k}\circ g\circ
 (l_{x}^{k})^{-1}.\]
  
-\section{\textcolor{Chapter }{Finite balls}}\label{Chapter_Preliminaries_Section_Finite_balls}
-\logpage{[ 2, 1, 0 ]}
-\hyperdef{L}{X855A2B187C52B82A}{}
-{
-  The automorphism groups of the finite labelled balls $B_{d,k}$ lie at the center of this package. The method \texttt{AutB} (\ref{AutB}) produces these automorphism groups as iterated wreath products. The result is
-a permutation group on the set of leaves of $B_{d,k}$. 
-
-\subsection{\textcolor{Chapter }{AutB}}
-\logpage{[ 2, 1, 1 ]}\nobreak
-\hyperdef{L}{X7B766DE9824037BB}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutB({\mdseries\slshape d, k})\index{AutB@\texttt{AutB}}
-\label{AutB}
-}\hfill{\scriptsize (function)}}\\
-\textbf{\indent Returns:\ }
- the group $\mathrm{Aut}(B_{d,k})$ as a permutation group of the $d\cdot (d-1)^{k-1}$ leaves of $B_{d,k}$. 
-
-
-
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$ and a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}_{0}$. 
-
- }
-
- 
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@G:=AutB(3,2);|
-  Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
-  !gapprompt@gap>| !gapinput@Size(G);|
-  48
-\end{Verbatim}
- }
-
- 
-\section{\textcolor{Chapter }{Addresses and leaves}}\label{Chapter_Preliminaries_Section_Addresses_and_leaves}
-\logpage{[ 2, 2, 0 ]}
-\hyperdef{L}{X7A77C1B579101B7C}{}
-{
-  The vertices at distance $n$ from the center $b$ of $B_{d,k}$ are addressed as elements of the set 
-\[\Omega^{(n)}:=\{(\omega_{1},\ldots,\omega_{n})\in\Omega^{n}\mid \forall
-l\in\{1,\ldots,n-1\}:\ \omega_{l}\neq\omega_{l+1}\},\]
- i.e. as lists of length $n$ of elements from \texttt{[1..d]} such that no two consecutive entries are equal. They are ordered according to
-the lexicographic order on $\Omega^{(n)}$. The center $b$ itself is addressed by the empty list \texttt{[]}. Note that the leaves of $B_{d,k}$ correspond to elements of $\Omega^{(k)}$. 
-
-\subsection{\textcolor{Chapter }{Addresses}}
-\logpage{[ 2, 2, 1 ]}\nobreak
-\hyperdef{L}{X843C3D8E82F0D51F}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Addresses({\mdseries\slshape d, k})\index{Addresses@\texttt{Addresses}}
-\label{Addresses}
-}\hfill{\scriptsize (function)}}\\
-\textbf{\indent Returns:\ }
- a list of all addresses of vertices in $B_{d,k}$ in ascending order with respect to length, lexicographically ordered within
-each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfAddress} (\ref{LeafOfAddress}) for the correspondence between the leaves of $B_{d,k}$ and addresses of length \mbox{\texttt{\mdseries\slshape k}}. 
-
-
-
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$ and a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}_{0}$. 
-
- }
-
- 
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@Addresses(3,1);|
-  [ [  ], [ 1 ], [ 2 ], [ 3 ] ]
-  !gapprompt@gap>| !gapinput@Addresses(3,2);|
-  [ [  ], [ 1 ], [ 2 ], [ 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], 
-  [ 3, 1 ], [ 3, 2 ] ]
-\end{Verbatim}
- 
-
-\subsection{\textcolor{Chapter }{LeafAddresses}}
-\logpage{[ 2, 2, 2 ]}\nobreak
-\hyperdef{L}{X868811D87FEB1AA6}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LeafAddresses({\mdseries\slshape d, k})\index{LeafAddresses@\texttt{LeafAddresses}}
-\label{LeafAddresses}
-}\hfill{\scriptsize (function)}}\\
-\textbf{\indent Returns:\ }
- a list of addresses of the leaves of $B_{d,k}$ in lexicographic order. 
-
-
-
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$ and a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}_{0}$. 
-
- }
-
- 
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@LeafAddresses(3,2);|
-  [ [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ] ]
-\end{Verbatim}
- 
-
-\subsection{\textcolor{Chapter }{AddressOfLeaf}}
-\logpage{[ 2, 2, 3 ]}\nobreak
-\hyperdef{L}{X78379A547ED7A317}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AddressOfLeaf({\mdseries\slshape d, k, lf})\index{AddressOfLeaf@\texttt{AddressOfLeaf}}
-\label{AddressOfLeaf}
-}\hfill{\scriptsize (function)}}\\
-\textbf{\indent Returns:\ }
- the address of the leaf \mbox{\texttt{\mdseries\slshape lf}} of $B_{d,k}$ with respect to the lexicographic order. 
-
-
-
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, and a leaf \mbox{\texttt{\mdseries\slshape lf}} of $B_{d,k}$. 
-
- }
-
- 
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@AddressOfLeaf(3,2,1);|
-  [ 1, 2 ]
-  !gapprompt@gap>| !gapinput@AddressOfLeaf(3,3,1);|
-  [ 1, 2, 1 ]
-\end{Verbatim}
- 
-
-\subsection{\textcolor{Chapter }{LeafOfAddress}}
-\logpage{[ 2, 2, 4 ]}\nobreak
-\hyperdef{L}{X7E43E2B87B97A9BE}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LeafOfAddress({\mdseries\slshape d, k, addr})\index{LeafOfAddress@\texttt{LeafOfAddress}}
-\label{LeafOfAddress}
-}\hfill{\scriptsize (function)}}\\
-\textbf{\indent Returns:\ }
- the smallest leaf (integer) whose address has \mbox{\texttt{\mdseries\slshape addr}} as a prefix. 
-
-
-
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, and an address \mbox{\texttt{\mdseries\slshape addr}}. 
-
- }
-
- 
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@LeafOfAddress(3,2,[1,2]);|
-  1
-  !gapprompt@gap>| !gapinput@LeafOfAddress(3,2,[3]);|
-  5
-  !gapprompt@gap>| !gapinput@LeafOfAddress(3,2,[]);|
-  1
-\end{Verbatim}
- 
-
-\subsection{\textcolor{Chapter }{ImageAddress}}
-\logpage{[ 2, 2, 5 ]}\nobreak
-\hyperdef{L}{X871D6B8783E17AB8}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ImageAddress({\mdseries\slshape d, k, aut, addr})\index{ImageAddress@\texttt{ImageAddress}}
-\label{ImageAddress}
-}\hfill{\scriptsize (function)}}\\
-\textbf{\indent Returns:\ }
- the address of the image of the vertex represented by \mbox{\texttt{\mdseries\slshape addr}} under the automorphism \mbox{\texttt{\mdseries\slshape aut}} of $B_{d,k}$. 
-
-
-
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, an automorphism \mbox{\texttt{\mdseries\slshape aut}} of $B_{d,k}$, and an address \mbox{\texttt{\mdseries\slshape addr}}. 
-
- }
-
- 
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@ImageAddress(3,2,(1,2),[1,2]);|
-  [ 1, 3 ]
-  !gapprompt@gap>| !gapinput@ImageAddress(3,2,(1,2),[1]);|
-  [ 1 ]
-\end{Verbatim}
- 
-
-\subsection{\textcolor{Chapter }{ComposeAddresses}}
-\logpage{[ 2, 2, 6 ]}\nobreak
-\hyperdef{L}{X862D09157F1D9D98}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ComposeAddresses({\mdseries\slshape addr1, addr2})\index{ComposeAddresses@\texttt{ComposeAddresses}}
-\label{ComposeAddresses}
-}\hfill{\scriptsize (function)}}\\
-\textbf{\indent Returns:\ }
- the concatenation of the addresses \mbox{\texttt{\mdseries\slshape addr1}} and \mbox{\texttt{\mdseries\slshape addr2}} with reduction as per \cite[Section 3.2]{Tor20}. 
-
-
-
- The arguments of this method are two addresses \mbox{\texttt{\mdseries\slshape addr1}} and \mbox{\texttt{\mdseries\slshape addr2}}. 
-
- }
-
- 
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@ComposeAddresses([1,3],[2,1]);  |
-  [ 1, 3, 2, 1 ]
-  !gapprompt@gap>| !gapinput@ComposeAddresses([1,3,2],[2,1]);|
-  [ 1, 3, 1 ]
-\end{Verbatim}
- }
-
- 
 \section{\textcolor{Chapter }{Local actions}}\label{Chapter_Preliminaries_Section_Local_actions}
-\logpage{[ 2, 3, 0 ]}
+\logpage{[ 2, 1, 0 ]}
 \hyperdef{L}{X86AC008984A3489F}{}
 {
-  
+  In this package, a local action $F\le\Aut(B_{d,k})$ are handled as objects of the category \texttt{IsLocalAction} (\ref{IsLocalAction}) and have several attributes and properties introduced throughout this manual.
+Most importantly, a local action always stores the degree $d$ and the radius $k$ of the ball $B_{d,k}$ that it acts on. 
 
-\subsection{\textcolor{Chapter }{LocalAction}}
-\logpage{[ 2, 3, 1 ]}\nobreak
-\hyperdef{L}{X8043DAFD80D6207A}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LocalAction({\mdseries\slshape r, d, k, aut, addr})\index{LocalAction@\texttt{LocalAction}}
-\label{LocalAction}
-}\hfill{\scriptsize (function)}}\\
+\subsection{\textcolor{Chapter }{IsLocalAction (for IsPermGroup)}}
+\logpage{[ 2, 1, 1 ]}\nobreak
+\hyperdef{L}{X7FCF15167D3A44B7}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsLocalAction({\mdseries\slshape arg})\index{IsLocalAction@\texttt{IsLocalAction}!for IsPermGroup}
+\label{IsLocalAction:for IsPermGroup}
+}\hfill{\scriptsize (filter)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Groups acting on the trees $B_{d,k}$ are stored together with their degree (\texttt{LocalActionDegree} (\ref{LocalActionDegree})), radius (\texttt{LocalActionRadius} (\ref{LocalActionRadius})) and other attributes in this category. 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  to do
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{LocalAction (for IsInt, IsInt, IsPermGroup)}}
+\logpage{[ 2, 1, 2 ]}\nobreak
+\hyperdef{L}{X81135CA77A3C0F4E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LocalAction({\mdseries\slshape d, k, F})\index{LocalAction@\texttt{LocalAction}!for IsInt, IsInt, IsPermGroup}
+\label{LocalAction:for IsInt, IsInt, IsPermGroup}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+ the regular rooted tree group $G$ as an object of the category \texttt{IsLocalAction} (\ref{IsLocalAction}), checking that \mbox{\texttt{\mdseries\slshape F}} is indeed a subgroup of $\mathrm{Aut}(B_{d,k})$. 
+
+
+
+ The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}_{0}$ and a group \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$. 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  to do
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{LocalActionNC (for IsInt, IsInt, IsPermGroup)}}
+\logpage{[ 2, 1, 3 ]}\nobreak
+\hyperdef{L}{X84D5C421864EB7FD}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LocalActionNC({\mdseries\slshape d, k, F})\index{LocalActionNC@\texttt{LocalActionNC}!for IsInt, IsInt, IsPermGroup}
+\label{LocalActionNC:for IsInt, IsInt, IsPermGroup}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+ the regular rooted tree group $G$ as an object of the category \texttt{IsLocalAction} (\ref{IsLocalAction}), without checking that \mbox{\texttt{\mdseries\slshape F}} is indeed a subgroup of $\mathrm{Aut}(B_{d,k})$. 
+
+
+
+ The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}_{0}$ and a group \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$. 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  to do
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{LocalActionDegree (for IsLocalAction)}}
+\logpage{[ 2, 1, 4 ]}\nobreak
+\hyperdef{L}{X8321CC72807D1096}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LocalActionDegree({\mdseries\slshape F})\index{LocalActionDegree@\texttt{LocalActionDegree}!for IsLocalAction}
+\label{LocalActionDegree:for IsLocalAction}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+ the degree \mbox{\texttt{\mdseries\slshape d}} of the ball $B_{d,k}$ that $F$ is acting on. 
+
+
+
+ The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})). 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  to do
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{LocalActionRadius (for IsLocalAction)}}
+\logpage{[ 2, 1, 5 ]}\nobreak
+\hyperdef{L}{X7BF3EE4D794F8276}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LocalActionRadius({\mdseries\slshape F})\index{LocalActionRadius@\texttt{LocalActionRadius}!for IsLocalAction}
+\label{LocalActionRadius:for IsLocalAction}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+ the radius \mbox{\texttt{\mdseries\slshape k}} of the ball $B_{d,k}$ that $F$ is acting on. 
+
+
+
+ The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})). 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  to do
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{LocalAction (for r, d, k, aut, addr)}}
+\logpage{[ 2, 1, 6 ]}\nobreak
+\hyperdef{L}{X7E0E11FC802B5210}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LocalAction({\mdseries\slshape r, d, k, aut, addr})\index{LocalAction@\texttt{LocalAction}!for r, d, k, aut, addr}
+\label{LocalAction:for r, d, k, aut, addr}
+}\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
  the \mbox{\texttt{\mdseries\slshape r}}-local action $\sigma_{r}($\mbox{\texttt{\mdseries\slshape aut}},\mbox{\texttt{\mdseries\slshape addr}}$)$ of the automorphism \mbox{\texttt{\mdseries\slshape aut}} of $B_{d,k}$ at the vertex represented by the address \mbox{\texttt{\mdseries\slshape addr}}. 
 
@@ -442,18 +356,18 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Projection (for d, k, F, r)}}
-\logpage{[ 2, 3, 2 ]}\nobreak
-\hyperdef{L}{X86E9798783BC3AFD}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Projection({\mdseries\slshape d, k, F, r})\index{Projection@\texttt{Projection}!for d, k, F, r}
-\label{Projection:for d, k, F, r}
+\subsection{\textcolor{Chapter }{Projection (for F, r)}}
+\logpage{[ 2, 1, 7 ]}\nobreak
+\hyperdef{L}{X7BE35375787753EE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Projection({\mdseries\slshape F, r})\index{Projection@\texttt{Projection}!for F, r}
+\label{Projection:for F, r}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
  the restriction of the projection map $\mathrm{Aut}(B_{d,k})\to\mathrm{Aut}(B_{d,r})$ to \mbox{\texttt{\mdseries\slshape F}}. 
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$, and a projection radius \mbox{\texttt{\mdseries\slshape r}} $\le$ \mbox{\texttt{\mdseries\slshape k}}. 
+ The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$, and a projection radius \mbox{\texttt{\mdseries\slshape r}} $\le$ \mbox{\texttt{\mdseries\slshape k}}. 
 
  }
 
@@ -473,17 +387,17 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
  
 
 \subsection{\textcolor{Chapter }{ImageOfProjection}}
-\logpage{[ 2, 3, 3 ]}\nobreak
+\logpage{[ 2, 1, 8 ]}\nobreak
 \hyperdef{L}{X87A13DDE8321BEF3}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ImageOfProjection({\mdseries\slshape d, k, F, r})\index{ImageOfProjection@\texttt{ImageOfProjection}}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ImageOfProjection({\mdseries\slshape F, r})\index{ImageOfProjection@\texttt{ImageOfProjection}}
 \label{ImageOfProjection}
 }\hfill{\scriptsize (function)}}\\
 \textbf{\indent Returns:\ }
- the image $\sigma_{r}(F,b)$ of the restriction of the projection map $\mathrm{Aut}(B_{d,k})\to\mathrm{Aut}(B_{d,r})$ to \mbox{\texttt{\mdseries\slshape F}}. 
+ the local action $\sigma_{r}(F,b)\le\mathrm{Aut}(B_{d,r})$. 
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$, and a projection radius \mbox{\texttt{\mdseries\slshape r}} $\le$ \mbox{\texttt{\mdseries\slshape k}}. This method uses \texttt{LocalAction} (\ref{LocalAction}) on generators rather than \texttt{Projection} (\ref{Projection:for d, k, F, r}) on the group to compute the image. 
+ The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$, and a projection radius \mbox{\texttt{\mdseries\slshape r}} $\le$ \mbox{\texttt{\mdseries\slshape k}}. This method uses \texttt{LocalAction} (\ref{LocalAction:for r, d, k, aut, addr}) on generators rather than \texttt{Projection} (\ref{Projection:for F, r}) on the group to compute the image. 
 
  }
 
@@ -495,6 +409,209 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
   Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
   !gapprompt@gap>| !gapinput@ImageOfProjection(3,2,AutB(3,2),1);|
   Group([ (), (), (), (1,2,3), (1,2) ])
+\end{Verbatim}
+ }
+
+ 
+\section{\textcolor{Chapter }{Finite balls}}\label{Chapter_Preliminaries_Section_Finite_balls}
+\logpage{[ 2, 2, 0 ]}
+\hyperdef{L}{X855A2B187C52B82A}{}
+{
+  The automorphism groups of the finite labelled balls $B_{d,k}$ lie at the center of this package. The method \texttt{AutB} (\ref{AutB}) produces these automorphism groups as iterated wreath products. The result is
+a permutation group on the set of leaves of $B_{d,k}$. 
+
+\subsection{\textcolor{Chapter }{AutB}}
+\logpage{[ 2, 2, 1 ]}\nobreak
+\hyperdef{L}{X7B766DE9824037BB}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutB({\mdseries\slshape d, k})\index{AutB@\texttt{AutB}}
+\label{AutB}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+ the local action $\mathrm{Aut}(B_{d,k})$ as a permutation group of the $d\cdot (d-1)^{k-1}$ leaves of $B_{d,k}$. 
+
+
+
+ The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$ and a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}_{0}$. 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@G:=AutB(3,2);|
+  Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+  !gapprompt@gap>| !gapinput@Size(G);|
+  48
+\end{Verbatim}
+ }
+
+ 
+\section{\textcolor{Chapter }{Addresses and leaves}}\label{Chapter_Preliminaries_Section_Addresses_and_leaves}
+\logpage{[ 2, 3, 0 ]}
+\hyperdef{L}{X7A77C1B579101B7C}{}
+{
+  The vertices at distance $n$ from the center $b$ of $B_{d,k}$ are addressed as elements of the set 
+\[\Omega^{(n)}:=\{(\omega_{1},\ldots,\omega_{n})\in\Omega^{n}\mid \forall
+l\in\{1,\ldots,n-1\}:\ \omega_{l}\neq\omega_{l+1}\},\]
+ i.e. as lists of length $n$ of elements from \texttt{[1..d]} such that no two consecutive entries are equal. They are ordered according to
+the lexicographic order on $\Omega^{(n)}$. The center $b$ itself is addressed by the empty list \texttt{[]}. Note that the leaves of $B_{d,k}$ correspond to elements of $\Omega^{(k)}$. 
+
+\subsection{\textcolor{Chapter }{Addresses}}
+\logpage{[ 2, 3, 1 ]}\nobreak
+\hyperdef{L}{X843C3D8E82F0D51F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Addresses({\mdseries\slshape d, k})\index{Addresses@\texttt{Addresses}}
+\label{Addresses}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+ a list of all addresses of vertices in $B_{d,k}$ in ascending order with respect to length, lexicographically ordered within
+each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfAddress} (\ref{LeafOfAddress}) for the correspondence between the leaves of $B_{d,k}$ and addresses of length \mbox{\texttt{\mdseries\slshape k}}. 
+
+
+
+ The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$ and a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}_{0}$. 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Addresses(3,1);|
+  [ [  ], [ 1 ], [ 2 ], [ 3 ] ]
+  !gapprompt@gap>| !gapinput@Addresses(3,2);|
+  [ [  ], [ 1 ], [ 2 ], [ 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], 
+  [ 3, 1 ], [ 3, 2 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{LeafAddresses}}
+\logpage{[ 2, 3, 2 ]}\nobreak
+\hyperdef{L}{X868811D87FEB1AA6}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LeafAddresses({\mdseries\slshape d, k})\index{LeafAddresses@\texttt{LeafAddresses}}
+\label{LeafAddresses}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+ a list of addresses of the leaves of $B_{d,k}$ in lexicographic order. 
+
+
+
+ The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$ and a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}_{0}$. 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@LeafAddresses(3,2);|
+  [ [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{AddressOfLeaf}}
+\logpage{[ 2, 3, 3 ]}\nobreak
+\hyperdef{L}{X78379A547ED7A317}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AddressOfLeaf({\mdseries\slshape d, k, lf})\index{AddressOfLeaf@\texttt{AddressOfLeaf}}
+\label{AddressOfLeaf}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+ the address of the leaf \mbox{\texttt{\mdseries\slshape lf}} of $B_{d,k}$ with respect to the lexicographic order. 
+
+
+
+ The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, and a leaf \mbox{\texttt{\mdseries\slshape lf}} of $B_{d,k}$. 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@AddressOfLeaf(3,2,1);|
+  [ 1, 2 ]
+  !gapprompt@gap>| !gapinput@AddressOfLeaf(3,3,1);|
+  [ 1, 2, 1 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{LeafOfAddress}}
+\logpage{[ 2, 3, 4 ]}\nobreak
+\hyperdef{L}{X7E43E2B87B97A9BE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LeafOfAddress({\mdseries\slshape d, k, addr})\index{LeafOfAddress@\texttt{LeafOfAddress}}
+\label{LeafOfAddress}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+ the smallest leaf (integer) whose address has \mbox{\texttt{\mdseries\slshape addr}} as a prefix. 
+
+
+
+ The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, and an address \mbox{\texttt{\mdseries\slshape addr}}. 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@LeafOfAddress(3,2,[1,2]);|
+  1
+  !gapprompt@gap>| !gapinput@LeafOfAddress(3,2,[3]);|
+  5
+  !gapprompt@gap>| !gapinput@LeafOfAddress(3,2,[]);|
+  1
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{ImageAddress}}
+\logpage{[ 2, 3, 5 ]}\nobreak
+\hyperdef{L}{X871D6B8783E17AB8}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ImageAddress({\mdseries\slshape d, k, aut, addr})\index{ImageAddress@\texttt{ImageAddress}}
+\label{ImageAddress}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+ the address of the image of the vertex represented by the address \mbox{\texttt{\mdseries\slshape addr}} under the automorphism \mbox{\texttt{\mdseries\slshape aut}} of $B_{d,k}$. 
+
+
+
+ The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, an automorphism \mbox{\texttt{\mdseries\slshape aut}} of $B_{d,k}$, and an address \mbox{\texttt{\mdseries\slshape addr}}. 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@ImageAddress(3,2,(1,2),[1,2]);|
+  [ 1, 3 ]
+  !gapprompt@gap>| !gapinput@ImageAddress(3,2,(1,2),[1]);|
+  [ 1 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{ComposeAddresses}}
+\logpage{[ 2, 3, 6 ]}\nobreak
+\hyperdef{L}{X862D09157F1D9D98}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ComposeAddresses({\mdseries\slshape addr1, addr2})\index{ComposeAddresses@\texttt{ComposeAddresses}}
+\label{ComposeAddresses}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+ the concatenation of the addresses \mbox{\texttt{\mdseries\slshape addr1}} and \mbox{\texttt{\mdseries\slshape addr2}} with reduction as per \cite[Section 3.2]{Tor20}. 
+
+
+
+ The arguments of this method are two addresses \mbox{\texttt{\mdseries\slshape addr1}} and \mbox{\texttt{\mdseries\slshape addr2}}. 
+
+ }
+
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@ComposeAddresses([1,3],[2,1]);  |
+  [ 1, 3, 2, 1 ]
+  !gapprompt@gap>| !gapinput@ComposeAddresses([1,3,2],[2,1]);|
+  [ 1, 3, 1 ]
 \end{Verbatim}
  }
 
@@ -574,7 +691,7 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
 \subsection{\textcolor{Chapter }{CompatibleElement}}
 \logpage{[ 3, 2, 2 ]}\nobreak
 \hyperdef{L}{X7EF32E607ABFB451}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibleElement({\mdseries\slshape d, k, F, aut, dir})\index{CompatibleElement@\texttt{CompatibleElement}}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibleElement({\mdseries\slshape F, aut, dir})\index{CompatibleElement@\texttt{CompatibleElement}}
 \label{CompatibleElement}
 }\hfill{\scriptsize (function)}}\\
 \textbf{\indent Returns:\ }
@@ -582,7 +699,7 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}}, a radius \mbox{\texttt{\mdseries\slshape k}}, a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$, an element \mbox{\texttt{\mdseries\slshape aut}} $\in$ \mbox{\texttt{\mdseries\slshape F}}, and a direction \mbox{\texttt{\mdseries\slshape dir}} $\in$\texttt{[1..d]}. 
+ The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$, an element \mbox{\texttt{\mdseries\slshape aut}} $\in$ \mbox{\texttt{\mdseries\slshape F}}, and a direction \mbox{\texttt{\mdseries\slshape dir}} $\in$\texttt{[1..d]}. 
 
  }
 
@@ -610,11 +727,11 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
 \logpage{[ 3, 2, 3 ]}
 \hyperdef{L}{X7ECC9E9982597E12}{}
 {
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibilitySet({\mdseries\slshape d, k, F, aut, dir})\index{CompatibilitySet@\texttt{CompatibilitySet}!for d, k, F, aut, dir}
-\label{CompatibilitySet:for d, k, F, aut, dir}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibilitySet({\mdseries\slshape F, aut, dir})\index{CompatibilitySet@\texttt{CompatibilitySet}!for F, aut, dir}
+\label{CompatibilitySet:for F, aut, dir}
 }\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibilitySet({\mdseries\slshape d, k, F, aut, dirs})\index{CompatibilitySet@\texttt{CompatibilitySet}!for d, k, F, aut, dirs}
-\label{CompatibilitySet:for d, k, F, aut, dirs}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibilitySet({\mdseries\slshape F, aut, dirs})\index{CompatibilitySet@\texttt{CompatibilitySet}!for F, aut, dirs}
+\label{CompatibilitySet:for F, aut, dirs}
 }\hfill{\scriptsize (operation)}}\\
 
 
@@ -622,12 +739,12 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
 
  
 \begin{description}
-\item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape aut}}, \mbox{\texttt{\mdseries\slshape dir}}}]  Returns: the list of elements of \mbox{\texttt{\mdseries\slshape F}} that are compatible with \mbox{\texttt{\mdseries\slshape aut}} in direction \mbox{\texttt{\mdseries\slshape dir}}. 
+\item[{for the arguments \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape aut}}, \mbox{\texttt{\mdseries\slshape dir}}}]  Returns: the list of elements of \mbox{\texttt{\mdseries\slshape F}} that are compatible with \mbox{\texttt{\mdseries\slshape aut}} in direction \mbox{\texttt{\mdseries\slshape dir}}. 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}}, a radius \mbox{\texttt{\mdseries\slshape k}}, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$, an automorphism \mbox{\texttt{\mdseries\slshape aut}} $\in F$, and a direction \mbox{\texttt{\mdseries\slshape dir}} $\in$\texttt{[1..d]}. 
-\item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape aut}}, \mbox{\texttt{\mdseries\slshape dirs}}}]  Returns: the list of elements of \mbox{\texttt{\mdseries\slshape F}} that are compatible with \mbox{\texttt{\mdseries\slshape aut}} in all directions of \mbox{\texttt{\mdseries\slshape dirs}}. 
+ The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} of $\le\mathrm{Aut}(B_{d,k})$, an automorphism \mbox{\texttt{\mdseries\slshape aut}} $\in F$, and a direction \mbox{\texttt{\mdseries\slshape dir}} $\in$\texttt{[1..d]}. 
+\item[{for the arguments \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape aut}}, \mbox{\texttt{\mdseries\slshape dirs}}}]  Returns: the list of elements of \mbox{\texttt{\mdseries\slshape F}} that are compatible with \mbox{\texttt{\mdseries\slshape aut}} in all directions of \mbox{\texttt{\mdseries\slshape dirs}}. 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}}, a radius \mbox{\texttt{\mdseries\slshape k}}, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$, an automorphism \mbox{\texttt{\mdseries\slshape aut}} $\in F$, and a sublist of directions \mbox{\texttt{\mdseries\slshape dirs}} $\subseteq$\texttt{[1..d]}. 
+ The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} of $\le\mathrm{Aut}(B_{d,k})$, an automorphism \mbox{\texttt{\mdseries\slshape aut}} $\in F$, and a sublist of directions \mbox{\texttt{\mdseries\slshape dirs}} $\subseteq$\texttt{[1..d]}. 
 \end{description}
  
 
@@ -696,18 +813,18 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
   Using the methods of Section \ref{Section_compatible_elements}, this section provides methods to test groups for the compatibility condition
 and search for compatible subgroups inside a given group, e.g. $\mathrm{Aut}(B_{d,k})$, or with a certain image under some projection. 
 
-\subsection{\textcolor{Chapter }{MaximalCompatibleSubgroup}}
+\subsection{\textcolor{Chapter }{MaximalCompatibleSubgroup (for IsLocalAction)}}
 \logpage{[ 3, 3, 1 ]}\nobreak
-\hyperdef{L}{X825B756879249718}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaximalCompatibleSubgroup({\mdseries\slshape d, k, F})\index{MaximalCompatibleSubgroup@\texttt{MaximalCompatibleSubgroup}}
-\label{MaximalCompatibleSubgroup}
-}\hfill{\scriptsize (function)}}\\
+\hyperdef{L}{X79D1BC54814345D4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaximalCompatibleSubgroup({\mdseries\slshape F})\index{MaximalCompatibleSubgroup@\texttt{MaximalCompatibleSubgroup}!for IsLocalAction}
+\label{MaximalCompatibleSubgroup:for IsLocalAction}
+}\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
-The maximal compatible subgroup $C(F)$ of \mbox{\texttt{\mdseries\slshape F}}. 
+The local action $C($\mbox{\texttt{\mdseries\slshape F}}$)\le\mathrm{Aut}(B_{d,k})$, which is the maximal compatible subgroup of \mbox{\texttt{\mdseries\slshape F}}. 
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}}, a radius \mbox{\texttt{\mdseries\slshape k}}, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$. 
+ The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})). 
 
  }
 
@@ -722,18 +839,18 @@ The maximal compatible subgroup $C(F)$ of \mbox{\texttt{\mdseries\slshape F}}.
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{IsCompatible}}
+\subsection{\textcolor{Chapter }{SatisfiesC (for IsLocalAction)}}
 \logpage{[ 3, 3, 2 ]}\nobreak
-\hyperdef{L}{X7ABC3D2B7E87D536}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCompatible({\mdseries\slshape d, k, F})\index{IsCompatible@\texttt{IsCompatible}}
-\label{IsCompatible}
-}\hfill{\scriptsize (function)}}\\
+\hyperdef{L}{X8302F28A85F1C4FE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesC({\mdseries\slshape F})\index{SatisfiesC@\texttt{SatisfiesC}!for IsLocalAction}
+\label{SatisfiesC:for IsLocalAction}
+}\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 \texttt{true} if \mbox{\texttt{\mdseries\slshape F}} satisfies the compatibility condition (C), and \texttt{false} otherwise. 
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$. 
+ The argument of this property is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})). 
 
  }
 
@@ -751,7 +868,7 @@ The maximal compatible subgroup $C(F)$ of \mbox{\texttt{\mdseries\slshape F}}.
 \subsection{\textcolor{Chapter }{CompatibleSubgroups}}
 \logpage{[ 3, 3, 3 ]}\nobreak
 \hyperdef{L}{X7FF0262182F3B9E8}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibleSubgroups({\mdseries\slshape d, k, F})\index{CompatibleSubgroups@\texttt{CompatibleSubgroups}}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibleSubgroups({\mdseries\slshape F})\index{CompatibleSubgroups@\texttt{CompatibleSubgroups}}
 \label{CompatibleSubgroups}
 }\hfill{\scriptsize (function)}}\\
 \textbf{\indent Returns:\ }
@@ -759,7 +876,7 @@ the list of all compatible subgroups of \mbox{\texttt{\mdseries\slshape F}}.
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$. This method calls \texttt{AllSubgroups} on $F$ and is therefore slow. Use for instructional purposes on small examples only,
+ The argument of this method is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$. This method calls \texttt{AllSubgroups} on $F$ and is therefore slow. Use for instructional purposes on small examples only,
 and use \texttt{ConjugacyClassRepsCompatibleSubgroups} (\ref{ConjugacyClassRepsCompatibleSubgroups}) or \texttt{ConjugacyClassRepsCompatibleSubgroupsWithProjection} (\ref{ConjugacyClassRepsCompatibleSubgroupsWithProjection}) for computations. 
 
  }
@@ -781,18 +898,18 @@ and use \texttt{ConjugacyClassRepsCompatibleSubgroups} (\ref{ConjugacyClassRepsC
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{ConjugacyClassRepsCompatibleSubgroups}}
+\subsection{\textcolor{Chapter }{ConjugacyClassRepsCompatibleSubgroups (for IsLocalAction)}}
 \logpage{[ 3, 3, 4 ]}\nobreak
-\hyperdef{L}{X7B5F79787F3E3668}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConjugacyClassRepsCompatibleSubgroups({\mdseries\slshape d, k, F})\index{ConjugacyClassRepsCompatibleSubgroups@\texttt{Conjugacy}\-\texttt{Class}\-\texttt{Reps}\-\texttt{Compatible}\-\texttt{Subgroups}}
-\label{ConjugacyClassRepsCompatibleSubgroups}
-}\hfill{\scriptsize (function)}}\\
+\hyperdef{L}{X7CEBD97183C3399E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConjugacyClassRepsCompatibleSubgroups({\mdseries\slshape F})\index{ConjugacyClassRepsCompatibleSubgroups@\texttt{Conjugacy}\-\texttt{Class}\-\texttt{Reps}\-\texttt{Compatible}\-\texttt{Subgroups}!for IsLocalAction}
+\label{ConjugacyClassRepsCompatibleSubgroups:for IsLocalAction}
+}\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
 a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdseries\slshape F}} that contain a compatible subgroup. 
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$. 
+ The argument of this method is a local action \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$. 
 
  }
 
@@ -813,7 +930,7 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 \subsection{\textcolor{Chapter }{ConjugacyClassRepsCompatibleSubgroupsWithProjection}}
 \logpage{[ 3, 3, 5 ]}\nobreak
 \hyperdef{L}{X876408A9784A6F34}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConjugacyClassRepsCompatibleSubgroupsWithProjection({\mdseries\slshape d, k, r, F})\index{ConjugacyClassRepsCompatibleSubgroupsWithProjection@\texttt{Conjugacy}\-\texttt{Class}\-\texttt{Reps}\-\texttt{Compatible}\-\texttt{Subgroups}\-\texttt{With}\-\texttt{Projection}}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConjugacyClassRepsCompatibleSubgroupsWithProjection({\mdseries\slshape l, F})\index{ConjugacyClassRepsCompatibleSubgroupsWithProjection@\texttt{Conjugacy}\-\texttt{Class}\-\texttt{Reps}\-\texttt{Compatible}\-\texttt{Subgroups}\-\texttt{With}\-\texttt{Projection}}
 \label{ConjugacyClassRepsCompatibleSubgroupsWithProjection}
 }\hfill{\scriptsize (function)}}\\
 \textbf{\indent Returns:\ }
@@ -821,7 +938,7 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, a radius \mbox{\texttt{\mdseries\slshape r}}$\in$\texttt{[1..k]}, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,r})$. 
+ The arguments of this method are a radius \mbox{\texttt{\mdseries\slshape r}} $\in\mathbb{N}$, and a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ for some $k\le r$. 
 
  }
 
@@ -961,14 +1078,14 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GAMMA({\mdseries\slshape l, d, F})\index{GAMMA@\texttt{GAMMA}!for l, d, F}
 \label{GAMMA:for l, d, F}
 }\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GAMMA({\mdseries\slshape d, k, F, z})\index{GAMMA@\texttt{GAMMA}!for d, k, F, z}
-\label{GAMMA:for d, k, F, z}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GAMMA({\mdseries\slshape F, z})\index{GAMMA@\texttt{GAMMA}!for F, z}
+\label{GAMMA:for F, z}
 }\hfill{\scriptsize (operation)}}\\
 
 
  
 \begin{description}
-\item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Gamma($\mbox{\texttt{\mdseries\slshape F}}$)=\{(a,(a)_{\omega})\mid a\in F\}\le\mathrm{Aut}(B_{d,2})$. 
+\item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the local action $\Gamma($\mbox{\texttt{\mdseries\slshape F}}$)=\{(a,(a)_{\omega})\mid a\in F\}\le\mathrm{Aut}(B_{d,2})$. 
 
  The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $S_{d}$. 
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape l}}, \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Gamma^{l}($\mbox{\texttt{\mdseries\slshape F}}$)\le\mathrm{Aut}(B_{d,l})$. 
@@ -976,7 +1093,7 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
  The arguments of this method are a radius \mbox{\texttt{\mdseries\slshape l}} $\in\mathbb{N}$, a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $S_d$. 
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape z}}}]  Returns: the group $\Gamma_{z}($\mbox{\texttt{\mdseries\slshape F}}$)=\{(a,($\mbox{\texttt{\mdseries\slshape z}}$(a,\omega))_{\omega\in\Omega})\mid a\in$\mbox{\texttt{\mdseries\slshape F}}$\}\le\mathrm{Aut}(B_{d,k+1})$. 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$, and an involutive compatibility cocycle \mbox{\texttt{\mdseries\slshape z}} of \mbox{\texttt{\mdseries\slshape F}} (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle})). 
+ The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ and an involutive compatibility cocycle \mbox{\texttt{\mdseries\slshape z}} of \mbox{\texttt{\mdseries\slshape F}} (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle})). 
 \end{description}
  
 
@@ -1091,11 +1208,11 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PHI({\mdseries\slshape d, F})\index{PHI@\texttt{PHI}!for d, F}
 \label{PHI:for d, F}
 }\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PHI({\mdseries\slshape d, k, F})\index{PHI@\texttt{PHI}!for d, k, F}
-\label{PHI:for d, k, F}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PHI({\mdseries\slshape F})\index{PHI@\texttt{PHI}!for F}
+\label{PHI:for F}
 }\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PHI({\mdseries\slshape l, d, k, F})\index{PHI@\texttt{PHI}!for l, d, k, F}
-\label{PHI:for l, d, k, F}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PHI({\mdseries\slshape l, F})\index{PHI@\texttt{PHI}!for l, F}
+\label{PHI:for l, F}
 }\hfill{\scriptsize (operation)}}\\
 
 
@@ -1108,10 +1225,10 @@ C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,2})$.
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Phi_{k}($\mbox{\texttt{\mdseries\slshape F}}$)=\{(a,(a_{\omega})_{\omega})\mid a\in $\mbox{\texttt{\mdseries\slshape F}}$,\ \forall \omega\in\Omega:\ a_{\omega}\in
 C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$. 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$ and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$. 
+ The argument of this method is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$. 
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape l}}, \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Phi^{l}($\mbox{\texttt{\mdseries\slshape F}}$)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}($\mbox{\texttt{\mdseries\slshape F}}$)\le\mathrm{Aut}(B_{d,l})$. 
 
- The arguments of this method are a radius \mbox{\texttt{\mdseries\slshape l}} $\in\mathbb{N}$, a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}_{\le l}$ and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$. 
+ The arguments of this method are a radius \mbox{\texttt{\mdseries\slshape l}} $\in\mathbb{N}$ and a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$. 
 \end{description}
  
 
@@ -1193,8 +1310,8 @@ C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$.
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PHI({\mdseries\slshape d, F, P})\index{PHI@\texttt{PHI}!for d, F, P}
 \label{PHI:for d, F, P}
 }\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PHI({\mdseries\slshape d, k, F, P})\index{PHI@\texttt{PHI}!for d, k, F, P}
-\label{PHI:for d, k, F, P}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PHI({\mdseries\slshape F, P})\index{PHI@\texttt{PHI}!for F, P}
+\label{PHI:for F, P}
 }\hfill{\scriptsize (operation)}}\\
 
 
@@ -1210,7 +1327,7 @@ C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$.
  The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$ and a permutation group \mbox{\texttt{\mdseries\slshape F}} $\le S_{d}$ and a partition \mbox{\texttt{\mdseries\slshape P}} of \texttt{[1..d]} preserved by \mbox{\texttt{\mdseries\slshape F}}. 
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape P}}}]  Returns: the group $\Phi_{k}($\mbox{\texttt{\mdseries\slshape F}}$,$\mbox{\texttt{\mdseries\slshape P}}$)=\{(\alpha,(\alpha_{\omega})_{\omega})\mid \alpha\in \mbox{\texttt{\mdseries\slshape F}},\ \alpha_{\omega}\in C_{F}(\alpha,\omega)$ constant w.r.t. \mbox{\texttt{\mdseries\slshape P}}$\}\le\mathrm{Aut}(B_{d,k+1})$. 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$, and a partition \mbox{\texttt{\mdseries\slshape P}} of \texttt{[1..d]} preserverd by $\pi$\mbox{\texttt{\mdseries\slshape F}} $\le S_{d}$. This method assumes that all compatibility sets with respect to a partition
+ The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ and a partition \mbox{\texttt{\mdseries\slshape P}} of \texttt{[1..d]} preserverd by $\pi$\mbox{\texttt{\mdseries\slshape F}} $\le S_{d}$. This method assumes that all compatibility sets with respect to a partition
 element are non-empty and that all compatibility sets of the identity with
 respect to a partition element are non-trivial. 
 \end{description}
@@ -1440,8 +1557,8 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibleKernels({\mdseries\slshape d, F})\index{CompatibleKernels@\texttt{CompatibleKernels}!for d, F}
 \label{CompatibleKernels:for d, F}
 }\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibleKernels({\mdseries\slshape d, k, F, z})\index{CompatibleKernels@\texttt{CompatibleKernels}!for d, k, F, z}
-\label{CompatibleKernels:for d, k, F, z}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompatibleKernels({\mdseries\slshape F, z})\index{CompatibleKernels@\texttt{CompatibleKernels}!for F, z}
+\label{CompatibleKernels:for F, z}
 }\hfill{\scriptsize (operation)}}\\
 
 
@@ -1454,7 +1571,7 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
  The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, and a permutation group \mbox{\texttt{\mdseries\slshape F}} $\le S_{d}$. The kernels output by this method are compatible with \mbox{\texttt{\mdseries\slshape F}} with respect to the standard cocycle (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle})) and can be used in the method \texttt{SIGMA} (\ref{SIGMA}). 
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape z}}}]  Returns: the list of kernels $K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})$ that are normalized by $\Gamma_{z}($\mbox{\texttt{\mdseries\slshape F}}$)$ and such that for all $k\in K$ and $\omega\in\Omega$ there is $k_{\omega}\in K$ with $\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}$. 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$ that satisfies (C), and an involutive compatibility cocycle \mbox{\texttt{\mdseries\slshape z}} of \mbox{\texttt{\mdseries\slshape F}} (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle})). It can be used in the method \texttt{SIGMA} (\ref{SIGMA}). 
+ The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ that satisfies (C) and an involutive compatibility cocycle \mbox{\texttt{\mdseries\slshape z}} of \mbox{\texttt{\mdseries\slshape F}} (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle})). It can be used in the method \texttt{SIGMA} (\ref{SIGMA}). 
 \end{description}
  
 
@@ -1488,8 +1605,8 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SIGMA({\mdseries\slshape d, F, K})\index{SIGMA@\texttt{SIGMA}!for d, F, K}
 \label{SIGMA:for d, F, K}
 }\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SIGMA({\mdseries\slshape d, k, F, K, z})\index{SIGMA@\texttt{SIGMA}!for d, k, F, K, z}
-\label{SIGMA:for d, k, F, K, z}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SIGMA({\mdseries\slshape F, K, z})\index{SIGMA@\texttt{SIGMA}!for F, K, z}
+\label{SIGMA:for F, K, z}
 }\hfill{\scriptsize (operation)}}\\
 
 
@@ -1502,7 +1619,7 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
  The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a subgroup \mbox{\texttt{\mdseries\slshape F}} of $S_{d}$ and a compatible kernel \mbox{\texttt{\mdseries\slshape K}} for \mbox{\texttt{\mdseries\slshape F}} (see \texttt{CompatibleKernels} (\ref{CompatibleKernels})). 
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape K}}, \mbox{\texttt{\mdseries\slshape z}}}]  Returns: the semidirect product $\Sigma_{z}($\mbox{\texttt{\mdseries\slshape F}}$,$\mbox{\texttt{\mdseries\slshape K}}$)\le\mathrm{Aut}(B_{d,k+1})$. 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$ that satisfies (C), and a kernel \mbox{\texttt{\mdseries\slshape K}} that is compatible for \mbox{\texttt{\mdseries\slshape F}} with respect to the involutive compatibility cocycle \mbox{\texttt{\mdseries\slshape z}} (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle}) and \texttt{CompatibleKernels} (\ref{CompatibleKernels})) of \mbox{\texttt{\mdseries\slshape F}}. 
+ The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$ that satisfies (C) and a kernel \mbox{\texttt{\mdseries\slshape K}} that is compatible for \mbox{\texttt{\mdseries\slshape F}} with respect to the involutive compatibility cocycle \mbox{\texttt{\mdseries\slshape z}} (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle}) and \texttt{CompatibleKernels} (\ref{CompatibleKernels})) of \mbox{\texttt{\mdseries\slshape F}}. 
 \end{description}
  
 
@@ -1568,18 +1685,18 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
 {
   
 
-\subsection{\textcolor{Chapter }{SatisfiesD}}
+\subsection{\textcolor{Chapter }{SatisfiesD (for IsLocalAction)}}
 \logpage{[ 5, 2, 1 ]}\nobreak
-\hyperdef{L}{X7A879D36842F4A53}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesD({\mdseries\slshape d, k, F})\index{SatisfiesD@\texttt{SatisfiesD}}
-\label{SatisfiesD}
-}\hfill{\scriptsize (function)}}\\
+\hyperdef{L}{X87A11A3E7BDC0549}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesD({\mdseries\slshape F})\index{SatisfiesD@\texttt{SatisfiesD}!for IsLocalAction}
+\label{SatisfiesD:for IsLocalAction}
+}\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
  \texttt{true} if \mbox{\texttt{\mdseries\slshape F}} satisfies the discreteness condition (D), and \texttt{false} otherwise. 
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$. 
+ The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})). 
 
  }
 
@@ -1594,18 +1711,18 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{IsDiscrete}}
+\subsection{\textcolor{Chapter }{IsDiscrete (for IsLocalAction)}}
 \logpage{[ 5, 2, 2 ]}\nobreak
-\hyperdef{L}{X811C6602865F3D09}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsDiscrete({\mdseries\slshape d, k, F})\index{IsDiscrete@\texttt{IsDiscrete}}
-\label{IsDiscrete}
-}\hfill{\scriptsize (function)}}\\
+\hyperdef{L}{X7C2F10AC79AC7213}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsDiscrete({\mdseries\slshape F})\index{IsDiscrete@\texttt{IsDiscrete}!for IsLocalAction}
+\label{IsDiscrete:for IsLocalAction}
+}\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
  \texttt{true} if $\mathrm{U}_{k}(F)$ is discrete, and \texttt{false} otherwise. 
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$. The condition that $\mathrm{U}_{k}(F)$ is discrete is equivalent to $C(F)$ satisfying the discreteness condition (D). 
+ The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})). 
 
  }
 
@@ -1643,18 +1760,18 @@ a map $z:F\times\{1,\ldots,d\}\to F$ that satisfies certain properties, see \cit
 this case, F admits an extension $\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})$ that satisfies both (C) and (D). Involutive compatibility cocycles can be
 searched for using \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle}) and \texttt{AllInvolutiveCompatibilityCocycles} (\ref{AllInvolutiveCompatibilityCocycles}) below. 
 
-\subsection{\textcolor{Chapter }{InvolutiveCompatibilityCocycle}}
+\subsection{\textcolor{Chapter }{InvolutiveCompatibilityCocycle (for IsLocalAction)}}
 \logpage{[ 5, 3, 1 ]}\nobreak
-\hyperdef{L}{X82B5AF9086261D4A}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{InvolutiveCompatibilityCocycle({\mdseries\slshape d, k, F})\index{InvolutiveCompatibilityCocycle@\texttt{InvolutiveCompatibilityCocycle}}
-\label{InvolutiveCompatibilityCocycle}
-}\hfill{\scriptsize (function)}}\\
+\hyperdef{L}{X80ADE0E379590053}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{InvolutiveCompatibilityCocycle({\mdseries\slshape F})\index{InvolutiveCompatibilityCocycle@\texttt{InvolutiveCompatibilityCocycle}!for IsLocalAction}
+\label{InvolutiveCompatibilityCocycle:for IsLocalAction}
+}\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
 an involutive compatibility cocycle of \mbox{\texttt{\mdseries\slshape F}}, which is a mapping \mbox{\texttt{\mdseries\slshape F}}$\times$\texttt{[1..d]}$\to$\mbox{\texttt{\mdseries\slshape F}} with certain properties, if it exists, and \texttt{fail} otherwise. When \mbox{\texttt{\mdseries\slshape k}} $=1$, the standard cocycle is returned. 
 
 
 
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a radius \mbox{\texttt{\mdseries\slshape k}} $\in\mathbb{N}$, and a compatible subgroup \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$. 
+ The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})), which is compatible (\texttt{IsCompatible} (\ref{IsCompatible})). 
 
  }
 
@@ -1688,18 +1805,20 @@ an involutive compatibility cocycle of \mbox{\texttt{\mdseries\slshape F}}, whic
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{AllInvolutiveCompatibilityCocycles}}
+\subsection{\textcolor{Chapter }{AllInvolutiveCompatibilityCocycles (for IsLocalAction)}}
 \logpage{[ 5, 3, 2 ]}\nobreak
-\hyperdef{L}{X80E698087CFCD3CF}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AllInvolutiveCompatibilityCocycles({\mdseries\slshape d, k, F})\index{AllInvolutiveCompatibilityCocycles@\texttt{AllInvolutiveCompatibilityCocycles}}
-\label{AllInvolutiveCompatibilityCocycles}
-}\hfill{\scriptsize (function)}}\\
+\hyperdef{L}{X83A26CBF87AB1FD9}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AllInvolutiveCompatibilityCocycles({\mdseries\slshape F})\index{AllInvolutiveCompatibilityCocycles@\texttt{AllInvolutiveCompatibilityCocycles}!for IsLocalAction}
+\label{AllInvolutiveCompatibilityCocycles:for IsLocalAction}
+}\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
 the list of all involutive compatibility cocycles of $F$. 
 
 
 
- The arguments of this method are a degree $d\in\mathbb{N}_{\ge 3}$, a radius $k\in\mathbb{N}$, and a compatible subgroup $F\le \mathrm{Aut}(B_{d,k})$. }
+ The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})), which is compatible (\texttt{IsCompatible} (\ref{IsCompatible})). 
+
+ }
 
  
 

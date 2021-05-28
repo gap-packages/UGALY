@@ -62,12 +62,12 @@
   
   [1X3.2-2 CompatibleElement[101X
   
-  [33X[1;0Y[29X[2XCompatibleElement[102X( [3Xd[103X, [3Xk[103X, [3XF[103X, [3Xaut[103X, [3Xdir[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XCompatibleElement[102X( [3XF[103X, [3Xaut[103X, [3Xdir[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Yan  element  of  [3XF[103X that is compatible with [3Xaut[103X in direction [3Xdir[103X if
             one exists, and [9Xfail[109X otherwise.[133X
   
-  [33X[0;0YThe  arguments  of  this  method are a degree [3Xd[103X, a radius [3Xk[103X, a subgroup [3XF[103X of
-  [23X\mathrm{Aut}(B_{d,k})[123X, an element [3Xaut[103X [23X\in[123X [3XF[103X, and a direction [3Xdir[103X [23X\in[123X[10X[1..d][110X.[133X
+  [33X[0;0YThe  arguments of this method are a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X,
+  an element [3Xaut[103X [23X\in[123X [3XF[103X, and a direction [3Xdir[103X [23X\in[123X[10X[1..d][110X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xa:=Random(AutB(5,1)); dir:=Random([1..5]);[127X[104X
@@ -87,24 +87,24 @@
   
   [1X3.2-3 [33X[0;0YCompatibilitySet[133X[101X
   
-  [33X[1;0Y[29X[2XCompatibilitySet[102X( [3Xd[103X, [3Xk[103X, [3XF[103X, [3Xaut[103X, [3Xdir[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XCompatibilitySet[102X( [3Xd[103X, [3Xk[103X, [3XF[103X, [3Xaut[103X, [3Xdirs[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XCompatibilitySet[102X( [3XF[103X, [3Xaut[103X, [3Xdir[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XCompatibilitySet[102X( [3XF[103X, [3Xaut[103X, [3Xdirs[103X ) [32X operation[133X
   
-  [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X, [3Xaut[103X[8X, [3Xdir[103X[8X[108X
+  [8Xfor the arguments [3XF[103X[8X, [3Xaut[103X[8X, [3Xdir[103X[8X[108X
         [33X[0;6YReturns:  the  list  of  elements of [3XF[103X that are compatible with [3Xaut[103X in
         direction [3Xdir[103X.[133X
   
-        [33X[0;6YThe  arguments  of  this  method  are  a  degree  [3Xd[103X, a radius [3Xk[103X, and a
-        subgroup  [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X, an automorphism [3Xaut[103X [23X\in F[123X, and a
-        direction [3Xdir[103X [23X\in[123X[10X[1..d][110X.[133X
+        [33X[0;6YThe   arguments   of   this   method   are   a   local   action  [3XF[103X  of
+        [23X\le\mathrm{Aut}(B_{d,k})[123X,  an  automorphism [3Xaut[103X [23X\in F[123X, and a direction
+        [3Xdir[103X [23X\in[123X[10X[1..d][110X.[133X
   
-  [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X, [3Xaut[103X[8X, [3Xdirs[103X[8X[108X
+  [8Xfor the arguments [3XF[103X[8X, [3Xaut[103X[8X, [3Xdirs[103X[8X[108X
         [33X[0;6YReturns: the list of elements of [3XF[103X that are compatible with [3Xaut[103X in all
         directions of [3Xdirs[103X.[133X
   
-        [33X[0;6YThe  arguments  of  this  method  are  a  degree  [3Xd[103X, a radius [3Xk[103X, and a
-        subgroup  [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X, an automorphism [3Xaut[103X [23X\in F[123X, and a
-        sublist of directions [3Xdirs[103X [23X\subseteq[123X[10X[1..d][110X.[133X
+        [33X[0;6YThe   arguments   of   this   method   are   a   local   action  [3XF[103X  of
+        [23X\le\mathrm{Aut}(B_{d,k})[123X,  an automorphism [3Xaut[103X [23X\in F[123X, and a sublist of
+        directions [3Xdirs[103X [23X\subseteq[123X[10X[1..d][110X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=TransitiveGroup(4,3);[127X[104X
@@ -157,11 +157,12 @@
   
   [1X3.3-1 MaximalCompatibleSubgroup[101X
   
-  [33X[1;0Y[29X[2XMaximalCompatibleSubgroup[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
-  [6XReturns:[106X  [33X[0;10YThe maximal compatible subgroup [23XC(F)[123X of [3XF[103X.[133X
+  [33X[1;0Y[29X[2XMaximalCompatibleSubgroup[102X( [3XF[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe   local  action  [23XC([123X[3XF[103X[23X)\le\mathrm{Aut}(B_{d,k})[123X,  which  is  the
+            maximal compatible subgroup of [3XF[103X.[133X
   
-  [33X[0;0YThe arguments of this method are a degree [3Xd[103X, a radius [3Xk[103X, and a subgroup [3XF[103X of
-  [23X\mathrm{Aut}(B_{d,k})[123X.[133X
+  [33X[0;0YThe  argument of this attribute is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
+  ([2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XMaximalCompatibleSubgroup(3,1,Group((1,2)));[127X[104X
@@ -170,14 +171,14 @@
     [4X[28XGroup(())[128X[104X
   [4X[32X[104X
   
-  [1X3.3-2 IsCompatible[101X
+  [1X3.3-2 SatisfiesC[101X
   
-  [33X[1;0Y[29X[2XIsCompatible[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XSatisfiesC[102X( [3XF[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X  if  [3XF[103X  satisfies  the compatibility condition (C), and [9Xfalse[109X
             otherwise.[133X
   
-  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
-  [3Xk[103X [23X\in\mathbb{N}[123X, and a subgroup [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
+  [33X[0;0YThe  argument  of this property is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
+  ([2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XD:=DELTA(3,SymmetricGroup(3));[127X[104X
@@ -188,14 +189,14 @@
   
   [1X3.3-3 CompatibleSubgroups[101X
   
-  [33X[1;0Y[29X[2XCompatibleSubgroups[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XCompatibleSubgroups[102X( [3XF[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Ythe list of all compatible subgroups of [3XF[103X.[133X
   
-  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
-  [3Xk[103X  [23X\in\mathbb{N}[123X,  and  a  subgroup  [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X. This method
-  calls  [10XAllSubgroups[110X  on  [23XF[123X  and  is  therefore  slow.  Use for instructional
-  purposes       on       small       examples       only,       and       use
-  [2XConjugacyClassRepsCompatibleSubgroups[102X               ([14X3.3-4[114X)               or
+  [33X[0;0YThe  argument  of  this method is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X.
+  This  method  calls  [10XAllSubgroups[110X  on  [23XF[123X  and  is  therefore  slow.  Use for
+  instructional     purposes    on    small    examples    only,    and    use
+  [2XConjugacyClassRepsCompatibleSubgroups[102X
+  ([14X???ConjugacyClassRepsCompatibleSubgroups???[114X)                             or
   [2XConjugacyClassRepsCompatibleSubgroupsWithProjection[102X        ([14X3.3-5[114X)       for
   computations.[133X
   
@@ -214,12 +215,11 @@
   
   [1X3.3-4 ConjugacyClassRepsCompatibleSubgroups[101X
   
-  [33X[1;0Y[29X[2XConjugacyClassRepsCompatibleSubgroups[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XConjugacyClassRepsCompatibleSubgroups[102X( [3XF[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Ya  list  of  compatible  representatives of conjugacy classes of [3XF[103X
             that contain a compatible subgroup.[133X
   
-  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
-  [3Xk[103X [23X\in\mathbb{N}[123X, and a subgroup [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
+  [33X[0;0YThe argument of this method is a local action [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleSubgroups(3,2,AutB(3,2));[127X[104X
@@ -233,14 +233,13 @@
   
   [1X3.3-5 ConjugacyClassRepsCompatibleSubgroupsWithProjection[101X
   
-  [33X[1;0Y[29X[2XConjugacyClassRepsCompatibleSubgroupsWithProjection[102X( [3Xd[103X, [3Xk[103X, [3Xr[103X, [3XF[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XConjugacyClassRepsCompatibleSubgroupsWithProjection[102X( [3Xl[103X, [3XF[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Ya  list  of  compatible  representatives  of  conjugacy classes of
             [23X\mathrm{Aut}(B_{d,k})[123X  that  contain  a  compatible subgroup which
             projects to [3XF[103X [23X\le\mathrm{Aut}(B_{d,r})[123X.[133X
   
-  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
-  [3Xk[103X    [23X\in\mathbb{N}[123X,   a   radius   [3Xr[103X[23X\in[123X[10X[1..k][110X,   and   a   subgroup   [3XF[103X   of
-  [23X\mathrm{Aut}(B_{d,r})[123X.[133X
+  [33X[0;0YThe  arguments  of  this  method  are  a radius [3Xr[103X [23X\in\mathbb{N}[123X, and a local
+  action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X for some [23Xk\le r[123X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS3:=SymmetricGroup(3);;[127X[104X

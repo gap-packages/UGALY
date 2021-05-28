@@ -45,9 +45,10 @@
   [1XAcknowledgements[101X
   [33X[0;0YThe  second  author  owes  thanks to Marc Burger and George Willis for their
   support and acknowledges contributions from the SNSF Doc.Mobility fellowship
-  172120  and  the  ARC  Discovery  Project 120100996 to the development of an
+  172120  and  the  ARC Discovery Project DP120100996 to the development of an
   early  version  of  this  codebase.  In its present form, the development of
-  [5XUGALY[105X was made possible by the ARC Laureate Fellowship 170100032.[133X
+  [5XUGALY[105X  was  made possible by the ARC Laureate Fellowship FL170100032 and the
+  ARC DECRA Fellowship DE210100180.[133X
   
   
   -------------------------------------------------------
@@ -57,19 +58,24 @@
   
   1 [33X[0;0YIntroduction[133X
   2 [33X[0;0YPreliminaries[133X
-    2.1 [33X[0;0YFinite balls[133X
-      2.1-1 AutB
-    2.2 [33X[0;0YAddresses and leaves[133X
-      2.2-1 Addresses
-      2.2-2 LeafAddresses
-      2.2-3 AddressOfLeaf
-      2.2-4 LeafOfAddress
-      2.2-5 ImageAddress
-      2.2-6 ComposeAddresses
-    2.3 [33X[0;0YLocal actions[133X
-      2.3-1 LocalAction
-      2.3-2 Projection
-      2.3-3 ImageOfProjection
+    2.1 [33X[0;0YLocal actions[133X
+      2.1-1 IsLocalAction
+      2.1-2 LocalAction
+      2.1-3 LocalActionNC
+      2.1-4 LocalActionDegree
+      2.1-5 LocalActionRadius
+      2.1-6 LocalAction
+      2.1-7 Projection
+      2.1-8 ImageOfProjection
+    2.2 [33X[0;0YFinite balls[133X
+      2.2-1 AutB
+    2.3 [33X[0;0YAddresses and leaves[133X
+      2.3-1 Addresses
+      2.3-2 LeafAddresses
+      2.3-3 AddressOfLeaf
+      2.3-4 LeafOfAddress
+      2.3-5 ImageAddress
+      2.3-6 ComposeAddresses
   3 [33X[0;0YCompatibility[133X
     3.1 [33X[0;0YThe compatibility condition (C)[133X
     3.2 [33X[0;0YCompatible elements[133X
@@ -79,7 +85,7 @@
       3.2-4 AssembleAutomorphism
     3.3 [33X[0;0YCompatible subgroups[133X
       3.3-1 MaximalCompatibleSubgroup
-      3.3-2 IsCompatible
+      3.3-2 SatisfiesC
       3.3-3 CompatibleSubgroups
       3.3-4 ConjugacyClassRepsCompatibleSubgroups
       3.3-5 ConjugacyClassRepsCompatibleSubgroupsWithProjection

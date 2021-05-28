@@ -31,14 +31,14 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5_mj.html#X7875F15E81CDBD6C">5.2 <span class="Heading">Discreteness</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7A879D36842F4A53">5.2-1 SatisfiesD</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X811C6602865F3D09">5.2-2 IsDiscrete</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X87A11A3E7BDC0549">5.2-1 SatisfiesD</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7C2F10AC79AC7213">5.2-2 IsDiscrete</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5_mj.html#X85A9B66278AF63D9">5.3 <span class="Heading">Cocycles</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X82B5AF9086261D4A">5.3-1 InvolutiveCompatibilityCocycle</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X80E698087CFCD3CF">5.3-2 AllInvolutiveCompatibilityCocycles</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X80ADE0E379590053">5.3-1 InvolutiveCompatibilityCocycle</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X83A26CBF87AB1FD9">5.3-2 AllInvolutiveCompatibilityCocycles</a></span>
 </div></div>
 </div>
 
@@ -54,20 +54,20 @@
 
 <p class="center">\[\forall \omega \in \Omega: F_{T_{\omega}}=\{\mathrm{id}\},\]</p>
 
-<p>where <span class="SimpleMath">\(T_{\omega}\)</span> is the <span class="SimpleMath">\(k-1\)</span>-neighbourhood of the the edge <span class="SimpleMath">\((b,b_{\omega})\)</span> inside <span class="SimpleMath">\(B_{d,k}\)</span>. In other words, <span class="SimpleMath">\(F\)</span> satisfies (D) if and only if the compatibility set <span class="SimpleMath">\(C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}\)</span>. We distinguish between <span class="SimpleMath">\(F\)</span> satisfying condition (D) and <span class="SimpleMath">\(\mathrm{U}_{k}(F)\)</span> being discrete with the methods <code class="func">SatisfiesD</code> (<a href="chap5_mj.html#X7A879D36842F4A53"><span class="RefLink">5.2-1</span></a>) and <code class="func">IsDiscrete</code> (<a href="chap5_mj.html#X811C6602865F3D09"><span class="RefLink">5.2-2</span></a>) below.</p>
+<p>where <span class="SimpleMath">\(T_{\omega}\)</span> is the <span class="SimpleMath">\(k-1\)</span>-neighbourhood of the the edge <span class="SimpleMath">\((b,b_{\omega})\)</span> inside <span class="SimpleMath">\(B_{d,k}\)</span>. In other words, <span class="SimpleMath">\(F\)</span> satisfies (D) if and only if the compatibility set <span class="SimpleMath">\(C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}\)</span>. We distinguish between <span class="SimpleMath">\(F\)</span> satisfying condition (D) and <span class="SimpleMath">\(\mathrm{U}_{k}(F)\)</span> being discrete with the methods <code class="func">SatisfiesD</code> (<span class="RefLink">???</span>) and <code class="func">IsDiscrete</code> (<span class="RefLink">???</span>) below.</p>
 
 <p><a id="X7875F15E81CDBD6C" name="X7875F15E81CDBD6C"></a></p>
 
 <h4>5.2 <span class="Heading">Discreteness</span></h4>
 
-<p><a id="X7A879D36842F4A53" name="X7A879D36842F4A53"></a></p>
+<p><a id="X87A11A3E7BDC0549" name="X87A11A3E7BDC0549"></a></p>
 
 <h5>5.2-1 SatisfiesD</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SatisfiesD</code>( <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SatisfiesD</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <var class="Arg">F</var> satisfies the discreteness condition (D), and <code class="keyw">false</code> otherwise.</p>
 
-<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="SimpleMath">\(\in\mathbb{N}_{\ge 3}\)</span>, a radius <var class="Arg">k</var> <span class="SimpleMath">\(\in\mathbb{N}\)</span>, and a subgroup <var class="Arg">F</var> of <span class="SimpleMath">\(\mathrm{Aut}(B_{d,k})\)</span>.</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>
@@ -77,14 +77,14 @@ Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 true
 </pre></div>
 
-<p><a id="X811C6602865F3D09" name="X811C6602865F3D09"></a></p>
+<p><a id="X7C2F10AC79AC7213" name="X7C2F10AC79AC7213"></a></p>
 
 <h5>5.2-2 IsDiscrete</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDiscrete</code>( <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDiscrete</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <span class="SimpleMath">\(\mathrm{U}_{k}(F)\)</span> is discrete, and <code class="keyw">false</code> otherwise.</p>
 
-<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="SimpleMath">\(\in\mathbb{N}_{\ge 3}\)</span>, a radius <var class="Arg">k</var> <span class="SimpleMath">\(\in\mathbb{N}\)</span>, and a subgroup <var class="Arg">F</var> of <span class="SimpleMath">\(\mathrm{Aut}(B_{d,k})\)</span>. The condition that <span class="SimpleMath">\(\mathrm{U}_{k}(F)\)</span> is discrete is equivalent to <span class="SimpleMath">\(C(F)\)</span> satisfying the discreteness condition (D).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>
@@ -110,16 +110,16 @@ true
 
 <h4>5.3 <span class="Heading">Cocycles</span></h4>
 
-<p>Subgroups <span class="SimpleMath">\(F\le\mathrm{Aut}(B_{d,k})\)</span> that satisfy both (C) and (D) admit an involutive compatibility cocycle, i.e. a map <span class="SimpleMath">\(z:F\times\{1,\ldots,d\}\to F\)</span> that satisfies certain properties, see <a href="chapBib_mj.html#biBTor20">[Tor20, Section 3.2.2]</a>. When <span class="SimpleMath">\(F\)</span> satisfies just (C), it may still admit an involutive compatibility cocycle. In this case, F admits an extension <span class="SimpleMath">\(\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})\)</span> that satisfies both (C) and (D). Involutive compatibility cocycles can be searched for using <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5_mj.html#X82B5AF9086261D4A"><span class="RefLink">5.3-1</span></a>) and <code class="func">AllInvolutiveCompatibilityCocycles</code> (<a href="chap5_mj.html#X80E698087CFCD3CF"><span class="RefLink">5.3-2</span></a>) below.</p>
+<p>Subgroups <span class="SimpleMath">\(F\le\mathrm{Aut}(B_{d,k})\)</span> that satisfy both (C) and (D) admit an involutive compatibility cocycle, i.e. a map <span class="SimpleMath">\(z:F\times\{1,\ldots,d\}\to F\)</span> that satisfies certain properties, see <a href="chapBib_mj.html#biBTor20">[Tor20, Section 3.2.2]</a>. When <span class="SimpleMath">\(F\)</span> satisfies just (C), it may still admit an involutive compatibility cocycle. In this case, F admits an extension <span class="SimpleMath">\(\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})\)</span> that satisfies both (C) and (D). Involutive compatibility cocycles can be searched for using <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>) and <code class="func">AllInvolutiveCompatibilityCocycles</code> (<span class="RefLink">???</span>) below.</p>
 
-<p><a id="X82B5AF9086261D4A" name="X82B5AF9086261D4A"></a></p>
+<p><a id="X80ADE0E379590053" name="X80ADE0E379590053"></a></p>
 
 <h5>5.3-1 InvolutiveCompatibilityCocycle</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InvolutiveCompatibilityCocycle</code>( <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InvolutiveCompatibilityCocycle</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: an involutive compatibility cocycle of <var class="Arg">F</var>, which is a mapping <var class="Arg">F</var><span class="SimpleMath">\(\times\)</span><code class="code">[1..d]</code><span class="SimpleMath">\(\to\)</span><var class="Arg">F</var> with certain properties, if it exists, and <code class="keyw">fail</code> otherwise. When <var class="Arg">k</var> <span class="SimpleMath">\(=1\)</span>, the standard cocycle is returned.</p>
 
-<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="SimpleMath">\(\in\mathbb{N}_{\ge 3}\)</span>, a radius <var class="Arg">k</var> <span class="SimpleMath">\(\in\mathbb{N}\)</span>, and a compatible subgroup <var class="Arg">F</var> of <span class="SimpleMath">\(\mathrm{Aut}(B_{d,k})\)</span>.</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)), which is compatible (<code class="func">IsCompatible</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>
@@ -147,14 +147,14 @@ MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ],
 fail
 </pre></div>
 
-<p><a id="X80E698087CFCD3CF" name="X80E698087CFCD3CF"></a></p>
+<p><a id="X83A26CBF87AB1FD9" name="X83A26CBF87AB1FD9"></a></p>
 
 <h5>5.3-2 AllInvolutiveCompatibilityCocycles</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AllInvolutiveCompatibilityCocycles</code>( <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AllInvolutiveCompatibilityCocycles</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: the list of all involutive compatibility cocycles of <span class="SimpleMath">\(F\)</span>.</p>
 
-<p>The arguments of this method are a degree <span class="SimpleMath">\(d\in\mathbb{N}_{\ge 3}\)</span>, a radius <span class="SimpleMath">\(k\in\mathbb{N}\)</span>, and a compatible subgroup <span class="SimpleMath">\(F\le \mathrm{Aut}(B_{d,k})\)</span>.</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)), which is compatible (<code class="func">IsCompatible</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>

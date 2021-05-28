@@ -55,11 +55,11 @@ function(d,k)
 
 	if not (IsInt(d) and d>=3) then
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif not (IsInt(k) and k<0) then
+	elif not (IsInt(k) and k>=0) then
 		Error("input argument k=",k," must be an integer greater than or equal to 0");
 	else
 		if k=0 then
-			return LocalAction(d,0,Group(()));
+			return LocalActionNC(d,0,Group(()));
 		else
 			# k=1
 			W:=SymmetricGroup(d);
@@ -70,7 +70,7 @@ function(d,k)
 					W:=WreathProduct(S_d_1,W);
 				od;
 			fi;
-			return LocalAction(d,k,W);
+			return LocalActionNC(d,k,W);
 		fi;
 	fi;
 end );
@@ -158,7 +158,7 @@ function(d,k,lf)
 			l:=ShallowCopy(lf);
 			# first entry
 			Add(addr,QuoInt(l,(d-1)^(k-1))+SignInt(RemInt(l,(d-1)^(k-1))));
-			l:=l-(QuoInt(l,(d-1)^(k-1))+SignInt(RemInt(l,(d-1)^(k-1))))*((d-1)^(k-1));
+			l:=l-(QuoInt(l,(d-1)^(k-1))+SignInt(RemInt(l,(d-1)^(k-1)))-1)*((d-1)^(k-1));
 			# higher entries
 			for i in [2..k] do
 				if addr[i-1]<=QuoInt(l,(d-1)^(k-i))+SignInt(RemInt(l,(d-1)^(k-i))) then
@@ -166,7 +166,7 @@ function(d,k,lf)
 				else
 					Add(addr,QuoInt(l,(d-1)^(k-i))+SignInt(RemInt(l,(d-1)^(k-i))));
 				fi;
-				l:=l-(QuoInt(l,(d-1)^(k-i))+SignInt(RemInt(l,(d-1)^(k-i))))*((d-1)^(k-i));
+				l:=l-(QuoInt(l,(d-1)^(k-i))+SignInt(RemInt(l,(d-1)^(k-i)))-1)*((d-1)^(k-i));
 			od;
 			return addr;
 		fi;
@@ -184,7 +184,7 @@ function(d,k,addr)
 	elif not (IsInt(k) and k>=1) then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif not (IsList(addr) and Length(addr)<=k) then
-		Error("input argument add=",addr," must have length at most k=",k);
+		Error("input argument addr=",addr," must have length at most k=",k);
 	else
 		if addr=[] then
 			return 1;

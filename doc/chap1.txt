@@ -57,9 +57,9 @@
   [33X[0;0Y[5XUGALY[105X   provides   methods   to  create,  analyse  and  find  local  actions
   [23XF\le\mathrm{Aut}(B_{d,k})[123X  that  satisfy condition (C) and/or (D), including
   the  constructions  [23X\Gamma[123X,  [23X\Delta[123X,  [23X\Phi[123X,  [23X\Sigma[123X,  and  [23X\Pi[123X  developed in
-  [Tor20].  It  was  developed  within  the Zero-Dimensional Symmetry Research
-  Group  ([7Xhttps://zerodimensional.group/"[107X)  in  the School of Mathematical and
-  Physical                                                            Sciences
+  [Tor20].  This  package  was  developed within the Zero-Dimensional Symmetry
+  Research   Group   ([7Xhttps://zerodimensional.group/"[107X)   in   the   School  of
+  Mathematical               and               Physical               Sciences
   ([7Xhttps://www.newcastle.edu.au/school/mathematical-and-physical-sciences[107X)  at
   The  University  of  Newcastle  ([7Xhttps://www.newcastle.edu.au/[107X) as part of a
   project course taken by the first author, supervised by the second author.[133X

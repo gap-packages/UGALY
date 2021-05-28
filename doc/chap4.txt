@@ -57,7 +57,8 @@
         radius  [3Xk[103X  [23X\in\mathbb{N}[123X,  an  automorphism  [3Xaut[103X  of  [23XB_{d,k}[123X,  and an
         involutive    compatibility    cocycle    [3Xz[103X    of    a   subgroup   of
         [23X\mathrm{Aut}(B_{d,k})[123X        that        contains       [3Xaut[103X       (see
-        [2XInvolutiveCompatibilityCocycle[102X ([14X5.3-1[114X)).[133X
+        [2XInvolutiveCompatibilityCocycle[102X
+        ([14X???InvolutiveCompatibilityCocycle???[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xgamma(3,(1,2));[127X[104X
@@ -93,10 +94,10 @@
   
   [33X[1;0Y[29X[2XGAMMA[102X( [3Xd[103X, [3XF[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XGAMMA[102X( [3Xl[103X, [3Xd[103X, [3XF[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XGAMMA[102X( [3Xd[103X, [3Xk[103X, [3XF[103X, [3Xz[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XGAMMA[102X( [3XF[103X, [3Xz[103X ) [32X operation[133X
   
   [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X[108X
-        [33X[0;6YReturns:     the     group    [23X\Gamma([123X[3XF[103X[23X)=\{(a,(a)_{\omega})\mid    a\in
+        [33X[0;6YReturns:   the   local  action  [23X\Gamma([123X[3XF[103X[23X)=\{(a,(a)_{\omega})\mid  a\in
         F\}\le\mathrm{Aut}(B_{d,2})[123X.[133X
   
         [33X[0;6YThe arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, and
@@ -113,10 +114,10 @@
         [23X\Gamma_{z}([123X[3XF[103X[23X)=\{(a,([123X[3Xz[103X[23X(a,\omega))_{\omega\in\Omega})\mid
         a\in[123X[3XF[103X[23X\}\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
   
-        [33X[0;6YThe  arguments  of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a
-        radius  [3Xk[103X [23X\in\mathbb{N}[123X, a subgroup [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X, and an
-        involutive      compatibility      cocycle     [3Xz[103X     of     [3XF[103X     (see
-        [2XInvolutiveCompatibilityCocycle[102X ([14X5.3-1[114X)).[133X
+        [33X[0;6YThe    arguments    of    this   method   are   a   local   action   [3XF[103X
+        [23X\le\mathrm{Aut}(B_{d,k})[123X  and an involutive compatibility cocycle [3Xz[103X of
+        [3XF[103X                  (see                 [2XInvolutiveCompatibilityCocycle[102X
+        ([14X???InvolutiveCompatibilityCocycle???[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=TransitiveGroup(4,3);;[127X[104X
@@ -201,8 +202,8 @@
   [1X4.2-1 [33X[0;0YPHI[133X[101X
   
   [33X[1;0Y[29X[2XPHI[102X( [3Xd[103X, [3XF[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XPHI[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XPHI[102X( [3Xl[103X, [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XPHI[102X( [3XF[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XPHI[102X( [3Xl[103X, [3XF[103X ) [32X operation[133X
   
   [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X[108X
         [33X[0;6YReturns:  the  group  [23X\Phi([123X[3XF[103X[23X)=\{(a,(a_{\omega})_{\omega})\mid a\in [123X[3XF[103X[23X,\
@@ -217,16 +218,15 @@
         [123X[3XF[103X[23X,\          \forall          \omega\in\Omega:\          a_{\omega}\in
         C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
   
-        [33X[0;6YThe  arguments  of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a
-        radius [3Xk[103X [23X\in\mathbb{N}[123X and a subgroup [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
+        [33X[0;6YThe    argument    of    this    method    is   a   local   action   [3XF[103X
+        [23X\le\mathrm{Aut}(B_{d,k})[123X.[133X
   
   [8Xfor the arguments [3Xl[103X[8X, [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X[108X
         [33X[0;6YReturns:                           the                           group
         [23X\Phi^{l}([123X[3XF[103X[23X)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}([123X[3XF[103X[23X)\le\mathrm{Aut}(B_{d,l})[123X.[133X
   
-        [33X[0;6YThe  arguments of this method are a radius [3Xl[103X [23X\in\mathbb{N}[123X, a degree [3Xd[103X
-        [23X\in\mathbb{N}_{\ge 3}[123X, a radius [3Xk[103X [23X\in\mathbb{N}_{\le l}[123X and a subgroup
-        [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
+        [33X[0;6YThe  arguments of this method are a radius [3Xl[103X [23X\in\mathbb{N}[123X and a local
+        action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XPHI(3,SymmetricGroup(3));[127X[104X
@@ -285,7 +285,7 @@
   
   [33X[1;0Y[29X[2XPHI[102X( [3Xd[103X, [3XF[103X, [3XN[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPHI[102X( [3Xd[103X, [3XF[103X, [3XP[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XPHI[102X( [3Xd[103X, [3Xk[103X, [3XF[103X, [3XP[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XPHI[102X( [3XF[103X, [3XP[103X ) [32X operation[133X
   
   [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X, [3XN[103X[8X[108X
         [33X[0;6YReturns: the group [23X\Phi([123X[3XF[103X[23X,[123X[3XN[103X[23X)\le\mathrm{Aut}(B_{d,2})[123X.[133X
@@ -309,12 +309,12 @@
         \alpha_{\omega}\in      C_{F}(\alpha,\omega)[123X      constant      w.r.t.
         [3XP[103X[23X\}\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
   
-        [33X[0;6YThe  arguments  of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a
-        radius  [3Xk[103X  [23X\in\mathbb{N}[123X, a subgroup [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X, and a
-        partition  [3XP[103X  of  [10X[1..d][110X  preserverd  by  [23X\pi[123X[3XF[103X  [23X\le S_{d}[123X. This method
-        assumes  that  all  compatibility  sets  with  respect  to a partition
-        element  are non-empty and that all compatibility sets of the identity
-        with respect to a partition element are non-trivial.[133X
+        [33X[0;6YThe    arguments    of    this   method   are   a   local   action   [3XF[103X
+        [23X\le\mathrm{Aut}(B_{d,k})[123X  and  a  partition  [3XP[103X of [10X[1..d][110X preserverd by
+        [23X\pi[123X[3XF[103X  [23X\le  S_{d}[123X. This method assumes that all compatibility sets with
+        respect   to   a   partition   element  are  non-empty  and  that  all
+        compatibility sets of the identity with respect to a partition element
+        are non-trivial.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=SymmetricGroup(4);;[127X[104X
@@ -490,7 +490,7 @@
   [1X4.5-1 [33X[0;0YCompatibleKernels[133X[101X
   
   [33X[1;0Y[29X[2XCompatibleKernels[102X( [3Xd[103X, [3XF[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XCompatibleKernels[102X( [3Xd[103X, [3Xk[103X, [3XF[103X, [3Xz[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XCompatibleKernels[102X( [3XF[103X, [3Xz[103X ) [32X operation[133X
   
   [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X[108X
         [33X[0;6YReturns:            the            list           of           kernels
@@ -502,8 +502,8 @@
         [33X[0;6YThe arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, and
         a permutation group [3XF[103X [23X\le S_{d}[123X. The kernels output by this method are
         compatible   with   [3XF[103X  with  respect  to  the  standard  cocycle  (see
-        [2XInvolutiveCompatibilityCocycle[102X  ([14X5.3-1[114X)) and can be used in the method
-        [2XSIGMA[102X ([14X4.5-2[114X).[133X
+        [2XInvolutiveCompatibilityCocycle[102X ([14X???InvolutiveCompatibilityCocycle???[114X))
+        and can be used in the method [2XSIGMA[102X ([14X4.5-2[114X).[133X
   
   [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X, [3Xz[103X[8X[108X
         [33X[0;6YReturns:            the            list           of           kernels
@@ -512,10 +512,10 @@
         [23X\omega\in\Omega[123X      there      is      [23Xk_{\omega}\in      K[123X      with
         [23X\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}[123X.[133X
   
-        [33X[0;6YThe  arguments  of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a
-        radius  [3Xk[103X  [23X\in\mathbb{N}[123X,  a  subgroup [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X that
-        satisfies  (C),  and  an  involutive compatibility cocycle [3Xz[103X of [3XF[103X (see
-        [2XInvolutiveCompatibilityCocycle[102X  ([14X5.3-1[114X)). It can be used in the method
+        [33X[0;6YThe    arguments    of    this   method   are   a   local   action   [3XF[103X
+        [23X\le\mathrm{Aut}(B_{d,k})[123X   that   satisfies   (C)  and  an  involutive
+        compatibility  cocycle  [3Xz[103X  of  [3XF[103X  (see  [2XInvolutiveCompatibilityCocycle[102X
+        ([14X???InvolutiveCompatibilityCocycle???[114X)).  It can be used in the method
         [2XSIGMA[102X ([14X4.5-2[114X).[133X
   
   [4X[32X  Example  [32X[104X
@@ -538,7 +538,7 @@
   [1X4.5-2 [33X[0;0YSIGMA[133X[101X
   
   [33X[1;0Y[29X[2XSIGMA[102X( [3Xd[103X, [3XF[103X, [3XK[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XSIGMA[102X( [3Xd[103X, [3Xk[103X, [3XF[103X, [3XK[103X, [3Xz[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XSIGMA[102X( [3XF[103X, [3XK[103X, [3Xz[103X ) [32X operation[133X
   
   [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X, [3XK[103X[8X[108X
         [33X[0;6YReturns: the semidirect product [23X\Sigma([123X[3XF[103X[23X,[123X[3XK[103X[23X)\le\mathrm{Aut}(B_{d,2})[123X.[133X
@@ -551,11 +551,11 @@
         [33X[0;6YReturns:              the              semidirect              product
         [23X\Sigma_{z}([123X[3XF[103X[23X,[123X[3XK[103X[23X)\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
   
-        [33X[0;6YThe  arguments  of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a
-        radius  [3Xk[103X  [23X\in\mathbb{N}[123X,  a  subgroup [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X that
-        satisfies (C), and a kernel [3XK[103X that is compatible for [3XF[103X with respect to
-        the       involutive       compatibility      cocycle      [3Xz[103X      (see
-        [2XInvolutiveCompatibilityCocycle[102X  ([14X5.3-1[114X) and [2XCompatibleKernels[102X ([14X4.5-1[114X))
+        [33X[0;6YThe   arguments   of   this   method   are   a   local   action  [3XF[103X  of
+        [23X\mathrm{Aut}(B_{d,k})[123X  that  satisfies  (C)  and  a  kernel  [3XK[103X that is
+        compatible  for [3XF[103X with respect to the involutive compatibility cocycle
+        [3Xz[103X                  (see                 [2XInvolutiveCompatibilityCocycle[102X
+        ([14X???InvolutiveCompatibilityCocycle???[114X)  and [2XCompatibleKernels[102X ([14X4.5-1[114X))
         of [3XF[103X.[133X
   
   [4X[32X  Example  [32X[104X

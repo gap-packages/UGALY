@@ -59,13 +59,13 @@ false
 
 
 <ManSection>
-  <Func Arg="d,k,F,aut,dir" Name="CompatibleElement" />
+  <Func Arg="F,aut,dir" Name="CompatibleElement" />
  <Returns> an element of <A>F</A> that is compatible with <A>aut</A> in direction <A>dir</A> if one exists, and <K>fail</K> otherwise.
  
  
 </Returns>
  <Description>
- The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>, an element <A>aut</A> <Math>\in</Math> <A>F</A>, and a direction <A>dir</A> <Math>\in</Math><C>[1..d]</C>.
+ The arguments of this method are a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math>, an element <A>aut</A> <Math>\in</Math> <A>F</A>, and a direction <A>dir</A> <Math>\in</Math><C>[1..d]</C>.
 <P/>
  </Description>
 </ManSection>
@@ -92,22 +92,22 @@ gap> CompatibleElement(3,2,AutB(3,2),a,1);
 
 <ManSection Label="CompatibilitySet">
 <Heading>CompatibilitySet</Heading>
-  <Oper Arg="d,k,F,aut,dir" Name="CompatibilitySet" Label="for d, k, F, aut, dir"/>
-  <Oper Arg="d,k,F,aut,dirs" Name="CompatibilitySet" Label="for d, k, F, aut, dirs"/>
+  <Oper Arg="F,aut,dir" Name="CompatibilitySet" Label="for F, aut, dir"/>
+  <Oper Arg="F,aut,dirs" Name="CompatibilitySet" Label="for F, aut, dirs"/>
  <Description>
 <P/>
  <List>
-	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>aut</A>, <A>dir</A></Mark>
+	<Mark>for the arguments <A>F</A>, <A>aut</A>, <A>dir</A></Mark>
 	<Item> 
 		Returns: the list of elements of <A>F</A> that are compatible with <A>aut</A> in direction <A>dir</A>.
 <P/>
-		The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>, an automorphism <A>aut</A> <Math>\in F</Math>, and a direction <A>dir</A> <Math>\in</Math><C>[1..d]</C>.
+		The arguments of this method are a local action <A>F</A> of <Math>\le\mathrm{Aut}(B_{d,k})</Math>, an automorphism <A>aut</A> <Math>\in F</Math>, and a direction <A>dir</A> <Math>\in</Math><C>[1..d]</C>.
 	</Item>
-	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>aut</A>, <A>dirs</A></Mark>
+	<Mark>for the arguments <A>F</A>, <A>aut</A>, <A>dirs</A></Mark>
 	<Item>
 		Returns: the list of elements of <A>F</A> that are compatible with <A>aut</A> in all directions of <A>dirs</A>.
 <P/>
-		The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>, an automorphism <A>aut</A> <Math>\in F</Math>, and a sublist of directions <A>dirs</A> <Math>\subseteq</Math><C>[1..d]</C>.
+		The arguments of this method are a local action <A>F</A> of <Math>\le\mathrm{Aut}(B_{d,k})</Math>, an automorphism <A>aut</A> <Math>\in F</Math>, and a sublist of directions <A>dirs</A> <Math>\subseteq</Math><C>[1..d]</C>.
 	</Item>
  </List>
 <P/>
@@ -171,12 +171,12 @@ gap> LocalAction(2,3,3,a,[]);
 
  Using the methods of Section <Ref Sect="Section_compatible_elements"/>, this section provides methods to test groups for the compatibility condition and search for compatible subgroups inside a given group, e.g. <Math>\mathrm{Aut}(B_{d,k})</Math>, or with a certain image under some projection.
 <ManSection>
-  <Func Arg="d,k,F" Name="MaximalCompatibleSubgroup" />
- <Returns>The maximal compatible subgroup <Math>C(F)</Math> of <A>F</A>. 
+  <Attr Arg="F" Name="MaximalCompatibleSubgroup" Label="for IsLocalAction"/>
+ <Returns>The local action <Math>C(</Math><A>F</A><Math>)\le\mathrm{Aut}(B_{d,k})</Math>, which is the maximal compatible subgroup of <A>F</A>. 
  
 </Returns>
  <Description>
- The arguments of this method are a degree <A>d</A>, a radius <A>k</A>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>).
 <P/>
  </Description>
 </ManSection>
@@ -192,12 +192,12 @@ Group(())
 
 
 <ManSection>
-  <Func Arg="d,k,F" Name="IsCompatible" />
+  <Prop Arg="F" Name="SatisfiesC" Label="for IsLocalAction"/>
  <Returns><K>true</K> if <A>F</A> satisfies the compatibility condition (C), and <K>false</K> otherwise. 
  
 </Returns>
  <Description>
- The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+ The argument of this property is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>).
 <P/>
  </Description>
 </ManSection>
@@ -213,12 +213,12 @@ true
 
 
 <ManSection>
-  <Func Arg="d,k,F" Name="CompatibleSubgroups" />
+  <Func Arg="F" Name="CompatibleSubgroups" />
  <Returns>the list of all compatible subgroups of <A>F</A>. 
  
 </Returns>
  <Description>
- The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>. This method calls <C>AllSubgroups</C> on <Math>F</Math> and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Func="ConjugacyClassRepsCompatibleSubgroups"/> or <Ref Func="ConjugacyClassRepsCompatibleSubgroupsWithProjection"/> for computations.
+ The argument of this method is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math>. This method calls <C>AllSubgroups</C> on <Math>F</Math> and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Func="ConjugacyClassRepsCompatibleSubgroups"/> or <Ref Func="ConjugacyClassRepsCompatibleSubgroupsWithProjection"/> for computations.
 <P/>
  </Description>
 </ManSection>
@@ -240,12 +240,12 @@ gap> Size(AllSubgroups(SymmetricGroup(3)));
 
 
 <ManSection>
-  <Func Arg="d,k,F" Name="ConjugacyClassRepsCompatibleSubgroups" />
+  <Attr Arg="F" Name="ConjugacyClassRepsCompatibleSubgroups" Label="for IsLocalAction"/>
  <Returns>a list of compatible representatives of conjugacy classes of <A>F</A> that contain a compatible subgroup. 
  
 </Returns>
  <Description>
- The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+ The argument of this method is a local action <A>F</A> of <Math>\mathrm{Aut}(B_{d,k})</Math>.
 <P/>
  </Description>
 </ManSection>
@@ -264,13 +264,13 @@ gap> ConjugacyClassRepsCompatibleSubgroups(3,2,AutB(3,2));
 
 
 <ManSection>
-  <Func Arg="d,k,r,F" Name="ConjugacyClassRepsCompatibleSubgroupsWithProjection" />
+  <Func Arg="l,F" Name="ConjugacyClassRepsCompatibleSubgroupsWithProjection" />
  <Returns> a list of compatible representatives of conjugacy classes of <Math>\mathrm{Aut}(B_{d,k})</Math> that contain a compatible subgroup which projects to <A>F</A> <Math>\le\mathrm{Aut}(B_{d,r})</Math>.
   
  
 </Returns>
  <Description>
- The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a radius <A>k</A> <Math>\in\mathbb{N}</Math>, a radius <A>r</A><Math>\in</Math><C>[1..k]</C>, and a subgroup <A>F</A> of <Math>\mathrm{Aut}(B_{d,r})</Math>.
+ The arguments of this method are a radius <A>r</A> <Math>\in\mathbb{N}</Math>, and a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> for some <Math>k\le r</Math>.
 <P/>
  </Description>
 </ManSection>

@@ -37,7 +37,7 @@
 #!
 #! While $\mathrm{U}_{k}(F)$ is always closed, vertex-transitive and compactly generated, other properties of $\mathrm{U}(F)$ do <E>not</E> carry over. Foremost, the group $\mathrm{U}_{k}(F)$ need not be locally action isomorphic to $F$ and we say that $F\le\mathrm{Aut}(B_{d,k})$ satisfies condition (C) if it is. This can be viewed as an interchangeability condition on neighbouring local actions, see Section <Ref Sect="Section_condition_C"/>. There is also a discreteness condition (D) on $F\le\mathrm{Aut}(B_{d,k})$ in terms of certain stabilizers in $F$ under which $\mathrm{U}_{k}(F)$ is discrete, see Section <Ref Sect="Section_condition_D"/>.
 #!
-#! <Package>UGALY</Package> provides methods to create, analyse and find local actions $F\le\mathrm{Aut}(B_{d,k})$ that satisfy condition (C) and/or (D), including the constructions $\Gamma$, $\Delta$, $\Phi$, $\Sigma$, and $\Pi$ developed in <Cite Key="Tor20"/>. It was developed within the <URL Text="Zero-Dimensional Symmetry Research Group"> https://zerodimensional.group/"</URL> in the <URL Text="School of Mathematical and Physical Sciences"> https://www.newcastle.edu.au/school/mathematical-and-physical-sciences</URL> at <URL Text="The University of Newcastle"> https://www.newcastle.edu.au/</URL> as part of a project course taken by the first author, supervised by the second author.
+#! <Package>UGALY</Package> provides methods to create, analyse and find local actions $F\le\mathrm{Aut}(B_{d,k})$ that satisfy condition (C) and/or (D), including the constructions $\Gamma$, $\Delta$, $\Phi$, $\Sigma$, and $\Pi$ developed in <Cite Key="Tor20"/>. This package was developed within the <URL Text="Zero-Dimensional Symmetry Research Group"> https://zerodimensional.group/"</URL> in the <URL Text="School of Mathematical and Physical Sciences"> https://www.newcastle.edu.au/school/mathematical-and-physical-sciences</URL> at <URL Text="The University of Newcastle"> https://www.newcastle.edu.au/</URL> as part of a project course taken by the first author, supervised by the second author.
 
 
 ##################################################################################################################
@@ -54,19 +54,32 @@
 #! @Section Local actions
 ##################################################################################################################
 
+#! In this package, a local action $F\le\mathrm{Aut}(B_{d,k})$ are handled as objects of the category <Ref Filt="IsLocalAction"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree $d$ and the radius $k$ of the ball $B_{d,k}$ that it acts on.
+
 #! @Description
-#! Groups acting on the trees $B_{d,k}$ are stored together with their degree (<Ref Attr="LocalActionDegree"/>), radius (<Ref Attr="LocalActionRadius"/> and other attributes in this category.
+#! Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (<Ref Attr="LocalActionDegree"/>), radius (<Ref Attr="LocalActionRadius"/>) and other attributes in this category.
 #!
 DeclareCategory( "IsLocalAction" , IsPermGroup );
 #!
 #! @BeginExampleSession
-#! to do
+#! gap> G:=WreathProduct(SymmetricGroup(2),SymmetricGroup(3));
+#! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+#! gap> IsLocalAction(G);
+#! false
+#! gap> H:=AutB(3,2);
+#! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+#! gap> IsLocalAction(H);
+#! true
+#! gap> K:=LocalAction(3,2,G);
+#! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+#! gap> IsLocalAction(K);
+#! true
 #! @EndExampleSession
 
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}_{0}$ and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}_{0}$ and a group <A>F</A> $\le\mathrm{Aut}(B_{d,k})$.
 #!
 #! @Returns
 #! the regular rooted tree group $G$ as an object of the category <Ref Filt="IsLocalAction"/>, checking that <A>F</A> is indeed a subgroup of $\mathrm{Aut}(B_{d,k})$.
@@ -76,13 +89,19 @@ DeclareCategory( "IsLocalAction" , IsPermGroup );
 DeclareOperation( "LocalAction" , [IsInt, IsInt, IsPermGroup] );
 #!
 #! @BeginExampleSession
-#! to do
+#! gap> G:=WreathProduct(SymmetricGroup(2),SymmetricGroup(3));
+#! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+#! gap> IsLocalAction(G);
+#! false
+#! gap> G:=LocalAction(3,2,G);
+#! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+#! gap> IsLocalAction(G);
 #! @EndExampleSession
 
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}_{0}$ and a subgroup <A>F</A> of $\mathrm{Aut}(B_{d,k})$.
+#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}_{0}$ and a group <A>F</A> $\le\mathrm{Aut}(B_{d,k})$.
 #!
 #! @Returns
 #! the regular rooted tree group $G$ as an object of the category <Ref Filt="IsLocalAction"/>, without checking that <A>F</A> is indeed a subgroup of $\mathrm{Aut}(B_{d,k})$.
@@ -90,10 +109,6 @@ DeclareOperation( "LocalAction" , [IsInt, IsInt, IsPermGroup] );
 #! @Arguments d,k,F
 #!
 DeclareOperation( "LocalActionNC" , [IsInt, IsInt, IsPermGroup] );
-#!
-#! @BeginExampleSession
-#! to do
-#! @EndExampleSession
 
 ##################################################################################################################
 
@@ -108,7 +123,11 @@ DeclareOperation( "LocalActionNC" , [IsInt, IsInt, IsPermGroup] );
 DeclareAttribute( "LocalActionDegree" , IsLocalAction);
 #!
 #! @BeginExampleSession
-#! to do
+#! gap> F:=PHI(4,AlternatingGroup(4));
+#! Group([ (1,5,7)(2,4,8)(3,6,9)(10,11,12), (1,2,3)(4,7,10)(5,9,11)(6,8,12), 
+#!   (1,2,3), (4,5,6), (7,8,9), (10,11,12) ])
+#! gap> LocalActionDegree(F);
+#! 4
 #! @EndExampleSession
 
 ##################################################################################################################
@@ -124,7 +143,11 @@ DeclareAttribute( "LocalActionDegree" , IsLocalAction);
 DeclareAttribute( "LocalActionRadius" , IsLocalAction );
 #!
 #! @BeginExampleSession
-#! to do
+#! gap> F:=PHI(4,AlternatingGroup(4));
+#! Group([ (1,5,7)(2,4,8)(3,6,9)(10,11,12), (1,2,3)(4,7,10)(5,9,11)(6,8,12), 
+#!   (1,2,3), (4,5,6), (7,8,9), (10,11,12) ])
+#! gap> LocalActionRadius(F);
+#! 2
 #! @EndExampleSession
 
 ##################################################################################################################
@@ -336,7 +359,7 @@ DeclareOperation( "Projection" , [IsLocalAction, IsInt] );
 #! The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$, and a projection radius <A>r</A> $\le$ <A>k</A>. This method uses <Ref Oper="LocalAction" Label="for r, d, k, aut, addr"/> on generators rather than <Ref Oper="Projection" Label="for F, r"/> on the group to compute the image.
 #!
 #! @Returns
-#! the local action $\sigma_{r}(F,b)\le\mathrm{Aut}(B_{d,r}).
+#! the local action $\sigma_{r}(F,b)\le\mathrm{Aut}(B_{d,r})$.
 #!
 #! @Arguments F,r
 #!
