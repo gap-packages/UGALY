@@ -97,7 +97,7 @@ function(d,F)
 	else
 		gens:=[];
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(2,d,a)); od;
-		return LocalAction(d,2,Group(gens));
+		return LocalActionNC(d,2,Group(gens));
 	fi;
 end );
 
@@ -118,7 +118,7 @@ function(l,d,F)
 		else
 			gens:=[];
 			for a in GeneratorsOfGroup(F) do Add(gens,gamma(l,d,a)); od;
-			return LocalAction(d,l,Group(gens));
+			return LocalActionNC(d,l,Group(gens));
 		fi;
 	fi;
 end );
@@ -132,11 +132,11 @@ function(F,z)
 	k:=LocalActionRadius(F);
 	
 	if k=0 then
-		return LocalAction(d,1,Group(()));
+		return LocalActionNC(d,1,Group(()));
 	else
 		gens:=[()];
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,k,a,z)); od;
-		return LocalAction(d,k+1,Group(gens));
+		return LocalActionNC(d,k+1,Group(gens));
 	fi;
 end );
 
@@ -168,7 +168,7 @@ function(d,F)
 			for i in [1..d] do Add(auts,a^trans[i]); od;
 			Add(gens,AssembleAutomorphism(d,1,auts));
 		od;
-		return LocalAction(d,2,Group(gens));
+		return LocalActionNC(d,2,Group(gens));
 	fi;
 end );
 
@@ -197,7 +197,7 @@ function(d,F,C)
 			for i in [1..d] do Add(auts,a^trans[i]); od;
 			Add(gens,AssembleAutomorphism(d,1,auts));
 		od;
-		return LocalAction(d,2,Group(gens));
+		return LocalActionNC(d,2,Group(gens));
 	fi;
 end );
 
@@ -222,7 +222,7 @@ function(d,F)
 				Add(gens,gamma(2,d,a,[i]));
 			od;
 		od;
-		return LocalAction(d,2,Group(gens));
+		return LocalActionNC(d,2,Group(gens));
 	fi;
 end );
 
@@ -249,7 +249,7 @@ function(d,F,N)
 			auts[1]:=a;
 			Add(gens,AssembleAutomorphism(d,1,auts));
 		od;
-		return LocalAction(d,2,Group(gens));
+		return LocalActionNC(d,2,Group(gens));
 	fi;
 end );
 
@@ -278,7 +278,7 @@ function(d,F,P)
 				Add(gens,AssembleAutomorphism(d,1,auts));
 			od;
 		od;
-		return LocalAction(d,2,Group(gens));
+		return LocalActionNC(d,2,Group(gens));
 	fi;
 end );
 
@@ -291,7 +291,7 @@ function(F)
 	k:=LocalActionRadius(F);
 
 	if k=0 then
-		return LocalAction(d,1,Group(()));
+		return LocalActionNC(d,1,Group(()));
 	else
 		gens:=[()];
 		gens_F:=SmallGeneratingSet(F);
@@ -314,7 +314,7 @@ function(F)
 				Add(gens,AssembleAutomorphism(d,k,auts));
 			od;		
 		od;
-		return LocalAction(d,k+1,Group(gens));
+		return LocalActionNC(d,k+1,Group(gens));
 	fi;
 end );
 
@@ -330,7 +330,7 @@ function(l,F)
 		k:=LocalActionRadius(F);		
 		
 		if k=0 then
-			return LocalAction(d,l,Group(()));
+			return LocalActionNC(d,l,Group(()));
 		elif k=1 then
 			gens:=[];
 			# subgroup $\Gamma^{l}(F)$
@@ -348,7 +348,7 @@ function(l,F)
 					Add(gens,gamma(l,d,a,addr));
 				od;
 			od;
-			return LocalAction(d,l,Group(gens));
+			return LocalActionNC(d,l,Group(gens));
 		else
 			G:=F;
 			for i in [k..l-1] do G:=PHI(G); od;
@@ -389,7 +389,7 @@ function(F,P)
 				Add(gens,AssembleAutomorphism(d,k,auts));
 			od;		
 		od;
-		return LocalAction(d,k+1,Group(gens));
+		return LocalActionNC(d,k+1,Group(gens));
 	fi;
 end );
 
@@ -466,9 +466,9 @@ function(l,d,F,rho,R)
 		Error("input argument R=",R," must be a list of radii");
 	else
 		if R=[] then
-			return PHI(l,LocalAction(d,1,F));
+			return PHI(l,LocalActionNC(d,1,F));
 		elif R=[0] then
-			return PHI(l,LocalAction(d,1,Kernel(rho)));
+			return PHI(l,LocalActionNC(d,1,Kernel(rho)));
 		else
 			# check point stabilizer surjectivity
 			for i in [1..l] do
@@ -477,7 +477,7 @@ function(l,d,F,rho,R)
 				fi;
 			od;
 			# construction
-			G:=PHI(l,LocalAction(d,1,F));
+			G:=PHI(l,LocalActionNC(d,1,F));
 			A:=Range(rho);
 			indx:=Size(A);
 			gens:=[()];
@@ -486,7 +486,7 @@ function(l,d,F,rho,R)
 				if SpheresProduct(d,l,a,rho,R)=One(A) then Add(gens,a); fi;
 			until Index(G,Group(gens))=indx;
 		
-			return LocalAction(d,l,Group(gens));
+			return LocalActionNC(d,l,Group(gens));
 		fi;
 	fi;
 end );
@@ -590,7 +590,7 @@ function(d,F,K)
 		gens:=[];
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,a)); od;
 		Append(gens,ShallowCopy(GeneratorsOfGroup(K)));
-		return LocalAction(d,2,Group(gens));
+		return LocalActionNC(d,2,Group(gens));
 	fi;
 end );
 
@@ -607,7 +607,7 @@ function(F,K,z)
 		gens:=[];
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,k,a,z)); od;
 		Append(gens,ShallowCopy(GeneratorsOfGroup(K)));
-		return LocalAction(d,k+1,Group(gens));
+		return LocalActionNC(d,k+1,Group(gens));
 	fi;
 end );
 

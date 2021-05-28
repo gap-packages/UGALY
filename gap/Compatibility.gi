@@ -192,11 +192,11 @@ function(F)
 			poss:=Positions(grps,Group(()));
 			for pos in poss do Remove(grps,pos); od;
 			for G in grps do
-				if SatisfiesC(LocalAction(d,k,G)) then return LocalAction(d,k,G); fi;
+				if SatisfiesC(LocalActionNC(d,k,G)) then return LocalActionNC(d,k,G); fi;
 			od;
 		od;	
 		# no non-trivial compatible subgroup
-		return LocalAction(d,k,Group(()));
+		return LocalActionNC(d,k,Group(()));
 	fi;	
 end );
 
@@ -238,7 +238,7 @@ function(F)
 	else
 		grps:=[];
 		for H in AllSubgroups(F) do
-			if SatisfiesC(LocalAction(d,k,H)) then Add(grps,LocalAction(d,k,H)); fi;
+			if SatisfiesC(LocalActionNC(d,k,H)) then Add(grps,LocalActionNC(d,k,H)); fi;
 		od;
 		return grps;
 	fi;
@@ -259,8 +259,8 @@ function(F)
 		reps:=[];
 		for class in ConjugacyClassesSubgroups(F) do
 			for H in class do
-				if SatisfiesC(LocalAction(d,k,H)) then
-					Add(reps,LocalAction(d,k,H));
+				if SatisfiesC(LocalActionNC(d,k,H)) then
+					Add(reps,LocalActionNC(d,k,H));
 					break;
 				fi;
 			od;
@@ -293,15 +293,15 @@ function(l,F)
 			C:=PHI(l,F);
 			# search
 			for class in ConjugacyClassesSubgroups(C) do
-				if not IsConjugate(G_k,ImageOfProjection(LocalAction(d,l,class[1]),k),F) then continue; fi;
+				if not IsConjugate(G_k,ImageOfProjection(LocalActionNC(d,l,class[1]),k),F) then continue; fi;
 				for H in class do
-					if not ImageOfProjection(LocalAction(d,l,class[1]),k)=F then continue; fi;
+					if not ImageOfProjection(LocalActionNC(d,l,class[1]),k)=F then continue; fi;
 					if SatisfiesC(d,l,H) then
 						new:=true;
 						for i in [Length(reps),Length(reps)-1..1] do
 							if IsConjugate(G_l,H,reps[i]) then new:=false; break; fi;
 						od;
-						if new then Add(reps,LocalAction(d,l,H)); fi;
+						if new then Add(reps,LocalActionNC(d,l,H)); fi;
 						break;
 					fi;
 				od;
