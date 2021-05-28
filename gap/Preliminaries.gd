@@ -346,7 +346,7 @@ DeclareOperation( "Projection" , [IsLocalAction, IsInt] );
 #! Group([ (1,16,19)(2,15,20)(3,13,18)(4,14,17)(5,10,23)(6,9,24)(7,12,22)
 #!   (8,11,21), (1,9)(2,10)(3,12)(4,11)(5,15)(6,16)(7,13)(8,14)(17,21)(18,22)
 #!   (19,24)(20,23) ])
-#! gap> pr:=Projection(3,4,F,2);
+#! gap> pr:=Projection(F,2);
 #! <action homomorphism>
 #! gap> a:=Random(F);; Image(pr,a);
 #! (1,4,5)(2,3,6)

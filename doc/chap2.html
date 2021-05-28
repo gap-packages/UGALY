@@ -63,7 +63,7 @@
 
 <h4>2.1 <span class="Heading">Local actions</span></h4>
 
-<p>In this package, a local action <span class="Math">F\le\Aut(B_{d,k})</span> are handled as objects of the category <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>) and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree <span class="Math">d</span> and the radius <span class="Math">k</span> of the ball <span class="Math">B_{d,k}</span> that it acts on.</p>
+<p>In this package, a local action <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> are handled as objects of the category <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>) and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree <span class="Math">d</span> and the radius <span class="Math">k</span> of the ball <span class="Math">B_{d,k}</span> that it acts on.</p>
 
 <p><a id="X7FCF15167D3A44B7" name="X7FCF15167D3A44B7"></a></p>
 
@@ -72,11 +72,22 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLocalAction</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>Groups acting on the trees <span class="Math">B_{d,k}</span> are stored together with their degree (<code class="func">LocalActionDegree</code> (<span class="RefLink">???</span>)), radius (<code class="func">LocalActionRadius</code> (<span class="RefLink">???</span>)) and other attributes in this category.</p>
+<p>Local actions <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> are stored together with their degree (<code class="func">LocalActionDegree</code> (<span class="RefLink">???</span>)), radius (<code class="func">LocalActionRadius</code> (<span class="RefLink">???</span>)) and other attributes in this category.</p>
 
 
 <div class="example"><pre>
-to do
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=WreathProduct(SymmetricGroup(2),SymmetricGroup(3));</span>
+Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocalAction(G);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=AutB(3,2);</span>
+Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocalAction(H);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K:=LocalAction(3,2,G);</span>
+Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocalAction(K);</span>
+true
 </pre></div>
 
 <p><a id="X81135CA77A3C0F4E" name="X81135CA77A3C0F4E"></a></p>
@@ -90,7 +101,13 @@ to do
 
 
 <div class="example"><pre>
-to do
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=WreathProduct(SymmetricGroup(2),SymmetricGroup(3));</span>
+Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocalAction(G);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=LocalAction(3,2,G);</span>
+Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocalAction(G);</span>
 </pre></div>
 
 <p><a id="X84D5C421864EB7FD" name="X84D5C421864EB7FD"></a></p>
@@ -101,11 +118,6 @@ to do
 <p>Returns: the regular rooted tree group <span class="Math">G</span> as an object of the category <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>), without checking that <var class="Arg">F</var> is indeed a subgroup of <span class="Math">\mathrm{Aut}(B_{d,k})</span>.</p>
 
 <p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a radius <var class="Arg">k</var> <span class="Math">\in\mathbb{N}_{0}</span> and a group <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span>.</p>
-
-
-<div class="example"><pre>
-to do
-</pre></div>
 
 <p><a id="X8321CC72807D1096" name="X8321CC72807D1096"></a></p>
 
@@ -118,7 +130,11 @@ to do
 
 
 <div class="example"><pre>
-to do
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PHI(4,AlternatingGroup(4));</span>
+Group([ (1,5,7)(2,4,8)(3,6,9)(10,11,12), (1,2,3)(4,7,10)(5,9,11)(6,8,12), 
+  (1,2,3), (4,5,6), (7,8,9), (10,11,12) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalActionDegree(F);</span>
+4
 </pre></div>
 
 <p><a id="X7BF3EE4D794F8276" name="X7BF3EE4D794F8276"></a></p>
@@ -132,7 +148,11 @@ to do
 
 
 <div class="example"><pre>
-to do
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PHI(4,AlternatingGroup(4));</span>
+Group([ (1,5,7)(2,4,8)(3,6,9)(10,11,12), (1,2,3)(4,7,10)(5,9,11)(6,8,12), 
+  (1,2,3), (4,5,6), (7,8,9), (10,11,12) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalActionRadius(F);</span>
+2
 </pre></div>
 
 <p><a id="X7E0E11FC802B5210" name="X7E0E11FC802B5210"></a></p>
@@ -182,7 +202,7 @@ addr=[ 3, 1 ] must not exceed input argument k=4
 Group([ (1,16,19)(2,15,20)(3,13,18)(4,14,17)(5,10,23)(6,9,24)(7,12,22)
   (8,11,21), (1,9)(2,10)(3,12)(4,11)(5,15)(6,16)(7,13)(8,14)(17,21)(18,22)
   (19,24)(20,23) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pr:=Projection(3,4,F,2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">pr:=Projection(F,2);</span>
 &lt;action homomorphism&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Random(F);; Image(pr,a);</span>
 (1,4,5)(2,3,6)
