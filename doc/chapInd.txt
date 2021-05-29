@@ -16,8 +16,8 @@
       for F, z 4.5-1 
   [2XCompatibleSubgroups[102X 3.3-3 
   [2XComposeAddresses[102X 2.3-6 
+  [2XConjugacyClassRepsCompatibleGroupsWithProjection[102X 3.3-5 
   [2XConjugacyClassRepsCompatibleSubgroups[102X, for IsLocalAction 3.3-4 
-  [2XConjugacyClassRepsCompatibleSubgroupsWithProjection[102X 3.3-5 
   [2XDELTA[102X, for d, F 4.1-3 
       for d, F, C 4.1-3 
   [2Xgamma[102X, for d, a 4.1-1 

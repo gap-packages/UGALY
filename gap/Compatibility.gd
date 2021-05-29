@@ -70,14 +70,14 @@ DeclareGlobalFunction( "CompatibleElement" );
 #! gap> a:=Random(AutB(5,1)); dir:=Random([1..5]);
 #! (1,3,2,5)
 #! 4
-#! gap> CompatibleElement(5,1,AutB(5,1),a,dir);
+#! gap> CompatibleElement(AutB(5,1),a,dir);
 #! (1,3,2,5)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
 #! gap> a:=(1,3,5)(2,4,6);; a in AutB(3,2);
 #! true
-#! gap> CompatibleElement(3,2,AutB(3,2),a,1);
+#! gap> CompatibleElement(AutB(3,2),a,1);
 #! (1,4,2,3)
 #! @EndExampleSession
 
@@ -110,17 +110,17 @@ DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsInt] );
 DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsList] );
 #!
 #! @BeginExampleSession
-#! gap> F:=TransitiveGroup(4,3);
+#! gap> F:=LocalAction(4,1,TransitiveGroup(4,3));
 #! D(4)
-#! gap> aut:=(1,3);; aut in F;
-#! true
-#! gap> CompatibilitySet(4,1,SymmetricGroup(4),aut,1);
+#! gap> G:=LocalAction(4,1,SymmetricGroup(4));
+#!Sym( [ 1 .. 4 ] )
+#! gap> CompatibilitySet(G,aut,1);
 #! RightCoset(Sym( [ 2 .. 4 ] ),(1,3))
-#! gap> CompatibilitySet(4,1,F,aut,1);
+#! gap> CompatibilitySet(F,aut,1);
 #! RightCoset(Group([ (2,4) ]),(1,3))
-#! gap> CompatibilitySet(4,1,F,aut,[1,3]);
+#! gap> CompatibilitySet(F,aut,[1,3]);
 #! RightCoset(Group([ (2,4) ]),(1,3))
-#! gap> CompatibilitySet(4,1,F,aut,[1,2]);
+#! gap> CompatibilitySet(F,aut,[1,2]);
 #! RightCoset(Group(()),(1,3))
 #! @EndExampleSession
 #!
@@ -169,9 +169,13 @@ DeclareGlobalFunction( "AssembleAutomorphism" );
 DeclareAttribute( "MaximalCompatibleSubgroup", IsLocalAction );
 #!
 #! @BeginExampleSession
-#! gap> MaximalCompatibleSubgroup(3,1,Group((1,2)));
+#! gap> F:=LocalAction(3,1,Group((1,2)));
 #! Group([ (1,2) ])
-#! gap> MaximalCompatibleSubgroup(3,2,Group((1,2)));
+#! gap> MaximalCompatibleSubgroup(F);
+#! Group([ (1,2) ])
+#! gap> G:=LocalAction(3,2,Group((1,2)));
+#! Group([ (1,2) ])
+#! gap> MaximalCompatibleSubgroup(G);
 #! Group(())
 #! @EndExampleSession
 
@@ -189,7 +193,7 @@ DeclareProperty( "SatisfiesC" , IsLocalAction );
 #! @BeginExampleSession
 #! gap> D:=DELTA(3,SymmetricGroup(3));
 #! Group([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])
-#! gap> IsCompatible(3,2,D);
+#! gap> SatisfiesC(D);
 #! true
 #! @EndExampleSession
 
@@ -207,7 +211,7 @@ DeclareGlobalFunction( "CompatibleSubgroups" );
 #! @BeginExampleSession
 #! gap> G:=GAMMA(3,SymmetricGroup(3));
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
-#! gap> list:=CompatibleSubgroups(3,2,G);
+#! gap> list:=CompatibleSubgroups(G);
 #! [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,3)(2,4)(5,6) ]), 
 #!   Group([ (1,6)(2,5)(3,4) ]), Group([ (1,4,5)(2,3,6) ]), Group([ (1,4,5)
 #!   (2,3,6), (1,3)(2,4)(5,6) ]) ]
@@ -229,7 +233,7 @@ DeclareGlobalFunction( "CompatibleSubgroups" );
 DeclareAttribute( "ConjugacyClassRepsCompatibleSubgroups" , IsLocalAction );
 #!
 #! @BeginExampleSession
-#! gap> ConjugacyClassRepsCompatibleSubgroups(3,2,AutB(3,2));
+#! gap> ConjugacyClassRepsCompatibleSubgroups(AutB(3,2));
 #! [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,4,5)(2,3,6) ]), 
 #!   Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)
 #!   (2,4,5) ]), Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), 
@@ -241,25 +245,27 @@ DeclareAttribute( "ConjugacyClassRepsCompatibleSubgroups" , IsLocalAction );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a radius <A>r</A> $\in\mathbb{N}$, and a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ for some $k\le r$.
+#! The arguments of this method are a radius <A>l</A> $\in\mathbb{N}$, and a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ for some $k\le l$.
 #!
 #! @Returns
-#! a list of compatible representatives of conjugacy classes of $\mathrm{Aut}(B_{d,k})$ that contain a compatible subgroup which projects to <A>F</A> $\le\mathrm{Aut}(B_{d,r})$.
+#! a list of compatible representatives of conjugacy classes of $\mathrm{Aut}(B_{d,l})$ that contain a compatible group which projects to <A>F</A> $\le\mathrm{Aut}(B_{d,r})$.
 #! 
 #! @Arguments l,F
 #!
-DeclareGlobalFunction( "ConjugacyClassRepsCompatibleSubgroupsWithProjection" );
+DeclareGlobalFunction( "ConjugacyClassRepsCompatibleGroupsWithProjection" );
 #!
 #! @BeginExampleSession
-#! gap> S3:=SymmetricGroup(3);;
-#! gap> ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,S3);
-#! [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), Group([ (1,2)(3,4)
-#!   (5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), Group([ (3,4)(5,6), (1,2)
-#!   (3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), Group([ (3,4)(5,6), (1,2)
-#!   (3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), Group([ (3,4)(5,6), (1,2)
-#!   (3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
-#! gap> A3:=AlternatingGroup(3);;
-#! gap> ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,A3);
+#! gap> S3:=LocalAction(3,1,SymmetricGroup(3));
+#! Sym( [ 1 .. 3 ] )
+#! gap> ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
+#! [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+#!   Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+#!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
+#!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
+#!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
+#! gap> A3:=LocalAction(3,1,AlternatingGroup(3));
+#! Alt( [ 1 .. 3 ] )
+#! gap> ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);
 #! [ Group([ (1,4,5)(2,3,6) ]) ]
 #! @EndExampleSession
 #!
@@ -268,9 +274,9 @@ DeclareGlobalFunction( "ConjugacyClassRepsCompatibleSubgroupsWithProjection" );
 #! gap> rho:=SignHomomorphism(F);;
 #! gap> H1:=PI(2,3,F,rho,[0,1]);;
 #! gap> H2:=PI(2,3,F,rho,[1]);;
-#! gap> Size(ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,3,2,H1));
+#! gap> Size(ConjugacyClassRepsCompatibleGroupsWithProjection(3,H1));
 #! 2
-#! gap> Size(ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,3,2,H2));
+#! gap> Size(ConjugacyClassRepsCompatibleGroupsWithProjection(3,H2));
 #! 4
 #! @EndExampleSession
 

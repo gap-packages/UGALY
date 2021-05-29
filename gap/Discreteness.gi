@@ -133,13 +133,13 @@ function(F)
 	else
 		# change to a small generating set of F
 		gens:=SmallGeneratingSet(F);
-		F:=GroupWithGenerators(gens);
+		F:=LocalAction(d,k,GroupWithGenerators(gens));
 		# initialize compatibility sets
 		C:=[];
 		for a in gens do
 			comp_sets:=[];
 			for dir in [1..d] do
-				Add(comp_sets,CompatibilitySet(d,k,F,a,dir));
+				Add(comp_sets,CompatibilitySet(F,a,dir));
 			od;
 			Add(C,Cartesian(comp_sets));
 		od;	
@@ -170,13 +170,13 @@ function(F)
 		iccs:=[];
 		# change to a small generating set of F
 		gens:=SmallGeneratingSet(F);
-		F:=GroupWithGenerators(gens);
+		F:=LocalAction(d,k,GroupWithGenerators(gens));
 		# initialize compatibility sets
 		C:=[];
 		for a in gens do
 			comp_sets:=[];
 			for dir in [1..d] do
-				Add(comp_sets,CompatibilitySet(d,k,F,a,dir));
+				Add(comp_sets,CompatibilitySet(F,a,dir));
 			od;
 			Add(C,Cartesian(comp_sets));
 		od;

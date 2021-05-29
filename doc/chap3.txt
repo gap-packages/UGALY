@@ -73,14 +73,14 @@
     [4X[25Xgap>[125X [27Xa:=Random(AutB(5,1)); dir:=Random([1..5]);[127X[104X
     [4X[28X(1,3,2,5)[128X[104X
     [4X[28X4[128X[104X
-    [4X[25Xgap>[125X [27XCompatibleElement(5,1,AutB(5,1),a,dir);[127X[104X
+    [4X[25Xgap>[125X [27XCompatibleElement(AutB(5,1),a,dir);[127X[104X
     [4X[28X(1,3,2,5)[128X[104X
   [4X[32X[104X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xa:=(1,3,5)(2,4,6);; a in AutB(3,2);[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XCompatibleElement(3,2,AutB(3,2),a,1);[127X[104X
+    [4X[25Xgap>[125X [27XCompatibleElement(AutB(3,2),a,1);[127X[104X
     [4X[28X(1,4,2,3)[128X[104X
   [4X[32X[104X
   
@@ -107,17 +107,17 @@
         directions [3Xdirs[103X [23X\subseteq[123X[10X[1..d][110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XF:=TransitiveGroup(4,3);[127X[104X
+    [4X[25Xgap>[125X [27XF:=LocalAction(4,1,TransitiveGroup(4,3));[127X[104X
     [4X[28XD(4)[128X[104X
-    [4X[25Xgap>[125X [27Xaut:=(1,3);; aut in F;[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XCompatibilitySet(4,1,SymmetricGroup(4),aut,1);[127X[104X
+    [4X[25Xgap>[125X [27XG:=LocalAction(4,1,SymmetricGroup(4));[127X[104X
+    [4X[28XSym( [ 1 .. 4 ] )[128X[104X
+    [4X[25Xgap>[125X [27XCompatibilitySet(G,aut,1);[127X[104X
     [4X[28XRightCoset(Sym( [ 2 .. 4 ] ),(1,3))[128X[104X
-    [4X[25Xgap>[125X [27XCompatibilitySet(4,1,F,aut,1);[127X[104X
+    [4X[25Xgap>[125X [27XCompatibilitySet(F,aut,1);[127X[104X
     [4X[28XRightCoset(Group([ (2,4) ]),(1,3))[128X[104X
-    [4X[25Xgap>[125X [27XCompatibilitySet(4,1,F,aut,[1,3]);[127X[104X
+    [4X[25Xgap>[125X [27XCompatibilitySet(F,aut,[1,3]);[127X[104X
     [4X[28XRightCoset(Group([ (2,4) ]),(1,3))[128X[104X
-    [4X[25Xgap>[125X [27XCompatibilitySet(4,1,F,aut,[1,2]);[127X[104X
+    [4X[25Xgap>[125X [27XCompatibilitySet(F,aut,[1,2]);[127X[104X
     [4X[28XRightCoset(Group(()),(1,3))[128X[104X
   [4X[32X[104X
   
@@ -165,9 +165,13 @@
   ([2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XMaximalCompatibleSubgroup(3,1,Group((1,2)));[127X[104X
+    [4X[25Xgap>[125X [27XF:=LocalAction(3,1,Group((1,2)));[127X[104X
     [4X[28XGroup([ (1,2) ])[128X[104X
-    [4X[25Xgap>[125X [27XMaximalCompatibleSubgroup(3,2,Group((1,2)));[127X[104X
+    [4X[25Xgap>[125X [27XMaximalCompatibleSubgroup(F);[127X[104X
+    [4X[28XGroup([ (1,2) ])[128X[104X
+    [4X[25Xgap>[125X [27XG:=LocalAction(3,2,Group((1,2)));[127X[104X
+    [4X[28XGroup([ (1,2) ])[128X[104X
+    [4X[25Xgap>[125X [27XMaximalCompatibleSubgroup(G);[127X[104X
     [4X[28XGroup(())[128X[104X
   [4X[32X[104X
   
@@ -183,7 +187,7 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XD:=DELTA(3,SymmetricGroup(3));[127X[104X
     [4X[28XGroup([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])[128X[104X
-    [4X[25Xgap>[125X [27XIsCompatible(3,2,D);[127X[104X
+    [4X[25Xgap>[125X [27XSatisfiesC(D);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
@@ -197,13 +201,14 @@
   instructional     purposes    on    small    examples    only,    and    use
   [2XConjugacyClassRepsCompatibleSubgroups[102X
   ([14X???ConjugacyClassRepsCompatibleSubgroups???[114X)                             or
-  [2XConjugacyClassRepsCompatibleSubgroupsWithProjection[102X        ([14X3.3-5[114X)       for
+  [2XConjugacyClassRepsCompatibleSubgroupsWithProjection[102X
+  ([14X???ConjugacyClassRepsCompatibleSubgroupsWithProjection???[114X)              for
   computations.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XG:=GAMMA(3,SymmetricGroup(3));[127X[104X
     [4X[28XGroup([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])[128X[104X
-    [4X[25Xgap>[125X [27Xlist:=CompatibleSubgroups(3,2,G);[127X[104X
+    [4X[25Xgap>[125X [27Xlist:=CompatibleSubgroups(G);[127X[104X
     [4X[28X[ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,3)(2,4)(5,6) ]), [128X[104X
     [4X[28X  Group([ (1,6)(2,5)(3,4) ]), Group([ (1,4,5)(2,3,6) ]), Group([ (1,4,5)[128X[104X
     [4X[28X  (2,3,6), (1,3)(2,4)(5,6) ]) ][128X[104X
@@ -222,7 +227,7 @@
   [33X[0;0YThe argument of this method is a local action [3XF[103X of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleSubgroups(3,2,AutB(3,2));[127X[104X
+    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleSubgroups(AutB(3,2));[127X[104X
     [4X[28X[ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,4,5)(2,3,6) ]), [128X[104X
     [4X[28X  Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)[128X[104X
     [4X[28X  (2,4,5) ]), Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), [128X[104X
@@ -231,26 +236,28 @@
     [4X[28X  Group([ (5,6), (3,4), (1,2), (1,3,5)(2,4,6), (3,5)(4,6) ]) ][128X[104X
   [4X[32X[104X
   
-  [1X3.3-5 ConjugacyClassRepsCompatibleSubgroupsWithProjection[101X
+  [1X3.3-5 ConjugacyClassRepsCompatibleGroupsWithProjection[101X
   
-  [33X[1;0Y[29X[2XConjugacyClassRepsCompatibleSubgroupsWithProjection[102X( [3Xl[103X, [3XF[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XConjugacyClassRepsCompatibleGroupsWithProjection[102X( [3Xl[103X, [3XF[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Ya  list  of  compatible  representatives  of  conjugacy classes of
-            [23X\mathrm{Aut}(B_{d,k})[123X  that  contain  a  compatible subgroup which
+            [23X\mathrm{Aut}(B_{d,l})[123X   that  contain  a  compatible  group  which
             projects to [3XF[103X [23X\le\mathrm{Aut}(B_{d,r})[123X.[133X
   
-  [33X[0;0YThe  arguments  of  this  method  are  a radius [3Xr[103X [23X\in\mathbb{N}[123X, and a local
-  action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X for some [23Xk\le r[123X.[133X
+  [33X[0;0YThe  arguments  of  this  method  are  a radius [3Xl[103X [23X\in\mathbb{N}[123X, and a local
+  action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X for some [23Xk\le l[123X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XS3:=SymmetricGroup(3);;[127X[104X
-    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,S3);[127X[104X
-    [4X[28X[ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), Group([ (1,2)(3,4)[128X[104X
-    [4X[28X  (5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), Group([ (3,4)(5,6), (1,2)[128X[104X
-    [4X[28X  (3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), Group([ (3,4)(5,6), (1,2)[128X[104X
-    [4X[28X  (3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), Group([ (3,4)(5,6), (1,2)[128X[104X
-    [4X[28X  (3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ][128X[104X
-    [4X[25Xgap>[125X [27XA3:=AlternatingGroup(3);;[127X[104X
-    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,A3);[127X[104X
+    [4X[25Xgap>[125X [27XS3:=LocalAction(3,1,SymmetricGroup(3));[127X[104X
+    [4X[28XSym( [ 1 .. 3 ] )[128X[104X
+    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);[127X[104X
+    [4X[28X[ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), [128X[104X
+    [4X[28X  Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), [128X[104X
+    [4X[28X  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), [128X[104X
+    [4X[28X  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), [128X[104X
+    [4X[28X  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ][128X[104X
+    [4X[25Xgap>[125X [27XA3:=LocalAction(3,1,AlternatingGroup(3));[127X[104X
+    [4X[28XAlt( [ 1 .. 3 ] )[128X[104X
+    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);[127X[104X
     [4X[28X[ Group([ (1,4,5)(2,3,6) ]) ][128X[104X
   [4X[32X[104X
   
@@ -259,9 +266,9 @@
     [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(F);;[127X[104X
     [4X[25Xgap>[125X [27XH1:=PI(2,3,F,rho,[0,1]);;[127X[104X
     [4X[25Xgap>[125X [27XH2:=PI(2,3,F,rho,[1]);;[127X[104X
-    [4X[25Xgap>[125X [27XSize(ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,3,2,H1));[127X[104X
+    [4X[25Xgap>[125X [27XSize(ConjugacyClassRepsCompatibleGroupsWithProjection(3,H1));[127X[104X
     [4X[28X2[128X[104X
-    [4X[25Xgap>[125X [27XSize(ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,3,2,H2));[127X[104X
+    [4X[25Xgap>[125X [27XSize(ConjugacyClassRepsCompatibleGroupsWithProjection(3,H2));[127X[104X
     [4X[28X4[128X[104X
   [4X[32X[104X
   

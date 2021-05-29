@@ -30,7 +30,7 @@
 \contentsline {subsection}{\numberline {3.3.2}\textcolor {Chapter }{SatisfiesC (for IsLocalAction)}}{14}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}\textcolor {Chapter }{CompatibleSubgroups}}{14}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}\textcolor {Chapter }{ConjugacyClassRepsCompatibleSubgroups (for IsLocalAction)}}{14}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}\textcolor {Chapter }{ConjugacyClassRepsCompatibleSubgroupsWithProjection}}{15}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.5}\textcolor {Chapter }{ConjugacyClassRepsCompatibleGroupsWithProjection}}{15}{subsection.3.3.5}%
 \contentsline {chapter}{\numberline {4}\textcolor {Chapter }{Examples}}{16}{chapter.4}%
 \contentsline {section}{\numberline {4.1}\textcolor {Chapter }{Discrete groups}}{16}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}\textcolor {Chapter }{gamma}}{16}{subsection.4.1.1}%

@@ -112,7 +112,7 @@ function(F,aut,dir)
 			return RightCoset(Stabilizer(F,dir),aut);
 		else
 			# k>=2		
-			r:=CompatibleElement(d,k,F,aut,dir);
+			r:=CompatibleElement(F,aut,dir);
 			if r=fail then return []; fi;
 			K:=Kernel(RestrictedMapping(Projection(AutB(d,k)),F));
 			return RightCoset(Stabilizer(K,[(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)],OnTuples),r);		
@@ -122,7 +122,7 @@ end );
 
 InstallMethod( CompatibilitySet, "for F,aut,dirs", [IsLocalAction, IsPerm, IsList],
 function(F,aut,dirs)
-	local d, k, comp_sets, dn, r, p, K;
+	local d, k, comp_sets, dir, r, p, K;
 
 	if not IsSubset([1..LocalActionDegree(F)],dirs) then
 		Error("input argument dirs=",dirs," must be a subset of [1..",LocalActionDegree(F),"]");
@@ -137,8 +137,8 @@ function(F,aut,dirs)
 		else
 			# k>=2
 			comp_sets:=[];
-			for dn in dirs do
-				Add(comp_sets,CompatibilitySet(d,k,F,aut,dn));
+			for dir in dirs do
+				Add(comp_sets,CompatibilitySet(F,aut,dir));
 			od;
 			return Intersection(comp_sets);	
 		fi;
@@ -216,7 +216,7 @@ function(F)
 		gens:=SmallGeneratingSet(F);
 		for a in gens do
 			for dir in [1..d] do
-				if CompatibleElement(d,k,F,a,dir)=fail then
+				if CompatibleElement(F,a,dir)=fail then
 					return false;
 				fi;
 			od;	
@@ -272,7 +272,7 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( ConjugacyClassRepsCompatibleSubgroupsWithProjection, 
+InstallGlobalFunction( ConjugacyClassRepsCompatibleGroupsWithProjection, 
 function(l,F)
 	local d, k, reps, G_k, G_l, C, class, H, new, i;
 	
@@ -297,7 +297,7 @@ function(l,F)
 				if not IsConjugate(G_k,ImageOfProjection(LocalActionNC(d,l,class[1]),k),F) then continue; fi;
 				for H in class do
 					if not ImageOfProjection(LocalActionNC(d,l,class[1]),k)=F then continue; fi;
-					if SatisfiesC(d,l,H) then
+					if SatisfiesC(LocalActionNC(d,l,H)) then
 						new:=true;
 						for i in [Length(reps),Length(reps)-1..1] do
 							if IsConjugate(G_l,H,reps[i]) then new:=false; break; fi;

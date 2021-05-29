@@ -88,7 +88,7 @@
       3.3-2 SatisfiesC
       3.3-3 CompatibleSubgroups
       3.3-4 ConjugacyClassRepsCompatibleSubgroups
-      3.3-5 ConjugacyClassRepsCompatibleSubgroupsWithProjection
+      3.3-5 ConjugacyClassRepsCompatibleGroupsWithProjection
   4 [33X[0;0YExamples[133X
     4.1 [33X[0;0YDiscrete groups[133X
       4.1-1 [33X[0;0Ygamma[133X

@@ -191,9 +191,9 @@ Group([ (1,8,10)(2,7,9)(3,5,12)(4,6,11), (1,5)(2,6)(3,8)(4,7)(9,11)(10,12) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(F);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=PI(2,3,F,rho,[1]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(3,2,H);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GAMMA(3,2,H,z);</span>
-Group([ (), (), (1,9)(2,10)(3,12)(4,11)(7,8), (1,10,3,11)(2,9,4,12)
-  (5,8,6,7), (1,12,8)(2,11,7)(3,10,5)(4,9,6) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GAMMA(H,z);</span>
+Group([ (), (), (1,8,9)(2,7,10)(3,5,11)(4,6,12), (1,8,9)(2,7,10)(3,5,11)(4,6,12), 
+  (1,7,3,5)(2,8,4,6)(9,11,10,12) ])
 </pre></div>
 
 <p><a id="X82C33CF282FC5A73" name="X82C33CF282FC5A73"></a></p>
@@ -294,14 +294,14 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=SymmetricGroup(3);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">groups:=ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,S3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">groups:=ConjugacyClassRepsCompatibleSubgroupsWithProjection(2,S3);</span>
 [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
   Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for G in groups do Print(Size(G),",",Size(PHI(3,2,G)),"\n"); od;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for G in groups do Print(Size(G),",",Size(PHI(G)),"\n"); od;</span>
 6,6
 12,12
 24,192
@@ -311,7 +311,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(3,4,1,SymmetricGroup(4));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(3,LocalAction(4,1,SymmetricGroup(4)));</span>
 &lt;permutation group with 34 generators&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=AutB(4,3);</span>
 true
@@ -319,14 +319,14 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(SymmetricGroup(3));;</span>
+ap&gt; rho:=SignHomomorphism(SymmetricGroup(3));;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PI(2,3,SymmetricGroup(3),rho,[1]);; Size(F);</span>
 24
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=PHI(4,3,2,F);; Size(P);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=PHI(4,F);; Size(P);</span>
 12288
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSubgroup(AutB(3,4),P);</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCompatible(3,4,P);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SatisfiesC(P);</span>
 true
 </pre></div>
 
@@ -408,9 +408,9 @@ D(4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=Blocks(H,[1..4]);</span>
 [ [ 1, 3 ], [ 2, 4 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PHI(4,H,P);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=PHI(4,2,F,P);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=PHI(F,P);</span>
 &lt;permutation group with 5 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCompatible(4,3,G);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SatisfiesC(G);</span>
 true
 </pre></div>
 
@@ -509,17 +509,17 @@ f2
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PrimitiveGroup(5,3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=LocalAction(5,1,PrimitiveGroup(5,3));</span>
 AGL(1, 5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho1:=AbelianizationHomomorphism(F);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho2:=SignHomomorphism(F);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PI(3,5,F,rho1,[0,1,2]);</span>
 &lt;permutation group with 4 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(PHI(3,5,1,F),last);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(PHI(3,F),last);</span>
 4
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PI(3,5,F,rho2,[0,1,2]);</span>
 &lt;permutation group with 6 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(PHI(3,5,1,F),last);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(PHI(3,F),last);</span>
 2
 </pre></div>
 
@@ -562,7 +562,7 @@ AGL(1, 5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=SymmetricGroup(3);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(P);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PI(2,3,P,rho,[1]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(3,2,F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(F);;</span>
 [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
   Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
   Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
@@ -607,12 +607,12 @@ AGL(1, 5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=SymmetricGroup(3);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(P);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PI(2,3,P,rho,[1]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(3,2,F);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">kernels:=CompatibleKernels(3,2,F,z);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">kernels:=CompatibleKernels(F,z);</span>
 [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
   Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
   Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for K in kernels do Print(Size(SIGMA(3,2,F,K,z)),"\n"); od;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for K in kernels do Print(Size(SIGMA(F,K,z)),"\n"); od;</span>
 24
 48
 96

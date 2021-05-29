@@ -34,7 +34,7 @@ DeclareProperty( "SatisfiesD", IsLocalAction );
 #! @BeginExampleSession
 #! gap> G:=GAMMA(3,SymmetricGroup(3));
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
-#! gap> SatisfiesD(3,2,G);
+#! gap> SatisfiesD(G);
 #! true
 #! @EndExampleSession
 
@@ -53,18 +53,20 @@ DeclareProperty( "IsDiscrete" , IsLocalAction );
 #! @BeginExampleSession
 #! gap> G:=GAMMA(3,SymmetricGroup(3));
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
-#! gap> IsDiscrete(3,2,G);
+#! gap> IsDiscrete(G);
 #! true
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> IsDiscrete(3,2,Group((1,2)));
+#! gap> F:=LocalAction(3,2,Group((1,2)));
+#! Group([ (1,2) ])
+#! gap> IsDiscrete(F);
 #! true
-#! gap> SatisfiesD(3,2,Group((1,2)));
+#! gap> SatisfiesD(F);
 #! false
-#! gap> C:=MaximalCompatibleSubgroup(3,2,Group((1,2)));
+#! gap> C:=MaximalCompatibleSubgroup(F);
 #! Group(())
-#! gap> SatisfiesD(3,2,C);
+#! gap> SatisfiesD(C);
 #! true
 #! @EndExampleSession
 
@@ -95,7 +97,7 @@ DeclareGlobalFunction( "CocycleMap" );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="IsCompatible"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="SatisfiesC"/>).
 #!
 #! @Returns an involutive compatibility cocycle of <A>F</A>, which is a mapping <A>F</A>$\times$<C>[1..d]</C>$\to$<A>F</A> with certain properties, if it exists, and <K>fail</K> otherwise. When <A>k</A> $=1$, the standard cocycle is returned.
 #!
@@ -104,11 +106,11 @@ DeclareGlobalFunction( "CocycleMap" );
 DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #!
 #! @BeginExampleSession
-#! gap> z:=InvolutiveCompatibilityCocycle(3,1,AlternatingGroup(3));
-#! MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], 
-#!   [ (1,3,2), 1 ], [ (1,3,2), 2 ], [ (1,3,2), 3 ], [ (1,2,3), 1 ], 
-#!   [ (1,2,3), 2 ], [ (1,2,3), 3 ] 
-#!  ]), Alt( [ 1 .. 3 ] ), function( s ) ... end )
+#! gap> F:=LocalAction(3,1,AlternatingGroup(3));;
+#! gap> InvolutiveCompatibilityCocycle(F);
+#! MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], [ (1,3,2), 1 ], 
+#!   [ (1,3,2), 2 ], [ (1,3,2), 3 ], [ (1,2,3), 1 ], [ (1,2,3), 2 ], 
+#!   [ (1,2,3), 3 ] ]), Alt( [ 1 .. 3 ] ), function( s ) ... end )
 #! gap> a:=Random(AlternatingGroup(3));; dir:=Random([1..3]);;
 #! gap> a; Image(z,[a,dir]);
 #! (1,3,2)
@@ -118,19 +120,19 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #! @BeginExampleSession
 #! gap> G:=GAMMA(3,AlternatingGroup(3));
 #! Group([ (1,4,5)(2,3,6) ])
-#! gap> InvolutiveCompatibilityCocycle(3,2,G);
+#! gap> InvolutiveCompatibilityCocycle(G);
 #! MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], 
 #!   [ (1,5,4)(2,6,3), 1 ], [ (1,5,4)(2,6,3), 2 ], [ (1,5,4)(2,6,3), 3 ], 
 #!   [ (1,4,5)(2,3,6), 1 ], [ (1,4,5)(2,3,6), 2 ], [ (1,4,5)(2,3,6), 3 ] 
 #!  ]), Group([ (1,4,5)(2,3,6) ]), function( s ) ... end )
-#! gap> InvolutiveCompatibilityCocycle(3,2,AutB(3,2));
+#! gap> InvolutiveCompatibilityCocycle(AutB(3,2));
 #! fail
 #! @EndExampleSession
 
 ##################################################################################################################
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="IsCompatible"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="SatisfiesC"/>).
 #!
 #! @Returns the list of all involutive compatibility cocycles of $F$.
 #!
@@ -139,10 +141,10 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 DeclareAttribute( "AllInvolutiveCompatibilityCocycles" , IsLocalAction );
 #!
 #! @BeginExampleSession
-#! gap> S3:=SymmetricGroup(3);;
-#! gap> Size(AllInvolutiveCompatibilityCocycles(3,1,S3));
+#! gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
+#! gap> Size(AllInvolutiveCompatibilityCocycles(S3));
 #! 4
-#! gap> Size(AllInvolutiveCompatibilityCocycles(3,2,GAMMA(3,S3)));
+#! gap> Size(AllInvolutiveCompatibilityCocycles(GAMMA(3,SymmetricGroup(3))));
 #! 1
 #! @EndExampleSession
 

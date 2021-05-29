@@ -149,9 +149,9 @@ DeclareOperation( "GAMMA" , [IsLocalAction, IsMapping] );
 #! gap> rho:=SignHomomorphism(F);;
 #! gap> H:=PI(2,3,F,rho,[1]);;
 #! gap> z:=InvolutiveCompatibilityCocycle(3,2,H);;
-#! gap> GAMMA(3,2,H,z);
-#! Group([ (), (), (1,9)(2,10)(3,12)(4,11)(7,8), (1,10,3,11)(2,9,4,12)
-#!   (5,8,6,7), (1,12,8)(2,11,7)(3,10,5)(4,9,6) ])
+#! gap> GAMMA(H,z);
+#! Group([ (), (), (1,8,9)(2,7,10)(3,5,11)(4,6,12), (1,8,9)(2,7,10)(3,5,11)(4,6,12), 
+#!   (1,7,3,5)(2,8,4,6)(9,11,10,12) ])
 #! @EndExampleSession
 #! @EndGroup
 
@@ -266,14 +266,14 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> S3:=SymmetricGroup(3);;
-#! gap> groups:=ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,S3);
+#! gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
+#! gap> groups:=ConjugacyClassRepsCompatibleSubgroupsWithProjection(2,S3);
 #! [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
 #!   Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
-#! gap> for G in groups do Print(Size(G),",",Size(PHI(3,2,G)),"\n"); od;
+#! gap> for G in groups do Print(Size(G),",",Size(PHI(G)),"\n"); od;
 #! 6,6
 #! 12,12
 #! 24,192
@@ -282,21 +282,21 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> PHI(3,4,1,SymmetricGroup(4));
+#! gap> PHI(3,LocalAction(4,1,SymmetricGroup(4)));
 #! <permutation group with 34 generators>
 #! gap> last=AutB(4,3);
 #! true
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> rho:=SignHomomorphism(SymmetricGroup(3));;
+#! ap> rho:=SignHomomorphism(SymmetricGroup(3));;
 #! gap> F:=PI(2,3,SymmetricGroup(3),rho,[1]);; Size(F);
 #! 24
-#! gap> P:=PHI(4,3,2,F);; Size(P);
+#! gap> P:=PHI(4,F);; Size(P);
 #! 12288
 #! gap> IsSubgroup(AutB(3,4),P);
 #! true
-#! gap> IsCompatible(3,4,P);
+#! gap> SatisfiesC(P);
 #! true
 #! @EndExampleSession
 #!
@@ -385,9 +385,9 @@ DeclareOperation( "PHI" , [IsLocalAction, IsList] );
 #! gap> P:=Blocks(H,[1..4]);
 #! [ [ 1, 3 ], [ 2, 4 ] ]
 #! gap> F:=PHI(4,H,P);;
-#! gap> G:=PHI(4,2,F,P);
+#! gap> G:=PHI(F,P);
 #! <permutation group with 5 generators>
-#! gap> IsCompatible(4,3,G);
+#! gap> SatisfiesC(G);
 #! true
 #! @EndExampleSession
 #!
@@ -493,17 +493,17 @@ DeclareGlobalFunction( "SpheresProduct" );
 DeclareGlobalFunction( "PI" );
 #!
 #! @BeginExampleSession
-#! gap> F:=PrimitiveGroup(5,3);
+#! gap> F:=LocalAction(5,1,PrimitiveGroup(5,3));
 #! AGL(1, 5)
 #! gap> rho1:=AbelianizationHomomorphism(F);;
 #! gap> rho2:=SignHomomorphism(F);;
 #! gap> PI(3,5,F,rho1,[0,1,2]);
 #! <permutation group with 4 generators>
-#! gap> Index(PHI(3,5,1,F),last);
+#! gap> Index(PHI(3,F),last);
 #! 4
 #! gap> PI(3,5,F,rho2,[0,1,2]);
 #! <permutation group with 6 generators>
-#! gap> Index(PHI(3,5,1,F),last);
+#! gap> Index(PHI(3,F),last);
 #! 2
 #! @EndExampleSession
 
@@ -549,8 +549,8 @@ DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping] );
 #! gap> P:=SymmetricGroup(3);;
 #! gap> rho:=SignHomomorphism(P);;
 #! gap> F:=PI(2,3,P,rho,[1]);;
-#! gap> z:=InvolutiveCompatibilityCocycle(3,2,F);;
-#1 gap> CompatibleKernels(3,2,F,z);
+#! gap> z:=InvolutiveCompatibilityCocycle(F);;
+#1 gap> CompatibleKernels(F,z);
 #! [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
 #!   Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
 #!   Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
@@ -602,12 +602,12 @@ DeclareOperation( "SIGMA" , [IsLocalAction, IsPermGroup, IsMapping] );
 #! gap> P:=SymmetricGroup(3);;
 #! gap> rho:=SignHomomorphism(P);;
 #! gap> F:=PI(2,3,P,rho,[1]);;
-#! gap> z:=InvolutiveCompatibilityCocycle(3,2,F);;
-#! gap> kernels:=CompatibleKernels(3,2,F,z);
+#! gap> z:=InvolutiveCompatibilityCocycle(F);;
+#! gap> kernels:=CompatibleKernels(F,z);
 #! [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
 #!   Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
 #!   Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
-#! gap> for K in kernels do Print(Size(SIGMA(3,2,F,K,z)),"\n"); od;
+#! gap> for K in kernels do Print(Size(SIGMA(F,K,z)),"\n"); od;
 #! 24
 #! 48
 #! 96

@@ -212,7 +212,7 @@ function(d,F)
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
 	elif not IsSubgroup(SymmetricGroup(d),F) then
 		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
-	else
+	else	
 		gens:=[];
 		# F-section: $\Gamma(F)$
 		for a in GeneratorsOfGroup(F) do Add(gens,gamma(2,d,a)); od;
@@ -364,7 +364,7 @@ function(F,P)
 	# $\Phi_{k}(F,P)
 	if not LocalActionRadius(F)>=1 then
 		Error("input argument F=",F," must be a local action of radius at least 1");
-	elif not (IsDuplicateFree(Concatenation(P)) and Union(P)=[1..d]) then
+	elif not (IsDuplicateFree(Concatenation(P)) and Union(P)=[1..LocalActionDegree(F)]) then
 		Error("input argument P=",P," must be a block system for $\\pi(F)$=",ImageOfProjection(d,k,F,1),"\n");
 	else		
 		d:=LocalActionDegree(F);

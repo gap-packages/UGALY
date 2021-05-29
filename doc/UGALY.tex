@@ -426,7 +426,7 @@ Most importantly, a local action always stores the degree $d$ and the radius $k$
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@AutB(3,2);|
   Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
-  !gapprompt@gap>| !gapinput@ImageOfProjection(3,2,AutB(3,2),1);|
+  !gapprompt@gap>| !gapinput@ImageOfProjection(AutB(3,2),1);|
   Group([ (), (), (), (1,2,3), (1,2) ])
 \end{Verbatim}
  }
@@ -729,7 +729,7 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
   !gapprompt@gap>| !gapinput@a:=Random(AutB(5,1)); dir:=Random([1..5]);|
   (1,3,2,5)
   4
-  !gapprompt@gap>| !gapinput@CompatibleElement(5,1,AutB(5,1),a,dir);|
+  !gapprompt@gap>| !gapinput@CompatibleElement(AutB(5,1),a,dir);|
   (1,3,2,5)
 \end{Verbatim}
  
@@ -738,7 +738,7 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@a:=(1,3,5)(2,4,6);; a in AutB(3,2);|
   true
-  !gapprompt@gap>| !gapinput@CompatibleElement(3,2,AutB(3,2),a,1);|
+  !gapprompt@gap>| !gapinput@CompatibleElement(AutB(3,2),a,1);|
   (1,4,2,3)
 \end{Verbatim}
  
@@ -773,17 +773,17 @@ each level. See \texttt{AddressOfLeaf} (\ref{AddressOfLeaf}) and \texttt{LeafOfA
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@F:=TransitiveGroup(4,3);|
+  !gapprompt@gap>| !gapinput@F:=LocalAction(4,1,TransitiveGroup(4,3));|
   D(4)
-  !gapprompt@gap>| !gapinput@aut:=(1,3);; aut in F;|
-  true
-  !gapprompt@gap>| !gapinput@CompatibilitySet(4,1,SymmetricGroup(4),aut,1);|
+  !gapprompt@gap>| !gapinput@G:=LocalAction(4,1,SymmetricGroup(4));|
+  Sym( [ 1 .. 4 ] )
+  !gapprompt@gap>| !gapinput@CompatibilitySet(G,aut,1);|
   RightCoset(Sym( [ 2 .. 4 ] ),(1,3))
-  !gapprompt@gap>| !gapinput@CompatibilitySet(4,1,F,aut,1);|
+  !gapprompt@gap>| !gapinput@CompatibilitySet(F,aut,1);|
   RightCoset(Group([ (2,4) ]),(1,3))
-  !gapprompt@gap>| !gapinput@CompatibilitySet(4,1,F,aut,[1,3]);|
+  !gapprompt@gap>| !gapinput@CompatibilitySet(F,aut,[1,3]);|
   RightCoset(Group([ (2,4) ]),(1,3))
-  !gapprompt@gap>| !gapinput@CompatibilitySet(4,1,F,aut,[1,2]);|
+  !gapprompt@gap>| !gapinput@CompatibilitySet(F,aut,[1,2]);|
   RightCoset(Group(()),(1,3))
 \end{Verbatim}
  
@@ -851,9 +851,13 @@ The local action $C($\mbox{\texttt{\mdseries\slshape F}}$)\le\mathrm{Aut}(B_{d,k
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@MaximalCompatibleSubgroup(3,1,Group((1,2)));|
+  !gapprompt@gap>| !gapinput@F:=LocalAction(3,1,Group((1,2)));|
   Group([ (1,2) ])
-  !gapprompt@gap>| !gapinput@MaximalCompatibleSubgroup(3,2,Group((1,2)));|
+  !gapprompt@gap>| !gapinput@MaximalCompatibleSubgroup(F);|
+  Group([ (1,2) ])
+  !gapprompt@gap>| !gapinput@G:=LocalAction(3,2,Group((1,2)));|
+  Group([ (1,2) ])
+  !gapprompt@gap>| !gapinput@MaximalCompatibleSubgroup(G);|
   Group(())
 \end{Verbatim}
  
@@ -879,7 +883,7 @@ The local action $C($\mbox{\texttt{\mdseries\slshape F}}$)\le\mathrm{Aut}(B_{d,k
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@D:=DELTA(3,SymmetricGroup(3));|
   Group([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])
-  !gapprompt@gap>| !gapinput@IsCompatible(3,2,D);|
+  !gapprompt@gap>| !gapinput@SatisfiesC(D);|
   true
 \end{Verbatim}
  
@@ -906,7 +910,7 @@ and use \texttt{ConjugacyClassRepsCompatibleSubgroups} (\ref{ConjugacyClassRepsC
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@G:=GAMMA(3,SymmetricGroup(3));|
   Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
-  !gapprompt@gap>| !gapinput@list:=CompatibleSubgroups(3,2,G);|
+  !gapprompt@gap>| !gapinput@list:=CompatibleSubgroups(G);|
   [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,3)(2,4)(5,6) ]), 
     Group([ (1,6)(2,5)(3,4) ]), Group([ (1,4,5)(2,3,6) ]), Group([ (1,4,5)
     (2,3,6), (1,3)(2,4)(5,6) ]) ]
@@ -936,7 +940,7 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@ConjugacyClassRepsCompatibleSubgroups(3,2,AutB(3,2));|
+  !gapprompt@gap>| !gapinput@ConjugacyClassRepsCompatibleSubgroups(AutB(3,2));|
   [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,4,5)(2,3,6) ]), 
     Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)
     (2,4,5) ]), Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), 
@@ -946,18 +950,18 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{ConjugacyClassRepsCompatibleSubgroupsWithProjection}}
+\subsection{\textcolor{Chapter }{ConjugacyClassRepsCompatibleGroupsWithProjection}}
 \logpage{[ 3, 3, 5 ]}\nobreak
-\hyperdef{L}{X876408A9784A6F34}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConjugacyClassRepsCompatibleSubgroupsWithProjection({\mdseries\slshape l, F})\index{ConjugacyClassRepsCompatibleSubgroupsWithProjection@\texttt{Conjugacy}\-\texttt{Class}\-\texttt{Reps}\-\texttt{Compatible}\-\texttt{Subgroups}\-\texttt{With}\-\texttt{Projection}}
-\label{ConjugacyClassRepsCompatibleSubgroupsWithProjection}
+\hyperdef{L}{X84F140AC7AD8D9EE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConjugacyClassRepsCompatibleGroupsWithProjection({\mdseries\slshape l, F})\index{ConjugacyClassRepsCompatibleGroupsWithProjection@\texttt{Conjugacy}\-\texttt{Class}\-\texttt{Reps}\-\texttt{Compatible}\-\texttt{Groups}\-\texttt{With}\-\texttt{Projection}}
+\label{ConjugacyClassRepsCompatibleGroupsWithProjection}
 }\hfill{\scriptsize (function)}}\\
 \textbf{\indent Returns:\ }
- a list of compatible representatives of conjugacy classes of $\mathrm{Aut}(B_{d,k})$ that contain a compatible subgroup which projects to \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,r})$. 
+ a list of compatible representatives of conjugacy classes of $\mathrm{Aut}(B_{d,l})$ that contain a compatible group which projects to \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,r})$. 
 
 
 
- The arguments of this method are a radius \mbox{\texttt{\mdseries\slshape r}} $\in\mathbb{N}$, and a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ for some $k\le r$. 
+ The arguments of this method are a radius \mbox{\texttt{\mdseries\slshape l}} $\in\mathbb{N}$, and a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ for some $k\le l$. 
 
  }
 
@@ -965,15 +969,17 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@S3:=SymmetricGroup(3);;|
-  !gapprompt@gap>| !gapinput@ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,S3);|
-  [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), Group([ (1,2)(3,4)
-    (5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), Group([ (3,4)(5,6), (1,2)
-    (3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), Group([ (3,4)(5,6), (1,2)
-    (3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), Group([ (3,4)(5,6), (1,2)
-    (3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
-  !gapprompt@gap>| !gapinput@A3:=AlternatingGroup(3);;|
-  !gapprompt@gap>| !gapinput@ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,A3);|
+  !gapprompt@gap>| !gapinput@S3:=LocalAction(3,1,SymmetricGroup(3));|
+  Sym( [ 1 .. 3 ] )
+  !gapprompt@gap>| !gapinput@ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);|
+  [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+    Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+    Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
+    Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
+    Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
+  !gapprompt@gap>| !gapinput@A3:=LocalAction(3,1,AlternatingGroup(3));|
+  Alt( [ 1 .. 3 ] )
+  !gapprompt@gap>| !gapinput@ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);|
   [ Group([ (1,4,5)(2,3,6) ]) ]
 \end{Verbatim}
  
@@ -984,9 +990,9 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
   !gapprompt@gap>| !gapinput@rho:=SignHomomorphism(F);;|
   !gapprompt@gap>| !gapinput@H1:=PI(2,3,F,rho,[0,1]);;|
   !gapprompt@gap>| !gapinput@H2:=PI(2,3,F,rho,[1]);;|
-  !gapprompt@gap>| !gapinput@Size(ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,3,2,H1));|
+  !gapprompt@gap>| !gapinput@Size(ConjugacyClassRepsCompatibleGroupsWithProjection(3,H1));|
   2
-  !gapprompt@gap>| !gapinput@Size(ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,3,2,H2));|
+  !gapprompt@gap>| !gapinput@Size(ConjugacyClassRepsCompatibleGroupsWithProjection(3,H2));|
   4
 \end{Verbatim}
  }
@@ -1145,9 +1151,9 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
   !gapprompt@gap>| !gapinput@rho:=SignHomomorphism(F);;|
   !gapprompt@gap>| !gapinput@H:=PI(2,3,F,rho,[1]);;|
   !gapprompt@gap>| !gapinput@z:=InvolutiveCompatibilityCocycle(3,2,H);;|
-  !gapprompt@gap>| !gapinput@GAMMA(3,2,H,z);|
-  Group([ (), (), (1,9)(2,10)(3,12)(4,11)(7,8), (1,10,3,11)(2,9,4,12)
-    (5,8,6,7), (1,12,8)(2,11,7)(3,10,5)(4,9,6) ])
+  !gapprompt@gap>| !gapinput@GAMMA(H,z);|
+  Group([ (), (), (1,8,9)(2,7,10)(3,5,11)(4,6,12), (1,8,9)(2,7,10)(3,5,11)(4,6,12), 
+    (1,7,3,5)(2,8,4,6)(9,11,10,12) ])
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{DELTA}}\label{DELTA}
@@ -1270,14 +1276,14 @@ C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$.
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@S3:=SymmetricGroup(3);;|
-  !gapprompt@gap>| !gapinput@groups:=ConjugacyClassRepsCompatibleSubgroupsWithProjection(3,2,1,S3);|
+  !gapprompt@gap>| !gapinput@S3:=LocalAction(3,1,SymmetricGroup(3));;|
+  !gapprompt@gap>| !gapinput@groups:=ConjugacyClassRepsCompatibleSubgroupsWithProjection(2,S3);|
   [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
     Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
     Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
     Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
     Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
-  !gapprompt@gap>| !gapinput@for G in groups do Print(Size(G),",",Size(PHI(3,2,G)),"\n"); od;|
+  !gapprompt@gap>| !gapinput@for G in groups do Print(Size(G),",",Size(PHI(G)),"\n"); od;|
   6,6
   12,12
   24,192
@@ -1288,7 +1294,7 @@ C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$.
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@PHI(3,4,1,SymmetricGroup(4));|
+  !gapprompt@gap>| !gapinput@PHI(3,LocalAction(4,1,SymmetricGroup(4)));|
   <permutation group with 34 generators>
   !gapprompt@gap>| !gapinput@last=AutB(4,3);|
   true
@@ -1297,14 +1303,14 @@ C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$.
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@rho:=SignHomomorphism(SymmetricGroup(3));;|
+  ap> rho:=SignHomomorphism(SymmetricGroup(3));;
   !gapprompt@gap>| !gapinput@F:=PI(2,3,SymmetricGroup(3),rho,[1]);; Size(F);|
   24
-  !gapprompt@gap>| !gapinput@P:=PHI(4,3,2,F);; Size(P);|
+  !gapprompt@gap>| !gapinput@P:=PHI(4,F);; Size(P);|
   12288
   !gapprompt@gap>| !gapinput@IsSubgroup(AutB(3,4),P);|
   true
-  !gapprompt@gap>| !gapinput@IsCompatible(3,4,P);|
+  !gapprompt@gap>| !gapinput@SatisfiesC(P);|
   true
 \end{Verbatim}
  
@@ -1402,9 +1408,9 @@ respect to a partition element are non-trivial.
   !gapprompt@gap>| !gapinput@P:=Blocks(H,[1..4]);|
   [ [ 1, 3 ], [ 2, 4 ] ]
   !gapprompt@gap>| !gapinput@F:=PHI(4,H,P);;|
-  !gapprompt@gap>| !gapinput@G:=PHI(4,2,F,P);|
+  !gapprompt@gap>| !gapinput@G:=PHI(F,P);|
   <permutation group with 5 generators>
-  !gapprompt@gap>| !gapinput@IsCompatible(4,3,G);|
+  !gapprompt@gap>| !gapinput@SatisfiesC(G);|
   true
 \end{Verbatim}
  
@@ -1546,17 +1552,17 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@F:=PrimitiveGroup(5,3);|
+  !gapprompt@gap>| !gapinput@F:=LocalAction(5,1,PrimitiveGroup(5,3));|
   AGL(1, 5)
   !gapprompt@gap>| !gapinput@rho1:=AbelianizationHomomorphism(F);;|
   !gapprompt@gap>| !gapinput@rho2:=SignHomomorphism(F);;|
   !gapprompt@gap>| !gapinput@PI(3,5,F,rho1,[0,1,2]);|
   <permutation group with 4 generators>
-  !gapprompt@gap>| !gapinput@Index(PHI(3,5,1,F),last);|
+  !gapprompt@gap>| !gapinput@Index(PHI(3,F),last);|
   4
   !gapprompt@gap>| !gapinput@PI(3,5,F,rho2,[0,1,2]);|
   <permutation group with 6 generators>
-  !gapprompt@gap>| !gapinput@Index(PHI(3,5,1,F),last);|
+  !gapprompt@gap>| !gapinput@Index(PHI(3,F),last);|
   2
 \end{Verbatim}
  }
@@ -1611,7 +1617,7 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
   !gapprompt@gap>| !gapinput@P:=SymmetricGroup(3);;|
   !gapprompt@gap>| !gapinput@rho:=SignHomomorphism(P);;|
   !gapprompt@gap>| !gapinput@F:=PI(2,3,P,rho,[1]);;|
-  !gapprompt@gap>| !gapinput@z:=InvolutiveCompatibilityCocycle(3,2,F);;|
+  !gapprompt@gap>| !gapinput@z:=InvolutiveCompatibilityCocycle(F);;|
   [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
     Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
     Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
@@ -1665,12 +1671,12 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
   !gapprompt@gap>| !gapinput@P:=SymmetricGroup(3);;|
   !gapprompt@gap>| !gapinput@rho:=SignHomomorphism(P);;|
   !gapprompt@gap>| !gapinput@F:=PI(2,3,P,rho,[1]);;|
-  !gapprompt@gap>| !gapinput@z:=InvolutiveCompatibilityCocycle(3,2,F);;|
-  !gapprompt@gap>| !gapinput@kernels:=CompatibleKernels(3,2,F,z);|
+  !gapprompt@gap>| !gapinput@z:=InvolutiveCompatibilityCocycle(F);;|
+  !gapprompt@gap>| !gapinput@kernels:=CompatibleKernels(F,z);|
   [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
     Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
     Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
-  !gapprompt@gap>| !gapinput@for K in kernels do Print(Size(SIGMA(3,2,F,K,z)),"\n"); od;|
+  !gapprompt@gap>| !gapinput@for K in kernels do Print(Size(SIGMA(F,K,z)),"\n"); od;|
   24
   48
   96
@@ -1725,7 +1731,7 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@G:=GAMMA(3,SymmetricGroup(3));|
   Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
-  !gapprompt@gap>| !gapinput@SatisfiesD(3,2,G);|
+  !gapprompt@gap>| !gapinput@SatisfiesD(G);|
   true
 \end{Verbatim}
  
@@ -1751,20 +1757,22 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@G:=GAMMA(3,SymmetricGroup(3));|
   Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
-  !gapprompt@gap>| !gapinput@IsDiscrete(3,2,G);|
+  !gapprompt@gap>| !gapinput@IsDiscrete(G);|
   true
 \end{Verbatim}
  
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsDiscrete(3,2,Group((1,2)));|
+  !gapprompt@gap>| !gapinput@F:=LocalAction(3,2,Group((1,2)));|
+  Group([ (1,2) ])
+  !gapprompt@gap>| !gapinput@IsDiscrete(F);|
   true
-  !gapprompt@gap>| !gapinput@SatisfiesD(3,2,Group((1,2)));|
+  !gapprompt@gap>| !gapinput@SatisfiesD(F);|
   false
-  !gapprompt@gap>| !gapinput@C:=MaximalCompatibleSubgroup(3,2,Group((1,2)));|
+  !gapprompt@gap>| !gapinput@C:=MaximalCompatibleSubgroup(F);|
   Group(())
-  !gapprompt@gap>| !gapinput@SatisfiesD(3,2,C);|
+  !gapprompt@gap>| !gapinput@SatisfiesD(C);|
   true
 \end{Verbatim}
  }
@@ -1790,7 +1798,7 @@ an involutive compatibility cocycle of \mbox{\texttt{\mdseries\slshape F}}, whic
 
 
 
- The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})), which is compatible (\texttt{IsCompatible} (\ref{IsCompatible})). 
+ The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})), which is compatible (\texttt{SatisfiesC} (\ref{SatisfiesC})). 
 
  }
 
@@ -1798,11 +1806,11 @@ an involutive compatibility cocycle of \mbox{\texttt{\mdseries\slshape F}}, whic
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@z:=InvolutiveCompatibilityCocycle(3,1,AlternatingGroup(3));|
-  MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], 
-    [ (1,3,2), 1 ], [ (1,3,2), 2 ], [ (1,3,2), 3 ], [ (1,2,3), 1 ], 
-    [ (1,2,3), 2 ], [ (1,2,3), 3 ] 
-   ]), Alt( [ 1 .. 3 ] ), function( s ) ... end )
+  !gapprompt@gap>| !gapinput@F:=LocalAction(3,1,AlternatingGroup(3));;|
+  !gapprompt@gap>| !gapinput@InvolutiveCompatibilityCocycle(F);|
+  MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], [ (1,3,2), 1 ], 
+    [ (1,3,2), 2 ], [ (1,3,2), 3 ], [ (1,2,3), 1 ], [ (1,2,3), 2 ], 
+    [ (1,2,3), 3 ] ]), Alt( [ 1 .. 3 ] ), function( s ) ... end )
   !gapprompt@gap>| !gapinput@a:=Random(AlternatingGroup(3));; dir:=Random([1..3]);;|
   !gapprompt@gap>| !gapinput@a; Image(z,[a,dir]);|
   (1,3,2)
@@ -1814,12 +1822,12 @@ an involutive compatibility cocycle of \mbox{\texttt{\mdseries\slshape F}}, whic
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@G:=GAMMA(3,AlternatingGroup(3));|
   Group([ (1,4,5)(2,3,6) ])
-  !gapprompt@gap>| !gapinput@InvolutiveCompatibilityCocycle(3,2,G);|
+  !gapprompt@gap>| !gapinput@InvolutiveCompatibilityCocycle(G);|
   MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], 
     [ (1,5,4)(2,6,3), 1 ], [ (1,5,4)(2,6,3), 2 ], [ (1,5,4)(2,6,3), 3 ], 
     [ (1,4,5)(2,3,6), 1 ], [ (1,4,5)(2,3,6), 2 ], [ (1,4,5)(2,3,6), 3 ] 
    ]), Group([ (1,4,5)(2,3,6) ]), function( s ) ... end )
-  !gapprompt@gap>| !gapinput@InvolutiveCompatibilityCocycle(3,2,AutB(3,2));|
+  !gapprompt@gap>| !gapinput@InvolutiveCompatibilityCocycle(AutB(3,2));|
   fail
 \end{Verbatim}
  
@@ -1835,7 +1843,7 @@ the list of all involutive compatibility cocycles of $F$.
 
 
 
- The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})), which is compatible (\texttt{IsCompatible} (\ref{IsCompatible})). 
+ The argument of this attribute is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ (\texttt{IsLocalAction} (\ref{IsLocalAction})), which is compatible (\texttt{SatisfiesC} (\ref{SatisfiesC})). 
 
  }
 
@@ -1843,10 +1851,10 @@ the list of all involutive compatibility cocycles of $F$.
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@S3:=SymmetricGroup(3);;|
-  !gapprompt@gap>| !gapinput@Size(AllInvolutiveCompatibilityCocycles(3,1,S3));|
+  !gapprompt@gap>| !gapinput@S3:=LocalAction(3,1,SymmetricGroup(3));;|
+  !gapprompt@gap>| !gapinput@Size(AllInvolutiveCompatibilityCocycles(S3));|
   4
-  !gapprompt@gap>| !gapinput@Size(AllInvolutiveCompatibilityCocycles(3,2,GAMMA(3,S3)));|
+  !gapprompt@gap>| !gapinput@Size(AllInvolutiveCompatibilityCocycles(GAMMA(3,SymmetricGroup(3))));|
   1
 \end{Verbatim}
  }
@@ -1873,6 +1881,7 @@ the list of all involutive compatibility cocycles of $F$.
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}

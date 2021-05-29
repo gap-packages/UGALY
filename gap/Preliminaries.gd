@@ -368,7 +368,7 @@ DeclareGlobalFunction( "ImageOfProjection" );
 #! @BeginExampleSession
 #! gap> AutB(3,2);
 #! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
-#! gap> ImageOfProjection(3,2,AutB(3,2),1);
+#! gap> ImageOfProjection(AutB(3,2),1);
 #! Group([ (), (), (), (1,2,3), (1,2) ])
 #! @EndExampleSession
 
