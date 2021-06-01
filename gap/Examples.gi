@@ -203,29 +203,6 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( PHI, "for d,F", [IsInt, IsPermGroup],
-function(d,F)
-	local gens, a, addrs, gens_stabs, i, addr;
-
-	# $\Phi(F)$
-	if not d>=3 then
-		Error("input argument d=",d," must be an integer greater than or equal to 3");
-	elif not IsSubgroup(SymmetricGroup(d),F) then
-		Error("input argument F=",F," must be a subgroup of Sym(",d,")");
-	else	
-		gens:=[];
-		# F-section: $\Gamma(F)$
-		for a in GeneratorsOfGroup(F) do Add(gens,gamma(2,d,a)); od;
-		# kernel
-		for i in [1..d] do
-			for a in GeneratorsOfGroup(Stabilizer(F,i)) do
-				Add(gens,gamma(2,d,a,[i]));
-			od;
-		od;
-		return LocalActionNC(d,2,Group(gens));
-	fi;
-end );
-
 InstallMethod( PHI, "for d,F,N", [IsInt, IsPermGroup, IsPermGroup],
 function(d,F,N)
 	local gens, a, auts;

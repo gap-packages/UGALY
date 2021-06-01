@@ -222,12 +222,6 @@ DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup] );
 #! @GroupTitle PHI
 
 #! <List>
-#!	<Mark>for the arguments <A>d</A>, <A>F</A></Mark>
-#!	<Item> 
-#!		Returns: the group $\Phi($<A>F</A>$)=\{(a,(a_{\omega})_{\omega})\mid a\in $<A>F</A>$,\ \forall \omega\in\Omega:\ a_{\omega}\in C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,2})$.
-#!
-#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$ and a permutation group <A>F</A> $\le S_{d}$.
-#!	</Item>
 #!	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A></Mark>
 #!	<Item>
 #!		Returns: the group $\Phi_{k}($<A>F</A>$)=\{(a,(a_{\omega})_{\omega})\mid a\in $<A>F</A>$,\ \forall \omega\in\Omega:\ a_{\omega}\in C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$.
@@ -241,10 +235,6 @@ DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup] );
 #!		The arguments of this method are a radius <A>l</A> $\in\mathbb{N}$ and a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$.
 #!	</Item>
 #! </List>
-#!
-#! @Arguments d,F
-#! @Label for d, F
-DeclareOperation( "PHI" , [IsInt, IsPermGroup] );
 #!
 #! @Arguments F
 #! @Label for F
