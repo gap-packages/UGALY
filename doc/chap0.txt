@@ -57,6 +57,7 @@
   [1XContents (UGALY)[101X
   
   1 [33X[0;0YIntroduction[133X
+    1.1 [33X[0;0YPurpose[133X
   2 [33X[0;0YPreliminaries[133X
     2.1 [33X[0;0YLocal actions[133X
       2.1-1 IsLocalAction

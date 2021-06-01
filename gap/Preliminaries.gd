@@ -25,8 +25,6 @@
 ##################################################################################################################
 ##################################################################################################################
 
-# <Package>UGALY</Package> (<B>U</B>niversal <B>G</B>roups <B>A</B>cting <B>L</B>ocall<B>Y</B>) is a <B>GAP</B> package <Cite Key="GAP4"/> that provides methods to create, analyse and find local actions of universal groups acting on locally finite, regular trees, following Burger-Mozes <Cite Key="BM00a"/> and Tornier <Cite Key="Tor20"/>. It was developed within the <URL Text="Zero-Dimensional Symmetry Research Group"> https://zerodimensional.group/"</URL> in the <URL Text="School of Mathematical and Physical Sciences"> https://www.newcastle.edu.au/school/mathematical-and-physical-sciences</URL> at <URL Text="The University of Newcastle"> https://www.newcastle.edu.au/</URL> as part of a project course taken by the first author, supervised by the second author.
-#!
 #! Let $\Omega$ be a set of cardinality $d\in\mathbb{N}_{\ge 3}$ and let $T_{d}=(V,E)$ be the $d$-regular tree. We follow Serre's graph theory notation <Cite Key="Ser80"/>. Given a subgroup $H$ of the automorphism group $\mathrm{Aut}(T_{d})$ of $T_{d}$, and a vertex $x\in V$, the stabilizer $H_{x}$ of $x$ in $H$ induces a permutation group on the set $E(x):=\{e\in E\mid o(e)=x\}$ of edges issuing from $x$. We say that $H$ is locally "P" if for every $x\in V$ said permutation group satisfies the property "P", e.g. being transitive, semiprimitive, quasiprimitive or $2$-transitive.
 
 #! In <Cite Key="BM00a"/>, Burger-Mozes develop a remarkable structure theory of closed, non-discrete, locally quasiprimitive subgroups of $\mathrm{Aut}(T_{d})$, which resembles the theory of semisimple Lie groups. They complement this structure theory with a particularly accessible class of subgroups of $\mathrm{Aut}(T_{d})$ with prescribed local action: Given $F\le\mathrm{Sym}(\Omega)$ their universal group $\mathrm{U}(F)$ is closed in $\mathrm{Aut}(T_{d})$, vertex-transitive, compactly generated and locally permutation isomorphic to $F$. It is discrete if and only if $F$ is semiregular. When $F$ is transitive, $\mathrm{U}(F)$ is maximal up to conjugation among vertex-transitive subgroups of $\mathrm{Aut}(T_{d})$ that are locally permutation isomorphic to $F$, hence <E>universal</E>.
@@ -38,6 +36,41 @@
 #! While $\mathrm{U}_{k}(F)$ is always closed, vertex-transitive and compactly generated, other properties of $\mathrm{U}(F)$ do <E>not</E> carry over. Foremost, the group $\mathrm{U}_{k}(F)$ need not be locally action isomorphic to $F$ and we say that $F\le\mathrm{Aut}(B_{d,k})$ satisfies condition (C) if it is. This can be viewed as an interchangeability condition on neighbouring local actions, see Section <Ref Sect="Section_condition_C"/>. There is also a discreteness condition (D) on $F\le\mathrm{Aut}(B_{d,k})$ in terms of certain stabilizers in $F$ under which $\mathrm{U}_{k}(F)$ is discrete, see Section <Ref Sect="Section_condition_D"/>.
 #!
 #! <Package>UGALY</Package> provides methods to create, analyse and find local actions $F\le\mathrm{Aut}(B_{d,k})$ that satisfy condition (C) and/or (D), including the constructions $\Gamma$, $\Delta$, $\Phi$, $\Sigma$, and $\Pi$ developed in <Cite Key="Tor20"/>. This package was developed within the <URL Text="Zero-Dimensional Symmetry Research Group"> https://zerodimensional.group/"</URL> in the <URL Text="School of Mathematical and Physical Sciences"> https://www.newcastle.edu.au/school/mathematical-and-physical-sciences</URL> at <URL Text="The University of Newcastle"> https://www.newcastle.edu.au/</URL> as part of a project course taken by the first author, supervised by the second author.
+
+##################################################################################################################
+#! @Section Purpose
+##################################################################################################################
+
+#! <Package>UGALY</Package> serves both a research and an educational purpose. It consolidates a rudimentary codebase that was developed by the second author in the course of research undertaken towards the article <Cite Key="Tor20"/>. This codebase had been tremendously beneficial in achieving the results of <Cite Key="Tor20"/> in the first place, and so there has always been a desire to make it available to a wider audience.
+#!
+#!
+#! From a research perspective, <Package>UGALY</Package> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <Cite Key="KM08"/>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <Cite Key="BM00a"/> and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: indeed, due to <Cite Key="Tor20" Where="Corollary 4.32"/> the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see <Cite Key="BEW15"/>) that generalise Tits' independence property $(P)$, see <Cite Key="Tit70"/>. <Package>UGALY</Package> provides the means to generate a library of all these groups in terms of the $k$-local action representing them. This library naturally encompasses the library of finite transitive permutation groups <Package>TransGrp</Package> in the case $k=1$ of classical Burger-Mozes groups. For example, in the case $d=3$ we obtain the following for $k=1$ and $k=2$:
+
+#! @BeginExampleSession
+#! gap> NrTransitiveGroups(3);
+#! 2
+#! gap> A3:=LocalAction(3,1,TransitiveGroup(3,1));
+#! A3
+#! gap> S3:=LocalAction(3,1,TransitiveGroup(3,2));
+#! S3
+#! gap> A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);
+#! [ Group([ (1,4,5)(2,3,6) ]) ]
+#! S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
+#! [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+#!   Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+#!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
+#!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
+#!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
+#! @EndExampleSession
+
+#! The groups in the above output have been identified to stem from certain general constructions much like there are families of finite transitive groups. See <Ref Sect="Examples"/> for the functions appearing below.
+
+#! @BeginExampleSession
+#! @EndExampleSession
+
+#! We envision to add such a library in a future version and hope that it will be useful to other researchers in the area.
+
+#! On the educational side...
 
 
 ##################################################################################################################
@@ -54,10 +87,10 @@
 #! @Section Local actions
 ##################################################################################################################
 
-#! In this package, a local action $F\le\mathrm{Aut}(B_{d,k})$ are handled as objects of the category <Ref Filt="IsLocalAction"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree $d$ and the radius $k$ of the ball $B_{d,k}$ that it acts on.
+#! In this package, local actions $F\le\mathrm{Aut}(B_{d,k})$ are handled as objects of the category <Ref Filt="IsLocalAction"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree $d$ and the radius $k$ of the ball $B_{d,k}$ that it acts on.
 
 #! @Description
-#! Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (see <Ref Attr="LocalActionDegree"/>), radius (see <Ref Attr="LocalActionRadius"/>) and other attributes in this category.
+#! Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (see <Ref Attr="LocalActionDegree"/>), radius (see <Ref Attr="LocalActionRadius"/>) as well as other attributes and properties in this category.
 #!
 DeclareCategory( "IsLocalAction" , IsPermGroup );
 #!

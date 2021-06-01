@@ -12,10 +12,21 @@ M.~Burger and S.~Mozes.
 \newblock {\em Publications Math{\'e}matiques de l'IH{\'E}S}, 92(1):113--150,
   2000.
 
+\bibitem[KM08]{KM08}
+B.~Kr{\"o}n and R.~M{\"o}ller.
+\newblock Analogues of cayley graphs for topological groups.
+\newblock {\em Mathematische Zeitschrift}, 258(3):637, 2008.
+
 \bibitem[Ser80]{Ser80}
 J.~P. Serre.
 \newblock {\em Trees}.
 \newblock Springer, 1980.
+
+\bibitem[Tit70]{Tit70}
+J.~Tits.
+\newblock Sur le groupe des automorphismes d'un arbre.
+\newblock In {\em Essays on topology and related topics}, pages 188--211.
+  Springer, 1970.
 
 \bibitem[Tor20]{Tor20}
 S.~Tornier.

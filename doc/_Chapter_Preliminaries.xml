@@ -10,13 +10,13 @@
 <Section Label="Chapter_Preliminaries_Section_Local_actions">
 <Heading>Local actions</Heading>
 
- In this package, a local action <Math>F\le\mathrm{Aut}(B_{d,k})</Math> are handled as objects of the category <Ref Filt="IsLocalAction"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree <Math>d</Math> and the radius <Math>k</Math> of the ball <Math>B_{d,k}</Math> that it acts on.
+ In this package, local actions <Math>F\le\mathrm{Aut}(B_{d,k})</Math> are handled as objects of the category <Ref Filt="IsLocalAction"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree <Math>d</Math> and the radius <Math>k</Math> of the ball <Math>B_{d,k}</Math> that it acts on.
 <ManSection>
   <Filt Arg="arg" Name="IsLocalAction" Label="for IsPermGroup"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
- Local actions <Math>F\le\mathrm{Aut}(B_{d,k})</Math> are stored together with their degree (see <Ref Attr="LocalActionDegree"/>), radius (see <Ref Attr="LocalActionRadius"/>) and other attributes in this category.
+ Local actions <Math>F\le\mathrm{Aut}(B_{d,k})</Math> are stored together with their degree (see <Ref Attr="LocalActionDegree"/>), radius (see <Ref Attr="LocalActionRadius"/>) as well as other attributes and properties in this category.
 <P/>
  </Description>
 </ManSection>

@@ -16,7 +16,7 @@ function(d,k,F)
 	elif not IsSubgroup(AutBall(d,k),F) then
 		Error("input argument F=",F," must be a subgroup of AutBall(d=",d,",k=",k,")");
 	else
-		la_F:=F;
+		la_F:=StructuralCopy(F);
 		SetFilterObj(la_F,IsLocalAction);
 				
 		Setter(LocalActionDegree)(la_F,d);

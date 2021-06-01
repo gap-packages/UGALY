@@ -22,6 +22,9 @@
 <p id="mathjaxlink" class="pcenter"><a href="chap1_mj.html">[MathJax on]</a></p>
 <p><a id="X7DFB63A97E67C0A1" name="X7DFB63A97E67C0A1"></a></p>
 <div class="ChapSects"><a href="chap1.html#X7DFB63A97E67C0A1">1 <span class="Heading">Introduction</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X78E0A9867DABCE86">1.1 <span class="Heading">Purpose</span></a>
+</span>
+</div>
 </div>
 
 <h3>1 <span class="Heading">Introduction</span></h3>
@@ -41,6 +44,32 @@
 <p>While <span class="Math">\mathrm{U}_{k}(F)</span> is always closed, vertex-transitive and compactly generated, other properties of <span class="Math">\mathrm{U}(F)</span> do <em>not</em> carry over. Foremost, the group <span class="Math">\mathrm{U}_{k}(F)</span> need not be locally action isomorphic to <span class="Math">F</span> and we say that <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> satisfies condition (C) if it is. This can be viewed as an interchangeability condition on neighbouring local actions, see Section <a href="chap3.html#X81B0CAE97D161B97"><span class="RefLink">3.1</span></a>. There is also a discreteness condition (D) on <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> in terms of certain stabilizers in <span class="Math">F</span> under which <span class="Math">\mathrm{U}_{k}(F)</span> is discrete, see Section <a href="chap5.html#X7B8BCB2681070C9C"><span class="RefLink">5.1</span></a>.</p>
 
 <p><strong class="pkg">UGALY</strong> provides methods to create, analyse and find local actions <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> that satisfy condition (C) and/or (D), including the constructions <span class="Math">\Gamma</span>, <span class="Math">\Delta</span>, <span class="Math">\Phi</span>, <span class="Math">\Sigma</span>, and <span class="Math">\Pi</span> developed in <a href="chapBib.html#biBTor20">[Tor20]</a>. This package was developed within the <span class="URL"><a href=" https://zerodimensional.group/"">Zero-Dimensional Symmetry Research Group</a></span> in the <span class="URL"><a href=" https://www.newcastle.edu.au/school/mathematical-and-physical-sciences">School of Mathematical and Physical Sciences</a></span> at <span class="URL"><a href=" https://www.newcastle.edu.au/">The University of Newcastle</a></span> as part of a project course taken by the first author, supervised by the second author.</p>
+
+<p><a id="X78E0A9867DABCE86" name="X78E0A9867DABCE86"></a></p>
+
+<h4>1.1 <span class="Heading">Purpose</span></h4>
+
+<p><strong class="pkg">UGALY</strong> serves both a research and an educational purpose. It consolidates a rudimentary codebase that was developed by the second author in the course of research undertaken towards the article <a href="chapBib.html#biBTor20">[Tor20]</a>. This codebase had been tremendously beneficial in achieving the results of <a href="chapBib.html#biBTor20">[Tor20]</a> in the first place, and so there has always been a desire to make it available to a wider audience.</p>
+
+<p>From a research perspective, <strong class="pkg">UGALY</strong> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <a href="chapBib.html#biBKM08">[KM08]</a>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <a href="chapBib.html#biBBM00a">[BM00]</a> and their generalisations <span class="Math">\mathrm{U}_{k}(F)</span>, where <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: indeed, due to <a href="chapBib.html#biBTor20">[Tor20, Corollary 4.32]</a> the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of <span class="Math">\mathrm{Aut}(T_{d})</span> that contain an inversion of order <span class="Math">2</span> and satisfy one of the independence properties <span class="Math">(P_{k})</span> (see <a href="chapBib.html#biBBEW15">[BEW15]</a>) that generalise Tits' independence property <span class="Math">(P)</span>, see <a href="chapBib.html#biBTit70">[Tit70]</a>. <strong class="pkg">UGALY</strong> provides the means to generate a library of all these groups in terms of the <span class="Math">k</span>-local action representing them. This library naturally encompasses the library of finite transitive permutation groups <strong class="pkg">TransGrp</strong> in the case <span class="Math">k=1</span> of classical Burger-Mozes groups. For example, in the case <span class="Math">d=3</span> we obtain the following for <span class="Math">k=1</span> and <span class="Math">k=2</span>:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F1:=LocalAction(3,1,TransitiveGroup(3,1));</span>
+A3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F2:=LocalAction(3,1,TransitiveGroup(3,2));</span>
+S3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ConjugacyClassRepsCompatibleGroupsWithProjection(2,F1);</span>
+[ Group([ (1,4,5)(2,3,6) ]) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ConjugacyClassRepsCompatibleGroupsWithProjection(2,F2);</span>
+[ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+  Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
+  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
+  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
+</pre></div>
+
+<p>We envision to add such a library in a future version and hope that it will be useful to all researchers in the area. On the educational side...</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>

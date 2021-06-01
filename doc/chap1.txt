@@ -64,3 +64,49 @@
   The  University  of  Newcastle  ([7Xhttps://www.newcastle.edu.au/[107X) as part of a
   project course taken by the first author, supervised by the second author.[133X
   
+  
+  [1X1.1 [33X[0;0YPurpose[133X[101X
+  
+  [33X[0;0Y[5XUGALY[105X  serves  both a research and an educational purpose. It consolidates a
+  rudimentary  codebase  that was developed by the second author in the course
+  of  research  undertaken towards the article [Tor20]. This codebase had been
+  tremendously  beneficial  in  achieving  the results of [Tor20] in the first
+  place, and so there has always been a desire to make it available to a wider
+  audience.[133X
+  
+  [33X[0;0YFrom  a  research perspective, [5XUGALY[105X introduces computational methods to the
+  world  of locally compact groups. Due to the Cayley-Abels graph construction
+  [KM08],  groups  acting  on  trees  form a particularly significant class of
+  totally  disconnected  locally compact groups. Burger-Mozes universal groups
+  [BM00]     and     their     generalisations     [23X\mathrm{U}_{k}(F)[123X,    where
+  [23XF\le\mathrm{Aut}(B_{d,k})[123X  satisfies  the  compatibility  condition (C), are
+  among  the  most accessible of these groups and form a significant subclass:
+  indeed,  due  to [Tor20, Corollary 4.32] the locally transitive, generalised
+  universal  groups  are  exactly  the closed, locally transitive subgroups of
+  [23X\mathrm{Aut}(T_{d})[123X  that contain an inversion of order [23X2[123X and satisfy one of
+  the  independence  properties  [23X(P_{k})[123X  (see  [BEW15]) that generalise Tits'
+  independence property [23X(P)[123X, see [Tit70]. [5XUGALY[105X provides the means to generate
+  a  library  of  all these groups in terms of the [23Xk[123X-local action representing
+  them.  This  library  naturally encompasses the library of finite transitive
+  permutation  groups  [5XTransGrp[105X  in  the  case  [23Xk=1[123X  of classical Burger-Mozes
+  groups.  For  example,  in  the case [23Xd=3[123X we obtain the following for [23Xk=1[123X and
+  [23Xk=2[123X:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF1:=LocalAction(3,1,TransitiveGroup(3,1));[127X[104X
+    [4X[28XA3[128X[104X
+    [4X[25Xgap>[125X [27XF2:=LocalAction(3,1,TransitiveGroup(3,2));[127X[104X
+    [4X[28XS3[128X[104X
+    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleGroupsWithProjection(2,F1);[127X[104X
+    [4X[28X[ Group([ (1,4,5)(2,3,6) ]) ][128X[104X
+    [4X[25Xgap>[125X [27XConjugacyClassRepsCompatibleGroupsWithProjection(2,F2);[127X[104X
+    [4X[28X[ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), [128X[104X
+    [4X[28X  Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), [128X[104X
+    [4X[28X  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), [128X[104X
+    [4X[28X  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), [128X[104X
+    [4X[28X  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ][128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YWe  envision to add such a library in a future version and hope that it will
+  be useful to all researchers in the area. On the educational side...[133X
+  

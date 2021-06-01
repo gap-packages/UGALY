@@ -10,7 +10,13 @@
   global  structure[117X,  [18XPublications  Math{\'e}matiques de l'IH{\'E}S[118X, Springer,
   [19X92[119X, 1 (2000), 113--150.
   
+  [[20XKM08[120X]  [16XKr{\"o}n,  B.  and  M{\"o}ller,  R.[116X,  [17XAnalogues of Cayley graphs for
+  topological groups[117X, [18XMathematische Zeitschrift[118X, Springer, [19X258[119X, 3 (2008), 637.
+  
   [[20XSer80[120X] [16XSerre, J. P.[116X, [17XTrees[117X, Springer (1980).
+  
+  [[20XTit70[120X]  [16XTits, J.[116X, [17XSur le groupe des automorphismes d'un arbre[117X, in Essays on
+  topology and related topics, Springer (1970), 188--211.
   
   [[20XTor20[120X]  [16XTornier,  S.[116X,  [17XGroups acting on trees with prescribed local action[117X,
   [18Xarxiv preprint: 2002.09876[118X (2020).

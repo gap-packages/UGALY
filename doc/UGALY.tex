@@ -154,9 +154,7 @@ Fellowship DE210100180. \mbox{}}\\[1cm]
 \logpage{[ 1, 0, 0 ]}
 \hyperdef{L}{X7DFB63A97E67C0A1}{}
 {
-  
-
- Let $\Omega$ be a set of cardinality $d\in\mathbb{N}_{\ge 3}$ and let $T_{d}=(V,E)$ be the $d$-regular tree. We follow Serre's graph theory notation \cite{Ser80}. Given a subgroup $H$ of the automorphism group $\mathrm{Aut}(T_{d})$ of $T_{d}$, and a vertex $x\in V$, the stabilizer $H_{x}$ of $x$ in $H$ induces a permutation group on the set $E(x):=\{e\in E\mid o(e)=x\}$ of edges issuing from $x$. We say that $H$ is locally "P" if for every $x\in V$ said permutation group satisfies the property "P", e.g. being transitive,
+  Let $\Omega$ be a set of cardinality $d\in\mathbb{N}_{\ge 3}$ and let $T_{d}=(V,E)$ be the $d$-regular tree. We follow Serre's graph theory notation \cite{Ser80}. Given a subgroup $H$ of the automorphism group $\mathrm{Aut}(T_{d})$ of $T_{d}$, and a vertex $x\in V$, the stabilizer $H_{x}$ of $x$ in $H$ induces a permutation group on the set $E(x):=\{e\in E\mid o(e)=x\}$ of edges issuing from $x$. We say that $H$ is locally "P" if for every $x\in V$ said permutation group satisfies the property "P", e.g. being transitive,
 semiprimitive, quasiprimitive or $2$-transitive. In \cite{BM00a}, Burger-Mozes develop a remarkable structure theory of closed, non-discrete,
 locally quasiprimitive subgroups of $\mathrm{Aut}(T_{d})$, which resembles the theory of semisimple Lie groups. They complement this
 structure theory with a particularly accessible class of subgroups of $\mathrm{Aut}(T_{d})$ with prescribed local action: Given $F\le\mathrm{Sym}(\Omega)$ their universal group $\mathrm{U}(F)$ is closed in $\mathrm{Aut}(T_{d})$, vertex-transitive, compactly generated and locally permutation isomorphic to $F$. It is discrete if and only if $F$ is semiregular. When $F$ is transitive, $\mathrm{U}(F)$ is maximal up to conjugation among vertex-transitive subgroups of $\mathrm{Aut}(T_{d})$ that are locally permutation isomorphic to $F$, hence \emph{universal}. 
@@ -177,7 +175,40 @@ of $\mathrm{U}(F)$ do \emph{not} carry over. Foremost, the group $\mathrm{U}_{k}
 condition on neighbouring local actions, see Section \ref{Section_condition_C}. There is also a discreteness condition (D) on $F\le\mathrm{Aut}(B_{d,k})$ in terms of certain stabilizers in $F$ under which $\mathrm{U}_{k}(F)$ is discrete, see Section \ref{Section_condition_D}. 
 
  \textsf{UGALY} provides methods to create, analyse and find local actions $F\le\mathrm{Aut}(B_{d,k})$ that satisfy condition (C) and/or (D), including the constructions $\Gamma$, $\Delta$, $\Phi$, $\Sigma$, and $\Pi$ developed in \cite{Tor20}. This package was developed within the \href{ https://zerodimensional.group/"} {Zero-Dimensional Symmetry Research Group} in the \href{ https://www.newcastle.edu.au/school/mathematical-and-physical-sciences} {School of Mathematical and Physical Sciences} at \href{ https://www.newcastle.edu.au/} {The University of Newcastle} as part of a project course taken by the first author, supervised by the
-second author. }
+second author. 
+\section{\textcolor{Chapter }{Purpose}}\label{Chapter_Introduction_Section_Purpose}
+\logpage{[ 1, 1, 0 ]}
+\hyperdef{L}{X78E0A9867DABCE86}{}
+{
+  \textsf{UGALY} serves both a research and an educational purpose. It consolidates a
+rudimentary codebase that was developed by the second author in the course of
+research undertaken towards the article \cite{Tor20}. This codebase had been tremendously beneficial in achieving the results of \cite{Tor20} in the first place, and so there has always been a desire to make it available
+to a wider audience. 
+
+ From a research perspective, \textsf{UGALY} introduces computational methods to the world of locally compact groups. Due
+to the Cayley-Abels graph construction \cite{KM08}, groups acting on trees form a particularly significant class of totally
+disconnected locally compact groups. Burger-Mozes universal groups \cite{BM00a} and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of
+these groups and form a significant subclass: indeed, due to \cite[Corollary 4.32]{Tor20} the locally transitive, generalised universal groups are exactly the closed,
+locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see \cite{BEW15}) that generalise Tits' independence property $(P)$, see \cite{Tit70}. \textsf{UGALY} provides the means to generate a library of all these groups in terms of the $k$-local action representing them. This library naturally encompasses the
+library of finite transitive permutation groups \textsf{TransGrp} in the case $k=1$ of classical Burger-Mozes groups. For example, in the case $d=3$ we obtain the following for $k=1$ and $k=2$: 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@F1:=LocalAction(3,1,TransitiveGroup(3,1));|
+  A3
+  !gapprompt@gap>| !gapinput@F2:=LocalAction(3,1,TransitiveGroup(3,2));|
+  S3
+  !gapprompt@gap>| !gapinput@ConjugacyClassRepsCompatibleGroupsWithProjection(2,F1);|
+  [ Group([ (1,4,5)(2,3,6) ]) ]
+  !gapprompt@gap>| !gapinput@ConjugacyClassRepsCompatibleGroupsWithProjection(2,F2);|
+  [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+    Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+    Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
+    Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
+    Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
+\end{Verbatim}
+ We envision to add such a library in a future version and hope that it will be
+useful to all researchers in the area. On the educational side... }
+
+ }
 
    
 \chapter{\textcolor{Chapter }{Preliminaries}}\label{Chapter_Preliminaries}
@@ -196,7 +227,7 @@ throughout this manual, cf. \cite{Tor20}. Let $\Omega$ be a set of cardinality $
 \logpage{[ 2, 1, 0 ]}
 \hyperdef{L}{X86AC008984A3489F}{}
 {
-  In this package, a local action $F\le\mathrm{Aut}(B_{d,k})$ are handled as objects of the category \texttt{IsLocalAction} (\ref{IsLocalAction}) and have several attributes and properties introduced throughout this manual.
+  In this package, local actions $F\le\mathrm{Aut}(B_{d,k})$ are handled as objects of the category \texttt{IsLocalAction} (\ref{IsLocalAction}) and have several attributes and properties introduced throughout this manual.
 Most importantly, a local action always stores the degree $d$ and the radius $k$ of the ball $B_{d,k}$ that it acts on. 
 
 \subsection{\textcolor{Chapter }{IsLocalAction (for IsPermGroup)}}
@@ -210,7 +241,7 @@ Most importantly, a local action always stores the degree $d$ and the radius $k$
 
 
 
- Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (see \texttt{LocalActionDegree} (\ref{LocalActionDegree})), radius (see \texttt{LocalActionRadius} (\ref{LocalActionRadius})) and other attributes in this category. 
+ Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (see \texttt{LocalActionDegree} (\ref{LocalActionDegree})), radius (see \texttt{LocalActionRadius} (\ref{LocalActionRadius})) as well as other attributes and properties in this category. 
 
  }
 
@@ -1882,8 +1913,6 @@ the list of all involutive compatibility cocycles of $F$.
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}

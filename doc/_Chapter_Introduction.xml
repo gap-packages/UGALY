@@ -4,7 +4,6 @@
 <Chapter Label="Chapter_Introduction">
 <Heading>Introduction</Heading>
 
-<P/>
  Let <Math>\Omega</Math> be a set of cardinality <Math>d\in\mathbb{N}_{\ge 3}</Math> and let <Math>T_{d}=(V,E)</Math> be the <Math>d</Math>-regular tree. We follow Serre's graph theory notation <Cite Key="Ser80"/>. Given a subgroup <Math>H</Math> of the automorphism group <Math>\mathrm{Aut}(T_{d})</Math> of <Math>T_{d}</Math>, and a vertex <Math>x\in V</Math>, the stabilizer <Math>H_{x}</Math> of <Math>x</Math> in <Math>H</Math> induces a permutation group on the set <Math>E(x):=\{e\in E\mid o(e)=x\}</Math> of edges issuing from <Math>x</Math>. We say that <Math>H</Math> is locally "P" if for every <Math>x\in V</Math> said permutation group satisfies the property "P", e.g. being transitive, semiprimitive, quasiprimitive or <Math>2</Math>-transitive.
  In <Cite Key="BM00a"/>, Burger-Mozes develop a remarkable structure theory of closed, non-discrete, locally quasiprimitive subgroups of <Math>\mathrm{Aut}(T_{d})</Math>, which resembles the theory of semisimple Lie groups. They complement this structure theory with a particularly accessible class of subgroups of <Math>\mathrm{Aut}(T_{d})</Math> with prescribed local action: Given <Math>F\le\mathrm{Sym}(\Omega)</Math> their universal group <Math>\mathrm{U}(F)</Math> is closed in <Math>\mathrm{Aut}(T_{d})</Math>, vertex-transitive, compactly generated and locally permutation isomorphic to <Math>F</Math>. It is discrete if and only if <Math>F</Math> is semiregular. When <Math>F</Math> is transitive, <Math>\mathrm{U}(F)</Math> is maximal up to conjugation among vertex-transitive subgroups of <Math>\mathrm{Aut}(T_{d})</Math> that are locally permutation isomorphic to <Math>F</Math>, hence <E>universal</E>.
 <P/>
@@ -15,5 +14,32 @@
  While <Math>\mathrm{U}_{k}(F)</Math> is always closed, vertex-transitive and compactly generated, other properties of <Math>\mathrm{U}(F)</Math> do <E>not</E> carry over. Foremost, the group <Math>\mathrm{U}_{k}(F)</Math> need not be locally action isomorphic to <Math>F</Math> and we say that <Math>F\le\mathrm{Aut}(B_{d,k})</Math> satisfies condition (C) if it is. This can be viewed as an interchangeability condition on neighbouring local actions, see Section <Ref Sect="Section_condition_C"/>. There is also a discreteness condition (D) on <Math>F\le\mathrm{Aut}(B_{d,k})</Math> in terms of certain stabilizers in <Math>F</Math> under which <Math>\mathrm{U}_{k}(F)</Math> is discrete, see Section <Ref Sect="Section_condition_D"/>.
 <P/>
  <Package>UGALY</Package> provides methods to create, analyse and find local actions <Math>F\le\mathrm{Aut}(B_{d,k})</Math> that satisfy condition (C) and/or (D), including the constructions <Math>\Gamma</Math>, <Math>\Delta</Math>, <Math>\Phi</Math>, <Math>\Sigma</Math>, and <Math>\Pi</Math> developed in <Cite Key="Tor20"/>. This package was developed within the <URL Text="Zero-Dimensional Symmetry Research Group"> https://zerodimensional.group/"</URL> in the <URL Text="School of Mathematical and Physical Sciences"> https://www.newcastle.edu.au/school/mathematical-and-physical-sciences</URL> at <URL Text="The University of Newcastle"> https://www.newcastle.edu.au/</URL> as part of a project course taken by the first author, supervised by the second author.
+<Section Label="Chapter_Introduction_Section_Purpose">
+<Heading>Purpose</Heading>
+
+ <Package>UGALY</Package> serves both a research and an educational purpose. It consolidates a rudimentary codebase that was developed by the second author in the course of research undertaken towards the article <Cite Key="Tor20"/>. This codebase had been tremendously beneficial in achieving the results of <Cite Key="Tor20"/> in the first place, and so there has always been a desire to make it available to a wider audience.
+<P/>
+ From a research perspective, <Package>UGALY</Package> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <Cite Key="KM08"/>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <Cite Key="BM00a"/> and their generalisations <Math>\mathrm{U}_{k}(F)</Math>, where <Math>F\le\mathrm{Aut}(B_{d,k})</Math> satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: indeed, due to <Cite Key="Tor20" Where="Corollary 4.32"/> the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of <Math>\mathrm{Aut}(T_{d})</Math> that contain an inversion of order <Math>2</Math> and satisfy one of the independence properties <Math>(P_{k})</Math> (see <Cite Key="BEW15"/>) that generalise Tits' independence property <Math>(P)</Math>, see <Cite Key="Tit70"/>. <Package>UGALY</Package> provides the means to generate a library of all these groups in terms of the <Math>k</Math>-local action representing them. This library naturally encompasses the library of finite transitive permutation groups <Package>TransGrp</Package> in the case <Math>k=1</Math> of classical Burger-Mozes groups. For example, in the case <Math>d=3</Math> we obtain the following for <Math>k=1</Math> and <Math>k=2</Math>:
+<Example><![CDATA[
+gap> F1:=LocalAction(3,1,TransitiveGroup(3,1));
+A3
+gap> F2:=LocalAction(3,1,TransitiveGroup(3,2));
+S3
+gap> ConjugacyClassRepsCompatibleGroupsWithProjection(2,F1);
+[ Group([ (1,4,5)(2,3,6) ]) ]
+gap> ConjugacyClassRepsCompatibleGroupsWithProjection(2,F2);
+[ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+  Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
+  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
+  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
+]]></Example>
+
+
+ We envision to add such a library in a future version and hope that it will be useful to all researchers in the area.
+ On the educational side...
+</Section>
+
+
 </Chapter>
 
