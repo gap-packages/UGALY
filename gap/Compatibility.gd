@@ -27,30 +27,30 @@
 #!
 #! @Arguments d,k,aut1,aut2,dir
 #!
-DeclareGlobalFunction( "AreCompatibleElements" );
+DeclareGlobalFunction( "AreCompatibleBallElements" );
 #!
 #! @BeginExampleSession
-#! gap> AreCompatibleElements(3,1,(1,2),(1,2,3),1);
+#! gap> AreCompatibleBallElements(3,1,(1,2),(1,2,3),1);
 #! true
-#! gap> AreCompatibleElements(3,1,(1,2),(1,2,3),2);
+#! gap> AreCompatibleBallElements(3,1,(1,2),(1,2,3),2);
 #! false
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> a:=(1,3,5)(2,4,6);; a in AutB(3,2);
+#! gap> a:=(1,3,5)(2,4,6);; a in AutBall(3,2);
 #! true
 #! gap> LocalAction(1,3,2,a,[]); LocalAction(1,3,2,a,[1]);
 #! (1,2,3)
 #! (1,2)
-#! gap> b:=(1,4)(2,3);; b in AutB(3,2);
+#! gap> b:=(1,4)(2,3);; b in AutBall(3,2);
 #! true
 #! gap> LocalAction(1,3,2,b,[]); LocalAction(1,3,2,b,[1]);
 #! (1,2)
 #! (1,2,3)
 #!
-#! gap> AreCompatibleElements(3,2,a,b,1);
+#! gap> AreCompatibleBallElements(3,2,a,b,1);
 #! true
-#! gap> AreCompatibleElements(3,2,a,b,3);
+#! gap> AreCompatibleBallElements(3,2,a,b,3);
 #! false
 #! @EndExampleSession
 
@@ -64,20 +64,20 @@ DeclareGlobalFunction( "AreCompatibleElements" );
 #!
 #! @Arguments F,aut,dir
 #!
-DeclareGlobalFunction( "CompatibleElement" );
+DeclareGlobalFunction( "CompatibleBallElement" );
 #!
 #! @BeginExampleSession
-#! gap> a:=Random(AutB(5,1)); dir:=Random([1..5]);
+#! gap> a:=Random(AutBall(5,1)); dir:=Random([1..5]);
 #! (1,3,2,5)
 #! 4
-#! gap> CompatibleElement(AutB(5,1),a,dir);
+#! gap> CompatibleBallElement(AutBall(5,1),a,dir);
 #! (1,3,2,5)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> a:=(1,3,5)(2,4,6);; a in AutB(3,2);
+#! gap> a:=(1,3,5)(2,4,6);; a in AutBall(3,2);
 #! true
-#! gap> CompatibleElement(AutB(3,2),a,1);
+#! gap> CompatibleBallElement(AutBall(3,2),a,1);
 #! (1,4,2,3)
 #! @EndExampleSession
 
@@ -139,15 +139,15 @@ DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsList] );
 DeclareGlobalFunction( "AssembleAutomorphism" );
 #!
 #! @BeginExampleSession
-#! gap> aut:=Random(AutB(3,2));
+#! gap> aut:=Random(AutBall(3,2));
 #! (1,2)(3,6)(4,5)
 #! gap> auts:=[];;
-#! gap> for i in [1..3] do auts[i]:=CompatibleElement(3,2,AutB(3,2),aut,i); od;
+#! gap> for i in [1..3] do auts[i]:=CompatibleBallElement(3,2,AutBall(3,2),aut,i); od;
 #! gap> auts;
 #! [ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,5,3)(2,6,4) ]
 #! gap> a:=AssembleAutomorphism(3,2,auts);
 #! (1,3)(2,4)(5,11)(6,12)(7,9)(8,10)
-#! gap> a in AutB(3,3); 
+#! gap> a in AutBall(3,3); 
 #! true
 #! gap> LocalAction(2,3,3,a,[]);
 #! (1,2)(3,6)(4,5)
@@ -233,7 +233,7 @@ DeclareGlobalFunction( "CompatibleSubgroups" );
 DeclareAttribute( "ConjugacyClassRepsCompatibleSubgroups" , IsLocalAction );
 #!
 #! @BeginExampleSession
-#! gap> ConjugacyClassRepsCompatibleSubgroups(AutB(3,2));
+#! gap> ConjugacyClassRepsCompatibleSubgroups(AutBall(3,2));
 #! [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,4,5)(2,3,6) ]), 
 #!   Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)
 #!   (2,4,5) ]), Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), 

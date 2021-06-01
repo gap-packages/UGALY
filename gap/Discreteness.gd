@@ -125,7 +125,7 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #!   [ (1,5,4)(2,6,3), 1 ], [ (1,5,4)(2,6,3), 2 ], [ (1,5,4)(2,6,3), 3 ], 
 #!   [ (1,4,5)(2,3,6), 1 ], [ (1,4,5)(2,3,6), 2 ], [ (1,4,5)(2,3,6), 3 ] 
 #!  ]), Group([ (1,4,5)(2,3,6) ]), function( s ) ... end )
-#! gap> InvolutiveCompatibilityCocycle(AutB(3,2));
+#! gap> InvolutiveCompatibilityCocycle(AutBall(3,2));
 #! fail
 #! @EndExampleSession
 

@@ -66,7 +66,7 @@ DeclareCategory( "IsLocalAction" , IsPermGroup );
 #! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 #! gap> IsLocalAction(G);
 #! false
-#! gap> H:=AutB(3,2);
+#! gap> H:=AutBall(3,2);
 #! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 #! gap> IsLocalAction(H);
 #! true
@@ -154,7 +154,7 @@ DeclareAttribute( "LocalActionRadius" , IsLocalAction );
 #! @Section Finite balls
 ##################################################################################################################
 
-#! The automorphism groups of the finite labelled balls $B_{d,k}$ lie at the center of this package. The method <Ref Func="AutB"/> produces these automorphism groups as iterated wreath products. The result is a permutation group on the set of leaves of $B_{d,k}$.
+#! The automorphism groups of the finite labelled balls $B_{d,k}$ lie at the center of this package. The method <Ref Func="AutBall"/> produces these automorphism groups as iterated wreath products. The result is a permutation group on the set of leaves of $B_{d,k}$.
 
 #! @Description
 #! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$ and a radius <A>k</A> $\in\mathbb{N}_{0}$.
@@ -164,10 +164,10 @@ DeclareAttribute( "LocalActionRadius" , IsLocalAction );
 #!
 #! @Arguments d,k
 #!
-DeclareGlobalFunction( "AutB" );
+DeclareGlobalFunction( "AutBall" );
 #!
 #! @BeginExampleSession
-#! gap> G:=AutB(3,2);
+#! gap> G:=AutBall(3,2);
 #! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 #! gap> Size(G);
 #! 48
@@ -187,12 +187,12 @@ DeclareGlobalFunction( "AutB" );
 #!
 #! @Arguments d,k
 #!
-DeclareGlobalFunction( "Addresses" );
+DeclareGlobalFunction( "BallAddresses" );
 #!
 #! @BeginExampleSession
-#! gap> Addresses(3,1);
+#! gap> BallAddresses(3,1);
 #! [ [  ], [ 1 ], [ 2 ], [ 3 ] ]
-#! gap> Addresses(3,2);
+#! gap> BallAddresses(3,2);
 #! [ [  ], [ 1 ], [ 2 ], [ 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], 
 #! [ 3, 1 ], [ 3, 2 ] ]
 #! @EndExampleSession
@@ -308,7 +308,7 @@ DeclareGlobalFunction( "ComposeAddresses" );
 DeclareOperation( "LocalAction" , [IsInt, IsInt, IsInt, IsPerm, IsList] );
 #!
 #! @BeginExampleSession
-#! gap> a:=(1,3,5)(2,4,6);; a in AutB(3,2);
+#! gap> a:=(1,3,5)(2,4,6);; a in AutBall(3,2);
 #! true
 #! gap> LocalAction(2,3,2,a,[]);
 #! (1,3,5)(2,4,6)
@@ -319,7 +319,7 @@ DeclareOperation( "LocalAction" , [IsInt, IsInt, IsInt, IsPerm, IsList] );
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> b:=Random(AutB(3,4));
+#! gap> b:=Random(AutBall(3,4));
 #! (1,20,4,17,2,19,3,18)(5,22,8,23,6,21,7,24)(9,10)(13,16,14,15)
 #! gap> LocalAction(2,3,4,b,[3,1]);
 #! (1,4)(2,3)
@@ -366,9 +366,9 @@ DeclareOperation( "Projection" , [IsLocalAction, IsInt] );
 DeclareGlobalFunction( "ImageOfProjection" );
 #!
 #! @BeginExampleSession
-#! gap> AutB(3,2);
+#! gap> AutBall(3,2);
 #! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
-#! gap> ImageOfProjection(AutB(3,2),1);
+#! gap> ImageOfProjection(AutBall(3,2),1);
 #! Group([ (), (), (), (1,2,3), (1,2) ])
 #! @EndExampleSession
 

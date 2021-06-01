@@ -17,7 +17,7 @@ function(F)
 	elif k=1 then
 		return IsSemiRegular(F,[1..d]);
 	else		
-		K:=Kernel(RestrictedMapping(Projection(AutB(d,k)),F));
+		K:=Kernel(RestrictedMapping(Projection(AutBall(d,k)),F));
 		for dir in [1..d] do;
 			if not IsTrivial(Stabilizer(K,[(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)],OnTuples)) then
 				return false;

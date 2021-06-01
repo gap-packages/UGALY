@@ -13,8 +13,8 @@ function(d,k,F)
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
 	elif not k>=0 then
 		Error("input argument k=",k," must be an integer greater than or equal to 0");
-	elif not IsSubgroup(AutB(d,k),F) then
-		Error("input argument F=",F," must be a subgroup of AutB(d=",d,",k=",k,")");
+	elif not IsSubgroup(AutBall(d,k),F) then
+		Error("input argument F=",F," must be a subgroup of AutBall(d=",d,",k=",k,")");
 	else
 		la_F:=F;
 		SetFilterObj(la_F,IsLocalAction);
@@ -49,7 +49,7 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( AutB,
+InstallGlobalFunction( AutBall,
 function(d,k)
 	local S_d_1, W, i;
 
@@ -77,7 +77,7 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( Addresses,
+InstallGlobalFunction( BallAddresses,
 function(d,k)
 	local addrs, temp_addrs, temp_addr, j, a, r, i;
 
@@ -129,7 +129,7 @@ function(d,k)
 		if k=0 then
 			return [[]];
 		else
-			addrs:=Addresses(d,k);
+			addrs:=BallAddresses(d,k);
 			n:=Length(addrs);
 			return addrs{[n-d*(d-1)^(k-1)+1..n]};
 		fi;

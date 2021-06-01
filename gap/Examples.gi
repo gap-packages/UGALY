@@ -303,7 +303,7 @@ function(F)
 		# F-section
 		for a in gens_F do
 			auts:=[];
-			for dir in [1..d] do Add(auts,CompatibleElement(F,a,dir)); od;
+			for dir in [1..d] do Add(auts,CompatibleBallElement(F,a,dir)); od;
 			Add(gens,AssembleAutomorphism(d,k,auts));
 		od;
 		# kernel
@@ -336,7 +336,7 @@ function(l,F)
 			# subgroup $\Gamma^{l}(F)$
 			for a in GeneratorsOfGroup(F) do Add(gens,gamma(l,d,a)); od;
 			# initialize addresses and generators of stabilizers
-			addrs:=Addresses(d,l-1);
+			addrs:=BallAddresses(d,l-1);
 			Remove(addrs,1);
 			gens_stabs:=[];
 			for i in [1..d] do
@@ -440,7 +440,7 @@ function(d,k,aut,rho,R)
 		Error("input argument R=",R," must be a list of radii");
 	else
 		prod:=One(Range(rho));
-		addrs:=Filtered(Addresses(d,k),addr->Length(addr) in R);
+		addrs:=Filtered(BallAddresses(d,k),addr->Length(addr) in R);
 		for addr in addrs do
 			prod:=prod*Image(rho,LocalAction(1,d,k,aut,addr));
 		od;
@@ -503,7 +503,7 @@ function(d,F)
 		Error("input argument F=",F," must be a subgroup of Sym(d=",d,")");
 	else
 		kernels:=[];
-		G:=Kernel(RestrictedMapping(Projection(AutB(d,2)),PHI(d,F)));
+		G:=Kernel(RestrictedMapping(Projection(AutBall(d,2)),PHI(d,F)));
 		D:=GAMMA(d,F);
 		for class in ConjugacyClassesSubgroups(G) do
 			for K in class do
@@ -545,7 +545,7 @@ function(F,z)
 		k:=LocalActionRadius(F);
 	
 		kernels:=[];	
-		G:=Kernel(RestrictedMapping(Projection(AutB(d,k+1)),PHI(F)));
+		G:=Kernel(RestrictedMapping(Projection(AutBall(d,k+1)),PHI(F)));
 		D:=GAMMA(F,z);
 		for class in ConjugacyClassesSubgroups(G) do
 			for K in class do

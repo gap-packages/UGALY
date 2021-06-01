@@ -192,7 +192,7 @@ DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup] );
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2)(3,4)(5,6) ])
 #! gap> D=D1;
 #! false
-#! gap> G:=AutB(3,2);;
+#! gap> G:=AutBall(3,2);;
 #! gap> D^G=D1^G;
 #! true
 #! @EndExampleSession
@@ -257,7 +257,7 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #! @BeginExampleSession
 #! gap> PHI(3,SymmetricGroup(3));
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])
-#! gap> last=AutB(3,2);
+#! gap> last=AutBall(3,2);
 #! true
 #! gap> PHI(3,AlternatingGroup(3));
 #! Group([ (1,4,5)(2,3,6) ])
@@ -284,7 +284,7 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #! @BeginExampleSession
 #! gap> PHI(3,LocalAction(4,1,SymmetricGroup(4)));
 #! <permutation group with 34 generators>
-#! gap> last=AutB(4,3);
+#! gap> last=AutBall(4,3);
 #! true
 #! @EndExampleSession
 #!
@@ -294,7 +294,7 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #! 24
 #! gap> P:=PHI(4,F);; Size(P);
 #! 12288
-#! gap> IsSubgroup(AutB(3,4),P);
+#! gap> IsSubgroup(AutBall(3,4),P);
 #! true
 #! gap> SatisfiesC(P);
 #! true

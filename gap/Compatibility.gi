@@ -5,7 +5,7 @@
 #
 ##################################################################################################################
 
-InstallGlobalFunction( AreCompatibleElements,
+InstallGlobalFunction( AreCompatibleBallElements,
 function(d,k,aut1,aut2,dir)
 	local lf, im_dir, im_lf;
 
@@ -14,9 +14,9 @@ function(d,k,aut1,aut2,dir)
 	elif not (IsInt(k) and k>=1) then
 		Error("input argument k=",k," must be an integer greater than or equal to 1");
 	elif not IsPerm(aut1) then
-		Error("input argument aut1=",aut1," must be an element of AutB(d,k)");
+		Error("input argument aut1=",aut1," must be an element of AutBall(d,k)");
 	elif not IsPerm(aut2) then
-		Error("input argument aut1=",aut2," must be an element of AutB(d,k)");
+		Error("input argument aut1=",aut2," must be an element of AutBall(d,k)");
 	elif not (IsInt(dir) and dir in [1..d]) then
 		Error("input argument dir=",dir," must be in the range [1..",d,"]");
 	else
@@ -46,14 +46,14 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( CompatibleElement, 
+InstallGlobalFunction( CompatibleBallElement, 
 function(F,aut,dir)
 	local d, k, pr, K, aut_dir, r, reps, b, compatible, lf, im_lf;
 	
 	if not IsLocalAction(F) then
 		Error("input argument F=",F," must be a local action");
 	elif not IsPerm(aut) then
-		Error("input argument aut=",aut," must be an element of AutB(d,k)");
+		Error("input argument aut=",aut," must be an element of AutBall(d,k)");
 	elif not (IsInt(dir) and dir in [1..LocalActionDegree(F)]) then
 		Error("input argument dir=",dir," must be an integer in the range [1..d=",LocalActionDegree(F),"], where d is the degree of input argument F=",F);
 	else		
@@ -65,7 +65,7 @@ function(F,aut,dir)
 		else
 			# k>=2
 			# search in the correct coset of the kernel (inner local action condition)
-			pr:=RestrictedMapping(Projection(AutB(d,k)),F);
+			pr:=RestrictedMapping(Projection(AutBall(d,k)),F);
 			K:=Kernel(pr);
 			aut_dir:=LocalAction(k-1,d,k,aut,[dir]);
 			if not aut_dir in Range(pr) then
@@ -112,9 +112,9 @@ function(F,aut,dir)
 			return RightCoset(Stabilizer(F,dir),aut);
 		else
 			# k>=2		
-			r:=CompatibleElement(F,aut,dir);
+			r:=CompatibleBallElement(F,aut,dir);
 			if r=fail then return []; fi;
-			K:=Kernel(RestrictedMapping(Projection(AutB(d,k)),F));
+			K:=Kernel(RestrictedMapping(Projection(AutBall(d,k)),F));
 			return RightCoset(Stabilizer(K,[(dir-1)*(d-1)^(k-1)+1..dir*(d-1)^(k-1)],OnTuples),r);		
 		fi;
 	fi;
@@ -216,7 +216,7 @@ function(F)
 		gens:=SmallGeneratingSet(F);
 		for a in gens do
 			for dir in [1..d] do
-				if CompatibleElement(F,a,dir)=fail then
+				if CompatibleBallElement(F,a,dir)=fail then
 					return false;
 				fi;
 			od;	
@@ -288,8 +288,8 @@ function(l,F)
 			return F;
 		else
 			reps:=[];
-			G_k:=AutB(d,k);
-			G_l:=AutB(d,l);
+			G_k:=AutBall(d,k);
+			G_l:=AutBall(d,l);
 			# initialize Phi^{l}(F)
 			C:=PHI(l,F);
 			# search
