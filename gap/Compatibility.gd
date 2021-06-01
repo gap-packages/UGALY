@@ -17,7 +17,7 @@
 #! @SectionLabel compatible_elements
 ##################################################################################################################
 
-#! This section is concerned with testing compatibility of two given elements (<Ref Func="AreCompatibleElements"/>) and finding an/all elements that is/are compatible with a given one (<Ref Func="CompatibleElement"/>, <Ref Func="CompatibilitySet"/>).
+#! This section is concerned with testing compatibility of two given elements (see <Ref Func="AreCompatibleBallElements"/>) and finding an/all elements that is/are compatible with a given one (see <Ref Func="CompatibleBallElement"/>, <Ref Func="CompatibilitySet"/>).
 
 #! @Description
 #! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, two automorphisms <A>aut1</A>, <A>aut2</A> $\in\mathrm{Aut}(B_{d,k})$, and a direction <A>dir</A> $\in$<C>[1..d]</C>.
@@ -160,7 +160,7 @@ DeclareGlobalFunction( "AssembleAutomorphism" );
 #! Using the methods of Section <Ref Sect="Section_compatible_elements"/>, this section provides methods to test groups for the compatibility condition and search for compatible subgroups inside a given group, e.g. $\mathrm{Aut}(B_{d,k})$, or with a certain image under some projection.
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>).
 #!
 #! @Returns The local action $C($<A>F</A>$)\le\mathrm{Aut}(B_{d,k})$, which is the maximal compatible subgroup of <A>F</A>.
 #!
@@ -182,7 +182,7 @@ DeclareAttribute( "MaximalCompatibleSubgroup", IsLocalAction );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this property is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
+#! The argument of this property is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>).
 #!
 #! @Returns <K>true</K> if <A>F</A> satisfies the compatibility condition (C), and <K>false</K> otherwise.
 #!

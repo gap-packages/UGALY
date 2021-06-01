@@ -57,7 +57,7 @@
 #! In this package, a local action $F\le\mathrm{Aut}(B_{d,k})$ are handled as objects of the category <Ref Filt="IsLocalAction"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree $d$ and the radius $k$ of the ball $B_{d,k}$ that it acts on.
 
 #! @Description
-#! Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (<Ref Attr="LocalActionDegree"/>), radius (<Ref Attr="LocalActionRadius"/>) and other attributes in this category.
+#! Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (see <Ref Attr="LocalActionDegree"/>), radius (see <Ref Attr="LocalActionRadius"/>) and other attributes in this category.
 #!
 DeclareCategory( "IsLocalAction" , IsPermGroup );
 #!
@@ -113,7 +113,7 @@ DeclareOperation( "LocalActionNC" , [IsInt, IsInt, IsPermGroup] );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>).
 #!
 #! @Returns
 #! the degree <A>d</A> of the ball $B_{d,k}$ that $F$ is acting on.
@@ -133,7 +133,7 @@ DeclareAttribute( "LocalActionDegree" , IsLocalAction);
 ##################################################################################################################
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>).
 #!
 #! @Returns
 #! the radius <A>k</A> of the ball $B_{d,k}$ that $F$ is acting on.

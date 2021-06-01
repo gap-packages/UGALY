@@ -10,9 +10,9 @@
 \contentsline {subsection}{\numberline {2.1.7}\textcolor {Chapter }{Projection (for F, r)}}{7}{subsection.2.1.7}%
 \contentsline {subsection}{\numberline {2.1.8}\textcolor {Chapter }{ImageOfProjection}}{7}{subsection.2.1.8}%
 \contentsline {section}{\numberline {2.2}\textcolor {Chapter }{Finite balls}}{8}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}\textcolor {Chapter }{AutB}}{8}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.1}\textcolor {Chapter }{AutBall}}{8}{subsection.2.2.1}%
 \contentsline {section}{\numberline {2.3}\textcolor {Chapter }{Addresses and leaves}}{8}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}\textcolor {Chapter }{Addresses}}{8}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}\textcolor {Chapter }{BallAddresses}}{8}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}\textcolor {Chapter }{LeafAddresses}}{9}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}\textcolor {Chapter }{AddressOfLeaf}}{9}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}\textcolor {Chapter }{LeafOfAddress}}{9}{subsection.2.3.4}%
@@ -21,8 +21,8 @@
 \contentsline {chapter}{\numberline {3}\textcolor {Chapter }{Compatibility}}{11}{chapter.3}%
 \contentsline {section}{\numberline {3.1}\textcolor {Chapter }{The compatibility condition (C)}}{11}{section.3.1}%
 \contentsline {section}{\numberline {3.2}\textcolor {Chapter }{Compatible elements}}{11}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}\textcolor {Chapter }{AreCompatibleElements}}{11}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}\textcolor {Chapter }{CompatibleElement}}{12}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.1}\textcolor {Chapter }{AreCompatibleBallElements}}{11}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}\textcolor {Chapter }{CompatibleBallElement}}{12}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}\textcolor {Chapter }{CompatibilitySet}}{12}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}\textcolor {Chapter }{AssembleAutomorphism}}{13}{subsection.3.2.4}%
 \contentsline {section}{\numberline {3.3}\textcolor {Chapter }{Compatible subgroups}}{13}{section.3.3}%

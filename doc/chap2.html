@@ -37,12 +37,12 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X855A2B187C52B82A">2.2 <span class="Heading">Finite balls</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7B766DE9824037BB">2.2-1 AutB</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X784EBFE9796B960C">2.2-1 AutBall</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7A77C1B579101B7C">2.3 <span class="Heading">Addresses and leaves</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X843C3D8E82F0D51F">2.3-1 Addresses</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X84DD7F7881A00315">2.3-1 BallAddresses</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X868811D87FEB1AA6">2.3-2 LeafAddresses</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X78379A547ED7A317">2.3-3 AddressOfLeaf</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7E43E2B87B97A9BE">2.3-4 LeafOfAddress</a></span>
@@ -72,7 +72,7 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLocalAction</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>Local actions <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> are stored together with their degree (<code class="func">LocalActionDegree</code> (<span class="RefLink">???</span>)), radius (<code class="func">LocalActionRadius</code> (<span class="RefLink">???</span>)) and other attributes in this category.</p>
+<p>Local actions <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> are stored together with their degree (see <code class="func">LocalActionDegree</code> (<span class="RefLink">???</span>)), radius (see <code class="func">LocalActionRadius</code> (<span class="RefLink">???</span>)) and other attributes in this category.</p>
 
 
 <div class="example"><pre>
@@ -80,7 +80,7 @@
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocalAction(G);</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=AutB(3,2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=AutBall(3,2);</span>
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocalAction(H);</span>
 true
@@ -126,7 +126,7 @@ Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalActionDegree</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: the degree <var class="Arg">d</var> of the ball <span class="Math">B_{d,k}</span> that <span class="Math">F</span> is acting on.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>
@@ -144,7 +144,7 @@ Group([ (1,5,7)(2,4,8)(3,6,9)(10,11,12), (1,2,3)(4,7,10)(5,9,11)(6,8,12),
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalActionRadius</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: the radius <var class="Arg">k</var> of the ball <span class="Math">B_{d,k}</span> that <span class="Math">F</span> is acting on.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>
@@ -166,7 +166,7 @@ Group([ (1,5,7)(2,4,8)(3,6,9)(10,11,12), (1,2,3)(4,7,10)(5,9,11)(6,8,12),
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=(1,3,5)(2,4,6);; a in AutB(3,2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=(1,3,5)(2,4,6);; a in AutBall(3,2);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(2,3,2,a,[]);</span>
 (1,3,5)(2,4,6)
@@ -178,7 +178,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=Random(AutB(3,4));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=Random(AutBall(3,4));</span>
 (1,20,4,17,2,19,3,18)(5,22,8,23,6,21,7,24)(9,10)(13,16,14,15)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(2,3,4,b,[3,1]);</span>
 (1,4)(2,3)
@@ -219,9 +219,9 @@ Group([ (1,16,19)(2,15,20)(3,13,18)(4,14,17)(5,10,23)(6,9,24)(7,12,22)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AutB(3,2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AutBall(3,2);</span>
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ImageOfProjection(AutB(3,2),1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ImageOfProjection(AutBall(3,2),1);</span>
 Group([ (), (), (), (1,2,3), (1,2) ])
 </pre></div>
 
@@ -229,20 +229,20 @@ Group([ (), (), (), (1,2,3), (1,2) ])
 
 <h4>2.2 <span class="Heading">Finite balls</span></h4>
 
-<p>The automorphism groups of the finite labelled balls <span class="Math">B_{d,k}</span> lie at the center of this package. The method <code class="func">AutB</code> (<a href="chap2.html#X7B766DE9824037BB"><span class="RefLink">2.2-1</span></a>) produces these automorphism groups as iterated wreath products. The result is a permutation group on the set of leaves of <span class="Math">B_{d,k}</span>.</p>
+<p>The automorphism groups of the finite labelled balls <span class="Math">B_{d,k}</span> lie at the center of this package. The method <code class="func">AutBall</code> (<a href="chap2.html#X784EBFE9796B960C"><span class="RefLink">2.2-1</span></a>) produces these automorphism groups as iterated wreath products. The result is a permutation group on the set of leaves of <span class="Math">B_{d,k}</span>.</p>
 
-<p><a id="X7B766DE9824037BB" name="X7B766DE9824037BB"></a></p>
+<p><a id="X784EBFE9796B960C" name="X784EBFE9796B960C"></a></p>
 
-<h5>2.2-1 AutB</h5>
+<h5>2.2-1 AutBall</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutB</code>( <var class="Arg">d</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutBall</code>( <var class="Arg">d</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: the local action <span class="Math">\mathrm{Aut}(B_{d,k})</span> as a permutation group of the <span class="Math">d\cdot (d-1)^{k-1}</span> leaves of <span class="Math">B_{d,k}</span>.</p>
 
 <p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span> and a radius <var class="Arg">k</var> <span class="Math">\in\mathbb{N}_{0}</span>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=AutB(3,2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=AutBall(3,2);</span>
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(G);</span>
 48
@@ -258,20 +258,20 @@ Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 
 <p>i.e. as lists of length <span class="Math">n</span> of elements from <code class="code">[1..d]</code> such that no two consecutive entries are equal. They are ordered according to the lexicographic order on <span class="Math">\Omega^{(n)}</span>. The center <span class="Math">b</span> itself is addressed by the empty list <code class="code">[]</code>. Note that the leaves of <span class="Math">B_{d,k}</span> correspond to elements of <span class="Math">\Omega^{(k)}</span>.</p>
 
-<p><a id="X843C3D8E82F0D51F" name="X843C3D8E82F0D51F"></a></p>
+<p><a id="X84DD7F7881A00315" name="X84DD7F7881A00315"></a></p>
 
-<h5>2.3-1 Addresses</h5>
+<h5>2.3-1 BallAddresses</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Addresses</code>( <var class="Arg">d</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BallAddresses</code>( <var class="Arg">d</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: a list of all addresses of vertices in <span class="Math">B_{d,k}</span> in ascending order with respect to length, lexicographically ordered within each level. See <code class="func">AddressOfLeaf</code> (<a href="chap2.html#X78379A547ED7A317"><span class="RefLink">2.3-3</span></a>) and <code class="func">LeafOfAddress</code> (<a href="chap2.html#X7E43E2B87B97A9BE"><span class="RefLink">2.3-4</span></a>) for the correspondence between the leaves of <span class="Math">B_{d,k}</span> and addresses of length <var class="Arg">k</var>.</p>
 
 <p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span> and a radius <var class="Arg">k</var> <span class="Math">\in\mathbb{N}_{0}</span>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Addresses(3,1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BallAddresses(3,1);</span>
 [ [  ], [ 1 ], [ 2 ], [ 3 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Addresses(3,2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BallAddresses(3,2);</span>
 [ [  ], [ 1 ], [ 2 ], [ 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], 
 [ 3, 1 ], [ 3, 2 ] ]
 </pre></div>

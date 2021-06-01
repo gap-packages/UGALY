@@ -24,7 +24,7 @@
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>).
 <P/>
  </Description>
 </ManSection>
@@ -46,7 +46,7 @@ true
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>).
 <P/>
  </Description>
 </ManSection>
@@ -89,7 +89,7 @@ true
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="SatisfiesC"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>), which is compatible (see <Ref Attr="SatisfiesC"/>).
 <P/>
  </Description>
 </ManSection>
@@ -118,7 +118,7 @@ MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ],
   [ (1,5,4)(2,6,3), 1 ], [ (1,5,4)(2,6,3), 2 ], [ (1,5,4)(2,6,3), 3 ], 
   [ (1,4,5)(2,3,6), 1 ], [ (1,4,5)(2,3,6), 2 ], [ (1,4,5)(2,3,6), 3 ] 
  ]), Group([ (1,4,5)(2,3,6) ]), function( s ) ... end )
-gap> InvolutiveCompatibilityCocycle(AutB(3,2));
+gap> InvolutiveCompatibilityCocycle(AutBall(3,2));
 fail
 ]]></Example>
 
@@ -129,7 +129,7 @@ fail
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="SatisfiesC"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>), which is compatible (see <Ref Attr="SatisfiesC"/>).
 <P/>
  </Description>
 </ManSection>

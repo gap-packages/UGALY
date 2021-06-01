@@ -22,7 +22,7 @@
 ##################################################################################################################
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>).
 #!
 #! @Returns
 #! <K>true</K> if <A>F</A> satisfies the discreteness condition (D), and <K>false</K> otherwise.
@@ -41,7 +41,7 @@ DeclareProperty( "SatisfiesD", IsLocalAction );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>).
 #!
 #! @Returns
 #! <K>true</K> if $\mathrm{U}_{k}(F)$ is discrete, and <K>false</K> otherwise.
@@ -97,7 +97,7 @@ DeclareGlobalFunction( "CocycleMap" );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="SatisfiesC"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>), which is compatible (see <Ref Attr="SatisfiesC"/>).
 #!
 #! @Returns an involutive compatibility cocycle of <A>F</A>, which is a mapping <A>F</A>$\times$<C>[1..d]</C>$\to$<A>F</A> with certain properties, if it exists, and <K>fail</K> otherwise. When <A>k</A> $=1$, the standard cocycle is returned.
 #!
@@ -132,7 +132,7 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (<Ref Filt="IsLocalAction"/>), which is compatible (<Ref Attr="SatisfiesC"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>), which is compatible (see <Ref Attr="SatisfiesC"/>).
 #!
 #! @Returns the list of all involutive compatibility cocycles of $F$.
 #!

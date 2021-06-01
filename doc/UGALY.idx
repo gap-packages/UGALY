@@ -6,15 +6,15 @@
 \indexentry{LocalAction@\texttt  {LocalAction}!for r, d, k, aut, addr|hyperpage}{7}
 \indexentry{Projection@\texttt  {Projection}!for F, r|hyperpage}{7}
 \indexentry{ImageOfProjection@\texttt  {ImageOfProjection}|hyperpage}{7}
-\indexentry{AutB@\texttt  {AutB}|hyperpage}{8}
-\indexentry{Addresses@\texttt  {Addresses}|hyperpage}{8}
+\indexentry{AutBall@\texttt  {AutBall}|hyperpage}{8}
+\indexentry{BallAddresses@\texttt  {BallAddresses}|hyperpage}{8}
 \indexentry{LeafAddresses@\texttt  {LeafAddresses}|hyperpage}{9}
 \indexentry{AddressOfLeaf@\texttt  {AddressOfLeaf}|hyperpage}{9}
 \indexentry{LeafOfAddress@\texttt  {LeafOfAddress}|hyperpage}{9}
 \indexentry{ImageAddress@\texttt  {ImageAddress}|hyperpage}{9}
 \indexentry{ComposeAddresses@\texttt  {ComposeAddresses}|hyperpage}{10}
-\indexentry{AreCompatibleElements@\texttt  {AreCompatibleElements}|hyperpage}{11}
-\indexentry{CompatibleElement@\texttt  {CompatibleElement}|hyperpage}{12}
+\indexentry{AreCompatibleBallElements@\texttt  {AreCompatibleBallElements}|hyperpage}{11}
+\indexentry{CompatibleBallElement@\texttt  {CompatibleBallElement}|hyperpage}{12}
 \indexentry{CompatibilitySet@\texttt  {CompatibilitySet}!for F, aut, dir|hyperpage}{12}
 \indexentry{CompatibilitySet@\texttt  {CompatibilitySet}!for F, aut, dirs|hyperpage}{12}
 \indexentry{AssembleAutomorphism@\texttt  {AssembleAutomorphism}|hyperpage}{13}

@@ -16,7 +16,7 @@
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
- Local actions <Math>F\le\mathrm{Aut}(B_{d,k})</Math> are stored together with their degree (<Ref Attr="LocalActionDegree"/>), radius (<Ref Attr="LocalActionRadius"/>) and other attributes in this category.
+ Local actions <Math>F\le\mathrm{Aut}(B_{d,k})</Math> are stored together with their degree (see <Ref Attr="LocalActionDegree"/>), radius (see <Ref Attr="LocalActionRadius"/>) and other attributes in this category.
 <P/>
  </Description>
 </ManSection>
@@ -28,7 +28,7 @@ gap> G:=WreathProduct(SymmetricGroup(2),SymmetricGroup(3));
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 gap> IsLocalAction(G);
 false
-gap> H:=AutB(3,2);
+gap> H:=AutBall(3,2);
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 gap> IsLocalAction(H);
 true
@@ -84,7 +84,7 @@ gap> IsLocalAction(G);
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>).
 <P/>
  </Description>
 </ManSection>
@@ -107,7 +107,7 @@ gap> LocalActionDegree(F);
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (<Ref Filt="IsLocalAction"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>).
 <P/>
  </Description>
 </ManSection>
@@ -138,7 +138,7 @@ gap> LocalActionRadius(F);
 
 <P/>
 <Example><![CDATA[
-gap> a:=(1,3,5)(2,4,6);; a in AutB(3,2);
+gap> a:=(1,3,5)(2,4,6);; a in AutBall(3,2);
 true
 gap> LocalAction(2,3,2,a,[]);
 (1,3,5)(2,4,6)
@@ -151,7 +151,7 @@ gap> LocalAction(1,3,2,a,[1]);
 
 <P/>
 <Example><![CDATA[
-gap> b:=Random(AutB(3,4));
+gap> b:=Random(AutBall(3,4));
 (1,20,4,17,2,19,3,18)(5,22,8,23,6,21,7,24)(9,10)(13,16,14,15)
 gap> LocalAction(2,3,4,b,[3,1]);
 (1,4)(2,3)
@@ -202,9 +202,9 @@ gap> a:=Random(F);; Image(pr,a);
 
 <P/>
 <Example><![CDATA[
-gap> AutB(3,2);
+gap> AutBall(3,2);
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
-gap> ImageOfProjection(AutB(3,2),1);
+gap> ImageOfProjection(AutBall(3,2),1);
 Group([ (), (), (), (1,2,3), (1,2) ])
 ]]></Example>
 
@@ -215,9 +215,9 @@ Group([ (), (), (), (1,2,3), (1,2) ])
 <Section Label="Chapter_Preliminaries_Section_Finite_balls">
 <Heading>Finite balls</Heading>
 
- The automorphism groups of the finite labelled balls <Math>B_{d,k}</Math> lie at the center of this package. The method <Ref Func="AutB"/> produces these automorphism groups as iterated wreath products. The result is a permutation group on the set of leaves of <Math>B_{d,k}</Math>.
+ The automorphism groups of the finite labelled balls <Math>B_{d,k}</Math> lie at the center of this package. The method <Ref Func="AutBall"/> produces these automorphism groups as iterated wreath products. The result is a permutation group on the set of leaves of <Math>B_{d,k}</Math>.
 <ManSection>
-  <Func Arg="d,k" Name="AutB" />
+  <Func Arg="d,k" Name="AutBall" />
  <Returns> the local action <Math>\mathrm{Aut}(B_{d,k})</Math> as a permutation group of the <Math>d\cdot (d-1)^{k-1}</Math> leaves of <Math>B_{d,k}</Math>.
  
  
@@ -231,7 +231,7 @@ Group([ (), (), (), (1,2,3), (1,2) ])
 
 <P/>
 <Example><![CDATA[
-gap> G:=AutB(3,2);
+gap> G:=AutBall(3,2);
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 gap> Size(G);
 48
@@ -246,7 +246,7 @@ gap> Size(G);
 
  The vertices at distance <Math>n</Math> from the center <Math>b</Math> of <Math>B_{d,k}</Math> are addressed as elements of the set <Display>\Omega^{(n)}:=\{(\omega_{1},\ldots,\omega_{n})\in\Omega^{n}\mid \forall l\in\{1,\ldots,n-1\}:\ \omega_{l}\neq\omega_{l+1}\},</Display> i.e. as lists of length <Math>n</Math> of elements from <C>[1..d]</C> such that no two consecutive entries are equal. They are ordered according to the lexicographic order on <Math>\Omega^{(n)}</Math>. The center <Math>b</Math> itself is addressed by the empty list <C>[]</C>. Note that the leaves of <Math>B_{d,k}</Math> correspond to elements of <Math>\Omega^{(k)}</Math>.
 <ManSection>
-  <Func Arg="d,k" Name="Addresses" />
+  <Func Arg="d,k" Name="BallAddresses" />
  <Returns> a list of all addresses of vertices in <Math>B_{d,k}</Math> in ascending order with respect to length, lexicographically ordered within each level. See <Ref Func="AddressOfLeaf"/> and <Ref Func="LeafOfAddress"/> for the correspondence between the leaves of <Math>B_{d,k}</Math> and addresses of length <A>k</A>.
  
  
@@ -260,9 +260,9 @@ gap> Size(G);
 
 <P/>
 <Example><![CDATA[
-gap> Addresses(3,1);
+gap> BallAddresses(3,1);
 [ [  ], [ 1 ], [ 2 ], [ 3 ] ]
-gap> Addresses(3,2);
+gap> BallAddresses(3,2);
 [ [  ], [ 1 ], [ 2 ], [ 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], 
 [ 3, 1 ], [ 3, 2 ] ]
 ]]></Example>

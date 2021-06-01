@@ -39,8 +39,8 @@
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YLocal  actions  [23XF\le\mathrm{Aut}(B_{d,k})[123X  are  stored  together  with their
-  degree       ([2XLocalActionDegree[102X      ([14X???LocalActionDegree???[114X)),      radius
-  ([2XLocalActionRadius[102X  ([14X???LocalActionRadius???[114X))  and other attributes in this
+  degree   (see   [2XLocalActionDegree[102X  ([14X???LocalActionDegree???[114X)),  radius  (see
+  [2XLocalActionRadius[102X  ([14X???LocalActionRadius???[114X))  and  other attributes in this
   category.[133X
   
   [4X[32X  Example  [32X[104X
@@ -48,7 +48,7 @@
     [4X[28XGroup([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])[128X[104X
     [4X[25Xgap>[125X [27XIsLocalAction(G);[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XH:=AutB(3,2);[127X[104X
+    [4X[25Xgap>[125X [27XH:=AutBall(3,2);[127X[104X
     [4X[28XGroup([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])[128X[104X
     [4X[25Xgap>[125X [27XIsLocalAction(H);[127X[104X
     [4X[28Xtrue[128X[104X
@@ -94,7 +94,7 @@
   [6XReturns:[106X  [33X[0;10Ythe degree [3Xd[103X of the ball [23XB_{d,k}[123X that [23XF[123X is acting on.[133X
   
   [33X[0;0YThe  argument of this attribute is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
-  ([2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
+  (see [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=PHI(4,AlternatingGroup(4));[127X[104X
@@ -110,7 +110,7 @@
   [6XReturns:[106X  [33X[0;10Ythe radius [3Xk[103X of the ball [23XB_{d,k}[123X that [23XF[123X is acting on.[133X
   
   [33X[0;0YThe  argument of this attribute is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
-  ([2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
+  (see [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=PHI(4,AlternatingGroup(4));[127X[104X
@@ -131,7 +131,7 @@
   [3Xaddr[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xa:=(1,3,5)(2,4,6);; a in AutB(3,2);[127X[104X
+    [4X[25Xgap>[125X [27Xa:=(1,3,5)(2,4,6);; a in AutBall(3,2);[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XLocalAction(2,3,2,a,[]);[127X[104X
     [4X[28X(1,3,5)(2,4,6)[128X[104X
@@ -142,7 +142,7 @@
   [4X[32X[104X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xb:=Random(AutB(3,4));[127X[104X
+    [4X[25Xgap>[125X [27Xb:=Random(AutBall(3,4));[127X[104X
     [4X[28X(1,20,4,17,2,19,3,18)(5,22,8,23,6,21,7,24)(9,10)(13,16,14,15)[128X[104X
     [4X[25Xgap>[125X [27XLocalAction(2,3,4,b,[3,1]);[127X[104X
     [4X[28X(1,4)(2,3)[128X[104X
@@ -181,9 +181,9 @@
   generators rather than [2XProjection[102X ([14X2.1-7[114X) on the group to compute the image.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XAutB(3,2);[127X[104X
+    [4X[25Xgap>[125X [27XAutBall(3,2);[127X[104X
     [4X[28XGroup([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])[128X[104X
-    [4X[25Xgap>[125X [27XImageOfProjection(AutB(3,2),1);[127X[104X
+    [4X[25Xgap>[125X [27XImageOfProjection(AutBall(3,2),1);[127X[104X
     [4X[28XGroup([ (), (), (), (1,2,3), (1,2) ])[128X[104X
   [4X[32X[104X
   
@@ -191,13 +191,13 @@
   [1X2.2 [33X[0;0YFinite balls[133X[101X
   
   [33X[0;0YThe  automorphism  groups  of  the  finite labelled balls [23XB_{d,k}[123X lie at the
-  center  of this package. The method [2XAutB[102X ([14X2.2-1[114X) produces these automorphism
-  groups as iterated wreath products. The result is a permutation group on the
-  set of leaves of [23XB_{d,k}[123X.[133X
+  center   of   this  package.  The  method  [2XAutBall[102X  ([14X2.2-1[114X)  produces  these
+  automorphism groups as iterated wreath products. The result is a permutation
+  group on the set of leaves of [23XB_{d,k}[123X.[133X
   
-  [1X2.2-1 AutB[101X
+  [1X2.2-1 AutBall[101X
   
-  [33X[1;0Y[29X[2XAutB[102X( [3Xd[103X, [3Xk[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XAutBall[102X( [3Xd[103X, [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Ythe  local  action [23X\mathrm{Aut}(B_{d,k})[123X as a permutation group of
             the [23Xd\cdot (d-1)^{k-1}[123X leaves of [23XB_{d,k}[123X.[133X
   
@@ -205,7 +205,7 @@
   radius [3Xk[103X [23X\in\mathbb{N}_{0}[123X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XG:=AutB(3,2);[127X[104X
+    [4X[25Xgap>[125X [27XG:=AutBall(3,2);[127X[104X
     [4X[28XGroup([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])[128X[104X
     [4X[25Xgap>[125X [27XSize(G);[127X[104X
     [4X[28X48[128X[104X
@@ -229,9 +229,9 @@
   empty  list  [10X[][110X.  Note  that the leaves of [23XB_{d,k}[123X correspond to elements of
   [23X\Omega^{(k)}[123X.[133X
   
-  [1X2.3-1 Addresses[101X
+  [1X2.3-1 BallAddresses[101X
   
-  [33X[1;0Y[29X[2XAddresses[102X( [3Xd[103X, [3Xk[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XBallAddresses[102X( [3Xd[103X, [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Ya  list of all addresses of vertices in [23XB_{d,k}[123X in ascending order
             with  respect  to  length,  lexicographically  ordered within each
             level. See [2XAddressOfLeaf[102X ([14X2.3-3[114X) and [2XLeafOfAddress[102X ([14X2.3-4[114X) for the
@@ -242,9 +242,9 @@
   radius [3Xk[103X [23X\in\mathbb{N}_{0}[123X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XAddresses(3,1);[127X[104X
+    [4X[25Xgap>[125X [27XBallAddresses(3,1);[127X[104X
     [4X[28X[ [  ], [ 1 ], [ 2 ], [ 3 ] ][128X[104X
-    [4X[25Xgap>[125X [27XAddresses(3,2);[127X[104X
+    [4X[25Xgap>[125X [27XBallAddresses(3,2);[127X[104X
     [4X[28X[ [  ], [ 1 ], [ 2 ], [ 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], [128X[104X
     [4X[28X[ 3, 1 ], [ 3, 2 ] ][128X[104X
   [4X[32X[104X

@@ -3,15 +3,15 @@
   [1XIndex[101X
   
   [2XAbelianizationHomomorphism[102X 4.4-2 
-  [2XAddresses[102X 2.3-1 
   [2XAddressOfLeaf[102X 2.3-3 
   [2XAllInvolutiveCompatibilityCocycles[102X, for IsLocalAction 5.3-2 
-  [2XAreCompatibleElements[102X 3.2-1 
+  [2XAreCompatibleBallElements[102X 3.2-1 
   [2XAssembleAutomorphism[102X 3.2-4 
-  [2XAutB[102X 2.2-1 
+  [2XAutBall[102X 2.2-1 
+  [2XBallAddresses[102X 2.3-1 
   [2XCompatibilitySet[102X, for F, aut, dir 3.2-3 
       for F, aut, dirs 3.2-3 
-  [2XCompatibleElement[102X 3.2-2 
+  [2XCompatibleBallElement[102X 3.2-2 
   [2XCompatibleKernels[102X, for d, F 4.5-1 
       for F, z 4.5-1 
   [2XCompatibleSubgroups[102X 3.3-3 

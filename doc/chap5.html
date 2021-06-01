@@ -64,7 +64,7 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SatisfiesD</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <var class="Arg">F</var> satisfies the discreteness condition (D), and <code class="keyw">false</code> otherwise.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>
@@ -81,7 +81,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDiscrete</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <span class="Math">\mathrm{U}_{k}(F)</span> is discrete, and <code class="keyw">false</code> otherwise.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>
@@ -118,7 +118,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InvolutiveCompatibilityCocycle</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: an involutive compatibility cocycle of <var class="Arg">F</var>, which is a mapping <var class="Arg">F</var><span class="Math">\times</span><code class="code">[1..d]</code><span class="Math">\to</span><var class="Arg">F</var> with certain properties, if it exists, and <code class="keyw">fail</code> otherwise. When <var class="Arg">k</var> <span class="Math">=1</span>, the standard cocycle is returned.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)), which is compatible (<code class="func">SatisfiesC</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)), which is compatible (see <code class="func">SatisfiesC</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>
@@ -142,7 +142,7 @@ MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ],
   [ (1,5,4)(2,6,3), 1 ], [ (1,5,4)(2,6,3), 2 ], [ (1,5,4)(2,6,3), 3 ], 
   [ (1,4,5)(2,3,6), 1 ], [ (1,4,5)(2,3,6), 2 ], [ (1,4,5)(2,3,6), 3 ] 
  ]), Group([ (1,4,5)(2,3,6) ]), function( s ) ... end )
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InvolutiveCompatibilityCocycle(AutB(3,2));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InvolutiveCompatibilityCocycle(AutBall(3,2));</span>
 fail
 </pre></div>
 
@@ -153,7 +153,7 @@ fail
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AllInvolutiveCompatibilityCocycles</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: the list of all involutive compatibility cocycles of <span class="Math">F</span>.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)), which is compatible (<code class="func">SatisfiesC</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)), which is compatible (see <code class="func">SatisfiesC</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>

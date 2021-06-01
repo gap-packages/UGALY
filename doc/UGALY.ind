@@ -1,20 +1,23 @@
 \begin{theindex}
 
   \item \texttt  {AbelianizationHomomorphism}, \hyperpage{22}
-  \item \texttt  {Addresses}, \hyperpage{8}
   \item \texttt  {AddressOfLeaf}, \hyperpage{9}
   \item \texttt  {AllInvolutiveCompatibilityCocycles}
     \subitem for IsLocalAction, \hyperpage{28}
-  \item \texttt  {AreCompatibleElements}, \hyperpage{11}
+  \item \texttt  {AreCompatibleBallElements}, \hyperpage{11}
   \item \texttt  {AssembleAutomorphism}, \hyperpage{13}
-  \item \texttt  {AutB}, \hyperpage{8}
+  \item \texttt  {AutBall}, \hyperpage{8}
+
+  \indexspace
+
+  \item \texttt  {BallAddresses}, \hyperpage{8}
 
   \indexspace
 
   \item \texttt  {CompatibilitySet}
     \subitem for F, aut, dir, \hyperpage{12}
     \subitem for F, aut, dirs, \hyperpage{12}
-  \item \texttt  {CompatibleElement}, \hyperpage{12}
+  \item \texttt  {CompatibleBallElement}, \hyperpage{12}
   \item \texttt  {CompatibleKernels}
     \subitem for d, F, \hyperpage{23}
     \subitem for F, z, \hyperpage{23}

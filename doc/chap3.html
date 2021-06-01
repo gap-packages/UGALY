@@ -28,8 +28,8 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X82C839D7794DDBCD">3.2 <span class="Heading">Compatible elements</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7A3E4DE2801A21B7">3.2-1 AreCompatibleElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7EF32E607ABFB451">3.2-2 CompatibleElement</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X84AA17C28591AC1F">3.2-1 AreCompatibleBallElements</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8206962582F9C96A">3.2-2 CompatibleBallElement</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7ECC9E9982597E12">3.2-3 <span class="Heading">CompatibilitySet</span></a>
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X837E15117DB5B1DE">3.2-4 AssembleAutomorphism</a></span>
@@ -59,67 +59,67 @@
 
 <h4>3.2 <span class="Heading">Compatible elements</span></h4>
 
-<p>This section is concerned with testing compatibility of two given elements (<code class="func">AreCompatibleElements</code> (<a href="chap3.html#X7A3E4DE2801A21B7"><span class="RefLink">3.2-1</span></a>)) and finding an/all elements that is/are compatible with a given one (<code class="func">CompatibleElement</code> (<a href="chap3.html#X7EF32E607ABFB451"><span class="RefLink">3.2-2</span></a>), <code class="func">CompatibilitySet</code> (<a href="chap3.html#X7ECC9E9982597E12"><span class="RefLink">3.2-3</span></a>)).</p>
+<p>This section is concerned with testing compatibility of two given elements (see <code class="func">AreCompatibleBallElements</code> (<a href="chap3.html#X84AA17C28591AC1F"><span class="RefLink">3.2-1</span></a>)) and finding an/all elements that is/are compatible with a given one (see <code class="func">CompatibleBallElement</code> (<a href="chap3.html#X8206962582F9C96A"><span class="RefLink">3.2-2</span></a>), <code class="func">CompatibilitySet</code> (<a href="chap3.html#X7ECC9E9982597E12"><span class="RefLink">3.2-3</span></a>)).</p>
 
-<p><a id="X7A3E4DE2801A21B7" name="X7A3E4DE2801A21B7"></a></p>
+<p><a id="X84AA17C28591AC1F" name="X84AA17C28591AC1F"></a></p>
 
-<h5>3.2-1 AreCompatibleElements</h5>
+<h5>3.2-1 AreCompatibleBallElements</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AreCompatibleElements</code>( <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">aut1</var>, <var class="Arg">aut2</var>, <var class="Arg">dir</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AreCompatibleBallElements</code>( <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">aut1</var>, <var class="Arg">aut2</var>, <var class="Arg">dir</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <var class="Arg">aut1</var> and <var class="Arg">aut2</var> are compatible with each other in direction <var class="Arg">dir</var>, and <code class="keyw">false</code> otherwise.</p>
 
 <p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a radius <var class="Arg">k</var> <span class="Math">\in\mathbb{N}</span>, two automorphisms <var class="Arg">aut1</var>, <var class="Arg">aut2</var> <span class="Math">\in\mathrm{Aut}(B_{d,k})</span>, and a direction <var class="Arg">dir</var> <span class="Math">\in</span><code class="code">[1..d]</code>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreCompatibleElements(3,1,(1,2),(1,2,3),1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreCompatibleBallElements(3,1,(1,2),(1,2,3),1);</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreCompatibleElements(3,1,(1,2),(1,2,3),2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreCompatibleBallElements(3,1,(1,2),(1,2,3),2);</span>
 false
 </pre></div>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=(1,3,5)(2,4,6);; a in AutB(3,2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=(1,3,5)(2,4,6);; a in AutBall(3,2);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(1,3,2,a,[]); LocalAction(1,3,2,a,[1]);</span>
 (1,2,3)
 (1,2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=(1,4)(2,3);; b in AutB(3,2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=(1,4)(2,3);; b in AutBall(3,2);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(1,3,2,b,[]); LocalAction(1,3,2,b,[1]);</span>
 (1,2)
 (1,2,3)
 
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreCompatibleElements(3,2,a,b,1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreCompatibleBallElements(3,2,a,b,1);</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreCompatibleElements(3,2,a,b,3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AreCompatibleBallElements(3,2,a,b,3);</span>
 false
 </pre></div>
 
-<p><a id="X7EF32E607ABFB451" name="X7EF32E607ABFB451"></a></p>
+<p><a id="X8206962582F9C96A" name="X8206962582F9C96A"></a></p>
 
-<h5>3.2-2 CompatibleElement</h5>
+<h5>3.2-2 CompatibleBallElement</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CompatibleElement</code>( <var class="Arg">F</var>, <var class="Arg">aut</var>, <var class="Arg">dir</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CompatibleBallElement</code>( <var class="Arg">F</var>, <var class="Arg">aut</var>, <var class="Arg">dir</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: an element of <var class="Arg">F</var> that is compatible with <var class="Arg">aut</var> in direction <var class="Arg">dir</var> if one exists, and <code class="keyw">fail</code> otherwise.</p>
 
 <p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span>, an element <var class="Arg">aut</var> <span class="Math">\in</span> <var class="Arg">F</var>, and a direction <var class="Arg">dir</var> <span class="Math">\in</span><code class="code">[1..d]</code>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Random(AutB(5,1)); dir:=Random([1..5]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Random(AutBall(5,1)); dir:=Random([1..5]);</span>
 (1,3,2,5)
 4
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CompatibleElement(AutB(5,1),a,dir);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CompatibleBallElement(AutBall(5,1),a,dir);</span>
 (1,3,2,5)
 </pre></div>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=(1,3,5)(2,4,6);; a in AutB(3,2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=(1,3,5)(2,4,6);; a in AutBall(3,2);</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CompatibleElement(AutB(3,2),a,1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CompatibleBallElement(AutBall(3,2),a,1);</span>
 (1,4,2,3)
 </pre></div>
 
@@ -171,15 +171,15 @@ RightCoset(Group(()),(1,3))
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(AutB(3,2));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(AutBall(3,2));</span>
 (1,2)(3,6)(4,5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">auts:=[];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for i in [1..3] do auts[i]:=CompatibleElement(3,2,AutB(3,2),aut,i); od;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for i in [1..3] do auts[i]:=CompatibleBallElement(3,2,AutBall(3,2),aut,i); od;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">auts;</span>
 [ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,5,3)(2,6,4) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=AssembleAutomorphism(3,2,auts);</span>
 (1,3)(2,4)(5,11)(6,12)(7,9)(8,10)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a in AutB(3,3); </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a in AutBall(3,3); </span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(2,3,3,a,[]);</span>
 (1,2)(3,6)(4,5)
@@ -198,7 +198,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaximalCompatibleSubgroup</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: The local action <span class="Math">C(</span><var class="Arg">F</var><span class="Math">)\le\mathrm{Aut}(B_{d,k})</span>, which is the maximal compatible subgroup of <var class="Arg">F</var>.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>
@@ -219,7 +219,7 @@ Group(())
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SatisfiesC</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <var class="Arg">F</var> satisfies the compatibility condition (C), and <code class="keyw">false</code> otherwise.</p>
 
-<p>The argument of this property is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (<code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this property is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
 
 
 <div class="example"><pre>
@@ -263,7 +263,7 @@ Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ConjugacyClassRepsCompatibleSubgroups(AutB(3,2));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ConjugacyClassRepsCompatibleSubgroups(AutBall(3,2));</span>
 [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,4,5)(2,3,6) ]), 
   Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)
   (2,4,5) ]), Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), 

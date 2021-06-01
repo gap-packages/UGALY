@@ -42,15 +42,15 @@
 \makelabel{ugaly:LocalAction for r, d, k, aut, addr}{2.1.6}{X7E0E11FC802B5210}
 \makelabel{ugaly:Projection for f, r}{2.1.7}{X7BE35375787753EE}
 \makelabel{ugaly:ImageOfProjection}{2.1.8}{X87A13DDE8321BEF3}
-\makelabel{ugaly:AutB}{2.2.1}{X7B766DE9824037BB}
-\makelabel{ugaly:Addresses}{2.3.1}{X843C3D8E82F0D51F}
+\makelabel{ugaly:AutBall}{2.2.1}{X784EBFE9796B960C}
+\makelabel{ugaly:BallAddresses}{2.3.1}{X84DD7F7881A00315}
 \makelabel{ugaly:LeafAddresses}{2.3.2}{X868811D87FEB1AA6}
 \makelabel{ugaly:AddressOfLeaf}{2.3.3}{X78379A547ED7A317}
 \makelabel{ugaly:LeafOfAddress}{2.3.4}{X7E43E2B87B97A9BE}
 \makelabel{ugaly:ImageAddress}{2.3.5}{X871D6B8783E17AB8}
 \makelabel{ugaly:ComposeAddresses}{2.3.6}{X862D09157F1D9D98}
-\makelabel{ugaly:AreCompatibleElements}{3.2.1}{X7A3E4DE2801A21B7}
-\makelabel{ugaly:CompatibleElement}{3.2.2}{X7EF32E607ABFB451}
+\makelabel{ugaly:AreCompatibleBallElements}{3.2.1}{X84AA17C28591AC1F}
+\makelabel{ugaly:CompatibleBallElement}{3.2.2}{X8206962582F9C96A}
 \makelabel{ugaly:CompatibilitySet for f, aut, dir}{3.2.3}{X7ECC9E9982597E12}
 \makelabel{ugaly:CompatibilitySet for f, aut, dirs}{3.2.3}{X7ECC9E9982597E12}
 \makelabel{ugaly:AssembleAutomorphism}{3.2.4}{X837E15117DB5B1DE}

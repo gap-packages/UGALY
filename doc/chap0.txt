@@ -68,9 +68,9 @@
       2.1-7 Projection
       2.1-8 ImageOfProjection
     2.2 [33X[0;0YFinite balls[133X
-      2.2-1 AutB
+      2.2-1 AutBall
     2.3 [33X[0;0YAddresses and leaves[133X
-      2.3-1 Addresses
+      2.3-1 BallAddresses
       2.3-2 LeafAddresses
       2.3-3 AddressOfLeaf
       2.3-4 LeafOfAddress
@@ -79,8 +79,8 @@
   3 [33X[0;0YCompatibility[133X
     3.1 [33X[0;0YThe compatibility condition (C)[133X
     3.2 [33X[0;0YCompatible elements[133X
-      3.2-1 AreCompatibleElements
-      3.2-2 CompatibleElement
+      3.2-1 AreCompatibleBallElements
+      3.2-2 CompatibleBallElement
       3.2-3 [33X[0;0YCompatibilitySet[133X
       3.2-4 AssembleAutomorphism
     3.3 [33X[0;0YCompatible subgroups[133X
