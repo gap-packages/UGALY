@@ -4,5 +4,5 @@
 <#Include SYSTEM "_Chapter_Introduction.xml">
 <#Include SYSTEM "_Chapter_Preliminaries.xml">
 <#Include SYSTEM "_Chapter_Compatibility.xml">
-<#Include SYSTEM "_Chapter_Examples.xml">
+<#Include SYSTEM "_Chapter_examples.xml">
 <#Include SYSTEM "_Chapter_Discreteness.xml">

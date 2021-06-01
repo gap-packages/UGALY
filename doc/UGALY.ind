@@ -1,104 +1,103 @@
 \begin{theindex}
 
-  \item \texttt  {AbelianizationHomomorphism}, \hyperpage{23}
-  \item \texttt  {AddressOfLeaf}, \hyperpage{10}
+  \item \texttt  {AbelianizationHomomorphism}, \hyperpage{24}
+  \item \texttt  {AddressOfLeaf}, \hyperpage{11}
   \item \texttt  {AllInvolutiveCompatibilityCocycles}
-    \subitem for IsLocalAction, \hyperpage{29}
-  \item \texttt  {AreCompatibleBallElements}, \hyperpage{12}
-  \item \texttt  {AssembleAutomorphism}, \hyperpage{14}
-  \item \texttt  {AutBall}, \hyperpage{9}
+    \subitem for IsLocalAction, \hyperpage{30}
+  \item \texttt  {AreCompatibleBallElements}, \hyperpage{13}
+  \item \texttt  {AssembleAutomorphism}, \hyperpage{15}
+  \item \texttt  {AutBall}, \hyperpage{10}
 
   \indexspace
 
-  \item \texttt  {BallAddresses}, \hyperpage{9}
+  \item \texttt  {BallAddresses}, \hyperpage{10}
 
   \indexspace
 
   \item \texttt  {CompatibilitySet}
-    \subitem for F, aut, dir, \hyperpage{13}
-    \subitem for F, aut, dirs, \hyperpage{13}
-  \item \texttt  {CompatibleBallElement}, \hyperpage{13}
+    \subitem for F, aut, dir, \hyperpage{14}
+    \subitem for F, aut, dirs, \hyperpage{14}
+  \item \texttt  {CompatibleBallElement}, \hyperpage{14}
   \item \texttt  {CompatibleKernels}
-    \subitem for d, F, \hyperpage{24}
-    \subitem for F, z, \hyperpage{24}
-  \item \texttt  {CompatibleSubgroups}, \hyperpage{15}
-  \item \texttt  {ComposeAddresses}, \hyperpage{11}
+    \subitem for d, F, \hyperpage{25}
+    \subitem for F, z, \hyperpage{25}
+  \item \texttt  {CompatibleSubgroups}, \hyperpage{16}
+  \item \texttt  {ComposeAddresses}, \hyperpage{12}
   \item \texttt  {Conjugacy}\-\texttt  {Class}\-\texttt  {Reps}\-\texttt  {Compatible}\-\texttt  {Groups}\-\texttt  {With}\-\texttt  {Projection}, 
-		\hyperpage{16}
+		\hyperpage{17}
   \item \texttt  {Conjugacy}\-\texttt  {Class}\-\texttt  {Reps}\-\texttt  {Compatible}\-\texttt  {Subgroups}
-    \subitem for IsLocalAction, \hyperpage{15}
+    \subitem for IsLocalAction, \hyperpage{16}
 
   \indexspace
 
   \item \texttt  {DELTA}
-    \subitem for d, F, \hyperpage{19}
-    \subitem for d, F, C, \hyperpage{19}
+    \subitem for d, F, \hyperpage{20}
+    \subitem for d, F, C, \hyperpage{20}
 
   \indexspace
 
   \item \texttt  {GAMMA}
-    \subitem for d, F, \hyperpage{18}
-    \subitem for F, z, \hyperpage{18}
-    \subitem for l, d, F, \hyperpage{18}
+    \subitem for d, F, \hyperpage{19}
+    \subitem for F, z, \hyperpage{19}
+    \subitem for l, d, F, \hyperpage{19}
   \item \texttt  {gamma}
-    \subitem for d, a, \hyperpage{17}
-    \subitem for d, k, aut, z, \hyperpage{17}
-    \subitem for l, d, a, \hyperpage{17}
-    \subitem for l, d, s, addr, \hyperpage{17}
+    \subitem for d, a, \hyperpage{18}
+    \subitem for d, k, aut, z, \hyperpage{18}
+    \subitem for l, d, a, \hyperpage{18}
+    \subitem for l, d, s, addr, \hyperpage{18}
 
   \indexspace
 
-  \item \texttt  {ImageAddress}, \hyperpage{10}
-  \item \texttt  {ImageOfProjection}, \hyperpage{8}
+  \item \texttt  {ImageAddress}, \hyperpage{11}
+  \item \texttt  {ImageOfProjection}, \hyperpage{9}
   \item \texttt  {InvolutiveCompatibilityCocycle}
-    \subitem for IsLocalAction, \hyperpage{28}
+    \subitem for IsLocalAction, \hyperpage{29}
   \item \texttt  {IsDiscrete}
-    \subitem for IsLocalAction, \hyperpage{27}
+    \subitem for IsLocalAction, \hyperpage{28}
   \item \texttt  {IsLocalAction}
-    \subitem for IsPermGroup, \hyperpage{6}
+    \subitem for IsPermGroup, \hyperpage{7}
 
   \indexspace
 
-  \item \texttt  {LeafAddresses}, \hyperpage{10}
-  \item \texttt  {LeafOfAddress}, \hyperpage{10}
+  \item \texttt  {LeafAddresses}, \hyperpage{11}
+  \item \texttt  {LeafOfAddress}, \hyperpage{11}
   \item \texttt  {LocalAction}
-    \subitem for IsInt, IsInt, IsPermGroup, \hyperpage{7}
-    \subitem for r, d, k, aut, addr, \hyperpage{8}
+    \subitem for IsInt, IsInt, IsPermGroup, \hyperpage{8}
+    \subitem for r, d, k, aut, addr, \hyperpage{9}
   \item \texttt  {LocalActionDegree}
-    \subitem for IsLocalAction, \hyperpage{7}
+    \subitem for IsLocalAction, \hyperpage{8}
   \item \texttt  {LocalActionNC}
-    \subitem for IsInt, IsInt, IsPermGroup, \hyperpage{7}
+    \subitem for IsInt, IsInt, IsPermGroup, \hyperpage{8}
   \item \texttt  {LocalActionRadius}
-    \subitem for IsLocalAction, \hyperpage{7}
+    \subitem for IsLocalAction, \hyperpage{8}
 
   \indexspace
 
   \item \texttt  {MaximalCompatibleSubgroup}
-    \subitem for IsLocalAction, \hyperpage{14}
+    \subitem for IsLocalAction, \hyperpage{15}
 
   \indexspace
 
   \item \texttt  {PHI}
-    \subitem for d, F, \hyperpage{20}
-    \subitem for d, F, N, \hyperpage{21}
-    \subitem for d, F, P, \hyperpage{21}
-    \subitem for F, \hyperpage{20}
-    \subitem for F, P, \hyperpage{21}
-    \subitem for l, F, \hyperpage{20}
-  \item \texttt  {PI}, \hyperpage{24}
+    \subitem for d, F, N, \hyperpage{22}
+    \subitem for d, F, P, \hyperpage{22}
+    \subitem for F, \hyperpage{21}
+    \subitem for F, P, \hyperpage{22}
+    \subitem for l, F, \hyperpage{21}
+  \item \texttt  {PI}, \hyperpage{25}
   \item \texttt  {Projection}
-    \subitem for F, r, \hyperpage{8}
+    \subitem for F, r, \hyperpage{9}
 
   \indexspace
 
   \item \texttt  {SatisfiesC}
-    \subitem for IsLocalAction, \hyperpage{15}
+    \subitem for IsLocalAction, \hyperpage{16}
   \item \texttt  {SatisfiesD}
-    \subitem for IsLocalAction, \hyperpage{27}
+    \subitem for IsLocalAction, \hyperpage{28}
   \item \texttt  {SIGMA}
-    \subitem for d, F, K, \hyperpage{25}
-    \subitem for F, K, z, \hyperpage{25}
-  \item \texttt  {SignHomomorphism}, \hyperpage{23}
-  \item \texttt  {SpheresProduct}, \hyperpage{23}
+    \subitem for d, F, K, \hyperpage{26}
+    \subitem for F, K, z, \hyperpage{26}
+  \item \texttt  {SignHomomorphism}, \hyperpage{24}
+  \item \texttt  {SpheresProduct}, \hyperpage{24}
 
 \end{theindex}

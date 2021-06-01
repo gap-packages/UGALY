@@ -201,17 +201,8 @@
   
   [1X4.2-1 [33X[0;0YPHI[133X[101X
   
-  [33X[1;0Y[29X[2XPHI[102X( [3Xd[103X, [3XF[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPHI[102X( [3XF[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPHI[102X( [3Xl[103X, [3XF[103X ) [32X operation[133X
-  
-  [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X[108X
-        [33X[0;6YReturns:  the  group  [23X\Phi([123X[3XF[103X[23X)=\{(a,(a_{\omega})_{\omega})\mid a\in [123X[3XF[103X[23X,\
-        \forall                 \omega\in\Omega:\                a_{\omega}\in
-        C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,2})[123X.[133X
-  
-        [33X[0;6YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X and
-        a permutation group [3XF[103X [23X\le S_{d}[123X.[133X
   
   [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X[108X
         [33X[0;6YReturns:  the  group  [23X\Phi_{k}([123X[3XF[103X[23X)=\{(a,(a_{\omega})_{\omega})\mid a\in

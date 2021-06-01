@@ -41,21 +41,19 @@
 #! @Section Purpose
 ##################################################################################################################
 
-#! <Package>UGALY</Package> serves both a research and an educational purpose. It consolidates a rudimentary codebase that was developed by the second author in the course of research undertaken towards the article <Cite Key="Tor20"/>. This codebase had been tremendously beneficial in achieving the results of <Cite Key="Tor20"/> in the first place, and so there has always been a desire to make it available to a wider audience.
+#! <Package>UGALY</Package> serves both a research and an educational purpose. It consolidates a rudimentary codebase that was developed by the second author in the course of research undertaken towards the article <Cite Key="Tor20"/>. This codebase had been tremendously beneficial in achieving the results of <Cite Key="Tor20"/> in the first place and so there has always been a desire to make it available to a wider audience.
 #!
 #!
-#! From a research perspective, <Package>UGALY</Package> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <Cite Key="KM08"/>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <Cite Key="BM00a"/> and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: indeed, due to <Cite Key="Tor20" Where="Corollary 4.32"/> the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see <Cite Key="BEW15"/>) that generalise Tits' independence property $(P)$, see <Cite Key="Tit70"/>. <Package>UGALY</Package> provides the means to generate a library of all these groups in terms of the $k$-local action representing them. This library naturally encompasses the library of finite transitive permutation groups <Package>TransGrp</Package> in the case $k=1$ of classical Burger-Mozes groups. For example, in the case $d=3$ we obtain the following for $k=1$ and $k=2$:
+#! From a research perspective, <Package>UGALY</Package> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <Cite Key="KM08"/>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <Cite Key="BM00a"/> and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: in fact, due to <Cite Key="Tor20" Where="Corollary 4.32"/>, the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see <Cite Key="BEW15"/>) that generalise Tits' independence property $(P)$, see <Cite Key="Tit70"/>. <Package>UGALY</Package> provides the means to generate a library of all these groups in terms of their $k$-local action. In the case $k=1$ of classical Burger-Mozes groups, it coincides with the library of finite transitive permutation groups <Package>TransGrp</Package>. For $(d,k)=(3,2)$ we obtain:
 
 #! @BeginExampleSession
-#! gap> NrTransitiveGroups(3);
-#! 2
 #! gap> A3:=LocalAction(3,1,TransitiveGroup(3,1));
 #! A3
 #! gap> S3:=LocalAction(3,1,TransitiveGroup(3,2));
 #! S3
 #! gap> A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);
 #! [ Group([ (1,4,5)(2,3,6) ]) ]
-#! S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
+#! gap> S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
 #! [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
 #!   Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
@@ -63,14 +61,71 @@
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 #! @EndExampleSession
 
-#! The groups in the above output have been identified to stem from certain general constructions much like there are families of finite transitive groups. See <Ref Sect="Examples"/> for the functions appearing below.
+#! The groups in the above output have been identified to stem from certain general constructions much like there are families of finite transitive groups. See Chapter <Ref Chap="Chapter_examples"/> for the functions appearing below.
 
 #! @BeginExampleSession
+#! gap> PHI(A3)=A3_extn[1];
+#! true
+#! gap> GAMMA(3,S3)=S3_extn[1];
+#! true
+#! gap> DELTA(3,S3)=S3_extn[2];
+#! false
+#! gap> IsConjugate(AutBall(3,2),DELTA(3,S3),S3_extn[2]);
+#! true
+#! gap> rho:=SignHomomorphism(S3);;
+#! gap> PI(2,3,S3,rho,[0,1])=S3_extn[3];
+#! true
+#! gap> PI(2,3,S3,rho,[1])=S3_extn[4];
+#! true
+#! gap> PHI(S3)=S3_extn[5];
+#! true
 #! @EndExampleSession
 
-#! We envision to add such a library in a future version and hope that it will be useful to other researchers in the area.
+#! We envision to add such a library in a future version.
+#!
+#! Paragraph about discrete groups.
+#!
+#! From an educational point of view, we envision that <Package>UGALY</Package> could be used to enhance the learning experience of students in the area of groups acting on trees. The class of generalised universal groups forms an ideal framework for this purpose. For example, to internalise the widely used concept of local actions it may be helpful to take a $2$-local action in the form of an automorphism of $B_{3,2}$, (a rotation in the case below), decompose it into its $1$-local actions and recover the autorphism from them.
 
-#! On the educational side...
+#! @BeginExampleSession
+#! gap> aut:=Random(AutBall(3,2));
+#! (1,5,3,2,6,4)
+#! gap> aut_center:=LocalAction(1,3,2,aut,[]);
+#! (1,3,2)
+#! gap> aut_1:=LocalAction(1,3,2,aut,[1]);
+#! (1,3,2)
+#! gap> aut_2:=LocalAction(1,3,2,aut,[2]);
+#! (1,3,2)
+#! gap> aut_3:=LocalAction(1,3,2,aut,[3]);
+#! (2,3)
+#! gap> AssembleAutomorphism(3,1,[aut_1,aut_2,aut_3]);
+#! (1,5,3,2,6,4)
+#! @EndExampleSession
+
+#! The computationally inclined student may also benefit from verifying existing theorems using <Package>UGALY</Package>. For example, one way to phrase a part of Tutte's work <Cite Key="Tut47"/> <Cite Key="Tut59"/> is to say that there are only three conjugacy classes of discrete, locally transitive subgroups of $\mathrm{Aut}(T_{3})$ that contain an inversion of order $2$ and are $P_{2}$-closed. Due to <Cite Key="Tor20" Where="Corollary 4.38"/>, this can be verified by checking that among all $1$-locally transitive subgroups of $\mathrm{Aut}(B_{d,k})$ which satisfy the compatibility condition (C), only three also satisfy the discreteness condition (D).
+
+#! @BeginExampleSession
+#! gap> A3:=LocalAction(3,1,TransitiveGroup(3,1));;
+#! gap> S3:=LocalAction(3,1,TransitiveGroup(3,2));;
+#! gap> A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);
+#! [ Group([ (1,4,5)(2,3,6) ]) ]
+#! gap> S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
+#! [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+#!   Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+#!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
+#!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
+#!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
+#! gap> for H in A3_extn do Print(SatisfiesD(H),"\n"); od;
+#! true
+#! gap> for H in S3_extn do Print(SatisfiesD(H),"\n"); od;
+#! true
+#! true
+#! false
+#! false
+#! false
+#! @EndExampleSession
+
+#! Similarly, one may want...
 
 
 ##################################################################################################################

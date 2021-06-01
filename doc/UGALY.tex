@@ -182,31 +182,96 @@ second author.
 {
   \textsf{UGALY} serves both a research and an educational purpose. It consolidates a
 rudimentary codebase that was developed by the second author in the course of
-research undertaken towards the article \cite{Tor20}. This codebase had been tremendously beneficial in achieving the results of \cite{Tor20} in the first place, and so there has always been a desire to make it available
+research undertaken towards the article \cite{Tor20}. This codebase had been tremendously beneficial in achieving the results of \cite{Tor20} in the first place and so there has always been a desire to make it available
 to a wider audience. 
 
  From a research perspective, \textsf{UGALY} introduces computational methods to the world of locally compact groups. Due
 to the Cayley-Abels graph construction \cite{KM08}, groups acting on trees form a particularly significant class of totally
 disconnected locally compact groups. Burger-Mozes universal groups \cite{BM00a} and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of
-these groups and form a significant subclass: indeed, due to \cite[Corollary 4.32]{Tor20} the locally transitive, generalised universal groups are exactly the closed,
-locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see \cite{BEW15}) that generalise Tits' independence property $(P)$, see \cite{Tit70}. \textsf{UGALY} provides the means to generate a library of all these groups in terms of the $k$-local action representing them. This library naturally encompasses the
-library of finite transitive permutation groups \textsf{TransGrp} in the case $k=1$ of classical Burger-Mozes groups. For example, in the case $d=3$ we obtain the following for $k=1$ and $k=2$: 
+these groups and form a significant subclass: in fact, due to \cite[Corollary 4.32]{Tor20}, the locally transitive, generalised universal groups are exactly the closed,
+locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see \cite{BEW15}) that generalise Tits' independence property $(P)$, see \cite{Tit70}. \textsf{UGALY} provides the means to generate a library of all these groups in terms of their $k$-local action. In the case $k=1$ of classical Burger-Mozes groups, it coincides with the library of finite
+transitive permutation groups \textsf{TransGrp}. For $(d,k)=(3,2)$ we obtain: 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@F1:=LocalAction(3,1,TransitiveGroup(3,1));|
+  !gapprompt@gap>| !gapinput@A3:=LocalAction(3,1,TransitiveGroup(3,1));|
   A3
-  !gapprompt@gap>| !gapinput@F2:=LocalAction(3,1,TransitiveGroup(3,2));|
+  !gapprompt@gap>| !gapinput@S3:=LocalAction(3,1,TransitiveGroup(3,2));|
   S3
-  !gapprompt@gap>| !gapinput@ConjugacyClassRepsCompatibleGroupsWithProjection(2,F1);|
+  !gapprompt@gap>| !gapinput@A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);|
   [ Group([ (1,4,5)(2,3,6) ]) ]
-  !gapprompt@gap>| !gapinput@ConjugacyClassRepsCompatibleGroupsWithProjection(2,F2);|
+  !gapprompt@gap>| !gapinput@S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);|
   [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
     Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
     Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
     Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
     Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 \end{Verbatim}
- We envision to add such a library in a future version and hope that it will be
-useful to all researchers in the area. On the educational side... }
+ The groups in the above output have been identified to stem from certain
+general constructions much like there are families of finite transitive
+groups. See Chapter \ref{Chapter_examples} for the functions appearing below. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@PHI(A3)=A3_extn[1];|
+  true
+  !gapprompt@gap>| !gapinput@GAMMA(3,S3)=S3_extn[1];|
+  true
+  !gapprompt@gap>| !gapinput@DELTA(3,S3)=S3_extn[2];|
+  false
+  !gapprompt@gap>| !gapinput@IsConjugate(AutBall(3,2),DELTA(3,S3),S3_extn[2]);|
+  true
+  !gapprompt@gap>| !gapinput@rho:=SignHomomorphism(S3);;|
+  !gapprompt@gap>| !gapinput@PI(2,3,S3,rho,[0,1])=S3_extn[3];|
+  true
+  !gapprompt@gap>| !gapinput@PI(2,3,S3,rho,[1])=S3_extn[4];|
+  true
+  !gapprompt@gap>| !gapinput@PHI(S3)=S3_extn[5];|
+  true
+\end{Verbatim}
+ We envision to add such a library in a future version. 
+
+ Paragraph about discrete groups. 
+
+ From an educational point of view, we envision that \textsf{UGALY} could be used to enhance the learning experience of students in the area of
+groups acting on trees. The class of generalised universal groups forms an
+ideal framework for this purpose. For example, to internalise the widely used
+concept of local actions it may be helpful to take a $2$-local action in the form of an automorphism of $B_{3,2}$, (a rotation in the case below), decompose it into its $1$-local actions and recover the autorphism from them. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@aut:=Random(AutBall(3,2));|
+  (1,5,3,2,6,4)
+  !gapprompt@gap>| !gapinput@aut_center:=LocalAction(1,3,2,aut,[]);|
+  (1,3,2)
+  !gapprompt@gap>| !gapinput@aut_1:=LocalAction(1,3,2,aut,[1]);|
+  (1,3,2)
+  !gapprompt@gap>| !gapinput@aut_2:=LocalAction(1,3,2,aut,[2]);|
+  (1,3,2)
+  !gapprompt@gap>| !gapinput@aut_3:=LocalAction(1,3,2,aut,[3]);|
+  (2,3)
+  !gapprompt@gap>| !gapinput@AssembleAutomorphism(3,1,[aut_1,aut_2,aut_3]);|
+  (1,5,3,2,6,4)
+\end{Verbatim}
+ The computationally inclined student may also benefit from verifying existing
+theorems using \textsf{UGALY}. For example, one way to phrase a part of Tutte's work \cite{Tut47} \cite{Tut59} is to say that there are only three conjugacy classes of discrete, locally
+transitive subgroups of $\mathrm{Aut}(T_{3})$ that contain an inversion of order $2$ and are $P_{2}$-closed. Due to \cite[Corollary 4.38]{Tor20}, this can be verified by checking that among all $1$-locally transitive subgroups of $\mathrm{Aut}(B_{d,k})$ which satisfy the compatibility condition (C), only three also satisfy the
+discreteness condition (D). 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@A3:=LocalAction(3,1,TransitiveGroup(3,1));;|
+  !gapprompt@gap>| !gapinput@S3:=LocalAction(3,1,TransitiveGroup(3,2));;|
+  !gapprompt@gap>| !gapinput@A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);|
+  [ Group([ (1,4,5)(2,3,6) ]) ]
+  !gapprompt@gap>| !gapinput@S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);|
+  [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+    Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+    Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
+    Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
+    Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
+  !gapprompt@gap>| !gapinput@for H in A3_extn do Print(SatisfiesD(H),"\n"); od;|
+  true
+  !gapprompt@gap>| !gapinput@for H in S3_extn do Print(SatisfiesD(H),"\n"); od;|
+  true
+  true
+  false
+  false
+  false
+\end{Verbatim}
+ Similarly, one may want... }
 
  }
 
@@ -1032,7 +1097,7 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
  }
 
    
-\chapter{\textcolor{Chapter }{Examples}}\label{Chapter_Examples}
+\chapter{\textcolor{Chapter }{Examples}}\label{Chapter_examples}
 \logpage{[ 4, 0, 0 ]}
 \hyperdef{L}{X7A489A5D79DA9E5C}{}
 {
@@ -1262,9 +1327,6 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 \logpage{[ 4, 2, 1 ]}
 \hyperdef{L}{X85A0C67982D9057A}{}
 {
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PHI({\mdseries\slshape d, F})\index{PHI@\texttt{PHI}!for d, F}
-\label{PHI:for d, F}
-}\hfill{\scriptsize (operation)}}\\
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PHI({\mdseries\slshape F})\index{PHI@\texttt{PHI}!for F}
 \label{PHI:for F}
 }\hfill{\scriptsize (operation)}}\\
@@ -1275,10 +1337,6 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 
  
 \begin{description}
-\item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Phi($\mbox{\texttt{\mdseries\slshape F}}$)=\{(a,(a_{\omega})_{\omega})\mid a\in $\mbox{\texttt{\mdseries\slshape F}}$,\ \forall \omega\in\Omega:\ a_{\omega}\in
-C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,2})$. 
-
- The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$ and a permutation group \mbox{\texttt{\mdseries\slshape F}} $\le S_{d}$. 
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Phi_{k}($\mbox{\texttt{\mdseries\slshape F}}$)=\{(a,(a_{\omega})_{\omega})\mid a\in $\mbox{\texttt{\mdseries\slshape F}}$,\ \forall \omega\in\Omega:\ a_{\omega}\in
 C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$. 
 
@@ -1913,6 +1971,15 @@ the list of all involutive compatibility cocycles of $F$.
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}

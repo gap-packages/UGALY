@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.11)  1 JUN 2021 17:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.11)  1 JUN 2021 19:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -474,218 +474,218 @@ Chapter 1.
 ]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 195.
- [5]
+ [5] [6]
 Chapter 2.
 
-LaTeX Warning: Reference `IsLocalAction' on page 6 undefined on input line 230.
+LaTeX Warning: Reference `IsLocalAction' on page 7 undefined on input line 295.
 
 
 
-LaTeX Warning: Reference `LocalActionDegree' on page 6 undefined on input line 
-244.
+LaTeX Warning: Reference `LocalActionDegree' on page 7 undefined on input line 
+309.
 
 
-LaTeX Warning: Reference `LocalActionRadius' on page 6 undefined on input line 
-244.
+LaTeX Warning: Reference `LocalActionRadius' on page 7 undefined on input line 
+309.
 
-[6
+[7
 
 ]
 
-LaTeX Warning: Reference `IsLocalAction' on page 7 undefined on input line 274.
+LaTeX Warning: Reference `IsLocalAction' on page 8 undefined on input line 339.
 
 
 
-LaTeX Warning: Reference `IsLocalAction' on page 7 undefined on input line 303.
+LaTeX Warning: Reference `IsLocalAction' on page 8 undefined on input line 368.
 
 
 
-LaTeX Warning: Reference `IsLocalAction' on page 7 undefined on input line 324.
+LaTeX Warning: Reference `IsLocalAction' on page 8 undefined on input line 389.
 
 
 
-LaTeX Warning: Reference `IsLocalAction' on page 7 undefined on input line 351.
+LaTeX Warning: Reference `IsLocalAction' on page 8 undefined on input line 416.
 
 
-[7] [8] [9] [10] [11]
+[8] [9] [10] [11] [12]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--695
+Underfull \hbox (badness 10000) in paragraph at lines 758--760
 \T1/ptm/m/n/10.95 This sec-tion is con-cerned with test-ing com-pat-i-bil-ity o
 f two given el-e-ments (see
  []
 
-[12
+[13
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 781--787
+Underfull \hbox (badness 10000) in paragraph at lines 846--852
 
  []
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 793.
-[13]
-
-LaTeX Warning: Reference `IsLocalAction' on page 14 undefined on input line 878
-.
-
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 858.
 [14]
 
-LaTeX Warning: Reference `IsLocalAction' on page 15 undefined on input line 908
+LaTeX Warning: Reference `IsLocalAction' on page 15 undefined on input line 943
+.
+
+[15]
+
+LaTeX Warning: Reference `IsLocalAction' on page 16 undefined on input line 973
 .
 
 
-LaTeX Warning: Reference `ConjugacyClassRepsCompatibleSubgroups' on page 15 und
-efined on input line 935.
+LaTeX Warning: Reference `ConjugacyClassRepsCompatibleSubgroups' on page 16 und
+efined on input line 1000.
 
 
 LaTeX Warning: Reference `ConjugacyClassRepsCompatibleSubgroupsWithProjection' 
-on page 15 undefined on input line 935.
+on page 16 undefined on input line 1000.
 
 
-Underfull \hbox (badness 7704) in paragraph at lines 934--936
+Underfull \hbox (badness 7704) in paragraph at lines 999--1001
 []\T1/ptm/m/n/10.95 The ar-gu-ment of this method is a lo-cal ac-tion [] $\OMS/
 ztmcm/m/n/10.95 ^^T []\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 B[]\OT1/ztmcm
 /m/n/10.95 )$\T1/ptm/m/n/10.95 . This method
  []
 
 
-Underfull \hbox (badness 4927) in paragraph at lines 934--936
+Underfull \hbox (badness 4927) in paragraph at lines 999--1001
 \T1/ptm/m/n/10.95 calls \T1/cmtt/m/n/10.95 AllSubgroups \T1/ptm/m/n/10.95 on $\
 OML/ztmcm/m/it/10.95 F$ \T1/ptm/m/n/10.95 and is there-fore slow. Use for in-st
 ruc-tional pur-poses on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 934--936
+Underfull \hbox (badness 10000) in paragraph at lines 999--1001
 \T1/ptm/m/n/10.95 small ex-am-ples only, and use \T1/cmtt/m/n/10.95 ConjugacyCl
 assRepsCompatibleSubgroups \T1/ptm/m/n/10.95 ([]) or
  []
 
-[15] [16]
+[16] [17]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1065
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1130
 
  []
 
-[17
+[18
 
 ]
 
-LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 18 undefined 
-on input line 1082.
+LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 19 undefined 
+on input line 1147.
 
 pdfTeX warning (ext4): destination with the same identifier (name{L.X87E33E187F
 E7341A}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1130 \hyperdef{L}{X87E33E187FE7341A}{}
+l.1195 \hyperdef{L}{X87E33E187FE7341A}{}
                                         
-Underfull \hbox (badness 10000) in paragraph at lines 1132--1141
+Underfull \hbox (badness 10000) in paragraph at lines 1197--1206
 
  []
 
 
-LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 18 undefined 
-on input line 1153.
-
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 1195--1201
-
- []
+LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 19 undefined 
+on input line 1218.
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 1265--1274
+Underfull \hbox (badness 10000) in paragraph at lines 1260--1266
 
  []
 
-[20]pdfTeX warning (ext4): destination with the same identifier (name{L.X85A0C6
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 1330--1336
+
+ []
+
+[21]pdfTeX warning (ext4): destination with the same identifier (name{L.X85A0C6
 7982D9057A}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1362 \hyperdef{L}{X85A0C67982D9057A}{}
+l.1420 \hyperdef{L}{X85A0C67982D9057A}{}
                                         
-Underfull \hbox (badness 10000) in paragraph at lines 1364--1373
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1431
 
  []
 
-[21] [22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1614--1620
-
- []
-
-
-LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 24 undefined 
-on input line 1628.
-
-[24]
-
-LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 25 undefined 
-on input line 1631.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1662--1668
+[22] [23] [24]
+Underfull \hbox (badness 10000) in paragraph at lines 1672--1678
 
  []
 
 
 LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 25 undefined 
-on input line 1679.
+on input line 1686.
 
-[25] [26]
+[25]
+
+LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 26 undefined 
+on input line 1689.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1720--1726
+
+ []
+
+
+LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 26 undefined 
+on input line 1737.
+
+[26] [27]
 Chapter 5.
 
-LaTeX Warning: Reference `SatisfiesD' on page 27 undefined on input line 1736.
+LaTeX Warning: Reference `SatisfiesD' on page 28 undefined on input line 1794.
 
 
-LaTeX Warning: Reference `IsDiscrete' on page 27 undefined on input line 1736.
+LaTeX Warning: Reference `IsDiscrete' on page 28 undefined on input line 1794.
 
 
-LaTeX Warning: Reference `IsLocalAction' on page 27 undefined on input line 175
-6.
+LaTeX Warning: Reference `IsLocalAction' on page 28 undefined on input line 181
+4.
 
 
-LaTeX Warning: Reference `IsLocalAction' on page 27 undefined on input line 178
-2.
+LaTeX Warning: Reference `IsLocalAction' on page 28 undefined on input line 184
+0.
 
-[27
+[28
 
 pdfTeX warning (ext4): destination with the same identifier (name{L.X7875F15E81
 CDBD6C}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1794 \end{Verbatim}
+l.1852 \end{Verbatim}
                      ]
 
-LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 28 undefined 
-on input line 1820.
+LaTeX Warning: Reference `InvolutiveCompatibilityCocycle' on page 29 undefined 
+on input line 1878.
 
 
-LaTeX Warning: Reference `AllInvolutiveCompatibilityCocycles' on page 28 undefi
-ned on input line 1820.
+LaTeX Warning: Reference `AllInvolutiveCompatibilityCocycles' on page 29 undefi
+ned on input line 1878.
 
 
-LaTeX Warning: Reference `IsLocalAction' on page 28 undefined on input line 183
-3.
+LaTeX Warning: Reference `IsLocalAction' on page 29 undefined on input line 189
+1.
 
 
-LaTeX Warning: Reference `SatisfiesC' on page 28 undefined on input line 1833.
+LaTeX Warning: Reference `SatisfiesC' on page 29 undefined on input line 1891.
 
-[28]
+[29]
 
-LaTeX Warning: Reference `IsLocalAction' on page 29 undefined on input line 187
-8.
+LaTeX Warning: Reference `IsLocalAction' on page 30 undefined on input line 193
+6.
 
 
-LaTeX Warning: Reference `SatisfiesC' on page 29 undefined on input line 1878.
+LaTeX Warning: Reference `SatisfiesC' on page 30 undefined on input line 1936.
 
 (./UGALY.bbl (./UGALY.brf)
 \tf@brf=\write8
 \openout8 = `UGALY.brf'.
 
- [29]) [30
+ [30]) [31
 
 ] (./UGALY.ind
 Underfull \hbox (badness 10000) in paragraph at lines 26--28
@@ -694,33 +694,33 @@ m/m/n/10.95 -\T1/cmtt/m/n/10.95 Reps\T1/ptm/m/n/10.95 -\T1/cmtt/m/n/10.95 Compa
 tible\T1/ptm/m/n/10.95 -\T1/cmtt/m/n/10.95 Groups\T1/ptm/m/n/10.95 -
  []
 
-[31
+[32
 
 
-] [32
+] [33
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1927.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1927.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1994.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1994.
  (./UGALY.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1927.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1927.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1994.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1994.
 
 Package rerunfilecheck Info: File `UGALY.out' has not changed.
 (rerunfilecheck)             Checksum: 37978DD83B264EFEAB89E7530228F0FF;1299.
 Package rerunfilecheck Info: File `UGALY.brf' has not changed.
-(rerunfilecheck)             Checksum: 8B87450AC84318BB9BD99505AEFB38D6;834.
+(rerunfilecheck)             Checksum: 6637221899EE1BEB71BBAED82F89DE91;957.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1927.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1994.
  ) 
 Here is how much of TeX's memory you used:
- 7603 strings out of 482555
- 114329 string characters out of 5952145
- 377949 words of memory out of 5000000
- 22902 multiletter control sequences out of 15000+600000
+ 7613 strings out of 482555
+ 114410 string characters out of 5952145
+ 377964 words of memory out of 5000000
+ 22909 multiletter control sequences out of 15000+600000
  609941 words of font info for 113 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  47i,8n,37p,679b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -740,10 +740,10 @@ mf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
 mb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on UGALY.pdf (32 pages, 279501 bytes).
+Output written on UGALY.pdf (33 pages, 282961 bytes).
 PDF statistics:
- 583 PDF objects out of 1000 (max. 8388607)
- 527 compressed objects within 6 object streams
- 162 named destinations out of 1000 (max. 500000)
+ 596 PDF objects out of 1000 (max. 8388607)
+ 539 compressed objects within 6 object streams
+ 165 named destinations out of 1000 (max. 500000)
  177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
