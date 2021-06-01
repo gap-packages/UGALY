@@ -222,7 +222,7 @@ true
  
 </Returns>
  <Description>
- The argument of this method is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math>. This method calls <C>AllSubgroups</C> on <Math>F</Math> and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Func="ConjugacyClassRepsCompatibleSubgroups"/> or <Ref Func="ConjugacyClassRepsCompatibleSubgroupsWithProjection"/> for computations.
+ The argument of this method is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math>. This method calls <C>AllSubgroups</C> on <Math>F</Math> and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Attr="ConjugacyClassRepsCompatibleSubgroups"/> or <Ref Func="ConjugacyClassRepsCompatibleSubgroupsWithProjection"/> for computations.
 <P/>
  </Description>
 </ManSection>

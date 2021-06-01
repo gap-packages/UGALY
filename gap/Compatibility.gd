@@ -200,7 +200,7 @@ DeclareProperty( "SatisfiesC" , IsLocalAction );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this method is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$. This method calls <C>AllSubgroups</C> on $F$ and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Func="ConjugacyClassRepsCompatibleSubgroups"/> or <Ref Func="ConjugacyClassRepsCompatibleSubgroupsWithProjection"/> for computations.
+#! The argument of this method is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$. This method calls <C>AllSubgroups</C> on $F$ and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Attr="ConjugacyClassRepsCompatibleSubgroups"/> or <Ref Func="ConjugacyClassRepsCompatibleSubgroupsWithProjection"/> for computations.
 #!
 #! @Returns the list of all compatible subgroups of <A>F</A>.
 #!
