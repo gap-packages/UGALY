@@ -1,51 +1,51 @@
-\indexentry{IsLocalAction@\texttt  {IsLocalAction}!for IsPermGroup|hyperpage}{7}
-\indexentry{LocalAction@\texttt  {LocalAction}!for IsInt, IsInt, IsPermGroup|hyperpage}{8}
-\indexentry{LocalActionNC@\texttt  {LocalActionNC}!for IsInt, IsInt, IsPermGroup|hyperpage}{8}
-\indexentry{LocalActionDegree@\texttt  {LocalActionDegree}!for IsLocalAction|hyperpage}{8}
-\indexentry{LocalActionRadius@\texttt  {LocalActionRadius}!for IsLocalAction|hyperpage}{8}
-\indexentry{LocalAction@\texttt  {LocalAction}!for r, d, k, aut, addr|hyperpage}{9}
-\indexentry{Projection@\texttt  {Projection}!for F, r|hyperpage}{9}
-\indexentry{ImageOfProjection@\texttt  {ImageOfProjection}|hyperpage}{9}
-\indexentry{AutBall@\texttt  {AutBall}|hyperpage}{10}
-\indexentry{BallAddresses@\texttt  {BallAddresses}|hyperpage}{10}
-\indexentry{LeafAddresses@\texttt  {LeafAddresses}|hyperpage}{11}
-\indexentry{AddressOfLeaf@\texttt  {AddressOfLeaf}|hyperpage}{11}
-\indexentry{LeafOfAddress@\texttt  {LeafOfAddress}|hyperpage}{11}
-\indexentry{ImageAddress@\texttt  {ImageAddress}|hyperpage}{11}
-\indexentry{ComposeAddresses@\texttt  {ComposeAddresses}|hyperpage}{12}
-\indexentry{AreCompatibleBallElements@\texttt  {AreCompatibleBallElements}|hyperpage}{13}
-\indexentry{CompatibleBallElement@\texttt  {CompatibleBallElement}|hyperpage}{14}
-\indexentry{CompatibilitySet@\texttt  {CompatibilitySet}!for F, aut, dir|hyperpage}{14}
-\indexentry{CompatibilitySet@\texttt  {CompatibilitySet}!for F, aut, dirs|hyperpage}{14}
-\indexentry{AssembleAutomorphism@\texttt  {AssembleAutomorphism}|hyperpage}{15}
-\indexentry{MaximalCompatibleSubgroup@\texttt  {MaximalCompatibleSubgroup}!for IsLocalAction|hyperpage}{15}
-\indexentry{SatisfiesC@\texttt  {SatisfiesC}!for IsLocalAction|hyperpage}{16}
-\indexentry{CompatibleSubgroups@\texttt  {CompatibleSubgroups}|hyperpage}{16}
-\indexentry{ConjugacyClassRepsCompatibleSubgroups@\texttt  {Conjugacy}\-\texttt  {Class}\-\texttt  {Reps}\-\texttt  {Compatible}\-\texttt  {Subgroups}!for IsLocalAction|hyperpage}{16}
-\indexentry{ConjugacyClassRepsCompatibleGroupsWithProjection@\texttt  {Conjugacy}\-\texttt  {Class}\-\texttt  {Reps}\-\texttt  {Compatible}\-\texttt  {Groups}\-\texttt  {With}\-\texttt  {Projection}|hyperpage}{17}
-\indexentry{gamma@\texttt  {gamma}!for d, a|hyperpage}{18}
-\indexentry{gamma@\texttt  {gamma}!for l, d, a|hyperpage}{18}
-\indexentry{gamma@\texttt  {gamma}!for l, d, s, addr|hyperpage}{18}
-\indexentry{gamma@\texttt  {gamma}!for d, k, aut, z|hyperpage}{18}
-\indexentry{GAMMA@\texttt  {GAMMA}!for d, F|hyperpage}{19}
-\indexentry{GAMMA@\texttt  {GAMMA}!for l, d, F|hyperpage}{19}
-\indexentry{GAMMA@\texttt  {GAMMA}!for F, z|hyperpage}{19}
-\indexentry{DELTA@\texttt  {DELTA}!for d, F|hyperpage}{20}
-\indexentry{DELTA@\texttt  {DELTA}!for d, F, C|hyperpage}{20}
-\indexentry{PHI@\texttt  {PHI}!for F|hyperpage}{21}
-\indexentry{PHI@\texttt  {PHI}!for l, F|hyperpage}{21}
-\indexentry{PHI@\texttt  {PHI}!for d, F, N|hyperpage}{22}
-\indexentry{PHI@\texttt  {PHI}!for d, F, P|hyperpage}{22}
-\indexentry{PHI@\texttt  {PHI}!for F, P|hyperpage}{22}
-\indexentry{SignHomomorphism@\texttt  {SignHomomorphism}|hyperpage}{24}
-\indexentry{AbelianizationHomomorphism@\texttt  {AbelianizationHomomorphism}|hyperpage}{24}
-\indexentry{SpheresProduct@\texttt  {SpheresProduct}|hyperpage}{24}
-\indexentry{PI@\texttt  {PI}|hyperpage}{25}
-\indexentry{CompatibleKernels@\texttt  {CompatibleKernels}!for d, F|hyperpage}{25}
-\indexentry{CompatibleKernels@\texttt  {CompatibleKernels}!for F, z|hyperpage}{25}
-\indexentry{SIGMA@\texttt  {SIGMA}!for d, F, K|hyperpage}{26}
-\indexentry{SIGMA@\texttt  {SIGMA}!for F, K, z|hyperpage}{26}
-\indexentry{SatisfiesD@\texttt  {SatisfiesD}!for IsLocalAction|hyperpage}{28}
-\indexentry{IsDiscrete@\texttt  {IsDiscrete}!for IsLocalAction|hyperpage}{28}
-\indexentry{InvolutiveCompatibilityCocycle@\texttt  {InvolutiveCompatibilityCocycle}!for IsLocalAction|hyperpage}{29}
-\indexentry{AllInvolutiveCompatibilityCocycles@\texttt  {AllInvolutiveCompatibilityCocycles}!for IsLocalAction|hyperpage}{30}
+\indexentry{IsLocalAction@\texttt  {IsLocalAction}!for IsPermGroup|hyperpage}{8}
+\indexentry{LocalAction@\texttt  {LocalAction}!for IsInt, IsInt, IsPermGroup|hyperpage}{9}
+\indexentry{LocalActionNC@\texttt  {LocalActionNC}!for IsInt, IsInt, IsPermGroup|hyperpage}{9}
+\indexentry{LocalActionDegree@\texttt  {LocalActionDegree}!for IsLocalAction|hyperpage}{9}
+\indexentry{LocalActionRadius@\texttt  {LocalActionRadius}!for IsLocalAction|hyperpage}{9}
+\indexentry{LocalAction@\texttt  {LocalAction}!for r, d, k, aut, addr|hyperpage}{10}
+\indexentry{Projection@\texttt  {Projection}!for F, r|hyperpage}{10}
+\indexentry{ImageOfProjection@\texttt  {ImageOfProjection}|hyperpage}{10}
+\indexentry{AutBall@\texttt  {AutBall}|hyperpage}{11}
+\indexentry{BallAddresses@\texttt  {BallAddresses}|hyperpage}{11}
+\indexentry{LeafAddresses@\texttt  {LeafAddresses}|hyperpage}{12}
+\indexentry{AddressOfLeaf@\texttt  {AddressOfLeaf}|hyperpage}{12}
+\indexentry{LeafOfAddress@\texttt  {LeafOfAddress}|hyperpage}{12}
+\indexentry{ImageAddress@\texttt  {ImageAddress}|hyperpage}{12}
+\indexentry{ComposeAddresses@\texttt  {ComposeAddresses}|hyperpage}{13}
+\indexentry{AreCompatibleBallElements@\texttt  {AreCompatibleBallElements}|hyperpage}{14}
+\indexentry{CompatibleBallElement@\texttt  {CompatibleBallElement}|hyperpage}{15}
+\indexentry{CompatibilitySet@\texttt  {CompatibilitySet}!for F, aut, dir|hyperpage}{15}
+\indexentry{CompatibilitySet@\texttt  {CompatibilitySet}!for F, aut, dirs|hyperpage}{15}
+\indexentry{AssembleAutomorphism@\texttt  {AssembleAutomorphism}|hyperpage}{16}
+\indexentry{MaximalCompatibleSubgroup@\texttt  {MaximalCompatibleSubgroup}!for IsLocalAction|hyperpage}{16}
+\indexentry{SatisfiesC@\texttt  {SatisfiesC}!for IsLocalAction|hyperpage}{17}
+\indexentry{CompatibleSubgroups@\texttt  {CompatibleSubgroups}|hyperpage}{17}
+\indexentry{ConjugacyClassRepsCompatibleSubgroups@\texttt  {Conjugacy}\-\texttt  {Class}\-\texttt  {Reps}\-\texttt  {Compatible}\-\texttt  {Subgroups}!for IsLocalAction|hyperpage}{17}
+\indexentry{ConjugacyClassRepsCompatibleGroupsWithProjection@\texttt  {Conjugacy}\-\texttt  {Class}\-\texttt  {Reps}\-\texttt  {Compatible}\-\texttt  {Groups}\-\texttt  {With}\-\texttt  {Projection}|hyperpage}{18}
+\indexentry{gamma@\texttt  {gamma}!for d, a|hyperpage}{19}
+\indexentry{gamma@\texttt  {gamma}!for l, d, a|hyperpage}{19}
+\indexentry{gamma@\texttt  {gamma}!for l, d, s, addr|hyperpage}{19}
+\indexentry{gamma@\texttt  {gamma}!for d, k, aut, z|hyperpage}{19}
+\indexentry{GAMMA@\texttt  {GAMMA}!for d, F|hyperpage}{20}
+\indexentry{GAMMA@\texttt  {GAMMA}!for l, d, F|hyperpage}{20}
+\indexentry{GAMMA@\texttt  {GAMMA}!for F, z|hyperpage}{20}
+\indexentry{DELTA@\texttt  {DELTA}!for d, F|hyperpage}{21}
+\indexentry{DELTA@\texttt  {DELTA}!for d, F, C|hyperpage}{21}
+\indexentry{PHI@\texttt  {PHI}!for F|hyperpage}{22}
+\indexentry{PHI@\texttt  {PHI}!for l, F|hyperpage}{22}
+\indexentry{PHI@\texttt  {PHI}!for d, F, N|hyperpage}{23}
+\indexentry{PHI@\texttt  {PHI}!for d, F, P|hyperpage}{23}
+\indexentry{PHI@\texttt  {PHI}!for F, P|hyperpage}{23}
+\indexentry{SignHomomorphism@\texttt  {SignHomomorphism}|hyperpage}{25}
+\indexentry{AbelianizationHomomorphism@\texttt  {AbelianizationHomomorphism}|hyperpage}{25}
+\indexentry{SpheresProduct@\texttt  {SpheresProduct}|hyperpage}{25}
+\indexentry{PI@\texttt  {PI}|hyperpage}{26}
+\indexentry{CompatibleKernels@\texttt  {CompatibleKernels}!for d, F|hyperpage}{26}
+\indexentry{CompatibleKernels@\texttt  {CompatibleKernels}!for F, z|hyperpage}{26}
+\indexentry{SIGMA@\texttt  {SIGMA}!for d, F, K|hyperpage}{27}
+\indexentry{SIGMA@\texttt  {SIGMA}!for F, K, z|hyperpage}{27}
+\indexentry{SatisfiesD@\texttt  {SatisfiesD}!for IsLocalAction|hyperpage}{29}
+\indexentry{IsDiscrete@\texttt  {IsDiscrete}!for IsLocalAction|hyperpage}{29}
+\indexentry{InvolutiveCompatibilityCocycle@\texttt  {InvolutiveCompatibilityCocycle}!for IsLocalAction|hyperpage}{30}
+\indexentry{AllInvolutiveCompatibilityCocycles@\texttt  {AllInvolutiveCompatibilityCocycles}!for IsLocalAction|hyperpage}{31}

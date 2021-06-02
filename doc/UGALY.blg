@@ -3,46 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: UGALY.aux
 The style file: alpha.bst
 Database file #1: UGALY.bib
-Warning--can't use both volume and number fields in Tut47
-You've used 8 entries,
+You've used 9 entries,
             2543 wiz_defined-function locations,
-            618 strings with 5368 characters,
-and the built_in function-call counts, 3140 in all, are:
-= -- 325
-> -- 103
-< -- 8
-+ -- 32
-- -- 31
-* -- 210
-:= -- 502
-add.period$ -- 26
-call.type$ -- 8
-change.case$ -- 43
-chr.to.int$ -- 8
+            626 strings with 5502 characters,
+and the built_in function-call counts, 3484 in all, are:
+= -- 363
+> -- 111
+< -- 9
++ -- 34
+- -- 33
+* -- 231
+:= -- 556
+add.period$ -- 29
+call.type$ -- 9
+change.case$ -- 48
+chr.to.int$ -- 9
 cite$ -- 9
-duplicate$ -- 142
-empty$ -- 249
-format.name$ -- 44
-if$ -- 657
+duplicate$ -- 157
+empty$ -- 278
+format.name$ -- 48
+if$ -- 728
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 9
-newline$ -- 43
-num.names$ -- 24
-pop$ -- 41
+missing$ -- 10
+newline$ -- 48
+num.names$ -- 27
+pop$ -- 45
 preamble$ -- 1
-purify$ -- 52
+purify$ -- 58
 quote$ -- 0
-skip$ -- 114
+skip$ -- 126
 stack$ -- 0
-substring$ -- 205
+substring$ -- 237
 swap$ -- 29
-text.length$ -- 8
-text.prefix$ -- 5
+text.length$ -- 9
+text.prefix$ -- 6
 top$ -- 0
-type$ -- 60
-warning$ -- 1
-while$ -- 32
+type$ -- 68
+warning$ -- 0
+while$ -- 36
 width$ -- 11
-write$ -- 107
-(There was 1 warning)
+write$ -- 120

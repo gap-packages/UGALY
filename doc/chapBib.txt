@@ -21,8 +21,15 @@
   [[20XTor20[120X]  [16XTornier,  S.[116X,  [17XGroups acting on trees with prescribed local action[117X,
   [18Xarxiv preprint: 2002.09876[118X (2020).
   
+  [[20XTut47[120X]   [16XTutte,  W.  T.[116X,  [17XA  family  of  cubical  graphs[117X,  in  Mathematical
+  Proceedings  of  the  Cambridge  Philosophical Society, Cambridge University
+  Press, [19X43[119X (1947), 459--474.
+  
   [[20XTut59[120X]  [16XTutte,  W. T.[116X, [17XOn the symmetry of cubic graphs[117X, [18XCanadian Journal of
   Mathematics[118X, [19X11[119X (1959), 621--624.
+  
+  [[20XWei78[120X]  [16XWeiss,  R.[116X, [17Xs-Transitive graphs[117X, [18XAlgebraic methods in graph theory[118X,
+  Colloquia Mathematica Societatis J{\'a}nos Bolyai, [19X25[119X (1978), 827--847.
   
   
   
