@@ -43,7 +43,7 @@
 
 #! <Package>UGALY</Package> serves both a research and an educational purpose. It consolidates a rudimentary codebase that was developed by the second author in the course of research undertaken towards the article <Cite Key="Tor20"/>. This codebase had been tremendously beneficial in achieving the results of <Cite Key="Tor20"/> in the first place and so there has always been a desire to make it available to a wider audience.
 #!
-#! From a research perspective, <Package>UGALY</Package> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <Cite Key="KM08"/>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <Cite Key="BM00a"/> and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: in fact, due to <Cite Key="Tor20" Where="Corollary 4.32"/>, the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see <Cite Key="BEW15"/>) that generalise Tits' independence property $(P)$, see <Cite Key="Tit70"/>. <Package>UGALY</Package> provides the means to generate a library of all these groups in terms of their $k$-local action. In the case $k=1$ of classical Burger-Mozes groups, it coincides with the library of finite transitive permutation groups <Package>TransGrp</Package>. We envision to add such a library in a future version of this package. For example, for $(d,k)=(3,2)$ we obtain the following six groups.
+#! From a research perspective, <Package>UGALY</Package> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <Cite Key="KM08"/>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <Cite Key="BM00a"/> and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: in fact, due to <Cite Key="Tor20" Where="Corollary 4.32"/>, the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see <Cite Key="BEW15"/>) that generalise Tits' independence property $(P)$, see <Cite Key="Tit70"/>. <Package>UGALY</Package> provides the means to generate a library of all these groups in terms of their $k$-local action, and we envision to add such a library in a future version of this package. In the case $k=1$ of classical Burger-Mozes groups, it coincides with the library of finite transitive permutation groups <Package>TransGrp</Package>. As another example, we obtain the following six groups for $(d,k)=(3,2)$.
 
 #! @BeginExampleSession
 #! gap> A3:=LocalAction(3,1,TransitiveGroup(3,1));
@@ -60,7 +60,7 @@
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 #! @EndExampleSession
 
-#! These groups have been identified to stem from certain general constructions much like there are families of finite transitive groups. See Chapter <Ref Chap="Chapter_examples"/> for the functions appearing below.
+#! These groups have been identified to stem from certain general constructions much like there are families of finite transitive groups. See Chapter <Ref Chap="Chapter_ukf_examples"/> for the functions appearing below.
 
 #! @BeginExampleSession
 #! gap> PHI(A3)=A3_extn[1];
@@ -80,7 +80,7 @@
 #! true
 #! @EndExampleSession
 
-#! <Package>UGALY</Package> may also be a useful tool in the context of the Weiss conjecture <Cite Key="Wei78"/> which in particular states that there are only finitely many conjugacy classes of discrete, vertex-transitive and locally primitive subgroup of $\mathrm{Aut}(T_{d})$. When such a group contains an inversion of order $2$, it can be written as a universal group $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies both the compatibility condition (C) and the discreteness condition (D), due to <Cite Key="Tor20" Where="Corollary 4.38"/>. Therefore, <Package>UGALY</Package> can be used to construct explicit examples of groups relevant to the Weiss conjecture. Their structure as well as patterns in their appearance may provide more insight into the conjecture and suggest directions of research. At the very least, <Package>UGALY</Package> provides lower bounds on their numbers.
+#! <Package>UGALY</Package> may also be a useful tool in the context of the Weiss conjecture <Cite Key="Wei78"/> which in particular states that there are only finitely many conjugacy classes of discrete, vertex-transitive and locally primitive subgroup of $\mathrm{Aut}(T_{d})$. When such a group contains an inversion of order $2$, it can be written as a universal group $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies both the compatibility condition (C) and the discreteness condition (D), due to <Cite Key="Tor20" Where="Corollary 4.38"/>. Therefore, <Package>UGALY</Package> can be used to construct explicit examples of groups relevant to the Weiss conjecture. Their structure as well as patterns in their appearance may provide more insight into the conjecture and suggest directions of research. At the very least, <Package>UGALY</Package> provides lower bounds on their numbers. For example ($d=4$):
 
 #! @BeginExampleSession
 #! gap> A4:=LocalAction(4,1,PrimitiveGroup(4,1));;
@@ -140,7 +140,7 @@
 #! (1,5,3,2,6,4)
 #! @EndExampleSession
 
-#! The computationally inclined student may also benefit from verifying existing theorems using <Package>UGALY</Package>. For example, one way to phrase a part of Tutte's work <Cite Key="Tut47"/> <Cite Key="Tut59"/> is to say that there are only three conjugacy classes of discrete, locally transitive subgroups of $\mathrm{Aut}(T_{3})$ that contain an inversion of order $2$ and are $P_{2}$-closed. Due to <Cite Key="Tor20" Where="Corollary 4.38"/>, this can be verified by checking that among all locally transitive subgroups of $\mathrm{Aut}(B_{d,k})$ which satisfy the compatibility condition (C), only three also satisfy the discreteness condition (D).
+#! The computationally inclined student may also benefit from verifying existing theorems using <Package>UGALY</Package>. For example, one way to phrase a part of Tutte's work <Cite Key="Tut47"/> <Cite Key="Tut59"/> is to say that there are only three conjugacy classes of discrete, locally transitive subgroups of $\mathrm{Aut}(T_{3})$ that contain an inversion of order $2$ and are $P_{2}$-closed. Due to <Cite Key="Tor20" Where="Corollary 4.38"/>, this can be verified by checking that among all locally transitive subgroups of $\mathrm{Aut}(B_{3,2})$ which satisfy the compatibility condition (C), only three also satisfy the discreteness condition (D).
 
 #! @BeginExampleSession
 #! gap> A3:=LocalAction(3,1,TransitiveGroup(3,1));;
@@ -159,7 +159,7 @@
 #! [ true, true, false, false, false ]
 #! @EndExampleSession
 
-#! It may also be instructive to generate involutive compatibility cocycles computationally and check that the axioms are satisfied.
+#! It may also be instructive to generate involutive compatibility cocycles computationally and check parts of the axioms manually.
 
 #! @BeginExampleSession
 #! gap> S3:=SymmetricGroup(3);;

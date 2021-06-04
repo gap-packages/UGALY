@@ -86,11 +86,11 @@
   [23X\mathrm{Aut}(T_{d})[123X  that contain an inversion of order [23X2[123X and satisfy one of
   the  independence  properties  [23X(P_{k})[123X  (see  [BEW15]) that generalise Tits'
   independence property [23X(P)[123X, see [Tit70]. [5XUGALY[105X provides the means to generate
-  a  library of all these groups in terms of their [23Xk[123X-local action. In the case
-  [23Xk=1[123X  of  classical  Burger-Mozes  groups,  it  coincides with the library of
-  finite  transitive  permutation  groups  [5XTransGrp[105X. We envision to add such a
-  library in a future version of this package. For example, for [23X(d,k)=(3,2)[123X we
-  obtain the following six groups.[133X
+  a  library  of  all  these  groups  in terms of their [23Xk[123X-local action, and we
+  envision  to  add such a library in a future version of this package. In the
+  case  [23Xk=1[123X of classical Burger-Mozes groups, it coincides with the library of
+  finite transitive permutation groups [5XTransGrp[105X. As another example, we obtain
+  the following six groups for [23X(d,k)=(3,2)[123X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XA3:=LocalAction(3,1,TransitiveGroup(3,1));[127X[104X
@@ -139,7 +139,8 @@
   [5XUGALY[105X  can  be used to construct explicit examples of groups relevant to the
   Weiss  conjecture.  Their  structure as well as patterns in their appearance
   may  provide  more  insight  into  the  conjecture and suggest directions of
-  research. At the very least, [5XUGALY[105X provides lower bounds on their numbers.[133X
+  research.  At  the very least, [5XUGALY[105X provides lower bounds on their numbers.
+  For example ([23Xd=4[123X):[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XA4:=LocalAction(4,1,PrimitiveGroup(4,1));;[127X[104X
@@ -225,7 +226,7 @@
   classes  of  discrete,  locally  transitive subgroups of [23X\mathrm{Aut}(T_{3})[123X
   that  contain  an  inversion of order [23X2[123X and are [23XP_{2}[123X-closed. Due to [Tor20,
   Corollary  4.38],  this  can  be verified by checking that among all locally
-  transitive    subgroups   of   [23X\mathrm{Aut}(B_{d,k})[123X   which   satisfy   the
+  transitive    subgroups   of   [23X\mathrm{Aut}(B_{3,2})[123X   which   satisfy   the
   compatibility  condition  (C),  only  three  also  satisfy  the discreteness
   condition (D).[133X
   
@@ -247,7 +248,7 @@
   [4X[32X[104X
   
   [33X[0;0YIt  may  also  be  instructive to generate involutive compatibility cocycles
-  computationally and check that the axioms are satisfied.[133X
+  computationally and check parts of the axioms manually.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS3:=SymmetricGroup(3);;[127X[104X

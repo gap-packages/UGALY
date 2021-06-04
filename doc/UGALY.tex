@@ -99,7 +99,7 @@
 \vfill
 
 {\Huge  v2.0 \mbox{}}\\[1cm]
-{ 1 June 2020 \mbox{}}\\[1cm]
+{ 4 June 2020 \mbox{}}\\[1cm]
 \mbox{}\\[2cm]
 {\Large \textbf{ Khalil Hannouch\\
    \mbox{}}}\\
@@ -189,9 +189,9 @@ to a wider audience.
 to the Cayley-Abels graph construction \cite{KM08}, groups acting on trees form a particularly significant class of totally
 disconnected locally compact groups. Burger-Mozes universal groups \cite{BM00a} and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of
 these groups and form a significant subclass: in fact, due to \cite[Corollary 4.32]{Tor20}, the locally transitive, generalised universal groups are exactly the closed,
-locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see \cite{BEW15}) that generalise Tits' independence property $(P)$, see \cite{Tit70}. \textsf{UGALY} provides the means to generate a library of all these groups in terms of their $k$-local action. In the case $k=1$ of classical Burger-Mozes groups, it coincides with the library of finite
-transitive permutation groups \textsf{TransGrp}. We envision to add such a library in a future version of this package. For
-example, for $(d,k)=(3,2)$ we obtain the following six groups. 
+locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see \cite{BEW15}) that generalise Tits' independence property $(P)$, see \cite{Tit70}. \textsf{UGALY} provides the means to generate a library of all these groups in terms of their $k$-local action, and we envision to add such a library in a future version of
+this package. In the case $k=1$ of classical Burger-Mozes groups, it coincides with the library of finite
+transitive permutation groups \textsf{TransGrp}. As another example, we obtain the following six groups for $(d,k)=(3,2)$. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@A3:=LocalAction(3,1,TransitiveGroup(3,1));|
   A3
@@ -207,7 +207,7 @@ example, for $(d,k)=(3,2)$ we obtain the following six groups.
     Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 \end{Verbatim}
  These groups have been identified to stem from certain general constructions
-much like there are families of finite transitive groups. See Chapter \ref{Chapter_examples} for the functions appearing below. 
+much like there are families of finite transitive groups. See Chapter \ref{Chapter_ukf_examples} for the functions appearing below. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@PHI(A3)=A3_extn[1];|
   true
@@ -230,7 +230,7 @@ of discrete, vertex-transitive and locally primitive subgroup of $\mathrm{Aut}(T
 (D), due to \cite[Corollary 4.38]{Tor20}. Therefore, \textsf{UGALY} can be used to construct explicit examples of groups relevant to the Weiss
 conjecture. Their structure as well as patterns in their appearance may
 provide more insight into the conjecture and suggest directions of research.
-At the very least, \textsf{UGALY} provides lower bounds on their numbers. 
+At the very least, \textsf{UGALY} provides lower bounds on their numbers. For example ($d=4$): 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@A4:=LocalAction(4,1,PrimitiveGroup(4,1));;|
   !gapprompt@gap>| !gapinput@S4:=LocalAction(4,1,PrimitiveGroup(4,2));;|
@@ -291,7 +291,7 @@ concept of local actions it may be helpful to take a $2$-local action in the for
  The computationally inclined student may also benefit from verifying existing
 theorems using \textsf{UGALY}. For example, one way to phrase a part of Tutte's work \cite{Tut47} \cite{Tut59} is to say that there are only three conjugacy classes of discrete, locally
 transitive subgroups of $\mathrm{Aut}(T_{3})$ that contain an inversion of order $2$ and are $P_{2}$-closed. Due to \cite[Corollary 4.38]{Tor20}, this can be verified by checking that among all locally transitive subgroups
-of $\mathrm{Aut}(B_{d,k})$ which satisfy the compatibility condition (C), only three also satisfy the
+of $\mathrm{Aut}(B_{3,2})$ which satisfy the compatibility condition (C), only three also satisfy the
 discreteness condition (D). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@A3:=LocalAction(3,1,TransitiveGroup(3,1));;|
@@ -310,7 +310,7 @@ discreteness condition (D).
   [ true, true, false, false, false ]
 \end{Verbatim}
  It may also be instructive to generate involutive compatibility cocycles
-computationally and check that the axioms are satisfied. 
+computationally and check parts of the axioms manually. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@S3:=SymmetricGroup(3);;|
   !gapprompt@gap>| !gapinput@rho:=SignHomomorphism(S3);;|
@@ -1146,7 +1146,7 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
  }
 
    
-\chapter{\textcolor{Chapter }{Examples}}\label{Chapter_examples}
+\chapter{\textcolor{Chapter }{Examples}}\label{Chapter_ukf_examples}
 \logpage{[ 4, 0, 0 ]}
 \hyperdef{L}{X7A489A5D79DA9E5C}{}
 {
@@ -2020,6 +2020,11 @@ the list of all involutive compatibility cocycles of $F$.
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}

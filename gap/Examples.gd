@@ -5,7 +5,7 @@
 #! @Chapter Preliminaries
 #! @Chapter Compatibility
 #! @Chapter Examples
-#! @ChapterLabel examples
+#! @ChapterLabel ukf_examples
 #!
 #! Several classes of examples of subgroups of $\mathrm{Aut}(B_{d,k})$ that satisfy (C) and or (D) are constructed in <Cite Key="Tor20"/> and implemented in this section. For a given permutation group $F\le S_{d}$, there are always the three local actions $\Gamma(F)$, $\Delta(F)$ and $\Phi(F)$ on $\mathrm{Aut}(B_{d,2})$ that project onto $F$. For some $F$, these are all distinct and yield all universal groups that have $F$ as their $1$-local action, see <Cite Key="Tor20" Where="Theorem 3.32"/>. More examples arise in particular when either point stabilizers in $F$ are not simple, $F$ preserves a partition, or $F$ is not perfect.
 
