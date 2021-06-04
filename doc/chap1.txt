@@ -108,8 +108,8 @@
   [4X[32X[104X
   
   [33X[0;0YThese groups have been identified to stem from certain general constructions
-  much  like there are families of finite transitive groups. See Chapter [14X4[114X for
-  the functions appearing below.[133X
+  much  like  there  are  families  of  finite  transitive groups. See Chapter
+  [14X???Chapter_ukf_examples???[114X for the functions appearing below.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XPHI(A3)=A3_extn[1];[127X[104X
