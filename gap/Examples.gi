@@ -480,7 +480,7 @@ function(d,F)
 		Error("input argument F=",F," must be a subgroup of Sym(d=",d,")");
 	else
 		kernels:=[];
-		G:=Kernel(RestrictedMapping(Projection(AutBall(d,2)),PHI(d,F)));
+		G:=Kernel(RestrictedMapping(Projection(AutBall(d,2)),PHI(2,LocalActionNC(d,1,F))));
 		D:=GAMMA(d,F);
 		for class in ConjugacyClassesSubgroups(G) do
 			for K in class do
