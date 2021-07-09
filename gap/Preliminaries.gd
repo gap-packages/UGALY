@@ -11,7 +11,7 @@
 #! @Copyright
 ##################################################################################################################
 
-#! <Package>UGALY</Package> is free software; you can redistribute it and/or modify it under the terms of the <URL Text="GNU General Public License">http://www.fsf.org/licenses/gpl.html</URL> as published by the Free Software     Foundation; either version 3 of the License, or (at your option) any later version.
+#! <Package>UGALY</Package> is free software; you can redistribute it and/or modify it under the terms of the <URL Text="GNU General Public License">http://www.fsf.org/licenses/gpl.html</URL> as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
 ##################################################################################################################
 #! @Acknowledgements
