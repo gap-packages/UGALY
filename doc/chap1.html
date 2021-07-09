@@ -51,7 +51,35 @@
 
 <p><strong class="pkg">UGALY</strong> serves both a research and an educational purpose. It consolidates a rudimentary codebase that was developed by the second author in the course of research undertaken towards the article <a href="chapBib.html#biBTor20">[Tor20]</a>. This codebase had been tremendously beneficial in achieving the results of <a href="chapBib.html#biBTor20">[Tor20]</a> in the first place and so there has always been a desire to make it available to a wider audience.</p>
 
-<p>From a research perspective, <strong class="pkg">UGALY</strong> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <a href="chapBib.html#biBKM08">[KM08]</a>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <a href="chapBib.html#biBBM00a">[BM00]</a> and their generalisations <span class="Math">\mathrm{U}_{k}(F)</span>, where <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: in fact, due to <a href="chapBib.html#biBTor20">[Tor20, Corollary 4.32]</a>, the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of <span class="Math">\mathrm{Aut}(T_{d})</span> that contain an inversion of order <span class="Math">2</span> and satisfy one of the independence properties <span class="Math">(P_{k})</span> (see <a href="chapBib.html#biBBEW15">[BEW15]</a>) that generalise Tits' independence property <span class="Math">(P)</span>, see <a href="chapBib.html#biBTit70">[Tit70]</a>. <strong class="pkg">UGALY</strong> provides the means to generate a library of all these groups in terms of their <span class="Math">k</span>-local action, and we envision to add such a library in a future version of this package. In the case <span class="Math">k=1</span> of classical Burger-Mozes groups, it coincides with the library of finite transitive permutation groups <strong class="pkg">TransGrp</strong>. As another example, we obtain the following six groups for <span class="Math">(d,k)=(3,2)</span>.</p>
+<p>From a research perspective, <strong class="pkg">UGALY</strong> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <a href="chapBib.html#biBKM08">[KM08]</a>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <a href="chapBib.html#biBBM00a">[BM00]</a> and their generalisations <span class="Math">\mathrm{U}_{k}(F)</span>, where <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: in fact, due to <a href="chapBib.html#biBTor20">[Tor20, Corollary 4.32]</a>, the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of <span class="Math">\mathrm{Aut}(T_{d})</span> that contain an inversion of order <span class="Math">2</span> and satisfy one of the independence properties <span class="Math">(P_{k})</span> (see <a href="chapBib.html#biBBEW15">[BEW15]</a>) that generalise Tits' independence property <span class="Math">(P)</span>, see <a href="chapBib.html#biBTit70">[Tit70]</a>. Subgroups <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> are treated as objects of the category <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>) to the effect that they remember the degree <span class="Math">d</span> the radius <span class="Math">k</span> of the tree <span class="Math">B_{d,k}</span> that they act on as a permutation group on its <span class="Math">d\times(d-1)^{k-1}</span> leaves. For example, the automorphism group of <span class="Math">B_{3,2}</span> can be accessed as follows.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=AutBall(3,2);</span>
+Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocalAction(F);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalActionDegree(F);</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalActionRadius(F);</span>
+2
+</pre></div>
+
+<p>In general, a subgroup <span class="Math">F</span> of the permutation group <span class="Math">\mathrm{Aut}(B_{d,k})</span> can be turned into an object of the category <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>) by calling the creator operation <code class="func">LocalAction</code> (<span class="RefLink">???</span>) with the degree <span class="Math">d</span>, the radius <span class="Math">k</span> and the permutation group <span class="Math">F</span> itself. For example, the subgroup <span class="Math">A_{3}\le\mathrm{Aut}(B_{3,1})\cong S_{3}</span> can be generated as follows.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A3:=LocalAction(3,1,AlternatingGroup(3));</span>
+Alt( [ 1 .. 3 ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocalAction(A3);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalActionDegree(A3);</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalActionRadius(A3);</span>
+1
+</pre></div>
+
+<p><strong class="pkg">UGALY</strong> provides the means to generate a library of all generalised universal groups <span class="Math">\mathrm{U}_{k}(F)</span> in terms of their <span class="Math">k</span>-local action <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> satisfying the compatibility condition (C). We envision to add such a library in a future version of this package. In the case <span class="Math">k=1</span> of classical Burger-Mozes groups, the compatibility condition (C) is void and so the library would coincide with the library of finite transitive permutation groups <strong class="pkg">TransGrp</strong>. For example, in the case <span class="Math">(d,k)=(3,1)</span> there are only two local actions, corresponding to the two transitive permutation groups of degree <span class="Math">3</span>, namely <span class="Math">A_{3}</span> and <span class="Math">S_{3}</span>.</p>
 
 
 <div class="example"><pre>
@@ -59,6 +87,12 @@
 A3
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,TransitiveGroup(3,2));</span>
 S3
+</pre></div>
+
+<p>To create this library for the case <span class="Math">(d,k)=(3,2)</span> we organise the subgroups <span class="Math">F\le\mathrm{Aut}(B_{3,2})</span> that satisfy the compatibility condition (C) according to which subgroup of <span class="Math">\mathrm{Aut}(B_{3,1})</span> they project to under the natural projection <span class="Math">\mathrm{Aut}(B_{3,2})\to\mathrm{Aut}(B_{3,1})</span> which restricts automorphisms to <span class="Math">B_{3,1}\subseteq B_{3,2}</span>. In other words, we organise the subgroups <span class="Math">F\le\mathrm{Aut}(B_{3,2})</span> satisfying (C) according to <span class="Math">\sigma_{1}(F,b)\le\mathrm{Aut}(B_{3,1})</span>. As the following code illustrates, there is one group that projects to <span class="Math">A_{3}</span> and five groups that project to <span class="Math">S_{3}</span>.</p>
+
+
+<div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);</span>
 [ Group([ (1,4,5)(2,3,6) ]) ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);</span>
@@ -69,7 +103,7 @@ S3
   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 </pre></div>
 
-<p>These groups have been identified to stem from certain general constructions much like there are families of finite transitive groups. See Chapter <span class="RefLink">???</span> for the functions appearing below.</p>
+<p>All of these groups have been identified to stem from general constructions of groups <span class="Math">\widetilde{F}\le\mathrm{Aut}(B_{d,2})</span> satisfying (C) from a given group <span class="Math">F\le\mathrm{Aut}(B_{d,1})</span>, much like some finite transitive groups have been organised into families. Specifically, the constructions <span class="Math">\Gamma(F)</span>, <span class="Math">\Delta(F)</span>, <span class="Math">\Pi(F,\rho,X)</span> and <span class="Math">\Phi(F)</span> introduced in the article <a href="chapBib.html#biBTor20">[Tor20, Section 3.4]</a> can be accessed via the <strong class="pkg">UGALY</strong> functions <code class="func">GAMMA</code> (<a href="chap4.html#X87E33E187FE7341A"><span class="RefLink">4.1-2</span></a>), <code class="func">DELTA</code> (<a href="chap4.html#X82C33CF282FC5A73"><span class="RefLink">4.1-3</span></a>), <code class="func">PI</code> (<a href="chap4.html#X87EBFB50781D4B4D"><span class="RefLink">4.4-4</span></a>) and <code class="func">PHI</code> (<span class="RefLink">???</span>) respectively, see Chapter <a href="chap4.html#X7A489A5D79DA9E5C"><span class="RefLink">4</span></a>. Below, we use these functions to identity all six groups of the previous output.</p>
 
 
 <div class="example"><pre>
@@ -90,12 +124,20 @@ true
 true
 </pre></div>
 
-<p><strong class="pkg">UGALY</strong> may also be a useful tool in the context of the Weiss conjecture <a href="chapBib.html#biBWei78">[Wei78]</a> which in particular states that there are only finitely many conjugacy classes of discrete, vertex-transitive and locally primitive subgroup of <span class="Math">\mathrm{Aut}(T_{d})</span>. When such a group contains an inversion of order <span class="Math">2</span>, it can be written as a universal group <span class="Math">\mathrm{U}_{k}(F)</span>, where <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> satisfies both the compatibility condition (C) and the discreteness condition (D), due to <a href="chapBib.html#biBTor20">[Tor20, Corollary 4.38]</a>. Therefore, <strong class="pkg">UGALY</strong> can be used to construct explicit examples of groups relevant to the Weiss conjecture. Their structure as well as patterns in their appearance may provide more insight into the conjecture and suggest directions of research. At the very least, <strong class="pkg">UGALY</strong> provides lower bounds on their numbers. For example (<span class="Math">d=4</span>):</p>
+<p><strong class="pkg">UGALY</strong> may also be a useful tool in the context of the Weiss conjecture <a href="chapBib.html#biBWei78">[Wei78]</a>, which in particular states that there are only finitely many conjugacy classes of discrete, vertex-transitive and locally primitive subgroup of <span class="Math">\mathrm{Aut}(T_{d})</span>. When such a group contains an inversion of order <span class="Math">2</span>, it can be written as a universal group <span class="Math">\mathrm{U}_{k}(F)</span>, where <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> satisfies both the compatibility condition (C) and the discreteness condition (D), due to <a href="chapBib.html#biBTor20">[Tor20, Corollary 4.38]</a>. Therefore, <strong class="pkg">UGALY</strong> can be used to construct explicit examples of groups relevant to the Weiss conjecture. Their structure as well as patterns in their appearance may provide more insight into the conjecture and suggest directions of research. At the very least, <strong class="pkg">UGALY</strong> provides lower bounds on their numbers. For example, consider the case <span class="Math">d=4</span>. There are two primitive groups of degree <span class="Math">4</span>, namely <span class="Math">A_{4}</span> and <span class="Math">S_{4}</span>, which we readily turn into objects of the category <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>).</p>
 
 
 <div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NrPrimitiveGroups(4);</span>
+2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A4:=LocalAction(4,1,PrimitiveGroup(4,1));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S4:=LocalAction(4,1,PrimitiveGroup(4,2));;</span>
+</pre></div>
+
+<p>Next, we proceed as before to determine how many conjugacy classes of subgroups of <span class="Math">\mathrm{Aut}(B_{4,2})</span> with (C) there are that project onto <span class="Math">A_{4}</span> and <span class="Math">S_{4}</span> respectively. We then filter the output for subgroups that, in addition, satisfy the discreteness condition (D).</p>
+
+
+<div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A4_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A4);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(A4_extn); Size(Filtered(A4_extn,SatisfiesD));</span>
 5
@@ -106,7 +148,9 @@ true
 3
 </pre></div>
 
-<p>Every subgroup <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> which satisfies both the compatibility condition (C) and the discreteness condition (D) admits an involutive compatibility cocycle (see <a href="chapBib.html#biBTor20">[Tor20, Section 3.2.2]</a>), i.e. a map <span class="Math">z:F\times\{1,\ldots,d\}\to F</span> which satisfies certain properties reflecting the discreteness of the group <span class="Math">\mathrm{U}_{k}(F)</span>. It is intriguing that some groups <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> with these properties stem from groups <span class="Math">F'\le\mathrm{Aut}(B_{d,k-1})</span> that satisfy (C), admit an involutive compatibility cocycle <span class="Math">z</span> but do not satisfy (D), in the sense that <span class="Math">F=\Gamma_{z}(F')</span> (see <a href="chapBib.html#biBTor20">[Tor20, Proposition 3.26]</a>), whereas others do not. For example, in the case <span class="Math">d=3</span>, five of the seven conjugacy classes of discrete, vertex-transitive and locally primitive subgroups of <span class="Math">\mathrm{Aut}(T_{3})</span> come from generalised universal groups. Of these five, three arise from groups <span class="Math">F'</span> as above while the remaining two do not, see <a href="chapBib.html#biBTor20">[Tor20, Example 4.39]</a>.</p>
+<p>For <span class="Math">A_{4}</span> there are two, and for <span class="Math">S_{4}</span> there are three. We conclude that there are at least <span class="Math">5=2+3</span> conjugacy classes of discrete, vertex-transitive and locally primitive subgroups of <span class="Math">\mathrm{Aut}(T_{4})</span>. More examples, and hence a better lower bound, can be obtained by increasing <span class="Math">k</span>.</p>
+
+<p>Every subgroup <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> which satisfies both the compatibility condition (C) and the discreteness condition (D) admits an involutive compatibility cocycle (see <a href="chapBib.html#biBTor20">[Tor20, Section 3.2.2]</a>), i.e. a map <span class="Math">z:F\times\{1,\ldots,d\}\to F</span> which satisfies certain properties reflecting the discreteness of the group <span class="Math">\mathrm{U}_{k}(F)</span>. It is intriguing that some groups <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> with these properties stem from groups <span class="Math">F'\le\mathrm{Aut}(B_{d,k-1})</span> that satisfy (C), admit an involutive compatibility cocycle <span class="Math">z</span> but do not satisfy (D), in the sense of the construction <span class="Math">F=\Gamma_{z}(F')</span> (see <a href="chapBib.html#biBTor20">[Tor20, Proposition 3.26]</a>), whereas others do not. For example, in the case <span class="Math">d=3</span>, five of the seven conjugacy classes of discrete, vertex-transitive and locally primitive subgroups of <span class="Math">\mathrm{Aut}(T_{3})</span> come from generalised universal groups. Of these five, three arise from groups <span class="Math">F'</span> as above while the remaining two do not, see <a href="chapBib.html#biBTor20">[Tor20, Example 4.39]</a>. The three groups are <span class="Math">\Gamma(A_{3})</span> and <span class="Math">\Gamma(S_{3})</span> and <span class="Math">\Gamma_{z}(\Pi(S_{3},\mathrm{sgn},\{1\}))</span>. The code example below verifies that <span class="Math">\Pi(S_{3},\mathrm{sgn},\{1\})\le\mathrm{Aut}(B_{3,2})</span> satisfies (C), does not satisfy (D) but admits an involutive compatibility cocycle <span class="Math">z</span>. We then find that there are four conjugacy classes of subgroups of <span class="Math">\mathrm{Aut}(B_{3,3})</span> that satisfy (C) and project onto <span class="Math">\mathrm{Aut}(B_{3,2})</span> under the natural projection map <span class="Math">\mathrm{Aut}(B_{3,3})\to\mathrm{Aut}(B_{3,2})</span>. Of these four groups, two also satisy (D) and one of is conjugate to <span class="Math">\Gamma_{z}(\Pi(S_{3},\mathrm{sgn},\{1\}))</span>, as constructed using <code class="func">GAMMA</code> (<a href="chap4.html#X87E33E187FE7341A"><span class="RefLink">4.1-2</span></a>).</p>
 
 
 <div class="example"><pre>
@@ -124,7 +168,7 @@ true
 1
 </pre></div>
 
-<p>The number of different involutive compatibility cocycles that a group <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> may admit is also mysterious, including in the case <span class="Math">k=1</span>.</p>
+<p>The number of different (involutive) compatibility cocycles that a group <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> may admit is also mysterious, including in the case <span class="Math">k=1</span>. For example, consider the case <span class="Math">(d,k)=(4,1)</span>. We compute the set of all involutive compatibility cocycles of a local action using the function <code class="func">AllInvolutiveCompatibilityCocycles</code> (<span class="RefLink">???</span>):</p>
 
 
 <div class="example"><pre>

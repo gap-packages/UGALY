@@ -189,14 +189,49 @@ to a wider audience.
 to the Cayley-Abels graph construction \cite{KM08}, groups acting on trees form a particularly significant class of totally
 disconnected locally compact groups. Burger-Mozes universal groups \cite{BM00a} and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of
 these groups and form a significant subclass: in fact, due to \cite[Corollary 4.32]{Tor20}, the locally transitive, generalised universal groups are exactly the closed,
-locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see \cite{BEW15}) that generalise Tits' independence property $(P)$, see \cite{Tit70}. \textsf{UGALY} provides the means to generate a library of all these groups in terms of their $k$-local action, and we envision to add such a library in a future version of
-this package. In the case $k=1$ of classical Burger-Mozes groups, it coincides with the library of finite
-transitive permutation groups \textsf{TransGrp}. As another example, we obtain the following six groups for $(d,k)=(3,2)$. 
+locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see \cite{BEW15}) that generalise Tits' independence property $(P)$, see \cite{Tit70}. Subgroups $F\le\mathrm{Aut}(B_{d,k})$ are treated as objects of the category \texttt{IsLocalAction} (\ref{IsLocalAction}) to the effect that they remember the degree $d$ the radius $k$ of the tree $B_{d,k}$ that they act on as a permutation group on its $d\times(d-1)^{k-1}$ leaves. For example, the automorphism group of $B_{3,2}$ can be accessed as follows. 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@F:=AutBall(3,2);|
+  Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
+  !gapprompt@gap>| !gapinput@IsLocalAction(F);|
+  true
+  !gapprompt@gap>| !gapinput@LocalActionDegree(F);|
+  3
+  !gapprompt@gap>| !gapinput@LocalActionRadius(F);|
+  2
+\end{Verbatim}
+ In general, a subgroup $F$ of the permutation group $\mathrm{Aut}(B_{d,k})$ can be turned into an object of the category \texttt{IsLocalAction} (\ref{IsLocalAction}) by calling the creator operation \texttt{LocalAction} (\ref{LocalAction}) with the degree $d$, the radius $k$ and the permutation group $F$ itself. For example, the subgroup $A_{3}\le\mathrm{Aut}(B_{3,1})\cong S_{3}$ can be generated as follows. 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@A3:=LocalAction(3,1,AlternatingGroup(3));|
+  Alt( [ 1 .. 3 ] )
+  !gapprompt@gap>| !gapinput@IsLocalAction(A3);|
+  true
+  !gapprompt@gap>| !gapinput@LocalActionDegree(A3);|
+  3
+  !gapprompt@gap>| !gapinput@LocalActionRadius(A3);|
+  1
+\end{Verbatim}
+ \textsf{UGALY} provides the means to generate a library of all generalised universal groups $\mathrm{U}_{k}(F)$ in terms of their $k$-local action $F\le\mathrm{Aut}(B_{d,k})$ satisfying the compatibility condition (C). We envision to add such a library
+in a future version of this package. In the case $k=1$ of classical Burger-Mozes groups, the compatibility condition (C) is void and
+so the library would coincide with the library of finite transitive
+permutation groups \textsf{TransGrp}. For example, in the case $(d,k)=(3,1)$ there are only two local actions, corresponding to the two transitive
+permutation groups of degree $3$, namely $A_{3}$ and $S_{3}$. 
+
+ 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@A3:=LocalAction(3,1,TransitiveGroup(3,1));|
   A3
   !gapprompt@gap>| !gapinput@S3:=LocalAction(3,1,TransitiveGroup(3,2));|
   S3
+\end{Verbatim}
+ To create this library for the case $(d,k)=(3,2)$ we organise the subgroups $F\le\mathrm{Aut}(B_{3,2})$ that satisfy the compatibility condition (C) according to which subgroup of $\mathrm{Aut}(B_{3,1})$ they project to under the natural projection $\mathrm{Aut}(B_{3,2})\to\mathrm{Aut}(B_{3,1})$ which restricts automorphisms to $B_{3,1}\subseteq B_{3,2}$. In other words, we organise the subgroups $F\le\mathrm{Aut}(B_{3,2})$ satisfying (C) according to $\sigma_{1}(F,b)\le\mathrm{Aut}(B_{3,1})$. As the following code illustrates, there is one group that projects to $A_{3}$ and five groups that project to $S_{3}$. 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);|
   [ Group([ (1,4,5)(2,3,6) ]) ]
   !gapprompt@gap>| !gapinput@S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);|
@@ -206,8 +241,12 @@ transitive permutation groups \textsf{TransGrp}. As another example, we obtain t
     Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
     Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 \end{Verbatim}
- These groups have been identified to stem from certain general constructions
-much like there are families of finite transitive groups. See Chapter \ref{Chapter_ukf_examples} for the functions appearing below. 
+ All of these groups have been identified to stem from general constructions of
+groups $\widetilde{F}\le\mathrm{Aut}(B_{d,2})$ satisfying (C) from a given group $F\le\mathrm{Aut}(B_{d,1})$, much like some finite transitive groups have been organised into families.
+Specifically, the constructions $\Gamma(F)$, $\Delta(F)$, $\Pi(F,\rho,X)$ and $\Phi(F)$ introduced in the article \cite[Section 3.4]{Tor20} can be accessed via the \textsf{UGALY} functions \texttt{GAMMA} (\ref{GAMMA}), \texttt{DELTA} (\ref{DELTA}), \texttt{PI} (\ref{PI}) and \texttt{PHI} (\ref{PHI}) respectively, see Chapter \ref{Chapter_ukf_examples}. Below, we use these functions to identity all six groups of the previous
+output. 
+
+ 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@PHI(A3)=A3_extn[1];|
   true
@@ -225,15 +264,26 @@ much like there are families of finite transitive groups. See Chapter \ref{Chapt
   !gapprompt@gap>| !gapinput@PHI(S3)=S3_extn[5];|
   true
 \end{Verbatim}
- \textsf{UGALY} may also be a useful tool in the context of the Weiss conjecture \cite{Wei78} which in particular states that there are only finitely many conjugacy classes
-of discrete, vertex-transitive and locally primitive subgroup of $\mathrm{Aut}(T_{d})$. When such a group contains an inversion of order $2$, it can be written as a universal group $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies both the compatibility condition (C) and the discreteness condition
+ \textsf{UGALY} may also be a useful tool in the context of the Weiss conjecture \cite{Wei78}, which in particular states that there are only finitely many conjugacy
+classes of discrete, vertex-transitive and locally primitive subgroup of $\mathrm{Aut}(T_{d})$. When such a group contains an inversion of order $2$, it can be written as a universal group $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies both the compatibility condition (C) and the discreteness condition
 (D), due to \cite[Corollary 4.38]{Tor20}. Therefore, \textsf{UGALY} can be used to construct explicit examples of groups relevant to the Weiss
 conjecture. Their structure as well as patterns in their appearance may
 provide more insight into the conjecture and suggest directions of research.
-At the very least, \textsf{UGALY} provides lower bounds on their numbers. For example ($d=4$): 
+At the very least, \textsf{UGALY} provides lower bounds on their numbers. For example, consider the case $d=4$. There are two primitive groups of degree $4$, namely $A_{4}$ and $S_{4}$, which we readily turn into objects of the category \texttt{IsLocalAction} (\ref{IsLocalAction}). 
+
+ 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NrPrimitiveGroups(4);|
+  2
   !gapprompt@gap>| !gapinput@A4:=LocalAction(4,1,PrimitiveGroup(4,1));;|
   !gapprompt@gap>| !gapinput@S4:=LocalAction(4,1,PrimitiveGroup(4,2));;|
+\end{Verbatim}
+ Next, we proceed as before to determine how many conjugacy classes of
+subgroups of $\mathrm{Aut}(B_{4,2})$ with (C) there are that project onto $A_{4}$ and $S_{4}$ respectively. We then filter the output for subgroups that, in addition,
+satisfy the discreteness condition (D). 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@A4_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A4);;|
   !gapprompt@gap>| !gapinput@Size(A4_extn); Size(Filtered(A4_extn,SatisfiesD));|
   5
@@ -243,9 +293,15 @@ At the very least, \textsf{UGALY} provides lower bounds on their numbers. For ex
   13
   3
 \end{Verbatim}
+ For $A_{4}$ there are two, and for $S_{4}$ there are three. We conclude that there are at least $5=2+3$ conjugacy classes of discrete, vertex-transitive and locally primitive
+subgroups of $\mathrm{Aut}(T_{4})$. More examples, and hence a better lower bound, can be obtained by increasing $k$. 
+
  Every subgroup $F\le\mathrm{Aut}(B_{d,k})$ which satisfies both the compatibility condition (C) and the discreteness
-condition (D) admits an involutive compatibility cocycle (see \cite[Section 3.2.2]{Tor20}), i.e. a map $z:F\times\{1,\ldots,d\}\to F$ which satisfies certain properties reflecting the discreteness of the group $\mathrm{U}_{k}(F)$. It is intriguing that some groups $F\le\mathrm{Aut}(B_{d,k})$ with these properties stem from groups $F'\le\mathrm{Aut}(B_{d,k-1})$ that satisfy (C), admit an involutive compatibility cocycle $z$ but do not satisfy (D), in the sense that $F=\Gamma_{z}(F')$ (see \cite[Proposition 3.26]{Tor20}), whereas others do not. For example, in the case $d=3$, five of the seven conjugacy classes of discrete, vertex-transitive and
-locally primitive subgroups of $\mathrm{Aut}(T_{3})$ come from generalised universal groups. Of these five, three arise from groups $F'$ as above while the remaining two do not, see \cite[Example 4.39]{Tor20}. 
+condition (D) admits an involutive compatibility cocycle (see \cite[Section 3.2.2]{Tor20}), i.e. a map $z:F\times\{1,\ldots,d\}\to F$ which satisfies certain properties reflecting the discreteness of the group $\mathrm{U}_{k}(F)$. It is intriguing that some groups $F\le\mathrm{Aut}(B_{d,k})$ with these properties stem from groups $F'\le\mathrm{Aut}(B_{d,k-1})$ that satisfy (C), admit an involutive compatibility cocycle $z$ but do not satisfy (D), in the sense of the construction $F=\Gamma_{z}(F')$ (see \cite[Proposition 3.26]{Tor20}), whereas others do not. For example, in the case $d=3$, five of the seven conjugacy classes of discrete, vertex-transitive and
+locally primitive subgroups of $\mathrm{Aut}(T_{3})$ come from generalised universal groups. Of these five, three arise from groups $F'$ as above while the remaining two do not, see \cite[Example 4.39]{Tor20}. The three groups are $\Gamma(A_{3})$ and $\Gamma(S_{3})$ and $\Gamma_{z}(\Pi(S_{3},\mathrm{sgn},\{1\}))$. The code example below verifies that $\Pi(S_{3},\mathrm{sgn},\{1\})\le\mathrm{Aut}(B_{3,2})$ satisfies (C), does not satisfy (D) but admits an involutive compatibility
+cocycle $z$. We then find that there are four conjugacy classes of subgroups of $\mathrm{Aut}(B_{3,3})$ that satisfy (C) and project onto $\mathrm{Aut}(B_{3,2})$ under the natural projection map $\mathrm{Aut}(B_{3,3})\to\mathrm{Aut}(B_{3,2})$. Of these four groups, two also satisy (D) and one of is conjugate to $\Gamma_{z}(\Pi(S_{3},\mathrm{sgn},\{1\}))$, as constructed using \texttt{GAMMA} (\ref{GAMMA}). 
+
+ 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@S3:=SymmetricGroup(3);;|
   !gapprompt@gap>| !gapinput@rho:=SignHomomorphism(S3);;|
@@ -260,7 +316,10 @@ locally primitive subgroups of $\mathrm{Aut}(T_{3})$ come from generalised unive
   !gapprompt@gap>| !gapinput@Size(Intersection(GAMMA(H,z)^AutBall(3,3),grps));|
   1
 \end{Verbatim}
- The number of different involutive compatibility cocycles that a group $F\le\mathrm{Aut}(B_{d,k})$ may admit is also mysterious, including in the case $k=1$. 
+ The number of different (involutive) compatibility cocycles that a group $F\le\mathrm{Aut}(B_{d,k})$ may admit is also mysterious, including in the case $k=1$. For example, consider the case $(d,k)=(4,1)$. We compute the set of all involutive compatibility cocycles of a local
+action using the function \texttt{AllInvolutiveCompatibilityCocycles} (\ref{AllInvolutiveCompatibilityCocycles}): 
+
+ 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@grps:=AllTransitiveGroups(NrMovedPoints,4);|
   [ C(4) = 4, E(4) = 2[x]2, D(4), A4, S4 ]
@@ -268,12 +327,12 @@ locally primitive subgroups of $\mathrm{Aut}(T_{3})$ come from generalised unive
   !gapprompt@gap>| !gapinput@grps;|
   [ 1, 1, 8, 28, 256 ]
 \end{Verbatim}
- 
-
  From an educational point of view, we envision that \textsf{UGALY} could be used to enhance the learning experience of students in the area of
 groups acting on trees. The class of generalised universal groups forms an
 ideal framework for this purpose. For example, to internalise the widely used
 concept of local actions it may be helpful to take a $2$-local action in the form of an automorphism of $B_{3,2}$ (a rotation in the case below), decompose it into its $1$-local actions and recover the autorphism from them. 
+
+ 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@aut:=Random(AutBall(3,2));|
   (1,5,3,2,6,4)
@@ -293,6 +352,8 @@ theorems using \textsf{UGALY}. For example, one way to phrase a part of Tutte's 
 transitive subgroups of $\mathrm{Aut}(T_{3})$ that contain an inversion of order $2$ and are $P_{2}$-closed. Due to \cite[Corollary 4.38]{Tor20}, this can be verified by checking that among all locally transitive subgroups
 of $\mathrm{Aut}(B_{3,2})$ which satisfy the compatibility condition (C), only three also satisfy the
 discreteness condition (D). 
+
+ 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@A3:=LocalAction(3,1,TransitiveGroup(3,1));;|
   !gapprompt@gap>| !gapinput@S3:=LocalAction(3,1,TransitiveGroup(3,2));;|
@@ -311,6 +372,8 @@ discreteness condition (D).
 \end{Verbatim}
  It may also be instructive to generate involutive compatibility cocycles
 computationally and check parts of the axioms manually. 
+
+ 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@S3:=SymmetricGroup(3);;|
   !gapprompt@gap>| !gapinput@rho:=SignHomomorphism(S3);;|
@@ -1146,7 +1209,7 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
  }
 
    
-\chapter{\textcolor{Chapter }{Examples}}\label{Chapter_Examples}
+\chapter{\textcolor{Chapter }{Examples}}\label{Chapter_ukf_examples}
 \logpage{[ 4, 0, 0 ]}
 \hyperdef{L}{X7A489A5D79DA9E5C}{}
 {
@@ -1262,7 +1325,7 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape l}}, \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Gamma^{l}($\mbox{\texttt{\mdseries\slshape F}}$)\le\mathrm{Aut}(B_{d,l})$. 
 
  The arguments of this method are a radius \mbox{\texttt{\mdseries\slshape l}} $\in\mathbb{N}$, a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, and a subgroup \mbox{\texttt{\mdseries\slshape F}} of $S_d$. 
-\item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape z}}}]  Returns: the group $\Gamma_{z}($\mbox{\texttt{\mdseries\slshape F}}$)=\{(a,($\mbox{\texttt{\mdseries\slshape z}}$(a,\omega))_{\omega\in\Omega})\mid a\in$\mbox{\texttt{\mdseries\slshape F}}$\}\le\mathrm{Aut}(B_{d,k+1})$. 
+\item[{for the arguments \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape z}}}]  Returns: the group $\Gamma_{z}($\mbox{\texttt{\mdseries\slshape F}}$)=\{(a,($\mbox{\texttt{\mdseries\slshape z}}$(a,\omega))_{\omega\in\Omega})\mid a\in$\mbox{\texttt{\mdseries\slshape F}}$\}\le\mathrm{Aut}(B_{d,k+1})$. 
 
  The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ and an involutive compatibility cocycle \mbox{\texttt{\mdseries\slshape z}} of \mbox{\texttt{\mdseries\slshape F}} (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle})). 
 \end{description}
@@ -1386,11 +1449,11 @@ a list of compatible representatives of conjugacy classes of \mbox{\texttt{\mdse
 
  
 \begin{description}
-\item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Phi_{k}($\mbox{\texttt{\mdseries\slshape F}}$)=\{(a,(a_{\omega})_{\omega})\mid a\in $\mbox{\texttt{\mdseries\slshape F}}$,\ \forall \omega\in\Omega:\ a_{\omega}\in
+\item[{for the argument \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Phi_{k}($\mbox{\texttt{\mdseries\slshape F}}$)=\{(a,(a_{\omega})_{\omega})\mid a\in $\mbox{\texttt{\mdseries\slshape F}}$,\ \forall \omega\in\Omega:\ a_{\omega}\in
 C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$. 
 
  The argument of this method is a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$. 
-\item[{for the arguments \mbox{\texttt{\mdseries\slshape l}}, \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Phi^{l}($\mbox{\texttt{\mdseries\slshape F}}$)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}($\mbox{\texttt{\mdseries\slshape F}}$)\le\mathrm{Aut}(B_{d,l})$. 
+\item[{for the arguments \mbox{\texttt{\mdseries\slshape l}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the group $\Phi^{l}($\mbox{\texttt{\mdseries\slshape F}}$)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}($\mbox{\texttt{\mdseries\slshape F}}$)\le\mathrm{Aut}(B_{d,l})$. 
 
  The arguments of this method are a radius \mbox{\texttt{\mdseries\slshape l}} $\in\mathbb{N}$ and a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$. 
 \end{description}
@@ -1489,7 +1552,7 @@ C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$.
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape P}}}]  Returns: the group $\Phi($\mbox{\texttt{\mdseries\slshape F}}$,$\mbox{\texttt{\mdseries\slshape P}}$)=\{(a,(a_{\omega})_{\omega})\mid a\in $\mbox{\texttt{\mdseries\slshape F}}$,\ a_{\omega}\in C_{F}(a,\omega)$ constant w.r.t. \mbox{\texttt{\mdseries\slshape P}}$\}\le\mathrm{Aut}(B_{d,2})$. 
 
  The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$ and a permutation group \mbox{\texttt{\mdseries\slshape F}} $\le S_{d}$ and a partition \mbox{\texttt{\mdseries\slshape P}} of \texttt{[1..d]} preserved by \mbox{\texttt{\mdseries\slshape F}}. 
-\item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape P}}}]  Returns: the group $\Phi_{k}($\mbox{\texttt{\mdseries\slshape F}}$,$\mbox{\texttt{\mdseries\slshape P}}$)=\{(\alpha,(\alpha_{\omega})_{\omega})\mid \alpha\in \mbox{\texttt{\mdseries\slshape F}},\ \alpha_{\omega}\in C_{F}(\alpha,\omega)$ constant w.r.t. \mbox{\texttt{\mdseries\slshape P}}$\}\le\mathrm{Aut}(B_{d,k+1})$. 
+\item[{for the arguments \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape P}}}]  Returns: the group $\Phi_{k}($\mbox{\texttt{\mdseries\slshape F}}$,$\mbox{\texttt{\mdseries\slshape P}}$)=\{(\alpha,(\alpha_{\omega})_{\omega})\mid \alpha\in \mbox{\texttt{\mdseries\slshape F}},\ \alpha_{\omega}\in C_{F}(\alpha,\omega)$ constant w.r.t. \mbox{\texttt{\mdseries\slshape P}}$\}\le\mathrm{Aut}(B_{d,k+1})$. 
 
  The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ and a partition \mbox{\texttt{\mdseries\slshape P}} of \texttt{[1..d]} preserverd by $\pi$\mbox{\texttt{\mdseries\slshape F}} $\le S_{d}$. This method assumes that all compatibility sets with respect to a partition
 element are non-empty and that all compatibility sets of the identity with
@@ -1733,7 +1796,7 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape F}}}]  Returns: the list of kernels $K\le\prod_{\omega\in\Omega}F_{\omega}\cong\ker\pi\le\mathrm{Aut}(B_{d,2})$ that are preserved by the action \mbox{\texttt{\mdseries\slshape F}} $\curvearrowright\prod_{\omega\in\Omega}F_{\omega}$, $a\cdot(a_{\omega})_{\omega}:=(aa_{a^{-1}\omega}a^{-1})_{\omega}$. 
 
  The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, and a permutation group \mbox{\texttt{\mdseries\slshape F}} $\le S_{d}$. The kernels output by this method are compatible with \mbox{\texttt{\mdseries\slshape F}} with respect to the standard cocycle (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle})) and can be used in the method \texttt{SIGMA} (\ref{SIGMA}). 
-\item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape z}}}]  Returns: the list of kernels $K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})$ that are normalized by $\Gamma_{z}($\mbox{\texttt{\mdseries\slshape F}}$)$ and such that for all $k\in K$ and $\omega\in\Omega$ there is $k_{\omega}\in K$ with $\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}$. 
+\item[{for the arguments \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape z}}}]  Returns: the list of kernels $K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})$ that are normalized by $\Gamma_{z}($\mbox{\texttt{\mdseries\slshape F}}$)$ and such that for all $k\in K$ and $\omega\in\Omega$ there is $k_{\omega}\in K$ with $\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}$. 
 
  The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} $\le\mathrm{Aut}(B_{d,k})$ that satisfies (C) and an involutive compatibility cocycle \mbox{\texttt{\mdseries\slshape z}} of \mbox{\texttt{\mdseries\slshape F}} (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle})). It can be used in the method \texttt{SIGMA} (\ref{SIGMA}). 
 \end{description}
@@ -1781,7 +1844,7 @@ form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements
 \item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape K}}}]  Returns: the semidirect product $\Sigma($\mbox{\texttt{\mdseries\slshape F}}$,$\mbox{\texttt{\mdseries\slshape K}}$)\le\mathrm{Aut}(B_{d,2})$. 
 
  The arguments of this method are a degree \mbox{\texttt{\mdseries\slshape d}} $\in\mathbb{N}_{\ge 3}$, a subgroup \mbox{\texttt{\mdseries\slshape F}} of $S_{d}$ and a compatible kernel \mbox{\texttt{\mdseries\slshape K}} for \mbox{\texttt{\mdseries\slshape F}} (see \texttt{CompatibleKernels} (\ref{CompatibleKernels})). 
-\item[{for the arguments \mbox{\texttt{\mdseries\slshape d}}, \mbox{\texttt{\mdseries\slshape k}}, \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape K}}, \mbox{\texttt{\mdseries\slshape z}}}]  Returns: the semidirect product $\Sigma_{z}($\mbox{\texttt{\mdseries\slshape F}}$,$\mbox{\texttt{\mdseries\slshape K}}$)\le\mathrm{Aut}(B_{d,k+1})$. 
+\item[{for the arguments \mbox{\texttt{\mdseries\slshape F}}, \mbox{\texttt{\mdseries\slshape K}}, \mbox{\texttt{\mdseries\slshape z}}}]  Returns: the semidirect product $\Sigma_{z}($\mbox{\texttt{\mdseries\slshape F}}$,$\mbox{\texttt{\mdseries\slshape K}}$)\le\mathrm{Aut}(B_{d,k+1})$. 
 
  The arguments of this method are a local action \mbox{\texttt{\mdseries\slshape F}} of $\mathrm{Aut}(B_{d,k})$ that satisfies (C) and a kernel \mbox{\texttt{\mdseries\slshape K}} that is compatible for \mbox{\texttt{\mdseries\slshape F}} with respect to the involutive compatibility cocycle \mbox{\texttt{\mdseries\slshape z}} (see \texttt{InvolutiveCompatibilityCocycle} (\ref{InvolutiveCompatibilityCocycle}) and \texttt{CompatibleKernels} (\ref{CompatibleKernels})) of \mbox{\texttt{\mdseries\slshape F}}. 
 \end{description}
@@ -2020,17 +2083,6 @@ the list of all involutive compatibility cocycles of $F$.
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}

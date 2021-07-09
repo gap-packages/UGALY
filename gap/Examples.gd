@@ -5,7 +5,7 @@
 #! @Chapter Preliminaries
 #! @Chapter Compatibility
 #! @Chapter Examples
-# @ChapterLabel ukf_examples
+#! @ChapterLabel ukf_examples
 #!
 #! Several classes of examples of subgroups of $\mathrm{Aut}(B_{d,k})$ that satisfy (C) and or (D) are constructed in <Cite Key="Tor20"/> and implemented in this section. For a given permutation group $F\le S_{d}$, there are always the three local actions $\Gamma(F)$, $\Delta(F)$ and $\Phi(F)$ on $\mathrm{Aut}(B_{d,2})$ that project onto $F$. For some $F$, these are all distinct and yield all universal groups that have $F$ as their $1$-local action, see <Cite Key="Tor20" Where="Theorem 3.32"/>. More examples arise in particular when either point stabilizers in $F$ are not simple, $F$ preserves a partition, or $F$ is not perfect.
 
@@ -110,7 +110,7 @@ DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsMapping] );
 #!
 #!		The arguments of this method are a radius <A>l</A> $\in\mathbb{N}$, a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, and a subgroup <A>F</A> of $S_d$.
 #!	</Item>
-#!	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>z</A></Mark>
+#!	<Mark>for the arguments <A>F</A>, <A>z</A></Mark>
 #!	<Item>
 #!		Returns: the group $\Gamma_{z}($<A>F</A>$)=\{(a,($<A>z</A>$(a,\omega))_{\omega\in\Omega})\mid a\in$<A>F</A>$\}\le\mathrm{Aut}(B_{d,k+1})$.
 #!
@@ -223,13 +223,13 @@ DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup] );
 #! @GroupTitle PHI
 
 #! <List>
-#!	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A></Mark>
+#!	<Mark>for the argument <A>F</A></Mark>
 #!	<Item>
 #!		Returns: the group $\Phi_{k}($<A>F</A>$)=\{(a,(a_{\omega})_{\omega})\mid a\in $<A>F</A>$,\ \forall \omega\in\Omega:\ a_{\omega}\in C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})$.
 #!
 #!		The argument of this method is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$.
 #!	</Item>
-#!	<Mark>for the arguments <A>l</A>, <A>d</A>, <A>k</A>, <A>F</A></Mark>
+#!	<Mark>for the arguments <A>l</A>, <A>F</A></Mark>
 #!	<Item> 
 #!		Returns: the group $\Phi^{l}($<A>F</A>$)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}($<A>F</A>$)\le\mathrm{Aut}(B_{d,l})$.
 #!
@@ -315,7 +315,7 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #!
 #!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$ and a permutation group <A>F</A> $\le S_{d}$ and a partition <A>P</A> of <C>[1..d]</C> preserved by <A>F</A>.
 #!	</Item>
-#!	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>P</A></Mark>
+#!	<Mark>for the arguments <A>F</A>, <A>P</A></Mark>
 #!	<Item>
 #!		Returns: the group $\Phi_{k}($<A>F</A>$,$<A>P</A>$)=\{(\alpha,(\alpha_{\omega})_{\omega})\mid \alpha\in <A>F</A>,\ \alpha_{\omega}\in C_{F}(\alpha,\omega)$ constant w.r.t. <A>P</A>$\}\le\mathrm{Aut}(B_{d,k+1})$.
 #!
@@ -514,7 +514,7 @@ DeclareGlobalFunction( "PI" );
 #!
 #!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, and a permutation group <A>F</A> $\le S_{d}$. The kernels output by this method are compatible with <A>F</A> with respect to the standard cocycle (see <Ref Attr="InvolutiveCompatibilityCocycle"/>) and can be used in the method <Ref Oper="SIGMA"/>.
 #!	</Item>
-#!	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>z</A></Mark>
+#!	<Mark>for the arguments <A>F</A>, <A>z</A></Mark>
 #!	<Item>
 #!		Returns: the list of kernels $K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})$ that are normalized by $\Gamma_{z}($<A>F</A>$)$ and such that for all $k\in K$ and $\omega\in\Omega$ there is $k_{\omega}\in K$ with $\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}$.
 #!
@@ -561,7 +561,7 @@ DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping] );
 #!
 #!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a subgroup <A>F</A> of $S_{d}$ and a compatible kernel <A>K</A> for <A>F</A> (see <Ref Oper="CompatibleKernels"/>).
 #!	</Item>
-#!	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>K</A>, <A>z</A></Mark>
+#!	<Mark>for the arguments <A>F</A>, <A>K</A>, <A>z</A></Mark>
 #!	<Item>
 #!		Returns: the semidirect product $\Sigma_{z}($<A>F</A>$,$<A>K</A>$)\le\mathrm{Aut}(B_{d,k+1})$.
 #!

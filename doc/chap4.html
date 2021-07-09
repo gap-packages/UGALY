@@ -161,7 +161,7 @@
 <p>The arguments of this method are a radius <var class="Arg">l</var> <span class="Math">\in\mathbb{N}</span>, a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, and a subgroup <var class="Arg">F</var> of <span class="Math">S_d</span>.</p>
 
 </dd>
-<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">F</var>, <var class="Arg">z</var></strong></dt>
+<dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">z</var></strong></dt>
 <dd><p>Returns: the group <span class="Math">\Gamma_{z}(</span><var class="Arg">F</var><span class="Math">)=\{(a,(</span><var class="Arg">z</var><span class="Math">(a,\omega))_{\omega\in\Omega})\mid a\in</span><var class="Arg">F</var><span class="Math">\}\le\mathrm{Aut}(B_{d,k+1})</span>.</p>
 
 <p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> and an involutive compatibility cocycle <var class="Arg">z</var> of <var class="Arg">F</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>)).</p>
@@ -260,13 +260,13 @@ Group([ (2,4)(3,5) ])
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PHI</code>( <var class="Arg">l</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 
 <dl>
-<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">F</var></strong></dt>
+<dt><strong class="Mark">for the argument <var class="Arg">F</var></strong></dt>
 <dd><p>Returns: the group <span class="Math">\Phi_{k}(</span><var class="Arg">F</var><span class="Math">)=\{(a,(a_{\omega})_{\omega})\mid a\in </span><var class="Arg">F</var><span class="Math">,\ \forall \omega\in\Omega:\ a_{\omega}\in C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})</span>.</p>
 
 <p>The argument of this method is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span>.</p>
 
 </dd>
-<dt><strong class="Mark">for the arguments <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">F</var></strong></dt>
+<dt><strong class="Mark">for the arguments <var class="Arg">l</var>, <var class="Arg">F</var></strong></dt>
 <dd><p>Returns: the group <span class="Math">\Phi^{l}(</span><var class="Arg">F</var><span class="Math">)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}(</span><var class="Arg">F</var><span class="Math">)\le\mathrm{Aut}(B_{d,l})</span>.</p>
 
 <p>The arguments of this method are a radius <var class="Arg">l</var> <span class="Math">\in\mathbb{N}</span> and a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span>.</p>
@@ -350,7 +350,7 @@ true
 <p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span> and a permutation group <var class="Arg">F</var> <span class="Math">\le S_{d}</span> and a partition <var class="Arg">P</var> of <code class="code">[1..d]</code> preserved by <var class="Arg">F</var>.</p>
 
 </dd>
-<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">F</var>, <var class="Arg">P</var></strong></dt>
+<dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">P</var></strong></dt>
 <dd><p>Returns: the group <span class="Math">\Phi_{k}(</span><var class="Arg">F</var><span class="Math">,</span><var class="Arg">P</var><span class="Math">)=\{(\alpha,(\alpha_{\omega})_{\omega})\mid \alpha\in <var class="Arg">F</var>,\ \alpha_{\omega}\in C_{F}(\alpha,\omega)</span> constant w.r.t. <var class="Arg">P</var><span class="Math">\}\le\mathrm{Aut}(B_{d,k+1})</span>.</p>
 
 <p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> and a partition <var class="Arg">P</var> of <code class="code">[1..d]</code> preserverd by <span class="Math">\pi</span><var class="Arg">F</var> <span class="Math">\le S_{d}</span>. This method assumes that all compatibility sets with respect to a partition element are non-empty and that all compatibility sets of the identity with respect to a partition element are non-trivial.</p>
@@ -536,7 +536,7 @@ AGL(1, 5)
 <p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, and a permutation group <var class="Arg">F</var> <span class="Math">\le S_{d}</span>. The kernels output by this method are compatible with <var class="Arg">F</var> with respect to the standard cocycle (see <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>)) and can be used in the method <code class="func">SIGMA</code> (<a href="chap4.html#X823707DF821E79A0"><span class="RefLink">4.5-2</span></a>).</p>
 
 </dd>
-<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">F</var>, <var class="Arg">z</var></strong></dt>
+<dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">z</var></strong></dt>
 <dd><p>Returns: the list of kernels <span class="Math">K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})</span> that are normalized by <span class="Math">\Gamma_{z}(</span><var class="Arg">F</var><span class="Math">)</span> and such that for all <span class="Math">k\in K</span> and <span class="Math">\omega\in\Omega</span> there is <span class="Math">k_{\omega}\in K</span> with <span class="Math">\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}</span>.</p>
 
 <p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> that satisfies (C) and an involutive compatibility cocycle <var class="Arg">z</var> of <var class="Arg">F</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>)). It can be used in the method <code class="func">SIGMA</code> (<a href="chap4.html#X823707DF821E79A0"><span class="RefLink">4.5-2</span></a>).</p>
@@ -575,7 +575,7 @@ AGL(1, 5)
 <p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a subgroup <var class="Arg">F</var> of <span class="Math">S_{d}</span> and a compatible kernel <var class="Arg">K</var> for <var class="Arg">F</var> (see <code class="func">CompatibleKernels</code> (<a href="chap4.html#X7F425DFC8760388F"><span class="RefLink">4.5-1</span></a>)).</p>
 
 </dd>
-<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">F</var>, <var class="Arg">K</var>, <var class="Arg">z</var></strong></dt>
+<dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">K</var>, <var class="Arg">z</var></strong></dt>
 <dd><p>Returns: the semidirect product <span class="Math">\Sigma_{z}(</span><var class="Arg">F</var><span class="Math">,</span><var class="Arg">K</var><span class="Math">)\le\mathrm{Aut}(B_{d,k+1})</span>.</p>
 
 <p>The arguments of this method are a local action <var class="Arg">F</var> of <span class="Math">\mathrm{Aut}(B_{d,k})</span> that satisfies (C) and a kernel <var class="Arg">K</var> that is compatible for <var class="Arg">F</var> with respect to the involutive compatibility cocycle <var class="Arg">z</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>) and <code class="func">CompatibleKernels</code> (<a href="chap4.html#X7F425DFC8760388F"><span class="RefLink">4.5-1</span></a>)) of <var class="Arg">F</var>.</p>

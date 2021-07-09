@@ -109,7 +109,7 @@
         [33X[0;6YThe  arguments of this method are a radius [3Xl[103X [23X\in\mathbb{N}[123X, a degree [3Xd[103X
         [23X\in\mathbb{N}_{\ge 3}[123X, and a subgroup [3XF[103X of [23XS_d[123X.[133X
   
-  [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X, [3Xz[103X[8X[108X
+  [8Xfor the arguments [3XF[103X[8X, [3Xz[103X[8X[108X
         [33X[0;6YReturns:                           the                           group
         [23X\Gamma_{z}([123X[3XF[103X[23X)=\{(a,([123X[3Xz[103X[23X(a,\omega))_{\omega\in\Omega})\mid
         a\in[123X[3XF[103X[23X\}\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
@@ -204,7 +204,7 @@
   [33X[1;0Y[29X[2XPHI[102X( [3XF[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPHI[102X( [3Xl[103X, [3XF[103X ) [32X operation[133X
   
-  [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X[108X
+  [8Xfor the argument [3XF[103X[8X[108X
         [33X[0;6YReturns:  the  group  [23X\Phi_{k}([123X[3XF[103X[23X)=\{(a,(a_{\omega})_{\omega})\mid a\in
         [123X[3XF[103X[23X,\          \forall          \omega\in\Omega:\          a_{\omega}\in
         C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
@@ -212,7 +212,7 @@
         [33X[0;6YThe    argument    of    this    method    is   a   local   action   [3XF[103X
         [23X\le\mathrm{Aut}(B_{d,k})[123X.[133X
   
-  [8Xfor the arguments [3Xl[103X[8X, [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X[108X
+  [8Xfor the arguments [3Xl[103X[8X, [3XF[103X[8X[108X
         [33X[0;6YReturns:                           the                           group
         [23X\Phi^{l}([123X[3XF[103X[23X)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}([123X[3XF[103X[23X)\le\mathrm{Aut}(B_{d,l})[123X.[133X
   
@@ -294,7 +294,7 @@
         a  permutation group [3XF[103X [23X\le S_{d}[123X and a partition [3XP[103X of [10X[1..d][110X preserved
         by [3XF[103X.[133X
   
-  [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X, [3XP[103X[8X[108X
+  [8Xfor the arguments [3XF[103X[8X, [3XP[103X[8X[108X
         [33X[0;6YReturns:                           the                           group
         [23X\Phi_{k}([123X[3XF[103X[23X,[123X[3XP[103X[23X)=\{(\alpha,(\alpha_{\omega})_{\omega})\mid  \alpha\in [3XF[103X,\
         \alpha_{\omega}\in      C_{F}(\alpha,\omega)[123X      constant      w.r.t.
@@ -496,7 +496,7 @@
         [2XInvolutiveCompatibilityCocycle[102X ([14X???InvolutiveCompatibilityCocycle???[114X))
         and can be used in the method [2XSIGMA[102X ([14X4.5-2[114X).[133X
   
-  [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X, [3Xz[103X[8X[108X
+  [8Xfor the arguments [3XF[103X[8X, [3Xz[103X[8X[108X
         [33X[0;6YReturns:            the            list           of           kernels
         [23XK\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})[123X   that  are
         normalized  by  [23X\Gamma_{z}([123X[3XF[103X[23X)[123X  and  such  that  for  all  [23Xk\in  K[123X  and
@@ -538,7 +538,7 @@
         subgroup   [3XF[103X   of   [23XS_{d}[123X  and  a  compatible  kernel  [3XK[103X  for  [3XF[103X  (see
         [2XCompatibleKernels[102X ([14X4.5-1[114X)).[133X
   
-  [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3XF[103X[8X, [3XK[103X[8X, [3Xz[103X[8X[108X
+  [8Xfor the arguments [3XF[103X[8X, [3XK[103X[8X, [3Xz[103X[8X[108X
         [33X[0;6YReturns:              the              semidirect              product
         [23X\Sigma_{z}([123X[3XF[103X[23X,[123X[3XK[103X[23X)\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
   

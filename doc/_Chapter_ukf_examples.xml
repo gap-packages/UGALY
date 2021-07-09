@@ -107,7 +107,7 @@ gap> gamma(3,1,(1,2),z3);
 <P/>
 		The arguments of this method are a radius <A>l</A> <Math>\in\mathbb{N}</Math>, a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, and a subgroup <A>F</A> of <Math>S_d</Math>.
 	</Item>
-	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>z</A></Mark>
+	<Mark>for the arguments <A>F</A>, <A>z</A></Mark>
 	<Item>
 		Returns: the group <Math>\Gamma_{z}(</Math><A>F</A><Math>)=\{(a,(</Math><A>z</A><Math>(a,\omega))_{\omega\in\Omega})\mid a\in</Math><A>F</A><Math>\}\le\mathrm{Aut}(B_{d,k+1})</Math>.
 <P/>
@@ -221,13 +221,13 @@ gap> Index(DELTA(5,F,F1),DELTA(5,F,C));
   <Oper Arg="l,F" Name="PHI" Label="for l, F"/>
  <Description>
  <List>
-	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A></Mark>
+	<Mark>for the argument <A>F</A></Mark>
 	<Item>
 		Returns: the group <Math>\Phi_{k}(</Math><A>F</A><Math>)=\{(a,(a_{\omega})_{\omega})\mid a\in </Math><A>F</A><Math>,\ \forall \omega\in\Omega:\ a_{\omega}\in C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})</Math>.
 <P/>
 		The argument of this method is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math>.
 	</Item>
-	<Mark>for the arguments <A>l</A>, <A>d</A>, <A>k</A>, <A>F</A></Mark>
+	<Mark>for the arguments <A>l</A>, <A>F</A></Mark>
 	<Item> 
 		Returns: the group <Math>\Phi^{l}(</Math><A>F</A><Math>)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}(</Math><A>F</A><Math>)\le\mathrm{Aut}(B_{d,l})</Math>.
 <P/>
@@ -322,7 +322,7 @@ true
 <P/>
 		The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math> and a permutation group <A>F</A> <Math>\le S_{d}</Math> and a partition <A>P</A> of <C>[1..d]</C> preserved by <A>F</A>.
 	</Item>
-	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>P</A></Mark>
+	<Mark>for the arguments <A>F</A>, <A>P</A></Mark>
 	<Item>
 		Returns: the group <Math>\Phi_{k}(</Math><A>F</A><Math>,</Math><A>P</A><Math>)=\{(\alpha,(\alpha_{\omega})_{\omega})\mid \alpha\in <A>F</A>,\ \alpha_{\omega}\in C_{F}(\alpha,\omega)</Math> constant w.r.t. <A>P</A><Math>\}\le\mathrm{Aut}(B_{d,k+1})</Math>.
 <P/>
@@ -541,7 +541,7 @@ gap> Index(PHI(3,F),last);
 <P/>
 		The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, and a permutation group <A>F</A> <Math>\le S_{d}</Math>. The kernels output by this method are compatible with <A>F</A> with respect to the standard cocycle (see <Ref Attr="InvolutiveCompatibilityCocycle"/>) and can be used in the method <Ref Oper="SIGMA"/>.
 	</Item>
-	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>z</A></Mark>
+	<Mark>for the arguments <A>F</A>, <A>z</A></Mark>
 	<Item>
 		Returns: the list of kernels <Math>K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})</Math> that are normalized by <Math>\Gamma_{z}(</Math><A>F</A><Math>)</Math> and such that for all <Math>k\in K</Math> and <Math>\omega\in\Omega</Math> there is <Math>k_{\omega}\in K</Math> with <Math>\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}</Math>.
 <P/>
@@ -586,7 +586,7 @@ gap> z:=InvolutiveCompatibilityCocycle(F);;
 <P/>
 		The arguments of this method are a degree <A>d</A> <Math>\in\mathbb{N}_{\ge 3}</Math>, a subgroup <A>F</A> of <Math>S_{d}</Math> and a compatible kernel <A>K</A> for <A>F</A> (see <Ref Oper="CompatibleKernels"/>).
 	</Item>
-	<Mark>for the arguments <A>d</A>, <A>k</A>, <A>F</A>, <A>K</A>, <A>z</A></Mark>
+	<Mark>for the arguments <A>F</A>, <A>K</A>, <A>z</A></Mark>
 	<Item>
 		Returns: the semidirect product <Math>\Sigma_{z}(</Math><A>F</A><Math>,</Math><A>K</A><Math>)\le\mathrm{Aut}(B_{d,k+1})</Math>.
 <P/>

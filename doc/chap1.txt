@@ -85,18 +85,70 @@
   universal  groups  are  exactly  the closed, locally transitive subgroups of
   [23X\mathrm{Aut}(T_{d})[123X  that contain an inversion of order [23X2[123X and satisfy one of
   the  independence  properties  [23X(P_{k})[123X  (see  [BEW15]) that generalise Tits'
-  independence property [23X(P)[123X, see [Tit70]. [5XUGALY[105X provides the means to generate
-  a  library  of  all  these  groups  in terms of their [23Xk[123X-local action, and we
+  independence  property [23X(P)[123X, see [Tit70]. Subgroups [23XF\le\mathrm{Aut}(B_{d,k})[123X
+  are  treated  as objects of the category [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)
+  to  the  effect  that  they  remember  the degree [23Xd[123X the radius [23Xk[123X of the tree
+  [23XB_{d,k}[123X  that  they  act on as a permutation group on its [23Xd\times(d-1)^{k-1}[123X
+  leaves.  For  example,  the automorphism group of [23XB_{3,2}[123X can be accessed as
+  follows.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=AutBall(3,2);[127X[104X
+    [4X[28XGroup([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])[128X[104X
+    [4X[25Xgap>[125X [27XIsLocalAction(F);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLocalActionDegree(F);[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XLocalActionRadius(F);[127X[104X
+    [4X[28X2[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIn  general, a subgroup [23XF[123X of the permutation group [23X\mathrm{Aut}(B_{d,k})[123X can
+  be turned into an object of the category [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)
+  by  calling  the  creator operation [2XLocalAction[102X ([14X???LocalAction???[114X) with the
+  degree  [23Xd[123X, the radius [23Xk[123X and the permutation group [23XF[123X itself. For example, the
+  subgroup   [23XA_{3}\le\mathrm{Aut}(B_{3,1})\cong  S_{3}[123X  can  be  generated  as
+  follows.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XA3:=LocalAction(3,1,AlternatingGroup(3));[127X[104X
+    [4X[28XAlt( [ 1 .. 3 ] )[128X[104X
+    [4X[25Xgap>[125X [27XIsLocalAction(A3);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLocalActionDegree(A3);[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XLocalActionRadius(A3);[127X[104X
+    [4X[28X1[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Y[5XUGALY[105X  provides the means to generate a library of all generalised universal
+  groups    [23X\mathrm{U}_{k}(F)[123X    in    terms    of    their   [23Xk[123X-local   action
+  [23XF\le\mathrm{Aut}(B_{d,k})[123X  satisfying  the  compatibility  condition (C). We
   envision  to  add such a library in a future version of this package. In the
-  case  [23Xk=1[123X of classical Burger-Mozes groups, it coincides with the library of
-  finite transitive permutation groups [5XTransGrp[105X. As another example, we obtain
-  the following six groups for [23X(d,k)=(3,2)[123X.[133X
+  case  [23Xk=1[123X  of classical Burger-Mozes groups, the compatibility condition (C)
+  is  void  and  so  the  library  would  coincide  with the library of finite
+  transitive permutation groups [5XTransGrp[105X. For example, in the case [23X(d,k)=(3,1)[123X
+  there  are  only  two  local  actions,  corresponding  to the two transitive
+  permutation groups of degree [23X3[123X, namely [23XA_{3}[123X and [23XS_{3}[123X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XA3:=LocalAction(3,1,TransitiveGroup(3,1));[127X[104X
     [4X[28XA3[128X[104X
     [4X[25Xgap>[125X [27XS3:=LocalAction(3,1,TransitiveGroup(3,2));[127X[104X
     [4X[28XS3[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YTo  create  this  library for the case [23X(d,k)=(3,2)[123X we organise the subgroups
+  [23XF\le\mathrm{Aut}(B_{3,2})[123X  that  satisfy  the  compatibility  condition  (C)
+  according  to  which subgroup of [23X\mathrm{Aut}(B_{3,1})[123X they project to under
+  the  natural  projection [23X\mathrm{Aut}(B_{3,2})\to\mathrm{Aut}(B_{3,1})[123X which
+  restricts  automorphisms  to  [23XB_{3,1}\subseteq  B_{3,2}[123X.  In other words, we
+  organise the subgroups [23XF\le\mathrm{Aut}(B_{3,2})[123X satisfying (C) according to
+  [23X\sigma_{1}(F,b)\le\mathrm{Aut}(B_{3,1})[123X.  As the following code illustrates,
+  there  is  one  group that projects to [23XA_{3}[123X and five groups that project to
+  [23XS_{3}[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XA3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);[127X[104X
     [4X[28X[ Group([ (1,4,5)(2,3,6) ]) ][128X[104X
     [4X[25Xgap>[125X [27XS3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);[127X[104X
@@ -107,9 +159,15 @@
     [4X[28X  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ][128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThese groups have been identified to stem from certain general constructions
-  much  like  there  are  families  of  finite  transitive groups. See Chapter
-  [14X???Chapter_ukf_examples???[114X for the functions appearing below.[133X
+  [33X[0;0YAll  of these groups have been identified to stem from general constructions
+  of  groups [23X\widetilde{F}\le\mathrm{Aut}(B_{d,2})[123X satisfying (C) from a given
+  group  [23XF\le\mathrm{Aut}(B_{d,1})[123X,  much  like  some finite transitive groups
+  have   been   organised   into  families.  Specifically,  the  constructions
+  [23X\Gamma(F)[123X,  [23X\Delta(F)[123X,  [23X\Pi(F,\rho,X)[123X  and [23X\Phi(F)[123X introduced in the article
+  [Tor20,  Section 3.4] can be accessed via the [5XUGALY[105X functions [2XGAMMA[102X ([14X4.1-2[114X),
+  [2XDELTA[102X  ([14X4.1-3[114X),  [2XPI[102X ([14X4.4-4[114X) and [2XPHI[102X ([14X???PHI???[114X) respectively, see Chapter [14X4[114X.
+  Below,  we  use  these  functions to identity all six groups of the previous
+  output.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XPHI(A3)=A3_extn[1];[127X[104X
@@ -130,7 +188,7 @@
   [4X[32X[104X
   
   [33X[0;0Y[5XUGALY[105X  may  also  be  a  useful  tool in the context of the Weiss conjecture
-  [Wei78]  which  in  particular  states  that  there  are  only finitely many
+  [Wei78],  which  in  particular  states  that  there  are only finitely many
   conjugacy  classes  of  discrete,  vertex-transitive  and  locally primitive
   subgroup  of [23X\mathrm{Aut}(T_{d})[123X. When such a group contains an inversion of
   order  [23X2[123X,  it  can  be written as a universal group [23X\mathrm{U}_{k}(F)[123X, where
@@ -140,11 +198,23 @@
   Weiss  conjecture.  Their  structure as well as patterns in their appearance
   may  provide  more  insight  into  the  conjecture and suggest directions of
   research.  At  the very least, [5XUGALY[105X provides lower bounds on their numbers.
-  For example ([23Xd=4[123X):[133X
+  For example, consider the case [23Xd=4[123X. There are two primitive groups of degree
+  [23X4[123X,  namely  [23XA_{4}[123X  and  [23XS_{4}[123X,  which  we  readily  turn into objects of the
+  category [2XIsLocalAction[102X ([14X???IsLocalAction???[114X).[133X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNrPrimitiveGroups(4);[127X[104X
+    [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27XA4:=LocalAction(4,1,PrimitiveGroup(4,1));;[127X[104X
     [4X[25Xgap>[125X [27XS4:=LocalAction(4,1,PrimitiveGroup(4,2));;[127X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNext,  we  proceed  as  before  to  determine  how many conjugacy classes of
+  subgroups  of  [23X\mathrm{Aut}(B_{4,2})[123X  with  (C)  there are that project onto
+  [23XA_{4}[123X  and [23XS_{4}[123X respectively. We then filter the output for subgroups that,
+  in addition, satisfy the discreteness condition (D).[133X
+  
+  [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XA4_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A4);;[127X[104X
     [4X[25Xgap>[125X [27XSize(A4_extn); Size(Filtered(A4_extn,SatisfiesD));[127X[104X
     [4X[28X5[128X[104X
@@ -155,6 +225,11 @@
     [4X[28X3[128X[104X
   [4X[32X[104X
   
+  [33X[0;0YFor  [23XA_{4}[123X  there  are  two, and for [23XS_{4}[123X there are three. We conclude that
+  there  are  at  least [23X5=2+3[123X conjugacy classes of discrete, vertex-transitive
+  and  locally  primitive subgroups of [23X\mathrm{Aut}(T_{4})[123X. More examples, and
+  hence a better lower bound, can be obtained by increasing [23Xk[123X.[133X
+  
   [33X[0;0YEvery   subgroup   [23XF\le\mathrm{Aut}(B_{d,k})[123X   which   satisfies   both  the
   compatibility  condition  (C)  and  the discreteness condition (D) admits an
   involutive  compatibility  cocycle  (see [Tor20, Section 3.2.2]), i.e. a map
@@ -162,13 +237,23 @@
   the  discreteness of the group [23X\mathrm{U}_{k}(F)[123X. It is intriguing that some
   groups  [23XF\le\mathrm{Aut}(B_{d,k})[123X  with  these  properties  stem from groups
   [23XF'\le\mathrm{Aut}(B_{d,k-1})[123X   that   satisfy   (C),   admit  an  involutive
-  compatibility  cocycle  [23Xz[123X  but  do  not  satisfy  (D),  in  the  sense  that
-  [23XF=\Gamma_{z}(F')[123X (see [Tor20, Proposition 3.26]), whereas others do not. For
-  example,  in  the case [23Xd=3[123X, five of the seven conjugacy classes of discrete,
-  vertex-transitive  and  locally  primitive  subgroups of [23X\mathrm{Aut}(T_{3})[123X
-  come  from  generalised  universal  groups.  Of these five, three arise from
-  groups  [23XF'[123X  as  above  while  the  remaining two do not, see [Tor20, Example
-  4.39].[133X
+  compatibility  cocycle  [23Xz[123X  but  do  not  satisfy  (D),  in  the sense of the
+  construction  [23XF=\Gamma_{z}(F')[123X  (see  [Tor20,  Proposition  3.26]),  whereas
+  others  do  not.  For  example, in the case [23Xd=3[123X, five of the seven conjugacy
+  classes  of  discrete,  vertex-transitive and locally primitive subgroups of
+  [23X\mathrm{Aut}(T_{3})[123X  come  from generalised universal groups. Of these five,
+  three  arise  from  groups  [23XF'[123X  as above while the remaining two do not, see
+  [Tor20,  Example 4.39]. The three groups are [23X\Gamma(A_{3})[123X and [23X\Gamma(S_{3})[123X
+  and   [23X\Gamma_{z}(\Pi(S_{3},\mathrm{sgn},\{1\}))[123X.   The  code  example  below
+  verifies      that     [23X\Pi(S_{3},\mathrm{sgn},\{1\})\le\mathrm{Aut}(B_{3,2})[123X
+  satisfies  (C),  does not satisfy (D) but admits an involutive compatibility
+  cocycle  [23Xz[123X.  We then find that there are four conjugacy classes of subgroups
+  of    [23X\mathrm{Aut}(B_{3,3})[123X    that    satisfy    (C)   and   project   onto
+  [23X\mathrm{Aut}(B_{3,2})[123X      under      the     natural     projection     map
+  [23X\mathrm{Aut}(B_{3,3})\to\mathrm{Aut}(B_{3,2})[123X.  Of  these  four  groups, two
+  also      satisy      (D)     and     one     of     is     conjugate     to
+  [23X\Gamma_{z}(\Pi(S_{3},\mathrm{sgn},\{1\}))[123X,   as   constructed   using  [2XGAMMA[102X
+  ([14X4.1-2[114X).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS3:=SymmetricGroup(3);;[127X[104X
@@ -185,9 +270,12 @@
     [4X[28X1[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThe  number  of  different  involutive  compatibility  cocycles that a group
+  [33X[0;0YThe  number  of  different  (involutive) compatibility cocycles that a group
   [23XF\le\mathrm{Aut}(B_{d,k})[123X  may  admit  is  also mysterious, including in the
-  case [23Xk=1[123X.[133X
+  case  [23Xk=1[123X. For example, consider the case [23X(d,k)=(4,1)[123X. We compute the set of
+  all  involutive  compatibility cocycles of a local action using the function
+  [2XAllInvolutiveCompatibilityCocycles[102X
+  ([14X???AllInvolutiveCompatibilityCocycles???[114X):[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xgrps:=AllTransitiveGroups(NrMovedPoints,4);[127X[104X

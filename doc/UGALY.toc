@@ -1,61 +1,61 @@
 \contentsline {chapter}{\numberline {1}\textcolor {Chapter }{Introduction}}{4}{chapter.1}%
 \contentsline {section}{\numberline {1.1}\textcolor {Chapter }{Purpose}}{5}{section.1.1}%
-\contentsline {chapter}{\numberline {2}\textcolor {Chapter }{Preliminaries}}{8}{chapter.2}%
-\contentsline {section}{\numberline {2.1}\textcolor {Chapter }{Local actions}}{8}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}\textcolor {Chapter }{IsLocalAction (for IsPermGroup)}}{8}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}\textcolor {Chapter }{LocalAction (for IsInt, IsInt, IsPermGroup)}}{9}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}\textcolor {Chapter }{LocalActionNC (for IsInt, IsInt, IsPermGroup)}}{9}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}\textcolor {Chapter }{LocalActionDegree (for IsLocalAction)}}{9}{subsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.1.5}\textcolor {Chapter }{LocalActionRadius (for IsLocalAction)}}{9}{subsection.2.1.5}%
-\contentsline {subsection}{\numberline {2.1.6}\textcolor {Chapter }{LocalAction (for r, d, k, aut, addr)}}{10}{subsection.2.1.6}%
-\contentsline {subsection}{\numberline {2.1.7}\textcolor {Chapter }{Projection (for F, r)}}{10}{subsection.2.1.7}%
-\contentsline {subsection}{\numberline {2.1.8}\textcolor {Chapter }{ImageOfProjection}}{10}{subsection.2.1.8}%
-\contentsline {section}{\numberline {2.2}\textcolor {Chapter }{Finite balls}}{11}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}\textcolor {Chapter }{AutBall}}{11}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}\textcolor {Chapter }{Addresses and leaves}}{11}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}\textcolor {Chapter }{BallAddresses}}{11}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}\textcolor {Chapter }{LeafAddresses}}{12}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}\textcolor {Chapter }{AddressOfLeaf}}{12}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}\textcolor {Chapter }{LeafOfAddress}}{12}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}\textcolor {Chapter }{ImageAddress}}{12}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}\textcolor {Chapter }{ComposeAddresses}}{13}{subsection.2.3.6}%
-\contentsline {chapter}{\numberline {3}\textcolor {Chapter }{Compatibility}}{14}{chapter.3}%
-\contentsline {section}{\numberline {3.1}\textcolor {Chapter }{The compatibility condition (C)}}{14}{section.3.1}%
-\contentsline {section}{\numberline {3.2}\textcolor {Chapter }{Compatible elements}}{14}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}\textcolor {Chapter }{AreCompatibleBallElements}}{14}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}\textcolor {Chapter }{CompatibleBallElement}}{15}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}\textcolor {Chapter }{CompatibilitySet}}{15}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}\textcolor {Chapter }{AssembleAutomorphism}}{16}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}\textcolor {Chapter }{Compatible subgroups}}{16}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}\textcolor {Chapter }{MaximalCompatibleSubgroup (for IsLocalAction)}}{16}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}\textcolor {Chapter }{SatisfiesC (for IsLocalAction)}}{17}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}\textcolor {Chapter }{CompatibleSubgroups}}{17}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}\textcolor {Chapter }{ConjugacyClassRepsCompatibleSubgroups (for IsLocalAction)}}{17}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}\textcolor {Chapter }{ConjugacyClassRepsCompatibleGroupsWithProjection}}{18}{subsection.3.3.5}%
-\contentsline {chapter}{\numberline {4}\textcolor {Chapter }{Examples}}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}\textcolor {Chapter }{Discrete groups}}{19}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}\textcolor {Chapter }{gamma}}{19}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}\textcolor {Chapter }{GAMMA}}{20}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}\textcolor {Chapter }{DELTA}}{21}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}\textcolor {Chapter }{Maximal extensions}}{22}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}\textcolor {Chapter }{PHI}}{22}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}\textcolor {Chapter }{Normal subgroups and partitions}}{23}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}\textcolor {Chapter }{PHI}}{23}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}\textcolor {Chapter }{Abelian quotients}}{24}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}\textcolor {Chapter }{SignHomomorphism}}{25}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}\textcolor {Chapter }{AbelianizationHomomorphism}}{25}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}\textcolor {Chapter }{SpheresProduct}}{25}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}\textcolor {Chapter }{PI}}{26}{subsection.4.4.4}%
-\contentsline {section}{\numberline {4.5}\textcolor {Chapter }{Semidirect products}}{26}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}\textcolor {Chapter }{CompatibleKernels}}{26}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}\textcolor {Chapter }{SIGMA}}{27}{subsection.4.5.2}%
-\contentsline {chapter}{\numberline {5}\textcolor {Chapter }{Discreteness}}{29}{chapter.5}%
-\contentsline {section}{\numberline {5.1}\textcolor {Chapter }{The discreteness condition (D)}}{29}{section.5.1}%
-\contentsline {section}{\numberline {5.2}\textcolor {Chapter }{Discreteness}}{29}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}\textcolor {Chapter }{SatisfiesD (for IsLocalAction)}}{29}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}\textcolor {Chapter }{IsDiscrete (for IsLocalAction)}}{29}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}\textcolor {Chapter }{Cocycles}}{30}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}\textcolor {Chapter }{InvolutiveCompatibilityCocycle (for IsLocalAction)}}{30}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}\textcolor {Chapter }{AllInvolutiveCompatibilityCocycles (for IsLocalAction)}}{31}{subsection.5.3.2}%
-\contentsline {chapter}{References}{32}{chapter*.5}%
-\contentsline {chapter}{Index}{33}{section*.6}%
+\contentsline {chapter}{\numberline {2}\textcolor {Chapter }{Preliminaries}}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}\textcolor {Chapter }{Local actions}}{10}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}\textcolor {Chapter }{IsLocalAction (for IsPermGroup)}}{10}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}\textcolor {Chapter }{LocalAction (for IsInt, IsInt, IsPermGroup)}}{11}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}\textcolor {Chapter }{LocalActionNC (for IsInt, IsInt, IsPermGroup)}}{11}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}\textcolor {Chapter }{LocalActionDegree (for IsLocalAction)}}{11}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}\textcolor {Chapter }{LocalActionRadius (for IsLocalAction)}}{11}{subsection.2.1.5}%
+\contentsline {subsection}{\numberline {2.1.6}\textcolor {Chapter }{LocalAction (for r, d, k, aut, addr)}}{12}{subsection.2.1.6}%
+\contentsline {subsection}{\numberline {2.1.7}\textcolor {Chapter }{Projection (for F, r)}}{12}{subsection.2.1.7}%
+\contentsline {subsection}{\numberline {2.1.8}\textcolor {Chapter }{ImageOfProjection}}{12}{subsection.2.1.8}%
+\contentsline {section}{\numberline {2.2}\textcolor {Chapter }{Finite balls}}{13}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}\textcolor {Chapter }{AutBall}}{13}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}\textcolor {Chapter }{Addresses and leaves}}{13}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}\textcolor {Chapter }{BallAddresses}}{13}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}\textcolor {Chapter }{LeafAddresses}}{14}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}\textcolor {Chapter }{AddressOfLeaf}}{14}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}\textcolor {Chapter }{LeafOfAddress}}{14}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}\textcolor {Chapter }{ImageAddress}}{14}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}\textcolor {Chapter }{ComposeAddresses}}{15}{subsection.2.3.6}%
+\contentsline {chapter}{\numberline {3}\textcolor {Chapter }{Compatibility}}{16}{chapter.3}%
+\contentsline {section}{\numberline {3.1}\textcolor {Chapter }{The compatibility condition (C)}}{16}{section.3.1}%
+\contentsline {section}{\numberline {3.2}\textcolor {Chapter }{Compatible elements}}{16}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}\textcolor {Chapter }{AreCompatibleBallElements}}{16}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}\textcolor {Chapter }{CompatibleBallElement}}{17}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}\textcolor {Chapter }{CompatibilitySet}}{17}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}\textcolor {Chapter }{AssembleAutomorphism}}{18}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}\textcolor {Chapter }{Compatible subgroups}}{18}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}\textcolor {Chapter }{MaximalCompatibleSubgroup (for IsLocalAction)}}{18}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}\textcolor {Chapter }{SatisfiesC (for IsLocalAction)}}{19}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}\textcolor {Chapter }{CompatibleSubgroups}}{19}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}\textcolor {Chapter }{ConjugacyClassRepsCompatibleSubgroups (for IsLocalAction)}}{19}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}\textcolor {Chapter }{ConjugacyClassRepsCompatibleGroupsWithProjection}}{20}{subsection.3.3.5}%
+\contentsline {chapter}{\numberline {4}\textcolor {Chapter }{Examples}}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}\textcolor {Chapter }{Discrete groups}}{21}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}\textcolor {Chapter }{gamma}}{21}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}\textcolor {Chapter }{GAMMA}}{22}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}\textcolor {Chapter }{DELTA}}{23}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}\textcolor {Chapter }{Maximal extensions}}{24}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}\textcolor {Chapter }{PHI}}{24}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}\textcolor {Chapter }{Normal subgroups and partitions}}{25}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}\textcolor {Chapter }{PHI}}{25}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}\textcolor {Chapter }{Abelian quotients}}{26}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}\textcolor {Chapter }{SignHomomorphism}}{27}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}\textcolor {Chapter }{AbelianizationHomomorphism}}{27}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}\textcolor {Chapter }{SpheresProduct}}{27}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}\textcolor {Chapter }{PI}}{28}{subsection.4.4.4}%
+\contentsline {section}{\numberline {4.5}\textcolor {Chapter }{Semidirect products}}{28}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}\textcolor {Chapter }{CompatibleKernels}}{28}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}\textcolor {Chapter }{SIGMA}}{29}{subsection.4.5.2}%
+\contentsline {chapter}{\numberline {5}\textcolor {Chapter }{Discreteness}}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}\textcolor {Chapter }{The discreteness condition (D)}}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}\textcolor {Chapter }{Discreteness}}{31}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}\textcolor {Chapter }{SatisfiesD (for IsLocalAction)}}{31}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}\textcolor {Chapter }{IsDiscrete (for IsLocalAction)}}{31}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}\textcolor {Chapter }{Cocycles}}{32}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}\textcolor {Chapter }{InvolutiveCompatibilityCocycle (for IsLocalAction)}}{32}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}\textcolor {Chapter }{AllInvolutiveCompatibilityCocycles (for IsLocalAction)}}{33}{subsection.5.3.2}%
+\contentsline {chapter}{References}{34}{chapter*.5}%
+\contentsline {chapter}{Index}{35}{section*.6}%
