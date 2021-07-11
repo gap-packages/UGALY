@@ -95,7 +95,7 @@
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 #! @EndExampleSession
 
-#! All of these groups have been identified to stem from general constructions of groups $\widetilde{F}\le\mathrm{Aut}(B_{d,2})$ satisfying (C) from a given group $F\le\mathrm{Aut}(B_{d,1})$, much like some finite transitive groups have been organised into families. Specifically, the constructions $\Gamma(F)$, $\Delta(F)$, $\Pi(F,\rho,X)$ and $\Phi(F)$ introduced in the article <Cite Key="Tor20" Where="Section 3.4"/> can be accessed via the <Package>UGALY</Package> functions <Ref Func="GAMMA"/>, <Ref Func="DELTA"/>, <Ref Func="PI"/> and <Ref Func="PHI"/> respectively, see Chapter <Ref Chap="Chapter_ukf_examples"/>. Below, we use these functions to identity all six groups of the previous output.
+#! All of these groups have been identified to stem from general constructions of groups $\widetilde{F}\le\mathrm{Aut}(B_{d,2})$ satisfying (C) from a given group $F\le\mathrm{Aut}(B_{d,1})$, much like some finite transitive groups have been organised into families. Specifically, the constructions $\Gamma(F)$, $\Delta(F)$, $\Pi(F,\rho,X)$ and $\Phi(F)$ introduced in the article <Cite Key="Tor20" Where="Section 3.4"/> can be accessed via the <Package>UGALY</Package> functions <Ref Func="GAMMA"/>, <Ref Func="DELTA"/>, <Ref Func="PI"/> and <Ref Func="PHI1"/> respectively, see Chapter <Ref Chap="Chapter_ukf_examples"/>. Below, we use these functions to identity all six groups of the previous output.
 
 #!
 #! @BeginExampleSession

@@ -71,7 +71,7 @@ gap> S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
 ]]></Example>
 
 
- All of these groups have been identified to stem from general constructions of groups <Math>\widetilde{F}\le\mathrm{Aut}(B_{d,2})</Math> satisfying (C) from a given group <Math>F\le\mathrm{Aut}(B_{d,1})</Math>, much like some finite transitive groups have been organised into families. Specifically, the constructions <Math>\Gamma(F)</Math>, <Math>\Delta(F)</Math>, <Math>\Pi(F,\rho,X)</Math> and <Math>\Phi(F)</Math> introduced in the article <Cite Key="Tor20" Where="Section 3.4"/> can be accessed via the <Package>UGALY</Package> functions <Ref Func="GAMMA"/>, <Ref Func="DELTA"/>, <Ref Func="PI"/> and <Ref Func="PHI"/> respectively, see Chapter <Ref Chap="Chapter_ukf_examples"/>. Below, we use these functions to identity all six groups of the previous output.
+ All of these groups have been identified to stem from general constructions of groups <Math>\widetilde{F}\le\mathrm{Aut}(B_{d,2})</Math> satisfying (C) from a given group <Math>F\le\mathrm{Aut}(B_{d,1})</Math>, much like some finite transitive groups have been organised into families. Specifically, the constructions <Math>\Gamma(F)</Math>, <Math>\Delta(F)</Math>, <Math>\Pi(F,\rho,X)</Math> and <Math>\Phi(F)</Math> introduced in the article <Cite Key="Tor20" Where="Section 3.4"/> can be accessed via the <Package>UGALY</Package> functions <Ref Func="GAMMA"/>, <Ref Func="DELTA"/>, <Ref Func="PI"/> and <Ref Func="PHI1"/> respectively, see Chapter <Ref Chap="Chapter_ukf_examples"/>. Below, we use these functions to identity all six groups of the previous output.
 <P/>
 <Example><![CDATA[
 gap> PHI(A3)=A3_extn[1];

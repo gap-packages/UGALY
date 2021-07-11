@@ -165,7 +165,7 @@
   have   been   organised   into  families.  Specifically,  the  constructions
   [23X\Gamma(F)[123X,  [23X\Delta(F)[123X,  [23X\Pi(F,\rho,X)[123X  and [23X\Phi(F)[123X introduced in the article
   [Tor20,  Section 3.4] can be accessed via the [5XUGALY[105X functions [2XGAMMA[102X ([14X4.1-2[114X),
-  [2XDELTA[102X  ([14X4.1-3[114X),  [2XPI[102X ([14X4.4-4[114X) and [2XPHI[102X ([14X???PHI???[114X) respectively, see Chapter [14X4[114X.
+  [2XDELTA[102X  ([14X4.1-3[114X),  [2XPI[102X  ([14X4.4-4[114X)  and  [2XPHI1[102X ([14X4.2-1[114X) respectively, see Chapter [14X4[114X.
   Below,  we  use  these  functions to identity all six groups of the previous
   output.[133X
   
