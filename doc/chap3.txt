@@ -162,7 +162,7 @@
             maximal compatible subgroup of [3XF[103X.[133X
   
   [33X[0;0YThe  argument of this attribute is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
-  (see [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
+  (see [2XIsLocalAction[102X ([14X2.1-1[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=LocalAction(3,1,Group((1,2)));[127X[104X
@@ -182,7 +182,7 @@
             otherwise.[133X
   
   [33X[0;0YThe  argument  of this property is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
-  (see [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
+  (see [2XIsLocalAction[102X ([14X2.1-1[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XD:=DELTA(3,SymmetricGroup(3));[127X[104X
@@ -199,11 +199,8 @@
   [33X[0;0YThe  argument  of  this method is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X.
   This  method  calls  [10XAllSubgroups[110X  on  [23XF[123X  and  is  therefore  slow.  Use for
   instructional     purposes    on    small    examples    only,    and    use
-  [2XConjugacyClassRepsCompatibleSubgroups[102X
-  ([14X???ConjugacyClassRepsCompatibleSubgroups???[114X)                             or
-  [2XConjugacyClassRepsCompatibleSubgroupsWithProjection[102X
-  ([14X???ConjugacyClassRepsCompatibleSubgroupsWithProjection???[114X)              for
-  computations.[133X
+  [2XConjugacyClassRepsCompatibleSubgroups[102X               ([14X3.3-4[114X)               or
+  [2XConjugacyClassRepsCompatibleGroupsWithProjection[102X ([14X3.3-5[114X) for computations.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XG:=GAMMA(3,SymmetricGroup(3));[127X[104X

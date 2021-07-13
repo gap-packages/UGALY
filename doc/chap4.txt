@@ -57,8 +57,7 @@
         radius  [3Xk[103X  [23X\in\mathbb{N}[123X,  an  automorphism  [3Xaut[103X  of  [23XB_{d,k}[123X,  and an
         involutive    compatibility    cocycle    [3Xz[103X    of    a   subgroup   of
         [23X\mathrm{Aut}(B_{d,k})[123X        that        contains       [3Xaut[103X       (see
-        [2XInvolutiveCompatibilityCocycle[102X
-        ([14X???InvolutiveCompatibilityCocycle???[114X)).[133X
+        [2XInvolutiveCompatibilityCocycle[102X ([14X5.3-1[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xgamma(3,(1,2));[127X[104X
@@ -116,8 +115,7 @@
   
         [33X[0;6YThe    arguments    of    this   method   are   a   local   action   [3XF[103X
         [23X\le\mathrm{Aut}(B_{d,k})[123X  and an involutive compatibility cocycle [3Xz[103X of
-        [3XF[103X                  (see                 [2XInvolutiveCompatibilityCocycle[102X
-        ([14X???InvolutiveCompatibilityCocycle???[114X)).[133X
+        [3XF[103X (see [2XInvolutiveCompatibilityCocycle[102X ([14X5.3-1[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=TransitiveGroup(4,3);;[127X[104X
@@ -493,8 +491,8 @@
         [33X[0;6YThe arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, and
         a permutation group [3XF[103X [23X\le S_{d}[123X. The kernels output by this method are
         compatible   with   [3XF[103X  with  respect  to  the  standard  cocycle  (see
-        [2XInvolutiveCompatibilityCocycle[102X ([14X???InvolutiveCompatibilityCocycle???[114X))
-        and can be used in the method [2XSIGMA[102X ([14X4.5-2[114X).[133X
+        [2XInvolutiveCompatibilityCocycle[102X  ([14X5.3-1[114X)) and can be used in the method
+        [2XSIGMA[102X ([14X4.5-2[114X).[133X
   
   [8Xfor the arguments [3XF[103X[8X, [3Xz[103X[8X[108X
         [33X[0;6YReturns:            the            list           of           kernels
@@ -506,8 +504,7 @@
         [33X[0;6YThe    arguments    of    this   method   are   a   local   action   [3XF[103X
         [23X\le\mathrm{Aut}(B_{d,k})[123X   that   satisfies   (C)  and  an  involutive
         compatibility  cocycle  [3Xz[103X  of  [3XF[103X  (see  [2XInvolutiveCompatibilityCocycle[102X
-        ([14X???InvolutiveCompatibilityCocycle???[114X)).  It can be used in the method
-        [2XSIGMA[102X ([14X4.5-2[114X).[133X
+        ([14X5.3-1[114X)). It can be used in the method [2XSIGMA[102X ([14X4.5-2[114X).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XCompatibleKernels(3,SymmetricGroup(3));[127X[104X
@@ -545,9 +542,8 @@
         [33X[0;6YThe   arguments   of   this   method   are   a   local   action  [3XF[103X  of
         [23X\mathrm{Aut}(B_{d,k})[123X  that  satisfies  (C)  and  a  kernel  [3XK[103X that is
         compatible  for [3XF[103X with respect to the involutive compatibility cocycle
-        [3Xz[103X                  (see                 [2XInvolutiveCompatibilityCocycle[102X
-        ([14X???InvolutiveCompatibilityCocycle???[114X)  and [2XCompatibleKernels[102X ([14X4.5-1[114X))
-        of [3XF[103X.[133X
+        [3Xz[103X  (see  [2XInvolutiveCompatibilityCocycle[102X  ([14X5.3-1[114X) and [2XCompatibleKernels[102X
+        ([14X4.5-1[114X)) of [3XF[103X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS3:=SymmetricGroup(3);;[127X[104X

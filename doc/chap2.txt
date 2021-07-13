@@ -28,10 +28,10 @@
   [1X2.1 [33X[0;0YLocal actions[133X[101X
   
   [33X[0;0YIn  this  package,  local  actions  [23XF\le\mathrm{Aut}(B_{d,k})[123X are handled as
-  objects of the category [2XIsLocalAction[102X ([14X???IsLocalAction???[114X) and have several
-  attributes   and   properties   introduced   throughout  this  manual.  Most
-  importantly,  a  local action always stores the degree [23Xd[123X and the radius [23Xk[123X of
-  the ball [23XB_{d,k}[123X that it acts on.[133X
+  objects  of  the  category [2XIsLocalAction[102X ([14X2.1-1[114X) and have several attributes
+  and  properties introduced throughout this manual. Most importantly, a local
+  action  always stores the degree [23Xd[123X and the radius [23Xk[123X of the ball [23XB_{d,k}[123X that
+  it acts on.[133X
   
   [1X2.1-1 IsLocalAction[101X
   
@@ -39,9 +39,8 @@
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YLocal  actions  [23XF\le\mathrm{Aut}(B_{d,k})[123X  are  stored  together  with their
-  degree   (see   [2XLocalActionDegree[102X  ([14X???LocalActionDegree???[114X)),  radius  (see
-  [2XLocalActionRadius[102X ([14X???LocalActionRadius???[114X)) as well as other attributes and
-  properties in this category.[133X
+  degree   (see  [2XLocalActionDegree[102X  ([14X2.1-4[114X)),  radius  (see  [2XLocalActionRadius[102X
+  ([14X2.1-5[114X)) as well as other attributes and properties in this category.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XG:=WreathProduct(SymmetricGroup(2),SymmetricGroup(3));[127X[104X
@@ -62,8 +61,8 @@
   
   [33X[1;0Y[29X[2XLocalAction[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ythe  regular  rooted  tree  group  [23XG[123X  as an object of the category
-            [2XIsLocalAction[102X  ([14X???IsLocalAction???[114X),  checking that [3XF[103X is indeed a
-            subgroup of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
+            [2XIsLocalAction[102X  ([14X2.1-1[114X),  checking  that  [3XF[103X is indeed a subgroup of
+            [23X\mathrm{Aut}(B_{d,k})[123X.[133X
   
   [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
   [3Xk[103X [23X\in\mathbb{N}_{0}[123X and a group [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X.[133X
@@ -82,8 +81,8 @@
   
   [33X[1;0Y[29X[2XLocalActionNC[102X( [3Xd[103X, [3Xk[103X, [3XF[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ythe  regular  rooted  tree  group  [23XG[123X  as an object of the category
-            [2XIsLocalAction[102X  ([14X???IsLocalAction???[114X),  without  checking that [3XF[103X is
-            indeed a subgroup of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
+            [2XIsLocalAction[102X  ([14X2.1-1[114X),  without  checking  that  [3XF[103X  is  indeed  a
+            subgroup of [23X\mathrm{Aut}(B_{d,k})[123X.[133X
   
   [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
   [3Xk[103X [23X\in\mathbb{N}_{0}[123X and a group [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X.[133X
@@ -94,7 +93,7 @@
   [6XReturns:[106X  [33X[0;10Ythe degree [3Xd[103X of the ball [23XB_{d,k}[123X that [23XF[123X is acting on.[133X
   
   [33X[0;0YThe  argument of this attribute is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
-  (see [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
+  (see [2XIsLocalAction[102X ([14X2.1-1[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=PHI(4,AlternatingGroup(4));[127X[104X
@@ -110,7 +109,7 @@
   [6XReturns:[106X  [33X[0;10Ythe radius [3Xk[103X of the ball [23XB_{d,k}[123X that [23XF[123X is acting on.[133X
   
   [33X[0;0YThe  argument of this attribute is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
-  (see [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
+  (see [2XIsLocalAction[102X ([14X2.1-1[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=PHI(4,AlternatingGroup(4));[127X[104X

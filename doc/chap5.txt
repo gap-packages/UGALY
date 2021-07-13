@@ -20,8 +20,7 @@
   inside  [23XB_{d,k}[123X.  In  other  words,  [23XF[123X  satisfies  (D)  if  and  only if the
   compatibility  set [23XC_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}[123X. We distinguish
   between [23XF[123X satisfying condition (D) and [23X\mathrm{U}_{k}(F)[123X being discrete with
-  the  methods [2XSatisfiesD[102X ([14X???SatisfiesD???[114X) and [2XIsDiscrete[102X ([14X???IsDiscrete???[114X)
-  below.[133X
+  the methods [2XSatisfiesD[102X ([14X5.2-1[114X) and [2XIsDiscrete[102X ([14X5.2-2[114X) below.[133X
   
   
   [1X5.2 [33X[0;0YDiscreteness[133X[101X
@@ -33,7 +32,7 @@
             otherwise.[133X
   
   [33X[0;0YThe  argument of this attribute is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
-  (see [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
+  (see [2XIsLocalAction[102X ([14X2.1-1[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XG:=GAMMA(3,SymmetricGroup(3));[127X[104X
@@ -48,7 +47,7 @@
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X if [23X\mathrm{U}_{k}(F)[123X is discrete, and [9Xfalse[109X otherwise.[133X
   
   [33X[0;0YThe  argument of this attribute is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
-  (see [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)).[133X
+  (see [2XIsLocalAction[102X ([14X2.1-1[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XG:=GAMMA(3,SymmetricGroup(3));[127X[104X
@@ -79,10 +78,8 @@
   satisfies  just (C), it may still admit an involutive compatibility cocycle.
   In  this  case,  F admits an extension [23X\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})[123X
   that  satisfies  both  (C) and (D). Involutive compatibility cocycles can be
-  searched          for          using          [2XInvolutiveCompatibilityCocycle[102X
-  ([14X???InvolutiveCompatibilityCocycle???[114X)                                   and
-  [2XAllInvolutiveCompatibilityCocycles[102X
-  ([14X???AllInvolutiveCompatibilityCocycles???[114X) below.[133X
+  searched    for    using    [2XInvolutiveCompatibilityCocycle[102X    ([14X5.3-1[114X)    and
+  [2XAllInvolutiveCompatibilityCocycles[102X ([14X5.3-2[114X) below.[133X
   
   [1X5.3-1 InvolutiveCompatibilityCocycle[101X
   
@@ -92,8 +89,7 @@
             otherwise. When [3Xk[103X [23X=1[123X, the standard cocycle is returned.[133X
   
   [33X[0;0YThe  argument of this attribute is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
-  (see   [2XIsLocalAction[102X   ([14X???IsLocalAction???[114X)),   which  is  compatible  (see
-  [2XSatisfiesC[102X ([14X???SatisfiesC???[114X)).[133X
+  (see [2XIsLocalAction[102X ([14X2.1-1[114X)), which is compatible (see [2XSatisfiesC[102X ([14X3.3-2[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=LocalAction(3,1,AlternatingGroup(3));;[127X[104X
@@ -125,8 +121,7 @@
   [6XReturns:[106X  [33X[0;10Ythe list of all involutive compatibility cocycles of [23XF[123X.[133X
   
   [33X[0;0YThe  argument of this attribute is a local action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X
-  (see   [2XIsLocalAction[102X   ([14X???IsLocalAction???[114X)),   which  is  compatible  (see
-  [2XSatisfiesC[102X ([14X???SatisfiesC???[114X)).[133X
+  (see [2XIsLocalAction[102X ([14X2.1-1[114X)), which is compatible (see [2XSatisfiesC[102X ([14X3.3-2[114X)).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS3:=LocalAction(3,1,SymmetricGroup(3));;[127X[104X

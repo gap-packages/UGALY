@@ -10,7 +10,7 @@
 <Heading>The discreteness condition (D)</Heading>
 
  Said proposition shows that for a given <Math>F\le \mathrm{Aut}(B_{d,k})</Math> the group <Math>\mathrm{U}_{k}(F)</Math> is discrete if and only if the maximal compatible subgroup <Math>C(F)</Math> of <Math>F</Math> satisfies condition (D): <Display>\forall \omega \in \Omega: F_{T_{\omega}}=\{\mathrm{id}\},</Display> where <Math>T_{\omega}</Math> is the <Math>k-1</Math>-neighbourhood of the the edge <Math>(b,b_{\omega})</Math> inside <Math>B_{d,k}</Math>. In other words, <Math>F</Math> satisfies (D) if and only if the compatibility set <Math>C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}</Math>.
- We distinguish between <Math>F</Math> satisfying condition (D) and <Math>\mathrm{U}_{k}(F)</Math> being discrete with the methods <Ref Prop="SatisfiesD"/> and <Ref Prop="IsDiscrete"/> below.
+ We distinguish between <Math>F</Math> satisfying condition (D) and <Math>\mathrm{U}_{k}(F)</Math> being discrete with the methods <Ref Prop="SatisfiesD" Label="for IsLocalAction"/> and <Ref Prop="IsDiscrete" Label="for IsLocalAction"/> below.
 </Section>
 
 
@@ -24,7 +24,7 @@
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>).
 <P/>
  </Description>
 </ManSection>
@@ -46,7 +46,7 @@ true
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>).
 <P/>
  </Description>
 </ManSection>
@@ -82,14 +82,14 @@ true
 <Section Label="Chapter_Discreteness_Section_Cocycles">
 <Heading>Cocycles</Heading>
 
- Subgroups <Math>F\le\mathrm{Aut}(B_{d,k})</Math> that satisfy both (C) and (D) admit an involutive compatibility cocycle, i.e. a map <Math>z:F\times\{1,\ldots,d\}\to F</Math> that satisfies certain properties, see <Cite Key="Tor20" Where="Section 3.2.2"/>. When <Math>F</Math> satisfies just (C), it may still admit an involutive compatibility cocycle. In this case, F admits an extension <Math>\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})</Math> that satisfies both (C) and (D). Involutive compatibility cocycles can be searched for using <Ref Attr="InvolutiveCompatibilityCocycle"/> and <Ref Attr="AllInvolutiveCompatibilityCocycles"/> below.
+ Subgroups <Math>F\le\mathrm{Aut}(B_{d,k})</Math> that satisfy both (C) and (D) admit an involutive compatibility cocycle, i.e. a map <Math>z:F\times\{1,\ldots,d\}\to F</Math> that satisfies certain properties, see <Cite Key="Tor20" Where="Section 3.2.2"/>. When <Math>F</Math> satisfies just (C), it may still admit an involutive compatibility cocycle. In this case, F admits an extension <Math>\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})</Math> that satisfies both (C) and (D). Involutive compatibility cocycles can be searched for using <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/> and <Ref Attr="AllInvolutiveCompatibilityCocycles" Label="for IsLocalAction"/> below.
 <ManSection>
   <Attr Arg="F" Name="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/>
  <Returns>an involutive compatibility cocycle of <A>F</A>, which is a mapping <A>F</A><Math>\times</Math><C>[1..d]</C><Math>\to</Math><A>F</A> with certain properties, if it exists, and <K>fail</K> otherwise. When <A>k</A> <Math>=1</Math>, the standard cocycle is returned. 
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>), which is compatible (see <Ref Prop="SatisfiesC"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>), which is compatible (see <Ref Prop="SatisfiesC" Label="for IsLocalAction"/>).
 <P/>
  </Description>
 </ManSection>
@@ -129,7 +129,7 @@ fail
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>), which is compatible (see <Ref Prop="SatisfiesC"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>), which is compatible (see <Ref Prop="SatisfiesC" Label="for IsLocalAction"/>).
 <P/>
  </Description>
 </ManSection>

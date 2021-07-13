@@ -10,13 +10,13 @@
 <Section Label="Chapter_Preliminaries_Section_Local_actions">
 <Heading>Local actions</Heading>
 
- In this package, local actions <Math>F\le\mathrm{Aut}(B_{d,k})</Math> are handled as objects of the category <Ref Filt="IsLocalAction"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree <Math>d</Math> and the radius <Math>k</Math> of the ball <Math>B_{d,k}</Math> that it acts on.
+ In this package, local actions <Math>F\le\mathrm{Aut}(B_{d,k})</Math> are handled as objects of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree <Math>d</Math> and the radius <Math>k</Math> of the ball <Math>B_{d,k}</Math> that it acts on.
 <ManSection>
   <Filt Arg="arg" Name="IsLocalAction" Label="for IsPermGroup"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
- Local actions <Math>F\le\mathrm{Aut}(B_{d,k})</Math> are stored together with their degree (see <Ref Attr="LocalActionDegree"/>), radius (see <Ref Attr="LocalActionRadius"/>) as well as other attributes and properties in this category.
+ Local actions <Math>F\le\mathrm{Aut}(B_{d,k})</Math> are stored together with their degree (see <Ref Attr="LocalActionDegree" Label="for IsLocalAction"/>), radius (see <Ref Attr="LocalActionRadius" Label="for IsLocalAction"/>) as well as other attributes and properties in this category.
 <P/>
  </Description>
 </ManSection>
@@ -41,7 +41,7 @@ true
 
 <ManSection>
   <Oper Arg="d,k,F" Name="LocalAction" Label="for IsInt, IsInt, IsPermGroup"/>
- <Returns> the regular rooted tree group <Math>G</Math> as an object of the category <Ref Filt="IsLocalAction"/>, checking that <A>F</A> is indeed a subgroup of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+ <Returns> the regular rooted tree group <Math>G</Math> as an object of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>, checking that <A>F</A> is indeed a subgroup of <Math>\mathrm{Aut}(B_{d,k})</Math>.
  
  
 </Returns>
@@ -66,7 +66,7 @@ gap> IsLocalAction(G);
 
 <ManSection>
   <Oper Arg="d,k,F" Name="LocalActionNC" Label="for IsInt, IsInt, IsPermGroup"/>
- <Returns> the regular rooted tree group <Math>G</Math> as an object of the category <Ref Filt="IsLocalAction"/>, without checking that <A>F</A> is indeed a subgroup of <Math>\mathrm{Aut}(B_{d,k})</Math>.
+ <Returns> the regular rooted tree group <Math>G</Math> as an object of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>, without checking that <A>F</A> is indeed a subgroup of <Math>\mathrm{Aut}(B_{d,k})</Math>.
  
  
 </Returns>
@@ -84,7 +84,7 @@ gap> IsLocalAction(G);
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>).
 <P/>
  </Description>
 </ManSection>
@@ -107,7 +107,7 @@ gap> LocalActionDegree(F);
  
 </Returns>
  <Description>
- The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction"/>).
+ The argument of this attribute is a local action <A>F</A> <Math>\le\mathrm{Aut}(B_{d,k})</Math> (see <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>).
 <P/>
  </Description>
 </ManSection>

@@ -54,7 +54,7 @@
 
 <p class="center">\[\forall \omega \in \Omega: F_{T_{\omega}}=\{\mathrm{id}\},\]</p>
 
-<p>where <span class="SimpleMath">\(T_{\omega}\)</span> is the <span class="SimpleMath">\(k-1\)</span>-neighbourhood of the the edge <span class="SimpleMath">\((b,b_{\omega})\)</span> inside <span class="SimpleMath">\(B_{d,k}\)</span>. In other words, <span class="SimpleMath">\(F\)</span> satisfies (D) if and only if the compatibility set <span class="SimpleMath">\(C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}\)</span>. We distinguish between <span class="SimpleMath">\(F\)</span> satisfying condition (D) and <span class="SimpleMath">\(\mathrm{U}_{k}(F)\)</span> being discrete with the methods <code class="func">SatisfiesD</code> (<span class="RefLink">???</span>) and <code class="func">IsDiscrete</code> (<span class="RefLink">???</span>) below.</p>
+<p>where <span class="SimpleMath">\(T_{\omega}\)</span> is the <span class="SimpleMath">\(k-1\)</span>-neighbourhood of the the edge <span class="SimpleMath">\((b,b_{\omega})\)</span> inside <span class="SimpleMath">\(B_{d,k}\)</span>. In other words, <span class="SimpleMath">\(F\)</span> satisfies (D) if and only if the compatibility set <span class="SimpleMath">\(C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}\)</span>. We distinguish between <span class="SimpleMath">\(F\)</span> satisfying condition (D) and <span class="SimpleMath">\(\mathrm{U}_{k}(F)\)</span> being discrete with the methods <code class="func">SatisfiesD</code> (<a href="chap5_mj.html#X87A11A3E7BDC0549"><span class="RefLink">5.2-1</span></a>) and <code class="func">IsDiscrete</code> (<a href="chap5_mj.html#X7C2F10AC79AC7213"><span class="RefLink">5.2-2</span></a>) below.</p>
 
 <p><a id="X7875F15E81CDBD6C" name="X7875F15E81CDBD6C"></a></p>
 
@@ -67,7 +67,7 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SatisfiesD</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <var class="Arg">F</var> satisfies the discreteness condition (D), and <code class="keyw">false</code> otherwise.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (see <code class="func">IsLocalAction</code> (<a href="chap2_mj.html#X7FCF15167D3A44B7"><span class="RefLink">2.1-1</span></a>)).</p>
 
 
 <div class="example"><pre>
@@ -84,7 +84,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDiscrete</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <span class="SimpleMath">\(\mathrm{U}_{k}(F)\)</span> is discrete, and <code class="keyw">false</code> otherwise.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (see <code class="func">IsLocalAction</code> (<a href="chap2_mj.html#X7FCF15167D3A44B7"><span class="RefLink">2.1-1</span></a>)).</p>
 
 
 <div class="example"><pre>
@@ -112,7 +112,7 @@ true
 
 <h4>5.3 <span class="Heading">Cocycles</span></h4>
 
-<p>Subgroups <span class="SimpleMath">\(F\le\mathrm{Aut}(B_{d,k})\)</span> that satisfy both (C) and (D) admit an involutive compatibility cocycle, i.e. a map <span class="SimpleMath">\(z:F\times\{1,\ldots,d\}\to F\)</span> that satisfies certain properties, see <a href="chapBib_mj.html#biBTor20">[Tor20, Section 3.2.2]</a>. When <span class="SimpleMath">\(F\)</span> satisfies just (C), it may still admit an involutive compatibility cocycle. In this case, F admits an extension <span class="SimpleMath">\(\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})\)</span> that satisfies both (C) and (D). Involutive compatibility cocycles can be searched for using <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>) and <code class="func">AllInvolutiveCompatibilityCocycles</code> (<span class="RefLink">???</span>) below.</p>
+<p>Subgroups <span class="SimpleMath">\(F\le\mathrm{Aut}(B_{d,k})\)</span> that satisfy both (C) and (D) admit an involutive compatibility cocycle, i.e. a map <span class="SimpleMath">\(z:F\times\{1,\ldots,d\}\to F\)</span> that satisfies certain properties, see <a href="chapBib_mj.html#biBTor20">[Tor20, Section 3.2.2]</a>. When <span class="SimpleMath">\(F\)</span> satisfies just (C), it may still admit an involutive compatibility cocycle. In this case, F admits an extension <span class="SimpleMath">\(\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})\)</span> that satisfies both (C) and (D). Involutive compatibility cocycles can be searched for using <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5_mj.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>) and <code class="func">AllInvolutiveCompatibilityCocycles</code> (<a href="chap5_mj.html#X83A26CBF87AB1FD9"><span class="RefLink">5.3-2</span></a>) below.</p>
 
 <p><a id="X80ADE0E379590053" name="X80ADE0E379590053"></a></p>
 
@@ -121,7 +121,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InvolutiveCompatibilityCocycle</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: an involutive compatibility cocycle of <var class="Arg">F</var>, which is a mapping <var class="Arg">F</var><span class="SimpleMath">\(\times\)</span><code class="code">[1..d]</code><span class="SimpleMath">\(\to\)</span><var class="Arg">F</var> with certain properties, if it exists, and <code class="keyw">fail</code> otherwise. When <var class="Arg">k</var> <span class="SimpleMath">\(=1\)</span>, the standard cocycle is returned.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)), which is compatible (see <code class="func">SatisfiesC</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (see <code class="func">IsLocalAction</code> (<a href="chap2_mj.html#X7FCF15167D3A44B7"><span class="RefLink">2.1-1</span></a>)), which is compatible (see <code class="func">SatisfiesC</code> (<a href="chap3_mj.html#X8302F28A85F1C4FE"><span class="RefLink">3.3-2</span></a>)).</p>
 
 
 <div class="example"><pre>
@@ -156,7 +156,7 @@ fail
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AllInvolutiveCompatibilityCocycles</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: the list of all involutive compatibility cocycles of <span class="SimpleMath">\(F\)</span>.</p>
 
-<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (see <code class="func">IsLocalAction</code> (<span class="RefLink">???</span>)), which is compatible (see <code class="func">SatisfiesC</code> (<span class="RefLink">???</span>)).</p>
+<p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (see <code class="func">IsLocalAction</code> (<a href="chap2_mj.html#X7FCF15167D3A44B7"><span class="RefLink">2.1-1</span></a>)), which is compatible (see <code class="func">SatisfiesC</code> (<a href="chap3_mj.html#X8302F28A85F1C4FE"><span class="RefLink">3.3-2</span></a>)).</p>
 
 
 <div class="example"><pre>

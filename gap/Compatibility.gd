@@ -160,7 +160,7 @@ DeclareGlobalFunction( "AssembleAutomorphism" );
 #! Using the methods of Section <Ref Sect="Section_compatible_elements"/>, this section provides methods to test groups for the compatibility condition and search for compatible subgroups inside a given group, e.g. $\mathrm{Aut}(B_{d,k})$, or with a certain image under some projection.
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>).
 #!
 #! @Returns The local action $C($<A>F</A>$)\le\mathrm{Aut}(B_{d,k})$, which is the maximal compatible subgroup of <A>F</A>.
 #!
@@ -182,7 +182,7 @@ DeclareAttribute( "MaximalCompatibleSubgroup", IsLocalAction );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this property is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>).
+#! The argument of this property is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>).
 #!
 #! @Returns <K>true</K> if <A>F</A> satisfies the compatibility condition (C), and <K>false</K> otherwise.
 #!
@@ -200,7 +200,7 @@ DeclareProperty( "SatisfiesC" , IsLocalAction );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this method is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$. This method calls <C>AllSubgroups</C> on $F$ and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Attr="ConjugacyClassRepsCompatibleSubgroups"/> or <Ref Func="ConjugacyClassRepsCompatibleSubgroupsWithProjection"/> for computations.
+#! The argument of this method is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$. This method calls <C>AllSubgroups</C> on $F$ and is therefore slow. Use for instructional purposes on small examples only, and use <Ref Attr="ConjugacyClassRepsCompatibleSubgroups" Label="for IsLocalAction"/> or <Ref Func="ConjugacyClassRepsCompatibleGroupsWithProjection"/> for computations.
 #!
 #! @Returns the list of all compatible subgroups of <A>F</A>.
 #!

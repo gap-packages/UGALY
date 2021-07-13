@@ -86,11 +86,10 @@
   [23X\mathrm{Aut}(T_{d})[123X  that contain an inversion of order [23X2[123X and satisfy one of
   the  independence  properties  [23X(P_{k})[123X  (see  [BEW15]) that generalise Tits'
   independence  property [23X(P)[123X, see [Tit70]. Subgroups [23XF\le\mathrm{Aut}(B_{d,k})[123X
-  are  treated  as objects of the category [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)
-  to  the  effect  that  they  remember  the degree [23Xd[123X the radius [23Xk[123X of the tree
-  [23XB_{d,k}[123X  that  they  act on as a permutation group on its [23Xd\times(d-1)^{k-1}[123X
-  leaves.  For  example,  the automorphism group of [23XB_{3,2}[123X can be accessed as
-  follows.[133X
+  are  treated  as objects of the category [2XIsLocalAction[102X ([14X2.1-1[114X) to the effect
+  that  they  remember the degree [23Xd[123X the radius [23Xk[123X of the tree [23XB_{d,k}[123X that they
+  act on as a permutation group on its [23Xd\times(d-1)^{k-1}[123X leaves. For example,
+  the automorphism group of [23XB_{3,2}[123X can be accessed as follows.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XF:=AutBall(3,2);[127X[104X
@@ -104,11 +103,10 @@
   [4X[32X[104X
   
   [33X[0;0YIn  general, a subgroup [23XF[123X of the permutation group [23X\mathrm{Aut}(B_{d,k})[123X can
-  be turned into an object of the category [2XIsLocalAction[102X ([14X???IsLocalAction???[114X)
-  by  calling  the  creator operation [2XLocalAction[102X ([14X???LocalAction???[114X) with the
-  degree  [23Xd[123X, the radius [23Xk[123X and the permutation group [23XF[123X itself. For example, the
-  subgroup   [23XA_{3}\le\mathrm{Aut}(B_{3,1})\cong  S_{3}[123X  can  be  generated  as
-  follows.[133X
+  be  turned  into  an object of the category [2XIsLocalAction[102X ([14X2.1-1[114X) by calling
+  the  creator  operation  [2XLocalAction[102X ([14X2.1-6[114X) with the degree [23Xd[123X, the radius [23Xk[123X
+  and   the   permutation   group   [23XF[123X   itself.   For  example,  the  subgroup
+  [23XA_{3}\le\mathrm{Aut}(B_{3,1})\cong S_{3}[123X can be generated as follows.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XA3:=LocalAction(3,1,AlternatingGroup(3));[127X[104X
@@ -200,7 +198,7 @@
   research.  At  the very least, [5XUGALY[105X provides lower bounds on their numbers.
   For example, consider the case [23Xd=4[123X. There are two primitive groups of degree
   [23X4[123X,  namely  [23XA_{4}[123X  and  [23XS_{4}[123X,  which  we  readily  turn into objects of the
-  category [2XIsLocalAction[102X ([14X???IsLocalAction???[114X).[133X
+  category [2XIsLocalAction[102X ([14X2.1-1[114X).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XNrPrimitiveGroups(4);[127X[104X
@@ -274,8 +272,7 @@
   [23XF\le\mathrm{Aut}(B_{d,k})[123X  may  admit  is  also mysterious, including in the
   case  [23Xk=1[123X. For example, consider the case [23X(d,k)=(4,1)[123X. We compute the set of
   all  involutive  compatibility cocycles of a local action using the function
-  [2XAllInvolutiveCompatibilityCocycles[102X
-  ([14X???AllInvolutiveCompatibilityCocycles???[114X):[133X
+  [2XAllInvolutiveCompatibilityCocycles[102X ([14X5.3-2[114X):[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xgrps:=AllTransitiveGroups(NrMovedPoints,4);[127X[104X

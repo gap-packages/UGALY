@@ -41,7 +41,7 @@
 #!	<Item>
 #!		Returns: the automorphism $\gamma_{z}($<A>aut</A>$)=($<A>aut</A>$,($<A>z</A>$($<A>aut</A>$,\omega))_{\omega\in\Omega})\in\mathrm{Aut}(B_{d,k+1})$.
 #!
-#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, an automorphism <A>aut</A> of $B_{d,k}$, and an involutive compatibility cocycle <A>z</A> of a subgroup of $\mathrm{Aut}(B_{d,k})$ that contains <A>aut</A> (see <Ref Attr="InvolutiveCompatibilityCocycle"/>).
+#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, an automorphism <A>aut</A> of $B_{d,k}$, and an involutive compatibility cocycle <A>z</A> of a subgroup of $\mathrm{Aut}(B_{d,k})$ that contains <A>aut</A> (see <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/>).
 #!	</Item>
 #! </List>
 #!
@@ -114,7 +114,7 @@ DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsMapping] );
 #!	<Item>
 #!		Returns: the group $\Gamma_{z}($<A>F</A>$)=\{(a,($<A>z</A>$(a,\omega))_{\omega\in\Omega})\mid a\in$<A>F</A>$\}\le\mathrm{Aut}(B_{d,k+1})$.
 #!
-#!		The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ and an involutive compatibility cocycle <A>z</A> of <A>F</A> (see <Ref Attr="InvolutiveCompatibilityCocycle"/>).
+#!		The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ and an involutive compatibility cocycle <A>z</A> of <A>F</A> (see <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/>).
 #!	</Item>
 #! </List>
 #!
@@ -512,13 +512,13 @@ DeclareGlobalFunction( "PI" );
 #!	<Item> 
 #!		Returns: the list of kernels $K\le\prod_{\omega\in\Omega}F_{\omega}\cong\ker\pi\le\mathrm{Aut}(B_{d,2})$ that are preserved by the action <A>F</A> $\curvearrowright\prod_{\omega\in\Omega}F_{\omega}$, $a\cdot(a_{\omega})_{\omega}:=(aa_{a^{-1}\omega}a^{-1})_{\omega}$.
 #!
-#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, and a permutation group <A>F</A> $\le S_{d}$. The kernels output by this method are compatible with <A>F</A> with respect to the standard cocycle (see <Ref Attr="InvolutiveCompatibilityCocycle"/>) and can be used in the method <Ref Oper="SIGMA"/>.
+#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, and a permutation group <A>F</A> $\le S_{d}$. The kernels output by this method are compatible with <A>F</A> with respect to the standard cocycle (see <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/>) and can be used in the method <Ref Oper="SIGMA"/>.
 #!	</Item>
 #!	<Mark>for the arguments <A>F</A>, <A>z</A></Mark>
 #!	<Item>
 #!		Returns: the list of kernels $K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})$ that are normalized by $\Gamma_{z}($<A>F</A>$)$ and such that for all $k\in K$ and $\omega\in\Omega$ there is $k_{\omega}\in K$ with $\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}$.
 #!
-#!		The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ that satisfies (C) and an involutive compatibility cocycle <A>z</A> of <A>F</A> (see <Ref Attr="InvolutiveCompatibilityCocycle"/>). It can be used in the method <Ref Oper="SIGMA"/>.
+#!		The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ that satisfies (C) and an involutive compatibility cocycle <A>z</A> of <A>F</A> (see <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/>). It can be used in the method <Ref Oper="SIGMA"/>.
 #!	</Item>
 #! </List>
 #!
@@ -565,7 +565,7 @@ DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping] );
 #!	<Item>
 #!		Returns: the semidirect product $\Sigma_{z}($<A>F</A>$,$<A>K</A>$)\le\mathrm{Aut}(B_{d,k+1})$.
 #!
-#!		The arguments of this method are a local action <A>F</A> of $\mathrm{Aut}(B_{d,k})$ that satisfies (C) and a kernel <A>K</A> that is compatible for <A>F</A> with respect to the involutive compatibility cocycle <A>z</A> (see <Ref Attr="InvolutiveCompatibilityCocycle"/> and <Ref Oper="CompatibleKernels"/>) of <A>F</A>.
+#!		The arguments of this method are a local action <A>F</A> of $\mathrm{Aut}(B_{d,k})$ that satisfies (C) and a kernel <A>K</A> that is compatible for <A>F</A> with respect to the involutive compatibility cocycle <A>z</A> (see <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/> and <Ref Oper="CompatibleKernels"/>) of <A>F</A>.
 #!	</Item>
 #! </List>
 #!

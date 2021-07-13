@@ -103,7 +103,7 @@
 <dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">aut</var>, <var class="Arg">z</var></strong></dt>
 <dd><p>Returns: the automorphism <span class="Math">\gamma_{z}(</span><var class="Arg">aut</var><span class="Math">)=(</span><var class="Arg">aut</var><span class="Math">,(</span><var class="Arg">z</var><span class="Math">(</span><var class="Arg">aut</var><span class="Math">,\omega))_{\omega\in\Omega})\in\mathrm{Aut}(B_{d,k+1})</span>.</p>
 
-<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a radius <var class="Arg">k</var> <span class="Math">\in\mathbb{N}</span>, an automorphism <var class="Arg">aut</var> of <span class="Math">B_{d,k}</span>, and an involutive compatibility cocycle <var class="Arg">z</var> of a subgroup of <span class="Math">\mathrm{Aut}(B_{d,k})</span> that contains <var class="Arg">aut</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>)).</p>
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a radius <var class="Arg">k</var> <span class="Math">\in\mathbb{N}</span>, an automorphism <var class="Arg">aut</var> of <span class="Math">B_{d,k}</span>, and an involutive compatibility cocycle <var class="Arg">z</var> of a subgroup of <span class="Math">\mathrm{Aut}(B_{d,k})</span> that contains <var class="Arg">aut</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>)).</p>
 
 </dd>
 </dl>
@@ -164,7 +164,7 @@
 <dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">z</var></strong></dt>
 <dd><p>Returns: the group <span class="Math">\Gamma_{z}(</span><var class="Arg">F</var><span class="Math">)=\{(a,(</span><var class="Arg">z</var><span class="Math">(a,\omega))_{\omega\in\Omega})\mid a\in</span><var class="Arg">F</var><span class="Math">\}\le\mathrm{Aut}(B_{d,k+1})</span>.</p>
 
-<p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> and an involutive compatibility cocycle <var class="Arg">z</var> of <var class="Arg">F</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>)).</p>
+<p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> and an involutive compatibility cocycle <var class="Arg">z</var> of <var class="Arg">F</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>)).</p>
 
 </dd>
 </dl>
@@ -533,13 +533,13 @@ AGL(1, 5)
 <dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">F</var></strong></dt>
 <dd><p>Returns: the list of kernels <span class="Math">K\le\prod_{\omega\in\Omega}F_{\omega}\cong\ker\pi\le\mathrm{Aut}(B_{d,2})</span> that are preserved by the action <var class="Arg">F</var> <span class="Math">\curvearrowright\prod_{\omega\in\Omega}F_{\omega}</span>, <span class="Math">a\cdot(a_{\omega})_{\omega}:=(aa_{a^{-1}\omega}a^{-1})_{\omega}</span>.</p>
 
-<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, and a permutation group <var class="Arg">F</var> <span class="Math">\le S_{d}</span>. The kernels output by this method are compatible with <var class="Arg">F</var> with respect to the standard cocycle (see <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>)) and can be used in the method <code class="func">SIGMA</code> (<a href="chap4.html#X823707DF821E79A0"><span class="RefLink">4.5-2</span></a>).</p>
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, and a permutation group <var class="Arg">F</var> <span class="Math">\le S_{d}</span>. The kernels output by this method are compatible with <var class="Arg">F</var> with respect to the standard cocycle (see <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>)) and can be used in the method <code class="func">SIGMA</code> (<a href="chap4.html#X823707DF821E79A0"><span class="RefLink">4.5-2</span></a>).</p>
 
 </dd>
 <dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">z</var></strong></dt>
 <dd><p>Returns: the list of kernels <span class="Math">K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})</span> that are normalized by <span class="Math">\Gamma_{z}(</span><var class="Arg">F</var><span class="Math">)</span> and such that for all <span class="Math">k\in K</span> and <span class="Math">\omega\in\Omega</span> there is <span class="Math">k_{\omega}\in K</span> with <span class="Math">\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}</span>.</p>
 
-<p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> that satisfies (C) and an involutive compatibility cocycle <var class="Arg">z</var> of <var class="Arg">F</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>)). It can be used in the method <code class="func">SIGMA</code> (<a href="chap4.html#X823707DF821E79A0"><span class="RefLink">4.5-2</span></a>).</p>
+<p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> that satisfies (C) and an involutive compatibility cocycle <var class="Arg">z</var> of <var class="Arg">F</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>)). It can be used in the method <code class="func">SIGMA</code> (<a href="chap4.html#X823707DF821E79A0"><span class="RefLink">4.5-2</span></a>).</p>
 
 </dd>
 </dl>
@@ -578,7 +578,7 @@ AGL(1, 5)
 <dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">K</var>, <var class="Arg">z</var></strong></dt>
 <dd><p>Returns: the semidirect product <span class="Math">\Sigma_{z}(</span><var class="Arg">F</var><span class="Math">,</span><var class="Arg">K</var><span class="Math">)\le\mathrm{Aut}(B_{d,k+1})</span>.</p>
 
-<p>The arguments of this method are a local action <var class="Arg">F</var> of <span class="Math">\mathrm{Aut}(B_{d,k})</span> that satisfies (C) and a kernel <var class="Arg">K</var> that is compatible for <var class="Arg">F</var> with respect to the involutive compatibility cocycle <var class="Arg">z</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<span class="RefLink">???</span>) and <code class="func">CompatibleKernels</code> (<a href="chap4.html#X7F425DFC8760388F"><span class="RefLink">4.5-1</span></a>)) of <var class="Arg">F</var>.</p>
+<p>The arguments of this method are a local action <var class="Arg">F</var> of <span class="Math">\mathrm{Aut}(B_{d,k})</span> that satisfies (C) and a kernel <var class="Arg">K</var> that is compatible for <var class="Arg">F</var> with respect to the involutive compatibility cocycle <var class="Arg">z</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>) and <code class="func">CompatibleKernels</code> (<a href="chap4.html#X7F425DFC8760388F"><span class="RefLink">4.5-1</span></a>)) of <var class="Arg">F</var>.</p>
 
 </dd>
 </dl>

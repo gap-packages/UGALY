@@ -43,7 +43,7 @@
 
 #! <Package>UGALY</Package> serves both a research and an educational purpose. It consolidates a rudimentary codebase that was developed by the second author in the course of research undertaken towards the article <Cite Key="Tor20"/>. This codebase had been tremendously beneficial in achieving the results of <Cite Key="Tor20"/> in the first place and so there has always been a desire to make it available to a wider audience.
 #!
-#! From a research perspective, <Package>UGALY</Package> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <Cite Key="KM08"/>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <Cite Key="BM00a"/> and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: in fact, due to <Cite Key="Tor20" Where="Corollary 4.32"/>, the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see <Cite Key="BEW15"/>) that generalise Tits' independence property $(P)$, see <Cite Key="Tit70"/>. Subgroups $F\le\mathrm{Aut}(B_{d,k})$ are treated as objects of the category <Ref Filt="IsLocalAction"/> to the effect that they remember the degree $d$ the radius $k$ of the tree $B_{d,k}$ that they act on as a permutation group on its $d\times(d-1)^{k-1}$ leaves. For example, the automorphism group of $B_{3,2}$ can be accessed as follows.
+#! From a research perspective, <Package>UGALY</Package> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <Cite Key="KM08"/>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <Cite Key="BM00a"/> and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: in fact, due to <Cite Key="Tor20" Where="Corollary 4.32"/>, the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see <Cite Key="BEW15"/>) that generalise Tits' independence property $(P)$, see <Cite Key="Tit70"/>. Subgroups $F\le\mathrm{Aut}(B_{d,k})$ are treated as objects of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/> to the effect that they remember the degree $d$ the radius $k$ of the tree $B_{d,k}$ that they act on as a permutation group on its $d\times(d-1)^{k-1}$ leaves. For example, the automorphism group of $B_{3,2}$ can be accessed as follows.
 
 #!
 #! @BeginExampleSession
@@ -57,7 +57,7 @@
 #! 2
 #! @EndExampleSession
 
-#! In general, a subgroup $F$ of the permutation group $\mathrm{Aut}(B_{d,k})$ can be turned into an object of the category <Ref Filt="IsLocalAction"/> by calling the creator operation <Ref Oper="LocalAction"/> with the degree $d$, the radius $k$ and the permutation group $F$ itself. For example, the subgroup $A_{3}\le\mathrm{Aut}(B_{3,1})\cong S_{3}$ can be generated as follows.
+#! In general, a subgroup $F$ of the permutation group $\mathrm{Aut}(B_{d,k})$ can be turned into an object of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/> by calling the creator operation <Ref Oper="LocalAction" Label="for r, d, k, aut, addr"/> with the degree $d$, the radius $k$ and the permutation group $F$ itself. For example, the subgroup $A_{3}\le\mathrm{Aut}(B_{3,1})\cong S_{3}$ can be generated as follows.
 
 #!
 #! @BeginExampleSession
@@ -116,7 +116,7 @@
 #! true
 #! @EndExampleSession
 
-#! <Package>UGALY</Package> may also be a useful tool in the context of the Weiss conjecture <Cite Key="Wei78"/>, which in particular states that there are only finitely many conjugacy classes of discrete, vertex-transitive and locally primitive subgroup of $\mathrm{Aut}(T_{d})$. When such a group contains an inversion of order $2$, it can be written as a universal group $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies both the compatibility condition (C) and the discreteness condition (D), due to <Cite Key="Tor20" Where="Corollary 4.38"/>. Therefore, <Package>UGALY</Package> can be used to construct explicit examples of groups relevant to the Weiss conjecture. Their structure as well as patterns in their appearance may provide more insight into the conjecture and suggest directions of research. At the very least, <Package>UGALY</Package> provides lower bounds on their numbers. For example, consider the case $d=4$. There are two primitive groups of degree $4$, namely $A_{4}$ and $S_{4}$, which we readily turn into objects of the category <Ref Filt="IsLocalAction"/>.
+#! <Package>UGALY</Package> may also be a useful tool in the context of the Weiss conjecture <Cite Key="Wei78"/>, which in particular states that there are only finitely many conjugacy classes of discrete, vertex-transitive and locally primitive subgroup of $\mathrm{Aut}(T_{d})$. When such a group contains an inversion of order $2$, it can be written as a universal group $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies both the compatibility condition (C) and the discreteness condition (D), due to <Cite Key="Tor20" Where="Corollary 4.38"/>. Therefore, <Package>UGALY</Package> can be used to construct explicit examples of groups relevant to the Weiss conjecture. Their structure as well as patterns in their appearance may provide more insight into the conjecture and suggest directions of research. At the very least, <Package>UGALY</Package> provides lower bounds on their numbers. For example, consider the case $d=4$. There are two primitive groups of degree $4$, namely $A_{4}$ and $S_{4}$, which we readily turn into objects of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>.
 
 #!
 #! @BeginExampleSession
@@ -160,7 +160,7 @@
 #! 1
 #! @EndExampleSession
 
-#! The number of different (involutive) compatibility cocycles that a group $F\le\mathrm{Aut}(B_{d,k})$ may admit is also mysterious, including in the case $k=1$. For example, consider the case $(d,k)=(4,1)$. We compute the set of all involutive compatibility cocycles of a local action using the function <Ref Attr="AllInvolutiveCompatibilityCocycles"/>:
+#! The number of different (involutive) compatibility cocycles that a group $F\le\mathrm{Aut}(B_{d,k})$ may admit is also mysterious, including in the case $k=1$. For example, consider the case $(d,k)=(4,1)$. We compute the set of all involutive compatibility cocycles of a local action using the function <Ref Attr="AllInvolutiveCompatibilityCocycles" Label="for IsLocalAction"/>:
 
 #!
 #! @BeginExampleSession
@@ -236,10 +236,10 @@
 #! @Section Local actions
 ##################################################################################################################
 
-#! In this package, local actions $F\le\mathrm{Aut}(B_{d,k})$ are handled as objects of the category <Ref Filt="IsLocalAction"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree $d$ and the radius $k$ of the ball $B_{d,k}$ that it acts on.
+#! In this package, local actions $F\le\mathrm{Aut}(B_{d,k})$ are handled as objects of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree $d$ and the radius $k$ of the ball $B_{d,k}$ that it acts on.
 
 #! @Description
-#! Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (see <Ref Attr="LocalActionDegree"/>), radius (see <Ref Attr="LocalActionRadius"/>) as well as other attributes and properties in this category.
+#! Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (see <Ref Attr="LocalActionDegree" Label="for IsLocalAction"/>), radius (see <Ref Attr="LocalActionRadius" Label="for IsLocalAction"/>) as well as other attributes and properties in this category.
 #!
 DeclareCategory( "IsLocalAction" , IsPermGroup );
 #!
@@ -264,7 +264,7 @@ DeclareCategory( "IsLocalAction" , IsPermGroup );
 #! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}_{0}$ and a group <A>F</A> $\le\mathrm{Aut}(B_{d,k})$.
 #!
 #! @Returns
-#! the regular rooted tree group $G$ as an object of the category <Ref Filt="IsLocalAction"/>, checking that <A>F</A> is indeed a subgroup of $\mathrm{Aut}(B_{d,k})$.
+#! the regular rooted tree group $G$ as an object of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>, checking that <A>F</A> is indeed a subgroup of $\mathrm{Aut}(B_{d,k})$.
 #!
 #! @Arguments d,k,F
 #!
@@ -286,7 +286,7 @@ DeclareOperation( "LocalAction" , [IsInt, IsInt, IsPermGroup] );
 #! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}_{0}$ and a group <A>F</A> $\le\mathrm{Aut}(B_{d,k})$.
 #!
 #! @Returns
-#! the regular rooted tree group $G$ as an object of the category <Ref Filt="IsLocalAction"/>, without checking that <A>F</A> is indeed a subgroup of $\mathrm{Aut}(B_{d,k})$.
+#! the regular rooted tree group $G$ as an object of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>, without checking that <A>F</A> is indeed a subgroup of $\mathrm{Aut}(B_{d,k})$.
 #!
 #! @Arguments d,k,F
 #!
@@ -295,7 +295,7 @@ DeclareOperation( "LocalActionNC" , [IsInt, IsInt, IsPermGroup] );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>).
 #!
 #! @Returns
 #! the degree <A>d</A> of the ball $B_{d,k}$ that $F$ is acting on.
@@ -315,7 +315,7 @@ DeclareAttribute( "LocalActionDegree" , IsLocalAction);
 ##################################################################################################################
 
 #! @Description
-#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction"/>).
+#! The argument of this attribute is a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ (see <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>).
 #!
 #! @Returns
 #! the radius <A>k</A> of the ball $B_{d,k}$ that $F$ is acting on.
