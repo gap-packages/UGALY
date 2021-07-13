@@ -23,6 +23,9 @@
 /doc/*.txt
 /doc/*.xml.bib
 # /doc/AutoDoc.xml
+
+/doc/UGALY.xml
+
 /doc/_*.xml
 /doc/maketest.g
 /doc/manual.lab
