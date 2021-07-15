@@ -131,11 +131,11 @@
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=SymmetricGroup(3);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z1:=AllInvolutiveCompatibilityCocycles(3,1,S3)[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z1:=AllInvolutiveCompatibilityCocycles(S3)[1];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gamma(3,1,(1,2),z1);</span>
 (1,4)(2,3)(5,6)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z3:=AllInvolutiveCompatibilityCocycles(3,1,S3)[3];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z3:=AllInvolutiveCompatibilityCocycles(S3)[3];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gamma(3,1,(1,2),z3);</span>
 (1,3)(2,4)(5,6)
 </pre></div>
@@ -190,7 +190,7 @@ Group([ (1,8,10)(2,7,9)(3,5,12)(4,6,11), (1,5)(2,6)(3,8)(4,7)(9,11)(10,12) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=SymmetricGroup(3);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(F);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=PI(2,3,F,rho,[1]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(3,2,H);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(H);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GAMMA(H,z);</span>
 Group([ (), (), (1,8,9)(2,7,10)(3,5,11)(4,6,12), (1,8,9)(2,7,10)(3,5,11)(4,6,12), 
   (1,7,3,5)(2,8,4,6)(9,11,10,12) ])
@@ -275,11 +275,13 @@ Group([ (2,4)(3,5) ])
 </dl>
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(3,SymmetricGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(S3);</span>
 Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=AutBall(3,2);</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(3,AlternatingGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A3:=LocalAction(3,1,AlternatingGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(A3);</span>
 Group([ (1,4,5)(2,3,6) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=GAMMA(3,AlternatingGroup(3));</span>
 true
@@ -288,7 +290,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">groups:=ConjugacyClassRepsCompatibleSubgroupsWithProjection(2,S3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">groups:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);</span>
 [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
   Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
@@ -312,7 +314,7 @@ true
 
 
 <div class="example"><pre>
-ap&gt; rho:=SignHomomorphism(SymmetricGroup(3));;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(SymmetricGroup(3));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PI(2,3,SymmetricGroup(3),rho,[1]);; Size(F);</span>
 24
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=PHI(4,F);; Size(P);</span>
@@ -367,8 +369,7 @@ Sym( [ 2 .. 4 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N:=grps[2];</span>
 Alt( [ 2 .. 4 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(4,F,N);</span>
-Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,4)(2,5)(3,6)(7,8)(10,11), 
-  (1,2,3) ])
+Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,4)(2,5)(3,6)(7,8)(10,11), (1,2,3) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(F1,N);</span>
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(PHI(4,F,F1),PHI(4,F,N));</span>
@@ -386,10 +387,10 @@ Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,8)(2,7)(3,9)(4,5)(10,12), (1,3)
   (8,9), (4,5)(10,12) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(G);</span>
 (1,5,9,10)(2,6,7,11)(3,4,8,12)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(1,4,2,a,[1]); LocalAction(1,4,2,a,[3]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(1,4,2,aut,[1]); LocalAction(1,4,2,aut,[3]);</span>
 (1,2,3,4)
 (1,2,3,4)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(1,4,2,a,[2]); LocalAction(1,4,2,a,[4]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(1,4,2,aut,[2]); LocalAction(1,4,2,aut,[4]);</span>
 (1,4)(2,3)
 (1,4)(2,3)
 </pre></div>

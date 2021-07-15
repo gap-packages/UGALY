@@ -81,11 +81,11 @@ DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsMapping] );
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> S3:=SymmetricGroup(3);;
-#! gap> z1:=AllInvolutiveCompatibilityCocycles(3,1,S3)[1];;
+#! gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
+#! gap> z1:=AllInvolutiveCompatibilityCocycles(S3)[1];;
 #! gap> gamma(3,1,(1,2),z1);
 #! (1,4)(2,3)(5,6)
-#! gap> z3:=AllInvolutiveCompatibilityCocycles(3,1,S3)[3];;
+#! gap> z3:=AllInvolutiveCompatibilityCocycles(S3)[3];;
 #! gap> gamma(3,1,(1,2),z3);
 #! (1,3)(2,4)(5,6)
 #! @EndExampleSession
@@ -149,7 +149,7 @@ DeclareOperation( "GAMMA" , [IsLocalAction, IsMapping] );
 #! gap> F:=SymmetricGroup(3);;
 #! gap> rho:=SignHomomorphism(F);;
 #! gap> H:=PI(2,3,F,rho,[1]);;
-#! gap> z:=InvolutiveCompatibilityCocycle(3,2,H);;
+#! gap> z:=InvolutiveCompatibilityCocycle(H);;
 #! gap> GAMMA(H,z);
 #! Group([ (), (), (1,8,9)(2,7,10)(3,5,11)(4,6,12), (1,8,9)(2,7,10)(3,5,11)(4,6,12), 
 #!   (1,7,3,5)(2,8,4,6)(9,11,10,12) ])
@@ -246,11 +246,13 @@ DeclareOperation( "PHI" , [IsLocalAction] );
 DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #!
 #! @BeginExampleSession
-#! gap> PHI(3,SymmetricGroup(3));
+#! gap> S3:=LocalAction(3,1,SymmetricGroup(3));
+#! gap> PHI(S3);
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])
 #! gap> last=AutBall(3,2);
 #! true
-#! gap> PHI(3,AlternatingGroup(3));
+#! gap> A3:=LocalAction(3,1,AlternatingGroup(3));
+#! gap> PHI(A3);
 #! Group([ (1,4,5)(2,3,6) ])
 #! gap> last=GAMMA(3,AlternatingGroup(3));
 #! true
@@ -258,7 +260,7 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #!
 #! @BeginExampleSession
 #! gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
-#! gap> groups:=ConjugacyClassRepsCompatibleSubgroupsWithProjection(2,S3);
+#! gap> groups:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
 #! [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
 #!   Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
@@ -280,7 +282,7 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! ap> rho:=SignHomomorphism(SymmetricGroup(3));;
+#! gap> rho:=SignHomomorphism(SymmetricGroup(3));;
 #! gap> F:=PI(2,3,SymmetricGroup(3),rho,[1]);; Size(F);
 #! 24
 #! gap> P:=PHI(4,F);; Size(P);
@@ -344,8 +346,7 @@ DeclareOperation( "PHI" , [IsLocalAction, IsList] );
 #! gap> N:=grps[2];
 #! Alt( [ 2 .. 4 ] )
 #! gap> PHI(4,F,N);
-#! Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,4)(2,5)(3,6)(7,8)(10,11), 
-#!   (1,2,3) ])
+#! Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,4)(2,5)(3,6)(7,8)(10,11), (1,2,3) ])
 #! gap> Index(F1,N);
 #! 2
 #! gap> Index(PHI(4,F,F1),PHI(4,F,N));

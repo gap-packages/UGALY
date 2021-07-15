@@ -95,14 +95,11 @@ gap> z:=InvolutiveCompatibilityCocycle(H);;
 gap> Size(Intersection(GAMMA(H,z)^AutBall(3,3),grps));
 1
 
-# doc/_Chapter_Introduction.xml:146-152
+# doc/_Chapter_Introduction.xml:146-149
 gap> grps:=AllTransitiveGroups(NrMovedPoints,4);
 [ C(4) = 4, E(4) = 2[x]2, D(4), A4, S4 ]
-gap> Apply(grps,H->Size(AllInvolutiveCompatibilityCocycles(LocalAction(4,1,H))));;
-gap> grps;
-[ 1, 1, 8, 28, 256 ]
 
-# doc/_Chapter_Introduction.xml:157-170
+# doc/_Chapter_Introduction.xml:154-167
 gap> aut:=Random(AutBall(3,2));
 (1,5,3,2,6,4)
 gap> aut_center:=LocalAction(1,3,2,aut,[]);
@@ -116,7 +113,7 @@ gap> aut_3:=LocalAction(1,3,2,aut,[3]);
 gap> AssembleAutomorphism(3,1,[aut_1,aut_2,aut_3]);
 (1,5,3,2,6,4)
 
-# doc/_Chapter_Introduction.xml:175-190
+# doc/_Chapter_Introduction.xml:172-187
 gap> A3:=LocalAction(3,1,TransitiveGroup(3,1));;
 gap> S3:=LocalAction(3,1,TransitiveGroup(3,2));;
 gap> A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);
@@ -132,7 +129,7 @@ gap> Apply(A3_extn,SatisfiesD); A3_extn;
 gap> Apply(S3_extn,SatisfiesD); S3_extn;
 [ true, true, false, false, false ]
 
-# doc/_Chapter_Introduction.xml:195-203
+# doc/_Chapter_Introduction.xml:192-200
 gap> S3:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(S3);;
 gap> H:=PI(2,3,S3,rho,[1]);;

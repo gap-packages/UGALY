@@ -34,7 +34,7 @@ Group(())
 gap> SatisfiesD(C);
 true
 
-# doc/_Chapter_Discreteness.xml:99-109
+# doc/_Chapter_Discreteness.xml:99-108
 gap> F:=LocalAction(3,1,AlternatingGroup(3));;
 gap> InvolutiveCompatibilityCocycle(F);
 MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], [ (1,3,2), 1 ], 
@@ -43,9 +43,8 @@ MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], [ (1,3,2), 1 ],
 gap> a:=Random(AlternatingGroup(3));; dir:=Random([1..3]);;
 gap> a; Image(z,[a,dir]);
 (1,3,2)
-(1,3,2)
 
-# doc/_Chapter_Discreteness.xml:113-123
+# doc/_Chapter_Discreteness.xml:112-122
 gap> G:=GAMMA(3,AlternatingGroup(3));
 Group([ (1,4,5)(2,3,6) ])
 gap> InvolutiveCompatibilityCocycle(G);
@@ -56,7 +55,7 @@ MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ],
 gap> InvolutiveCompatibilityCocycle(AutBall(3,2));
 fail
 
-# doc/_Chapter_Discreteness.xml:139-145
+# doc/_Chapter_Discreteness.xml:138-144
 gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
 gap> Size(AllInvolutiveCompatibilityCocycles(S3));
 4

@@ -114,7 +114,6 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #! gap> a:=Random(AlternatingGroup(3));; dir:=Random([1..3]);;
 #! gap> a; Image(z,[a,dir]);
 #! (1,3,2)
-#! (1,3,2)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession

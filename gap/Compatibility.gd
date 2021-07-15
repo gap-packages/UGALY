@@ -47,7 +47,6 @@ DeclareGlobalFunction( "AreCompatibleBallElements" );
 #! gap> LocalAction(1,3,2,b,[]); LocalAction(1,3,2,b,[1]);
 #! (1,2)
 #! (1,2,3)
-#!
 #! gap> AreCompatibleBallElements(3,2,a,b,1);
 #! true
 #! gap> AreCompatibleBallElements(3,2,a,b,3);
@@ -113,7 +112,9 @@ DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsList] );
 #! gap> F:=LocalAction(4,1,TransitiveGroup(4,3));
 #! D(4)
 #! gap> G:=LocalAction(4,1,SymmetricGroup(4));
-#!Sym( [ 1 .. 4 ] )
+#! Sym( [ 1 .. 4 ] )
+#! gap> aut:=(1,3);; aut in F;
+#! true
 #! gap> CompatibilitySet(G,aut,1);
 #! RightCoset(Sym( [ 2 .. 4 ] ),(1,3))
 #! gap> CompatibilitySet(F,aut,1);
@@ -142,7 +143,7 @@ DeclareGlobalFunction( "AssembleAutomorphism" );
 #! gap> aut:=Random(AutBall(3,2));
 #! (1,2)(3,6)(4,5)
 #! gap> auts:=[];;
-#! gap> for i in [1..3] do auts[i]:=CompatibleBallElement(3,2,AutBall(3,2),aut,i); od;
+#! gap> for i in [1..3] do auts[i]:=CompatibleBallElement(AutBall(3,2),aut,i); od;
 #! gap> auts;
 #! [ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,5,3)(2,6,4) ]
 #! gap> a:=AssembleAutomorphism(3,2,auts);
@@ -213,8 +214,8 @@ DeclareGlobalFunction( "CompatibleSubgroups" );
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 #! gap> list:=CompatibleSubgroups(G);
 #! [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,3)(2,4)(5,6) ]), 
-#!   Group([ (1,6)(2,5)(3,4) ]), Group([ (1,4,5)(2,3,6) ]), Group([ (1,4,5)
-#!   (2,3,6), (1,3)(2,4)(5,6) ]) ]
+#!   Group([ (1,6)(2,5)(3,4) ]), Group([ (1,4,5)(2,3,6) ]),
+#!   Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ]) ]
 #! gap> Size(list);
 #! 6
 #! gap> Size(AllSubgroups(SymmetricGroup(3)));
@@ -235,8 +236,8 @@ DeclareAttribute( "ConjugacyClassRepsCompatibleSubgroups" , IsLocalAction );
 #! @BeginExampleSession
 #! gap> ConjugacyClassRepsCompatibleSubgroups(AutBall(3,2));
 #! [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,4,5)(2,3,6) ]), 
-#!   Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)
-#!   (2,4,5) ]), Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), 
+#!   Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)(2,4,5) ]),
+#!   Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), 
 #!   Group([ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,2)(5,6), (1,2)(3,4) ]), 
 #!   Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(5,6), (1,2)(3,4) ]), 
 #!   Group([ (5,6), (3,4), (1,2), (1,3,5)(2,4,6), (3,5)(4,6) ]) ]

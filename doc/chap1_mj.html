@@ -183,9 +183,6 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">grps:=AllTransitiveGroups(NrMovedPoints,4);</span>
 [ C(4) = 4, E(4) = 2[x]2, D(4), A4, S4 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Apply(grps,H-&gt;Size(AllInvolutiveCompatibilityCocycles(LocalAction(4,1,H))));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">grps;</span>
-[ 1, 1, 8, 28, 256 ]
 </pre></div>
 
 <p>From an educational point of view, we envision that <strong class="pkg">UGALY</strong> could be used to enhance the learning experience of students in the area of groups acting on trees. The class of generalised universal groups forms an ideal framework for this purpose. For example, to internalise the widely used concept of local actions it may be helpful to take a <span class="SimpleMath">\(2\)</span>-local action in the form of an automorphism of <span class="SimpleMath">\(B_{3,2}\)</span>, decompose it into its <span class="SimpleMath">\(1\)</span>-local actions, and recover the original autmorphism from them: in the example below, we start with a random automorphism <code class="code">aut</code> of <span class="SimpleMath">\(B_{3,2}\)</span>. We then compute its <span class="SimpleMath">\(1\)</span>-local actions at the center vertex, represented by the address <code class="code">[]</code>, as well as its neighbours <code class="code">[1]</code>, <code class="code">[2]</code> and <code class="code">[3]</code> using <code class="func">LocalAction</code> (<a href="chap2_mj.html#X7E0E11FC802B5210"><span class="RefLink">2.1-6</span></a>). Finally, we recover <code class="code">aut</code> from the <span class="SimpleMath">\(1\)</span>-local actions at the center's neighbours using <code class="func">AssembleAutomorphism</code> (<a href="chap3_mj.html#X837E15117DB5B1DE"><span class="RefLink">3.2-4</span></a>), which only requires the local actions at the center's neighbours.</p>

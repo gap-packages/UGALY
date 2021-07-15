@@ -283,6 +283,7 @@ DeclareOperation( "LocalAction" , [IsInt, IsInt, IsPermGroup] );
 #! gap> G:=LocalAction(3,2,G);
 #! Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 #! gap> IsLocalAction(G);
+#! true
 #! @EndExampleSession
 
 ##################################################################################################################
@@ -310,9 +311,9 @@ DeclareOperation( "LocalActionNC" , [IsInt, IsInt, IsPermGroup] );
 DeclareAttribute( "LocalActionDegree" , IsLocalAction);
 #!
 #! @BeginExampleSession
-#! gap> F:=PHI(4,AlternatingGroup(4));
-#! Group([ (1,5,7)(2,4,8)(3,6,9)(10,11,12), (1,2,3)(4,7,10)(5,9,11)(6,8,12), 
-#!   (1,2,3), (4,5,6), (7,8,9), (10,11,12) ])
+#! gap> A4:=LocalAction(4,1,AlternatingGroup(4));
+#! gap> F:=PHI(3,A4);
+#! <permutation group with 18 generators>
 #! gap> LocalActionDegree(F);
 #! 4
 #! @EndExampleSession
@@ -330,11 +331,11 @@ DeclareAttribute( "LocalActionDegree" , IsLocalAction);
 DeclareAttribute( "LocalActionRadius" , IsLocalAction );
 #!
 #! @BeginExampleSession
-#! gap> F:=PHI(4,AlternatingGroup(4));
-#! Group([ (1,5,7)(2,4,8)(3,6,9)(10,11,12), (1,2,3)(4,7,10)(5,9,11)(6,8,12), 
-#!   (1,2,3), (4,5,6), (7,8,9), (10,11,12) ])
+#! gap> A4:=LocalAction(4,1,AlternatingGroup(4));
+#! gap> F:=PHI(3,A4);
+#! <permutation group with 18 generators>
 #! gap> LocalActionRadius(F);
-#! 2
+#! 3
 #! @EndExampleSession
 
 ##################################################################################################################
@@ -381,7 +382,7 @@ DeclareGlobalFunction( "BallAddresses" );
 #! [ [  ], [ 1 ], [ 2 ], [ 3 ] ]
 #! gap> BallAddresses(3,2);
 #! [ [  ], [ 1 ], [ 2 ], [ 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], 
-#! [ 3, 1 ], [ 3, 2 ] ]
+#!   [ 3, 1 ], [ 3, 2 ] ]
 #! @EndExampleSession
 
 ##################################################################################################################

@@ -16,7 +16,7 @@ true
 gap> AreCompatibleBallElements(3,1,(1,2),(1,2,3),2);
 false
 
-# doc/_Chapter_Compatibility.xml:42-58
+# doc/_Chapter_Compatibility.xml:42-57
 gap> a:=(1,3,5)(2,4,6);; a in AutBall(3,2);
 true
 gap> LocalAction(1,3,2,a,[]); LocalAction(1,3,2,a,[1]);
@@ -27,30 +27,31 @@ true
 gap> LocalAction(1,3,2,b,[]); LocalAction(1,3,2,b,[1]);
 (1,2)
 (1,2,3)
-
 gap> AreCompatibleBallElements(3,2,a,b,1);
 true
 gap> AreCompatibleBallElements(3,2,a,b,3);
 false
 
-# doc/_Chapter_Compatibility.xml:75-81
+# doc/_Chapter_Compatibility.xml:74-80
 gap> a:=Random(AutBall(5,1)); dir:=Random([1..5]);
 (1,3,2,5)
 4
 gap> CompatibleBallElement(AutBall(5,1),a,dir);
 (1,3,2,5)
 
-# doc/_Chapter_Compatibility.xml:85-90
+# doc/_Chapter_Compatibility.xml:84-89
 gap> a:=(1,3,5)(2,4,6);; a in AutBall(3,2);
 true
 gap> CompatibleBallElement(AutBall(3,2),a,1);
 (1,4,2,3)
 
-# doc/_Chapter_Compatibility.xml:119-132
+# doc/_Chapter_Compatibility.xml:118-133
 gap> F:=LocalAction(4,1,TransitiveGroup(4,3));
 D(4)
 gap> G:=LocalAction(4,1,SymmetricGroup(4));
 Sym( [ 1 .. 4 ] )
+gap> aut:=(1,3);; aut in F;
+true
 gap> CompatibilitySet(G,aut,1);
 RightCoset(Sym( [ 2 .. 4 ] ),(1,3))
 gap> CompatibilitySet(F,aut,1);
@@ -60,11 +61,11 @@ RightCoset(Group([ (2,4) ]),(1,3))
 gap> CompatibilitySet(F,aut,[1,2]);
 RightCoset(Group(()),(1,3))
 
-# doc/_Chapter_Compatibility.xml:150-163
+# doc/_Chapter_Compatibility.xml:151-164
 gap> aut:=Random(AutBall(3,2));
 (1,2)(3,6)(4,5)
 gap> auts:=[];;
-gap> for i in [1..3] do auts[i]:=CompatibleBallElement(3,2,AutBall(3,2),aut,i); od;
+gap> for i in [1..3] do auts[i]:=CompatibleBallElement(AutBall(3,2),aut,i); od;
 gap> auts;
 [ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,5,3)(2,6,4) ]
 gap> a:=AssembleAutomorphism(3,2,auts);
@@ -74,7 +75,7 @@ true
 gap> LocalAction(2,3,3,a,[]);
 (1,2)(3,6)(4,5)
 
-# doc/_Chapter_Compatibility.xml:186-195
+# doc/_Chapter_Compatibility.xml:187-196
 gap> F:=LocalAction(3,1,Group((1,2)));
 Group([ (1,2) ])
 gap> MaximalCompatibleSubgroup(F);
@@ -84,34 +85,34 @@ Group([ (1,2) ])
 gap> MaximalCompatibleSubgroup(G);
 Group(())
 
-# doc/_Chapter_Compatibility.xml:211-216
+# doc/_Chapter_Compatibility.xml:212-217
 gap> D:=DELTA(3,SymmetricGroup(3));
 Group([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])
 gap> SatisfiesC(D);
 true
 
-# doc/_Chapter_Compatibility.xml:232-243
+# doc/_Chapter_Compatibility.xml:233-244
 gap> G:=GAMMA(3,SymmetricGroup(3));
 Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 gap> list:=CompatibleSubgroups(G);
 [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,3)(2,4)(5,6) ]), 
-  Group([ (1,6)(2,5)(3,4) ]), Group([ (1,4,5)(2,3,6) ]), Group([ (1,4,5)
-  (2,3,6), (1,3)(2,4)(5,6) ]) ]
+  Group([ (1,6)(2,5)(3,4) ]), Group([ (1,4,5)(2,3,6) ]),
+  Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ]) ]
 gap> Size(list);
 6
 gap> Size(AllSubgroups(SymmetricGroup(3)));
 6
 
-# doc/_Chapter_Compatibility.xml:259-267
+# doc/_Chapter_Compatibility.xml:260-268
 gap> ConjugacyClassRepsCompatibleSubgroups(AutBall(3,2));
 [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,4,5)(2,3,6) ]), 
-  Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)
-  (2,4,5) ]), Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), 
+  Group([ (3,5)(4,6), (1,2) ]), Group([ (1,2)(3,5)(4,6), (1,3,6)(2,4,5) ]),
+  Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(3,4)(5,6) ]), 
   Group([ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,2)(5,6), (1,2)(3,4) ]), 
   Group([ (3,5)(4,6), (1,3,5)(2,4,6), (1,2)(5,6), (1,2)(3,4) ]), 
   Group([ (5,6), (3,4), (1,2), (1,3,5)(2,4,6), (3,5)(4,6) ]) ]
 
-# doc/_Chapter_Compatibility.xml:284-297
+# doc/_Chapter_Compatibility.xml:285-298
 gap> S3:=LocalAction(3,1,SymmetricGroup(3));
 Sym( [ 1 .. 3 ] )
 gap> ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
@@ -125,7 +126,7 @@ Alt( [ 1 .. 3 ] )
 gap> ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);
 [ Group([ (1,4,5)(2,3,6) ]) ]
 
-# doc/_Chapter_Compatibility.xml:301-310
+# doc/_Chapter_Compatibility.xml:302-311
 gap> F:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(F);;
 gap> H1:=PI(2,3,F,rho,[0,1]);;
