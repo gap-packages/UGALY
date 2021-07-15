@@ -31,7 +31,7 @@
 #!
 #! This construction was generalized by the second author in <Cite Key="Tor20"/>: In the spirit of $k$-closures of groups acting on trees developed in <Cite Key="BEW15"/>, we generalize the universal group construction by prescribing the local action on balls of a given radius $k\in\mathbb{N}$, the Burger-Mozes construction corresponding to the case $k=1$. Fix a tree $B_{d,k}$ which is isomorphic to a ball of radius $k$ in the labelled tree $T_{d}$ and let $l_{x}^{k}:B(x,k)\to B_{d,k}$ ($x\in V$) be the unique label-respecting isomorphism. Then $$\sigma_{k}:\mathrm{Aut}(T_{d})\times V\to\mathrm{Aut}(B_{d,k}),\ (g,x)\to l_{gx}^{k}\circ g\circ (l_{x}^{k})^{-1}$$ captures the <E>$k$-local action</E> of $g$ at the vertex $x\in V$.
 #!
-#! With this we can make the following defintition: Let $F\!\le\!\mathrm{Aut}(B_{d,k})$. Define $$\mathrm{U}_{k}(F):=\{g\in\mathrm{Aut}(T_{d})\mid \forall x\in V:\ \sigma_{k}(g,x)\in F\}.$$
+#! With this we can make the following definition: Let $F\!\le\!\mathrm{Aut}(B_{d,k})$. Define $$\mathrm{U}_{k}(F):=\{g\in\mathrm{Aut}(T_{d})\mid \forall x\in V:\ \sigma_{k}(g,x)\in F\}.$$
 #!
 #! While $\mathrm{U}_{k}(F)$ is always closed, vertex-transitive and compactly generated, other properties of $\mathrm{U}(F)$ do <E>not</E> carry over. Foremost, the group $\mathrm{U}_{k}(F)$ need not be locally action isomorphic to $F$ and we say that $F\le\mathrm{Aut}(B_{d,k})$ satisfies condition (C) if it is. This can be viewed as an interchangeability condition on neighbouring local actions, see Section <Ref Sect="Section_condition_C"/>. There is also a discreteness condition (D) on $F\le\mathrm{Aut}(B_{d,k})$ in terms of certain stabilizers in $F$ under which $\mathrm{U}_{k}(F)$ is discrete, see Section <Ref Sect="Section_condition_D"/>.
 #!
@@ -95,7 +95,7 @@
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 #! @EndExampleSession
 
-#! All of these groups have been identified to stem from general constructions of groups $\widetilde{F}\le\mathrm{Aut}(B_{d,2})$ satisfying (C) from a given group $F\le\mathrm{Aut}(B_{d,1})$, much like some finite transitive groups have been organised into families. Specifically, the constructions $\Gamma(F)$, $\Delta(F)$, $\Pi(F,\rho,X)$ and $\Phi(F)$ introduced in the article <Cite Key="Tor20" Where="Section 3.4"/> can be accessed via the <Package>UGALY</Package> functions <Ref Func="GAMMA"/>, <Ref Func="DELTA"/>, <Ref Func="PI"/> and <Ref Func="PHI1"/> respectively, see Chapter <Ref Chap="Chapter_ukf_examples"/>. Below, we use these functions to identify all six groups of the previous output.
+#! All of these groups have been identified to stem from general constructions of groups $\widetilde{F}\le\mathrm{Aut}(B_{d,2})$ satisfying (C) from a given group $F\le\mathrm{Aut}(B_{d,1})$, much like some finite transitive groups have been organised into families. Specifically, the constructions $\Gamma(F)$, $\Delta(F)$, $\Pi(F,\rho,X)$ and $\Phi(F)$ introduced in the article <Cite Key="Tor20" Where="Section 3.4"/> can be accessed via the <Package>UGALY</Package> functions <Ref Func="GAMMA"/>, <Ref Func="DELTA"/>, <Ref Func="PI"/> and <Ref Oper="PHI" Label="for F"/> respectively, see Chapter <Ref Chap="Chapter_ukf_examples"/>. Below, we use these functions to identify all six groups of the previous output.
 
 #!
 #! @BeginExampleSession
