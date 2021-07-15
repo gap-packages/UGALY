@@ -248,7 +248,7 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #! @BeginExampleSession
 #! gap> S3:=LocalAction(3,1,SymmetricGroup(3));
 #! gap> PHI(S3);
-#! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])
+#! Group([ (), (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])
 #! gap> last=AutBall(3,2);
 #! true
 #! gap> A3:=LocalAction(3,1,AlternatingGroup(3));

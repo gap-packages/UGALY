@@ -312,6 +312,7 @@ DeclareAttribute( "LocalActionDegree" , IsLocalAction);
 #!
 #! @BeginExampleSession
 #! gap> A4:=LocalAction(4,1,AlternatingGroup(4));
+#! Alt( [ 1 .. 4 ] )
 #! gap> F:=PHI(3,A4);
 #! <permutation group with 18 generators>
 #! gap> LocalActionDegree(F);
@@ -332,6 +333,7 @@ DeclareAttribute( "LocalActionRadius" , IsLocalAction );
 #!
 #! @BeginExampleSession
 #! gap> A4:=LocalAction(4,1,AlternatingGroup(4));
+#! Alt( [ 1 .. 4 ] )
 #! gap> F:=PHI(3,A4);
 #! <permutation group with 18 generators>
 #! gap> LocalActionRadius(F);

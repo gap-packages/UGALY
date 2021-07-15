@@ -107,13 +107,14 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #!
 #! @BeginExampleSession
 #! gap> F:=LocalAction(3,1,AlternatingGroup(3));;
-#! gap> InvolutiveCompatibilityCocycle(F);
+#! gap> z:=InvolutiveCompatibilityCocycle(F);
 #! MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], [ (1,3,2), 1 ], 
 #!   [ (1,3,2), 2 ], [ (1,3,2), 3 ], [ (1,2,3), 1 ], [ (1,2,3), 2 ], 
 #!   [ (1,2,3), 3 ] ]), Alt( [ 1 .. 3 ] ), function( s ) ... end )
-#! gap> a:=Random(AlternatingGroup(3));; dir:=Random([1..3]);;
+#! gap> a:=Random(F);; dir:=Random([1..3]);;
 #! gap> a; Image(z,[a,dir]);
-#! (1,3,2)
+#! (1,2,3)
+#! (1,2,3)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
