@@ -337,7 +337,7 @@ DeclareOperation( "PHI" , [IsLocalAction, IsList] );
 #!
 #! @BeginExampleSession
 #! gap> F:=SymmetricGroup(4);;
-#! gap> F1:=Stabilizer(P,1);
+#! gap> F1:=Stabilizer(F,1);
 #! Sym( [ 2 .. 4 ] )
 #! gap> grps:=NormalSubgroups(F1);
 #! [ Sym( [ 2 .. 4 ] ), Alt( [ 2 .. 4 ] ), Group(()) ]
@@ -541,7 +541,7 @@ DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping] );
 #! gap> rho:=SignHomomorphism(P);;
 #! gap> F:=PI(2,3,P,rho,[1]);;
 #! gap> z:=InvolutiveCompatibilityCocycle(F);;
-#1 gap> CompatibleKernels(F,z);
+#! gap> CompatibleKernels(F,z);
 #! [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
 #!   Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
 #!   Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
