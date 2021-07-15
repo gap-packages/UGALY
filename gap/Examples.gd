@@ -362,10 +362,10 @@ DeclareOperation( "PHI" , [IsLocalAction, IsList] );
 #!   (8,9), (4,5)(10,12) ])
 #! gap> aut:=Random(G);
 #! (1,5,9,10)(2,6,7,11)(3,4,8,12)
-#! gap> LocalAction(1,4,2,a,[1]); LocalAction(1,4,2,a,[3]);
+#! gap> LocalAction(1,4,2,aut,[1]); LocalAction(1,4,2,aut,[3]);
 #! (1,2,3,4)
 #! (1,2,3,4)
-#! gap> LocalAction(1,4,2,a,[2]); LocalAction(1,4,2,a,[4]);
+#! gap> LocalAction(1,4,2,aut,[2]); LocalAction(1,4,2,aut,[4]);
 #! (1,4)(2,3)
 #! (1,4)(2,3)
 #! @EndExampleSession

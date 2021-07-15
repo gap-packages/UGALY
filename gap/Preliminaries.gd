@@ -171,9 +171,9 @@
 #! @BeginExampleSession
 #! gap> grps:=AllTransitiveGroups(NrMovedPoints,4);
 #! [ C(4) = 4, E(4) = 2[x]2, D(4), A4, S4 ]
-#! gap> Apply(grps,H->Size(AllInvolutiveCompatibilityCocycles(LocalAction(4,1,H))));;
-#! gap> grps;
-#! [ 1, 1, 8, 28, 256 ]
+# gap> Apply(grps,H->Size(AllInvolutiveCompatibilityCocycles(LocalAction(4,1,H))));;
+# gap> grps;
+# [ 1, 1, 8, 28, 256 ]
 #! @EndExampleSession
 
 #! From an educational point of view, we envision that <Package>UGALY</Package> could be used to enhance the learning experience of students in the area of groups acting on trees. The class of generalised universal groups forms an ideal framework for this purpose. For example, to internalise the widely used concept of local actions it may be helpful to take a $2$-local action in the form of an automorphism of $B_{3,2}$, decompose it into its $1$-local actions, and recover the original autmorphism from them: in the example below, we start with a random automorphism <C>aut</C> of $B_{3,2}$. We then compute its $1$-local actions at the center vertex, represented by the address <C>[]</C>, as well as its neighbours <C>[1]</C>, <C>[2]</C> and <C>[3]</C> using <Ref Oper="LocalAction" Label="for r, d, k, aut, addr"/>. Finally, we recover <C>aut</C> from the $1$-local actions at the center's neighbours using <Ref Func="AssembleAutomorphism"/>, which only requires the local actions at the center's neighbours.

@@ -360,7 +360,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=SymmetricGroup(4);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F1:=Stabilizer(P,1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F1:=Stabilizer(F,1);</span>
 Sym( [ 2 .. 4 ] )
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">grps:=NormalSubgroups(F1);</span>
 [ Sym( [ 2 .. 4 ] ), Alt( [ 2 .. 4 ] ), Group(()) ]
@@ -556,6 +556,7 @@ AGL(1, 5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(P);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PI(2,3,P,rho,[1]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CompatibleKernels(F,z);</span>
 [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
   Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
   Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]

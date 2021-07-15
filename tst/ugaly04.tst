@@ -126,7 +126,7 @@ true
 
 # doc/_Chapter_ukf_examples.xml:338-353
 gap> F:=SymmetricGroup(4);;
-gap> F1:=Stabilizer(P,1);
+gap> F1:=Stabilizer(F,1);
 Sym( [ 2 .. 4 ] )
 gap> grps:=NormalSubgroups(F1);
 [ Sym( [ 2 .. 4 ] ), Alt( [ 2 .. 4 ] ), Group(()) ]
@@ -230,16 +230,17 @@ gap> CompatibleKernels(3,SymmetricGroup(3));
 [ Group(()), Group([ (1,2)(3,4)(5,6) ]), Group([ (3,4)(5,6), (1,2)(5,6) ]), 
   Group([ (5,6), (3,4), (1,2) ]) ]
 
-# doc/_Chapter_ukf_examples.xml:565-573
+# doc/_Chapter_ukf_examples.xml:565-574
 gap> P:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(P);;
 gap> F:=PI(2,3,P,rho,[1]);;
 gap> z:=InvolutiveCompatibilityCocycle(F);;
+gap> CompatibleKernels(F,z);
 [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
   Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
   Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
 
-# doc/_Chapter_ukf_examples.xml:602-612
+# doc/_Chapter_ukf_examples.xml:603-613
 gap> S3:=SymmetricGroup(3);;
 gap> kernels:=CompatibleKernels(3,S3);
 [ Group(()), Group([ (1,2)(3,4)(5,6) ]), Group([ (3,4)(5,6), (1,2)(5,6) ]), 
@@ -250,7 +251,7 @@ gap> for K in kernels do Print(Size(SIGMA(3,S3,K)),"\n"); od;
 24
 48
 
-# doc/_Chapter_ukf_examples.xml:616-630
+# doc/_Chapter_ukf_examples.xml:617-631
 gap> P:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(P);;
 gap> F:=PI(2,3,P,rho,[1]);;
