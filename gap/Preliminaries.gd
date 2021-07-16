@@ -233,8 +233,8 @@
 #! gap> z:=InvolutiveCompatibilityCocycle(H);;
 #! gap> mt:=RandomSource(IsMersenneTwister,1);;
 #! gap> a:=Random(mt,H); Image(z,[Image(z,[a,1]),1]);
-#! (1,3,6)(2,4,5)
-#! (1,3,6)(2,4,5)
+#! (1,5,3)(2,6,4)
+#! (1,5,3)(2,6,4)
 #! @EndExampleSession
 
 ##################################################################################################################

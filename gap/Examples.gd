@@ -151,8 +151,8 @@ DeclareOperation( "GAMMA" , [IsLocalAction, IsMapping] );
 #! gap> H:=PI(2,3,F,rho,[1]);;
 #! gap> z:=InvolutiveCompatibilityCocycle(H);;
 #! gap> GAMMA(H,z);
-#! Group([ (), (), (1,8,9)(2,7,10)(3,5,11)(4,6,12), (1,8,9)(2,7,10)(3,5,11)(4,6,12),
-#!   (1,7,3,5)(2,8,4,6)(9,11,10,12) ])
+#! Group([ (), (), (1,12)(2,11)(3,9)(4,10)(5,6), (1,2)(5,12)(6,11)(7,10)(8,9), 
+#!   (1,7,12)(2,8,11)(3,6,10)(4,5,9) ])
 #! @EndExampleSession
 #! @EndGroup
 
