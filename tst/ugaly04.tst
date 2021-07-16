@@ -224,7 +224,7 @@ gap> PI(3,5,F,rho1,[0,1,2]);
 gap> Index(PHI(3,F),last);
 4
 gap> PI(3,5,F,rho2,[0,1,2]);
-<permutation group with 6 generators>
+<permutation group with 5 generators>
 gap> Index(PHI(3,F),last);
 2
 
