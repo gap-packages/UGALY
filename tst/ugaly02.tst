@@ -60,55 +60,57 @@ gap> LocalAction(1,3,2,a,[]);
 gap> LocalAction(1,3,2,a,[1]);
 (1,2)
 
-# doc/_Chapter_Preliminaries.xml:156-164
-gap> b:=Random(AutBall(3,4));
-(1,20,4,17,2,19,3,18)(5,22,8,23,6,21,7,24)(9,10)(13,16,14,15)
+# doc/_Chapter_Preliminaries.xml:156-165
+gap> mt:=RandomSource(IsMersenneTwister,1);;
+gap> b:=Random(mt,AutBall(3,4));
+(1,18,11,5,23,14,4,20,10,7,22,16)(2,17,12,6,24,13,3,19,9,8,21,15)
 gap> LocalAction(2,3,4,b,[3,1]);
-(1,4)(2,3)
+(1,2)(3,6,4,5)
 gap> LocalAction(3,3,4,b,[3,1]);
 Error, the sum of input argument r=3 and the length of input argument
 addr=[ 3, 1 ] must not exceed input argument k=4
 
-# doc/_Chapter_Preliminaries.xml:181-190
+# doc/_Chapter_Preliminaries.xml:182-192
 gap> F:=GAMMA(4,3,SymmetricGroup(3));
 Group([ (1,16,19)(2,15,20)(3,13,18)(4,14,17)(5,10,23)(6,9,24)(7,12,22)
   (8,11,21), (1,9)(2,10)(3,12)(4,11)(5,15)(6,16)(7,13)(8,14)(17,21)(18,22)
   (19,24)(20,23) ])
 gap> pr:=Projection(F,2);
 <action homomorphism>
-gap> a:=Random(F);; Image(pr,a);
-(1,4,5)(2,3,6)
+gap> mt:=RandomSource(IsMersenneTwister,1);;
+gap> a:=Random(mt,F);; Image(pr,a);
+(1,2)(3,5)(4,6)
 
-# doc/_Chapter_Preliminaries.xml:207-212
+# doc/_Chapter_Preliminaries.xml:209-214
 gap> AutBall(3,2);
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 gap> ImageOfProjection(AutBall(3,2),1);
 Group([ (), (), (), (1,2,3), (1,2) ])
 
-# doc/_Chapter_Preliminaries.xml:236-241
+# doc/_Chapter_Preliminaries.xml:238-243
 gap> G:=AutBall(3,2);
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 gap> Size(G);
 48
 
-# doc/_Chapter_Preliminaries.xml:265-271
+# doc/_Chapter_Preliminaries.xml:267-273
 gap> BallAddresses(3,1);
 [ [  ], [ 1 ], [ 2 ], [ 3 ] ]
 gap> BallAddresses(3,2);
 [ [  ], [ 1 ], [ 2 ], [ 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], 
   [ 3, 1 ], [ 3, 2 ] ]
 
-# doc/_Chapter_Preliminaries.xml:288-291
+# doc/_Chapter_Preliminaries.xml:290-293
 gap> LeafAddresses(3,2);
 [ [ 1, 2 ], [ 1, 3 ], [ 2, 1 ], [ 2, 3 ], [ 3, 1 ], [ 3, 2 ] ]
 
-# doc/_Chapter_Preliminaries.xml:308-313
+# doc/_Chapter_Preliminaries.xml:310-315
 gap> AddressOfLeaf(3,2,1);
 [ 1, 2 ]
 gap> AddressOfLeaf(3,3,1);
 [ 1, 2, 1 ]
 
-# doc/_Chapter_Preliminaries.xml:330-337
+# doc/_Chapter_Preliminaries.xml:332-339
 gap> LeafOfAddress(3,2,[1,2]);
 1
 gap> LeafOfAddress(3,2,[3]);
@@ -116,13 +118,13 @@ gap> LeafOfAddress(3,2,[3]);
 gap> LeafOfAddress(3,2,[]);
 1
 
-# doc/_Chapter_Preliminaries.xml:354-359
+# doc/_Chapter_Preliminaries.xml:356-361
 gap> ImageAddress(3,2,(1,2),[1,2]);
 [ 1, 3 ]
 gap> ImageAddress(3,2,(1,2),[1]);
 [ 1 ]
 
-# doc/_Chapter_Preliminaries.xml:376-381
+# doc/_Chapter_Preliminaries.xml:378-383
 gap> ComposeAddresses([1,3],[2,1]);  
 [ 1, 3, 2, 1 ]
 gap> ComposeAddresses([1,3,2],[2,1]);

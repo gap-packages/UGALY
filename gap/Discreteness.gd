@@ -111,7 +111,8 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #! MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], [ (1,3,2), 1 ], 
 #!   [ (1,3,2), 2 ], [ (1,3,2), 3 ], [ (1,2,3), 1 ], [ (1,2,3), 2 ], 
 #!   [ (1,2,3), 3 ] ]), Alt( [ 1 .. 3 ] ), function( s ) ... end )
-#! gap> a:=Random(F);; dir:=Random([1..3]);;
+#! gap> mt:=RandomSource(IsMersenneTwister,1);;
+#! gap> a:=Random(mt,F);; dir:=Random(mt,[1..3]);;
 #! gap> a; Image(z,[a,dir]);
 #! (1,2,3)
 #! (1,2,3)

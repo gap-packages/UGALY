@@ -41,6 +41,14 @@
 #! @Section Purpose
 ##################################################################################################################
 
+#! Note: many of the examples in this manual access random elements of various domains via <C>Random()</C>. For the purpose of reproducibility and testing we use initialize the random source <C>mt</C> introduced below each time.
+
+#!
+#! @BeginExampleSession
+#! gap> mt:=RandomSource(IsMersenneTwister,1);
+#! <RandomSource in IsMersenneTwister>
+#! @EndExampleSession
+
 #! <Package>UGALY</Package> serves both a research and an educational purpose. It consolidates a rudimentary codebase that was developed by the second author in the course of research undertaken towards the article <Cite Key="Tor20"/>. This codebase had been tremendously beneficial in achieving the results of <Cite Key="Tor20"/> in the first place and so there has always been a desire to make it available to a wider audience.
 #!
 #! From a research perspective, <Package>UGALY</Package> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <Cite Key="KM08"/>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <Cite Key="BM00a"/> and their generalisations $\mathrm{U}_{k}(F)$, where $F\le\mathrm{Aut}(B_{d,k})$ satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: in fact, due to <Cite Key="Tor20" Where="Corollary 4.32"/>, the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of $\mathrm{Aut}(T_{d})$ that contain an inversion of order $2$ and satisfy one of the independence properties $(P_{k})$ (see <Cite Key="BEW15"/>) that generalise Tits' independence property $(P)$, see <Cite Key="Tit70"/>. Subgroups of $\mathrm{Aut}(B_{d,k})$ are treated as objects of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/> to the effect that they remember the degree $d$ the radius $k$ of the tree $B_{d,k}$ that they act on as a permutation group on its $d\cdot(d-1)^{k-1}$ leaves. For example, the automorphism group of $B_{3,2}$ can be accessed as follows.
@@ -180,18 +188,19 @@
 
 #!
 #! @BeginExampleSession
-#! gap> aut:=Random(AutBall(3,2));
-#! (1,5,3,2,6,4)
+#! gap> mt:=RandomSource(IsMersenneTwister,1);;
+#! gap> aut:=Random(mt,AutBall(3,2));
+#! (1,4,5,2,3,6)
 #! gap> aut_center:=LocalAction(1,3,2,aut,[]);
-#! (1,3,2)
+#! (1,2,3)
 #! gap> aut_1:=LocalAction(1,3,2,aut,[1]);
-#! (1,3,2)
+#! (1,2,3)
 #! gap> aut_2:=LocalAction(1,3,2,aut,[2]);
-#! (1,3,2)
+#! (1,2,3)
 #! gap> aut_3:=LocalAction(1,3,2,aut,[3]);
-#! (2,3)
+#! (1,3)
 #! gap> AssembleAutomorphism(3,1,[aut_1,aut_2,aut_3]);
-#! (1,5,3,2,6,4)
+#! (1,4,5,2,3,6)
 #! @EndExampleSession
 
 #! The computationally inclined student may also benefit from verifying existing theorems using <Package>UGALY</Package>. For example, one way to phrase a part of Tutte's work <Cite Key="Tut47"/> <Cite Key="Tut59"/> is to say that there are only three conjugacy classes of discrete, locally transitive subgroups of $\mathrm{Aut}(T_{3})$ that contain an inversion of order $2$ and are $P_{2}$-closed. Due to <Cite Key="Tor20" Where="Corollary 4.38"/>, this can be verified by checking that among all locally transitive subgroups of $\mathrm{Aut}(B_{3,2})$ which satisfy the compatibility condition (C), only three also satisfy the discreteness condition (D). In the code example below, we start this task by turning the two transitive groups of degree $3$, namely $A_{3}$ and $S_{3}$, into objects of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/>. For each of them we proceed to compute the list of subgroups of $\mathrm{Aut}(B_{3,2})$ that satisfy (C) and project onto the respective group as before. Now we merely have to go through these lists and check whether or not condition (D) is satisfied. Indeed we find exactly three groups.
@@ -222,9 +231,10 @@
 #! gap> rho:=SignHomomorphism(S3);;
 #! gap> H:=PI(2,3,S3,rho,[1]);;
 #! gap> z:=InvolutiveCompatibilityCocycle(H);;
-#! gap> a:=Random(H); Image(z,[Image(z,[a,1]),1]);
-#! (3,4)(5,6)
-#! (3,4)(5,6)
+#! gap> mt:=RandomSource(IsMersenneTwister,1);;
+#! gap> a:=Random(mt,H); Image(z,[Image(z,[a,1]),1]);
+#! (1,3,6)(2,4,5)
+#! (1,3,6)(2,4,5)
 #! @EndExampleSession
 
 ##################################################################################################################
@@ -509,10 +519,11 @@ DeclareOperation( "LocalAction" , [IsInt, IsInt, IsInt, IsPerm, IsList] );
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> b:=Random(AutBall(3,4));
-#! (1,20,4,17,2,19,3,18)(5,22,8,23,6,21,7,24)(9,10)(13,16,14,15)
+#! gap> mt:=RandomSource(IsMersenneTwister,1);;
+#! gap> b:=Random(mt,AutBall(3,4));
+#! (1,18,11,5,23,14,4,20,10,7,22,16)(2,17,12,6,24,13,3,19,9,8,21,15)
 #! gap> LocalAction(2,3,4,b,[3,1]);
-#! (1,4)(2,3)
+#! (1,2)(3,6,4,5)
 #! gap> LocalAction(3,3,4,b,[3,1]);
 #! Error, the sum of input argument r=3 and the length of input argument
 #! addr=[ 3, 1 ] must not exceed input argument k=4
@@ -538,8 +549,9 @@ DeclareOperation( "Projection" , [IsLocalAction, IsInt] );
 #!   (19,24)(20,23) ])
 #! gap> pr:=Projection(F,2);
 #! <action homomorphism>
-#! gap> a:=Random(F);; Image(pr,a);
-#! (1,4,5)(2,3,6)
+#! gap> mt:=RandomSource(IsMersenneTwister,1);;
+#! gap> a:=Random(mt,F);; Image(pr,a);
+#! (1,2)(3,5)(4,6)
 #! @EndExampleSession
 
 

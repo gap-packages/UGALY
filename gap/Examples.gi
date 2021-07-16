@@ -429,7 +429,7 @@ end );
 
 InstallGlobalFunction( PI,
 function(l,d,F,rho,R)
-	local i, gens, G, A, indx, a;
+	local i, G, A, indx, gens, mt, a;
 
 	if not l>=1 then
 		Error("input argument l=",l," must be an integer greater than or equal to 1");
@@ -458,8 +458,9 @@ function(l,d,F,rho,R)
 			A:=Range(rho);
 			indx:=Size(A);
 			gens:=[()];
+			mt:=RandomSource(IsMersenneTwister,1);;
 			repeat
-				a:=Random(G);
+				a:=Random(mt,G);
 				if SpheresProduct(d,l,a,rho,R)=One(A) then Add(gens,a); fi;
 			until Index(G,Group(gens))=indx;
 		

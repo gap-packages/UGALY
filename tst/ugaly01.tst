@@ -10,7 +10,11 @@
 #
 gap> START_TEST( "ugaly01.tst");
 
-# doc/_Chapter_Introduction.xml:24-33
+# doc/_Chapter_Introduction.xml:22-25
+gap> mt:=RandomSource(IsMersenneTwister,1);
+<RandomSource in IsMersenneTwister>
+
+# doc/_Chapter_Introduction.xml:32-41
 gap> F:=AutBall(3,2);
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 gap> IsLocalAction(F);
@@ -20,7 +24,7 @@ gap> LocalActionDegree(F);
 gap> LocalActionRadius(F);
 2
 
-# doc/_Chapter_Introduction.xml:38-47
+# doc/_Chapter_Introduction.xml:46-55
 gap> A3:=LocalAction(3,1,AlternatingGroup(3));
 Alt( [ 1 .. 3 ] )
 gap> IsLocalAction(A3);
@@ -30,13 +34,13 @@ gap> LocalActionDegree(A3);
 gap> LocalActionRadius(A3);
 1
 
-# doc/_Chapter_Introduction.xml:52-57
+# doc/_Chapter_Introduction.xml:60-65
 gap> A3:=LocalAction(3,1,TransitiveGroup(3,1));
 A3
 gap> S3:=LocalAction(3,1,TransitiveGroup(3,2));
 S3
 
-# doc/_Chapter_Introduction.xml:62-71
+# doc/_Chapter_Introduction.xml:70-79
 gap> A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);
 [ Group([ (1,4,5)(2,3,6) ]) ]
 gap> S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
@@ -46,7 +50,7 @@ gap> S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 
-# doc/_Chapter_Introduction.xml:76-92
+# doc/_Chapter_Introduction.xml:84-100
 gap> PHI(A3)=A3_extn[1];
 true
 gap> GAMMA(3,S3)=S3_extn[1];
@@ -63,13 +67,13 @@ true
 gap> PHI(S3)=S3_extn[5];
 true
 
-# doc/_Chapter_Introduction.xml:97-102
+# doc/_Chapter_Introduction.xml:105-110
 gap> NrPrimitiveGroups(4);
 2
 gap> A4:=LocalAction(4,1,PrimitiveGroup(4,1));;
 gap> S4:=LocalAction(4,1,PrimitiveGroup(4,2));;
 
-# doc/_Chapter_Introduction.xml:107-116
+# doc/_Chapter_Introduction.xml:115-124
 gap> A4_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A4);;
 gap> Size(A4_extn); Size(Filtered(A4_extn,SatisfiesD));
 5
@@ -79,14 +83,14 @@ gap> Size(S4_extn); Size(Filtered(S4_extn,SatisfiesD));
 13
 3
 
-# doc/_Chapter_Introduction.xml:123-129
+# doc/_Chapter_Introduction.xml:131-137
 gap> S3:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(S3);;
 gap> H:=PI(2,3,S3,rho,[1]);;
 gap> [SatisfiesC(H), SatisfiesD(H), not InvolutiveCompatibilityCocycle(H)=fail];
 [ true, false, true ]
 
-# doc/_Chapter_Introduction.xml:133-141
+# doc/_Chapter_Introduction.xml:141-149
 gap> grps:=ConjugacyClassRepsCompatibleGroupsWithProjection(3,H);; Size(grps);
 4
 gap> Size(Filtered(grps,SatisfiesD));
@@ -95,25 +99,26 @@ gap> z:=InvolutiveCompatibilityCocycle(H);;
 gap> Size(Intersection(GAMMA(H,z)^AutBall(3,3),grps));
 1
 
-# doc/_Chapter_Introduction.xml:146-149
+# doc/_Chapter_Introduction.xml:154-157
 gap> grps:=AllTransitiveGroups(NrMovedPoints,4);
 [ C(4) = 4, E(4) = 2[x]2, D(4), A4, S4 ]
 
-# doc/_Chapter_Introduction.xml:154-167
-gap> aut:=Random(AutBall(3,2));
-(1,5,3,2,6,4)
+# doc/_Chapter_Introduction.xml:162-176
+gap> mt:=RandomSource(IsMersenneTwister,1);;
+gap> aut:=Random(mt,AutBall(3,2));
+(1,4,5,2,3,6)
 gap> aut_center:=LocalAction(1,3,2,aut,[]);
-(1,3,2)
+(1,2,3)
 gap> aut_1:=LocalAction(1,3,2,aut,[1]);
-(1,3,2)
+(1,2,3)
 gap> aut_2:=LocalAction(1,3,2,aut,[2]);
-(1,3,2)
+(1,2,3)
 gap> aut_3:=LocalAction(1,3,2,aut,[3]);
-(2,3)
+(1,3)
 gap> AssembleAutomorphism(3,1,[aut_1,aut_2,aut_3]);
-(1,5,3,2,6,4)
+(1,4,5,2,3,6)
 
-# doc/_Chapter_Introduction.xml:172-187
+# doc/_Chapter_Introduction.xml:181-196
 gap> A3:=LocalAction(3,1,TransitiveGroup(3,1));;
 gap> S3:=LocalAction(3,1,TransitiveGroup(3,2));;
 gap> A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);
@@ -129,14 +134,15 @@ gap> Apply(A3_extn,SatisfiesD); A3_extn;
 gap> Apply(S3_extn,SatisfiesD); S3_extn;
 [ true, true, false, false, false ]
 
-# doc/_Chapter_Introduction.xml:192-200
+# doc/_Chapter_Introduction.xml:201-210
 gap> S3:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(S3);;
 gap> H:=PI(2,3,S3,rho,[1]);;
 gap> z:=InvolutiveCompatibilityCocycle(H);;
-gap> a:=Random(H); Image(z,[Image(z,[a,1]),1]);
-(3,4)(5,6)
-(3,4)(5,6)
+gap> mt:=RandomSource(IsMersenneTwister,1);;
+gap> a:=Random(mt,H); Image(z,[Image(z,[a,1]),1]);
+(1,3,6)(2,4,5)
+(1,3,6)(2,4,5)
 
 #
 gap> STOP_TEST("ugaly01.tst", 1 );

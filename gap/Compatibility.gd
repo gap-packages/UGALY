@@ -66,11 +66,12 @@ DeclareGlobalFunction( "AreCompatibleBallElements" );
 DeclareGlobalFunction( "CompatibleBallElement" );
 #!
 #! @BeginExampleSession
-#! gap> a:=Random(AutBall(5,1)); dir:=Random([1..5]);
-#! (1,3,2,5)
+#! gap> mt:=RandomSource(IsMersenneTwister,1);;
+#! gap> a:=Random(mt,AutBall(5,1)); dir:=Random(mt,[1..5]);
+#! (1,2,5,4,3)
 #! 4
 #! gap> CompatibleBallElement(AutBall(5,1),a,dir);
-#! (1,3,2,5)
+#! (1,2,5,4,3)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
@@ -140,18 +141,19 @@ DeclareOperation( "CompatibilitySet" , [IsLocalAction, IsPerm, IsList] );
 DeclareGlobalFunction( "AssembleAutomorphism" );
 #!
 #! @BeginExampleSession
-#! gap> aut:=Random(AutBall(3,2));
-#! (1,2)(3,6)(4,5)
+#! gap> mt:=RandomSource(IsMersenneTwister,1);;
+#! gap> aut:=Random(mt,AutBall(3,2));
+#! (1,4,5,2,3,6)
 #! gap> auts:=[];;
 #! gap> for i in [1..3] do auts[i]:=CompatibleBallElement(AutBall(3,2),aut,i); od;
 #! gap> auts;
-#! [ (1,2)(3,5)(4,6), (1,3,5)(2,4,6), (1,5,3)(2,6,4) ]
+#! [ (1,4,6,2,3,5), (1,3,6,2,4,5), (1,5)(2,6) ]
 #! gap> a:=AssembleAutomorphism(3,2,auts);
-#! (1,3)(2,4)(5,11)(6,12)(7,9)(8,10)
+#! (1,7,9,3,5,11)(2,8,10,4,6,12)
 #! gap> a in AutBall(3,3); 
 #! true
 #! gap> LocalAction(2,3,3,a,[]);
-#! (1,2)(3,6)(4,5)
+#! (1,4,5,2,3,6)
 #! @EndExampleSession
 
 ##################################################################################################################

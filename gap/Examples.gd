@@ -246,14 +246,14 @@ DeclareOperation( "PHI" , [IsLocalAction] );
 DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #!
 #! @BeginExampleSession
-#! gap> S3:=LocalAction(3,1,SymmetricGroup(3));
+#! gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
 #! gap> PHI(S3);
 #! Group([ (), (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])
 #! gap> last=AutBall(3,2);
 #! true
-#! gap> A3:=LocalAction(3,1,AlternatingGroup(3));
+#! gap> A3:=LocalAction(3,1,AlternatingGroup(3));;
 #! gap> PHI(A3);
-#! Group([ (1,4,5)(2,3,6) ])
+#! Group([ (), (1,4,5)(2,3,6) ])
 #! gap> last=GAMMA(3,AlternatingGroup(3));
 #! true
 #! @EndExampleSession
@@ -361,14 +361,15 @@ DeclareOperation( "PHI" , [IsLocalAction, IsList] );
 #! gap> G:=PHI(4,F,P);
 #! Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,8)(2,7)(3,9)(4,5)(10,12), (1,3)
 #!   (8,9), (4,5)(10,12) ])
-#! gap> aut:=Random(G);
-#! (1,5,9,10)(2,6,7,11)(3,4,8,12)
+#! gap> mt:=RandomSource(IsMersenneTwister,1);;
+#! gap> aut:=Random(mt,G);
+#! (1,3)(4,12)(5,10)(6,11)(8,9)
 #! gap> LocalAction(1,4,2,aut,[1]); LocalAction(1,4,2,aut,[3]);
-#! (1,2,3,4)
-#! (1,2,3,4)
+#! (2,4)
+#! (2,4)
 #! gap> LocalAction(1,4,2,aut,[2]); LocalAction(1,4,2,aut,[4]);
-#! (1,4)(2,3)
-#! (1,4)(2,3)
+#! (1,3)(2,4)
+#! (1,3)(2,4)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
@@ -462,12 +463,13 @@ DeclareGlobalFunction( "SpheresProduct" );
 #! [ <identity> of ..., f1, f2, f1*f2 ]
 #! gap> StructureDescription(Range(rho));
 #! "C4"
-#! gap> aut:=Random(F);
-#! (1,2,4,5)
+#! gap> mt:=RandomSource(IsMersenneTwister,1);;
+#! gap> aut:=Random(mt,F);
+#! (1,4,3,5)
 #! gap> SpheresProduct(5,3,gamma(3,5,aut),rho,[2]);
 #! <identity> of ...
 #! gap> SpheresProduct(5,3,gamma(3,5,aut),rho,[1,2]);
-#! f1*f2
+#! f1
 #! gap> SpheresProduct(5,3,gamma(3,5,aut),rho,[0,1,2]);
 #! f2
 #! @EndExampleSession

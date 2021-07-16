@@ -275,14 +275,14 @@ Group([ (2,4)(3,5) ])
 </dl>
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(S3);</span>
 Group([ (), (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=AutBall(3,2);</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A3:=LocalAction(3,1,AlternatingGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A3:=LocalAction(3,1,AlternatingGroup(3));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(A3);</span>
-Group([ (1,4,5)(2,3,6) ])
+Group([ (), (1,4,5)(2,3,6) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=GAMMA(3,AlternatingGroup(3));</span>
 true
 </pre></div>
@@ -385,14 +385,15 @@ D(4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=PHI(4,F,P);</span>
 Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,8)(2,7)(3,9)(4,5)(10,12), (1,3)
   (8,9), (4,5)(10,12) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(G);</span>
-(1,5,9,10)(2,6,7,11)(3,4,8,12)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mt:=RandomSource(IsMersenneTwister,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(mt,G);</span>
+(1,3)(4,12)(5,10)(6,11)(8,9)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(1,4,2,aut,[1]); LocalAction(1,4,2,aut,[3]);</span>
-(1,2,3,4)
-(1,2,3,4)
+(2,4)
+(2,4)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(1,4,2,aut,[2]); LocalAction(1,4,2,aut,[4]);</span>
-(1,4)(2,3)
-(1,4)(2,3)
+(1,3)(2,4)
+(1,3)(2,4)
 </pre></div>
 
 
@@ -482,12 +483,13 @@ AGL(1, 5)
 [ &lt;identity&gt; of ..., f1, f2, f1*f2 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">StructureDescription(Range(rho));</span>
 "C4"
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(F);</span>
-(1,2,4,5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mt:=RandomSource(IsMersenneTwister,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(mt,F);</span>
+(1,4,3,5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,gamma(3,5,aut),rho,[2]);</span>
 &lt;identity&gt; of ...
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,gamma(3,5,aut),rho,[1,2]);</span>
-f1*f2
+f1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,gamma(3,5,aut),rho,[0,1,2]);</span>
 f2
 </pre></div>

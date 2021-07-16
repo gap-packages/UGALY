@@ -49,6 +49,14 @@
 
 <h4>1.1 <span class="Heading">Purpose</span></h4>
 
+<p>Note: many of the examples in this manual access random elements of various domains via <code class="code">Random()</code>. For the purpose of reproducibility and testing we use initialize the random source <code class="code">mt</code> introduced below each time.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mt:=RandomSource(IsMersenneTwister,1);</span>
+&lt;RandomSource in IsMersenneTwister&gt;
+</pre></div>
+
 <p><strong class="pkg">UGALY</strong> serves both a research and an educational purpose. It consolidates a rudimentary codebase that was developed by the second author in the course of research undertaken towards the article <a href="chapBib.html#biBTor20">[Tor20]</a>. This codebase had been tremendously beneficial in achieving the results of <a href="chapBib.html#biBTor20">[Tor20]</a> in the first place and so there has always been a desire to make it available to a wider audience.</p>
 
 <p>From a research perspective, <strong class="pkg">UGALY</strong> introduces computational methods to the world of locally compact groups. Due to the Cayley-Abels graph construction <a href="chapBib.html#biBKM08">[KM08]</a>, groups acting on trees form a particularly significant class of totally disconnected locally compact groups. Burger-Mozes universal groups <a href="chapBib.html#biBBM00a">[BM00]</a> and their generalisations <span class="Math">\mathrm{U}_{k}(F)</span>, where <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> satisfies the compatibility condition (C), are among the most accessible of these groups and form a significant subclass: in fact, due to <a href="chapBib.html#biBTor20">[Tor20, Corollary 4.32]</a>, the locally transitive, generalised universal groups are exactly the closed, locally transitive subgroups of <span class="Math">\mathrm{Aut}(T_{d})</span> that contain an inversion of order <span class="Math">2</span> and satisfy one of the independence properties <span class="Math">(P_{k})</span> (see <a href="chapBib.html#biBBEW15">[BEW15]</a>) that generalise Tits' independence property <span class="Math">(P)</span>, see <a href="chapBib.html#biBTit70">[Tit70]</a>. Subgroups of <span class="Math">\mathrm{Aut}(B_{d,k})</span> are treated as objects of the category <code class="func">IsLocalAction</code> (<a href="chap2.html#X7FCF15167D3A44B7"><span class="RefLink">2.1-1</span></a>) to the effect that they remember the degree <span class="Math">d</span> the radius <span class="Math">k</span> of the tree <span class="Math">B_{d,k}</span> that they act on as a permutation group on its <span class="Math">d\cdot(d-1)^{k-1}</span> leaves. For example, the automorphism group of <span class="Math">B_{3,2}</span> can be accessed as follows.</p>
@@ -186,18 +194,19 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(AutBall(3,2));</span>
-(1,5,3,2,6,4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mt:=RandomSource(IsMersenneTwister,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(mt,AutBall(3,2));</span>
+(1,4,5,2,3,6)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut_center:=LocalAction(1,3,2,aut,[]);</span>
-(1,3,2)
+(1,2,3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut_1:=LocalAction(1,3,2,aut,[1]);</span>
-(1,3,2)
+(1,2,3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut_2:=LocalAction(1,3,2,aut,[2]);</span>
-(1,3,2)
+(1,2,3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut_3:=LocalAction(1,3,2,aut,[3]);</span>
-(2,3)
+(1,3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssembleAutomorphism(3,1,[aut_1,aut_2,aut_3]);</span>
-(1,5,3,2,6,4)
+(1,4,5,2,3,6)
 </pre></div>
 
 <p>The computationally inclined student may also benefit from verifying existing theorems using <strong class="pkg">UGALY</strong>. For example, one way to phrase a part of Tutte's work <a href="chapBib.html#biBTut47">[Tut47]</a> <a href="chapBib.html#biBTut59">[Tut59]</a> is to say that there are only three conjugacy classes of discrete, locally transitive subgroups of <span class="Math">\mathrm{Aut}(T_{3})</span> that contain an inversion of order <span class="Math">2</span> and are <span class="Math">P_{2}</span>-closed. Due to <a href="chapBib.html#biBTor20">[Tor20, Corollary 4.38]</a>, this can be verified by checking that among all locally transitive subgroups of <span class="Math">\mathrm{Aut}(B_{3,2})</span> which satisfy the compatibility condition (C), only three also satisfy the discreteness condition (D). In the code example below, we start this task by turning the two transitive groups of degree <span class="Math">3</span>, namely <span class="Math">A_{3}</span> and <span class="Math">S_{3}</span>, into objects of the category <code class="func">IsLocalAction</code> (<a href="chap2.html#X7FCF15167D3A44B7"><span class="RefLink">2.1-1</span></a>). For each of them we proceed to compute the list of subgroups of <span class="Math">\mathrm{Aut}(B_{3,2})</span> that satisfy (C) and project onto the respective group as before. Now we merely have to go through these lists and check whether or not condition (D) is satisfied. Indeed we find exactly three groups.</p>
@@ -228,9 +237,10 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(S3);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=PI(2,3,S3,rho,[1]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(H);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Random(H); Image(z,[Image(z,[a,1]),1]);</span>
-(3,4)(5,6)
-(3,4)(5,6)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mt:=RandomSource(IsMersenneTwister,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Random(mt,H); Image(z,[Image(z,[a,1]),1]);</span>
+(1,3,6)(2,4,5)
+(1,3,6)(2,4,5)
 </pre></div>
 
 
