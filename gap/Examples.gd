@@ -33,7 +33,7 @@
 #!	</Item>
 #!	<Mark>for the arguments <A>l</A>, <A>d</A>, <A>s</A>, <A>addr</A></Mark>
 #!	<Item>
-#!		Returns: the automorphism of $B_{d,k}$ whose $1$-local actions are given by <A>s</A> at vertices whose address has <A>addr</A> as a prefix and are trivial elsewhere.
+#!		Returns: the automorphism of $B_{d,l}$ whose $1$-local actions are given by <A>s</A> at vertices whose address has <A>addr</A> as a prefix and are trivial elsewhere.
 #!
 #!		The arguments of this method are a radius <A>l</A> $\in\mathbb{N}$, a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a permutation <A>s</A> $\in S_d$ and an address <A>addr</A> of a vertex in $B_{d,l}$ whose last entry is fixed by <A>s</A>.
 #!	</Item>
