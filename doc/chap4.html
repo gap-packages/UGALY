@@ -25,7 +25,7 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X7A91225C7FCEBA7D">4.1 <span class="Heading">Discrete groups</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X87E33E187FE7341A">4.1-1 <span class="Heading">gamma</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X795B7F58851E3354">4.1-1 <span class="Heading">LocalElement</span></a>
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X87E33E187FE7341A">4.1-2 <span class="Heading">GAMMA</span></a>
 </span>
@@ -72,14 +72,14 @@
 
 <p>Here, we implement the local actions <span class="Math">\Gamma(F),\Delta(F)\le\mathrm{Aut}(B_{d,2})</span>, both of which satisfy both (C) and (D), see <a href="chapBib.html#biBTor20">[Tor20, Section 3.4.1]</a>.</p>
 
-<p><a id="X87E33E187FE7341A" name="X87E33E187FE7341A"></a></p>
+<p><a id="X795B7F58851E3354" name="X795B7F58851E3354"></a></p>
 
-<h5>4.1-1 <span class="Heading">gamma</span></h5>
+<h5>4.1-1 <span class="Heading">LocalElement</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; gamma</code>( <var class="Arg">d</var>, <var class="Arg">a</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; gamma</code>( <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">a</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; gamma</code>( <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">s</var>, <var class="Arg">addr</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; gamma</code>( <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">aut</var>, <var class="Arg">z</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalElement</code>( <var class="Arg">d</var>, <var class="Arg">a</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalElement</code>( <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">a</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalElement</code>( <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">s</var>, <var class="Arg">addr</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalElement</code>( <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">aut</var>, <var class="Arg">z</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 
 <dl>
 <dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">a</var></strong></dt>
@@ -109,23 +109,23 @@
 </dl>
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gamma(3,(1,2));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,(1,2));</span>
 (1,3)(2,4)(5,6)
 </pre></div>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gamma(2,3,(1,2));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(2,3,(1,2));</span>
 (1,3)(2,4)(5,6)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gamma(3,3,(1,2));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,3,(1,2));</span>
 (1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
 </pre></div>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gamma(3,3,(1,2),[1,3]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,3,(1,2),[1,3]);</span>
 (3,4)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gamma(3,3,(1,2),[]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,3,(1,2),[]);</span>
 (1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
 </pre></div>
 
@@ -133,10 +133,10 @@
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z1:=AllInvolutiveCompatibilityCocycles(S3)[1];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gamma(3,1,(1,2),z1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,1,(1,2),z1);</span>
 (1,4)(2,3)(5,6)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z3:=AllInvolutiveCompatibilityCocycles(S3)[3];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gamma(3,1,(1,2),z3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,1,(1,2),z3);</span>
 (1,3)(2,4)(5,6)
 </pre></div>
 
@@ -468,9 +468,9 @@ AGL(1, 5)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(SymmetricGroup(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(3,2,gamma(2,3,(1,2)),rho,[0]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0]);</span>
 (1,2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(3,2,gamma(2,3,(1,2)),rho,[0,1]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0,1]);</span>
 ()
 </pre></div>
 
@@ -486,11 +486,11 @@ AGL(1, 5)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mt:=RandomSource(IsMersenneTwister,1);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(mt,F);</span>
 (1,4,3,5)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,gamma(3,5,aut),rho,[2]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,LocalElement(3,5,aut),rho,[2]);</span>
 &lt;identity&gt; of ...
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,gamma(3,5,aut),rho,[1,2]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,LocalElement(3,5,aut),rho,[1,2]);</span>
 f1
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,gamma(3,5,aut),rho,[0,1,2]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,LocalElement(3,5,aut),rho,[0,1,2]);</span>
 f2
 </pre></div>
 

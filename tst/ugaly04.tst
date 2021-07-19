@@ -11,28 +11,28 @@
 gap> START_TEST( "ugaly04.tst");
 
 # doc/_Chapter_ukf_examples.xml:54-57
-gap> gamma(3,(1,2));
+gap> LocalElement(3,(1,2));
 (1,3)(2,4)(5,6)
 
 # doc/_Chapter_ukf_examples.xml:61-66
-gap> gamma(2,3,(1,2));
+gap> LocalElement(2,3,(1,2));
 (1,3)(2,4)(5,6)
-gap> gamma(3,3,(1,2));
+gap> LocalElement(3,3,(1,2));
 (1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
 
 # doc/_Chapter_ukf_examples.xml:70-75
-gap> gamma(3,3,(1,2),[1,3]);
+gap> LocalElement(3,3,(1,2),[1,3]);
 (3,4)
-gap> gamma(3,3,(1,2),[]);
+gap> LocalElement(3,3,(1,2),[]);
 (1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
 
 # doc/_Chapter_ukf_examples.xml:79-87
 gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
 gap> z1:=AllInvolutiveCompatibilityCocycles(S3)[1];;
-gap> gamma(3,1,(1,2),z1);
+gap> LocalElement(3,1,(1,2),z1);
 (1,4)(2,3)(5,6)
 gap> z3:=AllInvolutiveCompatibilityCocycles(S3)[3];;
-gap> gamma(3,1,(1,2),z3);
+gap> LocalElement(3,1,(1,2),z3);
 (1,3)(2,4)(5,6)
 
 # doc/_Chapter_ukf_examples.xml:123-127
@@ -191,9 +191,9 @@ gap> StructureDescription(Range(ab));
 
 # doc/_Chapter_ukf_examples.xml:466-472
 gap> rho:=SignHomomorphism(SymmetricGroup(3));;
-gap> SpheresProduct(3,2,gamma(2,3,(1,2)),rho,[0]);
+gap> SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0]);
 (1,2)
-gap> SpheresProduct(3,2,gamma(2,3,(1,2)),rho,[0,1]);
+gap> SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0,1]);
 ()
 
 # doc/_Chapter_ukf_examples.xml:476-493
@@ -207,11 +207,11 @@ gap> StructureDescription(Range(rho));
 gap> mt:=RandomSource(IsMersenneTwister,1);;
 gap> aut:=Random(mt,F);
 (1,4,3,5)
-gap> SpheresProduct(5,3,gamma(3,5,aut),rho,[2]);
+gap> SpheresProduct(5,3,LocalElement(3,5,aut),rho,[2]);
 <identity> of ...
-gap> SpheresProduct(5,3,gamma(3,5,aut),rho,[1,2]);
+gap> SpheresProduct(5,3,LocalElement(3,5,aut),rho,[1,2]);
 f1
-gap> SpheresProduct(5,3,gamma(3,5,aut),rho,[0,1,2]);
+gap> SpheresProduct(5,3,LocalElement(3,5,aut),rho,[0,1,2]);
 f2
 
 # doc/_Chapter_ukf_examples.xml:510-523

@@ -5,7 +5,7 @@
 #
 ##################################################################################################################
 
-InstallMethod( gamma, "for d,a", [IsInt, IsPerm],
+InstallMethod( LocalElement, "for d,a", [IsInt, IsPerm],
 function(d,a)
 	local aut, lf;
 	
@@ -20,7 +20,7 @@ function(d,a)
 	fi;
 end );
 
-InstallMethod( gamma, "for l,d,a", [IsInt, IsInt, IsPerm],
+InstallMethod( LocalElement, "for l,d,a", [IsInt, IsInt, IsPerm],
 function(l,d,a)
 	local aut, lf;
 	
@@ -42,7 +42,7 @@ function(l,d,a)
 	fi;
 end );
 
-InstallMethod( gamma, "for l,d,s,addr", [IsInt, IsInt, IsPerm, IsList],
+InstallMethod( LocalElement, "for l,d,s,addr", [IsInt, IsInt, IsPerm, IsList],
 function(l,d,s,addr)
 	local aut, lf, addr_lf, i;
 
@@ -52,7 +52,7 @@ function(l,d,s,addr)
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
 	else
 		if addr=[] then
-			return gamma(l,d,s);
+			return LocalElement(l,d,s);
 		else
 			# addr is non-empty
 			aut:=[];
@@ -68,7 +68,7 @@ function(l,d,s,addr)
 	fi;
 end );
 
-InstallMethod( gamma, "for d,k,aut,z", [IsInt, IsInt, IsPerm, IsMapping],
+InstallMethod( LocalElement, "for d,k,aut,z", [IsInt, IsInt, IsPerm, IsMapping],
 function(d,k,aut,z)
 	local auts, dir;	
 	
@@ -96,7 +96,7 @@ function(d,F)
 		Error("input argument F=",F," must be a subgroup of Sym(d=",d,")");
 	else
 		gens:=[];
-		for a in GeneratorsOfGroup(F) do Add(gens,gamma(2,d,a)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(2,d,a)); od;
 		return LocalActionNC(d,2,Group(gens));
 	fi;
 end );
@@ -117,7 +117,7 @@ function(l,d,F)
 			return F;
 		else
 			gens:=[];
-			for a in GeneratorsOfGroup(F) do Add(gens,gamma(l,d,a)); od;
+			for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(l,d,a)); od;
 			return LocalActionNC(d,l,Group(gens));
 		fi;
 	fi;
@@ -135,7 +135,7 @@ function(F,z)
 		return LocalActionNC(d,1,Group(()));
 	else
 		gens:=[()];
-		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,k,a,z)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(d,k,a,z)); od;
 		return LocalActionNC(d,k+1,Group(gens));
 	fi;
 end );
@@ -189,7 +189,7 @@ function(d,F,C)
 		trans:=[];
 		for i in [1..d] do Add(trans,RepresentativeAction(F,1,i)); od;			
 		# F-section
-		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,a)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(d,a)); od;
 		# kernel
 		gens_C:=GeneratorsOfGroup(C);
 		for a in gens_C do
@@ -219,7 +219,7 @@ function(d,F,N)
 	else
 		gens:=[];
 		# F-section
-		for a in GeneratorsOfGroup(F) do Add(gens,gamma(2,d,a)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(2,d,a)); od;
 		# kernel (F can be assumed transitive)
 		for a in GeneratorsOfGroup(N) do
 			auts:=ListWithIdenticalEntries(d,());
@@ -244,7 +244,7 @@ function(d,F,P)
 	else
 		gens:=[];
 		# F-section
-		for a in GeneratorsOfGroup(F) do Add(gens,gamma(2,d,a)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(2,d,a)); od;
 		# kernel (not assuming F transitive)
 		for i in [1..Length(P)] do
 			for a in GeneratorsOfGroup(Stabilizer(F,P[i],OnTuples)) do
@@ -311,7 +311,7 @@ function(l,F)
 		elif k=1 then
 			gens:=[];
 			# subgroup $\Gamma^{l}(F)$
-			for a in GeneratorsOfGroup(F) do Add(gens,gamma(l,d,a)); od;
+			for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(l,d,a)); od;
 			# initialize addresses and generators of stabilizers
 			addrs:=BallAddresses(d,l-1);
 			Remove(addrs,1);
@@ -322,7 +322,7 @@ function(l,F)
 			# other generators
 			for addr in addrs do
 				for a in gens_stabs[addr[Length(addr)]] do
-					Add(gens,gamma(l,d,a,addr));
+					Add(gens,LocalElement(l,d,a,addr));
 				od;
 			od;
 			return LocalActionNC(d,l,Group(gens));
@@ -566,7 +566,7 @@ function(d,F,K)
 		Error("input argument F=",F," must be a subgroup of Sym(d=",d,")");
 	else
 		gens:=[];
-		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,a)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(d,a)); od;
 		Append(gens,ShallowCopy(GeneratorsOfGroup(K)));
 		return LocalActionNC(d,2,Group(gens));
 	fi;
@@ -583,7 +583,7 @@ function(F,K,z)
 		k:=LocalActionRadius(F);	
 	
 		gens:=[];
-		for a in GeneratorsOfGroup(F) do Add(gens,gamma(d,k,a,z)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(d,k,a,z)); od;
 		Append(gens,ShallowCopy(GeneratorsOfGroup(K)));
 		return LocalActionNC(d,k+1,Group(gens));
 	fi;

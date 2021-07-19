@@ -15,8 +15,8 @@
 
 #! Here, we implement the local actions $\Gamma(F),\Delta(F)\le\mathrm{Aut}(B_{d,2})$, both of which satisfy both (C) and (D), see <Cite Key="Tor20" Where="Section 3.4.1"/>.
 #!
-#! @BeginGroup gamma
-#! @GroupTitle gamma
+#! @BeginGroup LocalElement
+#! @GroupTitle LocalElement
 #!
 #! <List>
 #!	<Mark>for the arguments <A>d</A>, <A>a</A></Mark>
@@ -47,46 +47,46 @@
 #!
 #! @Arguments d,a
 #! @Label for d, a
-DeclareOperation( "gamma" , [IsInt, IsPerm] );
+DeclareOperation( "LocalElement" , [IsInt, IsPerm] );
 #!
 #! @Arguments l,d,a
 #! @Label for l, d, a
-DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm] );
+DeclareOperation( "LocalElement" , [IsInt, IsInt, IsPerm] );
 #!
 #! @Arguments l,d,s,addr
 #! @Label for l, d, s, addr
-DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsList] );
+DeclareOperation( "LocalElement" , [IsInt, IsInt, IsPerm, IsList] );
 #!
 #! @Arguments d,k,aut,z
 #! @Label for d, k, aut, z
-DeclareOperation( "gamma" , [IsInt, IsInt, IsPerm, IsMapping] );
+DeclareOperation( "LocalElement" , [IsInt, IsInt, IsPerm, IsMapping] );
 #!
 #! @BeginExampleSession
-#! gap> gamma(3,(1,2));
+#! gap> LocalElement(3,(1,2));
 #! (1,3)(2,4)(5,6)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> gamma(2,3,(1,2));
+#! gap> LocalElement(2,3,(1,2));
 #! (1,3)(2,4)(5,6)
-#! gap> gamma(3,3,(1,2));
+#! gap> LocalElement(3,3,(1,2));
 #! (1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> gamma(3,3,(1,2),[1,3]);
+#! gap> LocalElement(3,3,(1,2),[1,3]);
 #! (3,4)
-#! gap> gamma(3,3,(1,2),[]);
+#! gap> LocalElement(3,3,(1,2),[]);
 #! (1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
 #! gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
 #! gap> z1:=AllInvolutiveCompatibilityCocycles(S3)[1];;
-#! gap> gamma(3,1,(1,2),z1);
+#! gap> LocalElement(3,1,(1,2),z1);
 #! (1,4)(2,3)(5,6)
 #! gap> z3:=AllInvolutiveCompatibilityCocycles(S3)[3];;
-#! gap> gamma(3,1,(1,2),z3);
+#! gap> LocalElement(3,1,(1,2),z3);
 #! (1,3)(2,4)(5,6)
 #! @EndExampleSession
 #!
@@ -449,9 +449,9 @@ DeclareGlobalFunction( "SpheresProduct" );
 #!
 #! @BeginExampleSession
 #! gap> rho:=SignHomomorphism(SymmetricGroup(3));;
-#! gap> SpheresProduct(3,2,gamma(2,3,(1,2)),rho,[0]);
+#! gap> SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0]);
 #! (1,2)
-#! gap> SpheresProduct(3,2,gamma(2,3,(1,2)),rho,[0,1]);
+#! gap> SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0,1]);
 #! ()
 #! @EndExampleSession
 #!
@@ -466,11 +466,11 @@ DeclareGlobalFunction( "SpheresProduct" );
 #! gap> mt:=RandomSource(IsMersenneTwister,1);;
 #! gap> aut:=Random(mt,F);
 #! (1,4,3,5)
-#! gap> SpheresProduct(5,3,gamma(3,5,aut),rho,[2]);
+#! gap> SpheresProduct(5,3,LocalElement(3,5,aut),rho,[2]);
 #! <identity> of ...
-#! gap> SpheresProduct(5,3,gamma(3,5,aut),rho,[1,2]);
+#! gap> SpheresProduct(5,3,LocalElement(3,5,aut),rho,[1,2]);
 #! f1
-#! gap> SpheresProduct(5,3,gamma(3,5,aut),rho,[0,1,2]);
+#! gap> SpheresProduct(5,3,LocalElement(3,5,aut),rho,[0,1,2]);
 #! f2
 #! @EndExampleSession
 
