@@ -148,5 +148,3 @@ DeclareAttribute( "AllInvolutiveCompatibilityCocycles" , IsLocalAction );
 #! gap> Size(AllInvolutiveCompatibilityCocycles(GAMMA(3,SymmetricGroup(3))));
 #! 1
 #! @EndExampleSession
-
-

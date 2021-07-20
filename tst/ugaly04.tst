@@ -10,23 +10,23 @@
 #
 gap> START_TEST( "ugaly04.tst");
 
-# doc/_Chapter_ukf_examples.xml:54-57
+# doc/_Chapter_ukf_examples.xml:55-58
 gap> LocalElement(3,(1,2));
 (1,3)(2,4)(5,6)
 
-# doc/_Chapter_ukf_examples.xml:61-66
+# doc/_Chapter_ukf_examples.xml:62-67
 gap> LocalElement(2,3,(1,2));
 (1,3)(2,4)(5,6)
 gap> LocalElement(3,3,(1,2));
 (1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
 
-# doc/_Chapter_ukf_examples.xml:70-75
+# doc/_Chapter_ukf_examples.xml:71-76
 gap> LocalElement(3,3,(1,2),[1,3]);
 (3,4)
 gap> LocalElement(3,3,(1,2),[]);
 (1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
 
-# doc/_Chapter_ukf_examples.xml:79-87
+# doc/_Chapter_ukf_examples.xml:80-88
 gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
 gap> z1:=AllInvolutiveCompatibilityCocycles(S3)[1];;
 gap> LocalElement(3,1,(1,2),z1);
@@ -35,12 +35,12 @@ gap> z3:=AllInvolutiveCompatibilityCocycles(S3)[3];;
 gap> LocalElement(3,1,(1,2),z3);
 (1,3)(2,4)(5,6)
 
-# doc/_Chapter_ukf_examples.xml:123-127
+# doc/_Chapter_ukf_examples.xml:124-128
 gap> F:=TransitiveGroup(4,3);;
 gap> GAMMA(4,F);
 Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,8)(2,7)(3,9)(4,5)(10,12) ])
 
-# doc/_Chapter_ukf_examples.xml:131-138
+# doc/_Chapter_ukf_examples.xml:132-139
 gap> GAMMA(3,SymmetricGroup(3));
 Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 gap> GAMMA(2,3,SymmetricGroup(3));
@@ -48,7 +48,7 @@ Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 gap> GAMMA(3,3,SymmetricGroup(3));
 Group([ (1,8,10)(2,7,9)(3,5,12)(4,6,11), (1,5)(2,6)(3,8)(4,7)(9,11)(10,12) ])
 
-# doc/_Chapter_ukf_examples.xml:142-150
+# doc/_Chapter_ukf_examples.xml:143-151
 gap> F:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(F);;
 gap> H:=PI(2,3,F,rho,[1]);;
@@ -57,7 +57,7 @@ gap> GAMMA(H,z);
 Group([ (), (), (1,12)(2,11)(3,9)(4,10)(5,6), (1,2)(5,12)(6,11)(7,10)(8,9), 
   (1,7,12)(2,8,11)(3,6,10)(4,5,9) ])
 
-# doc/_Chapter_ukf_examples.xml:179-191
+# doc/_Chapter_ukf_examples.xml:180-192
 gap> F:=SymmetricGroup(3);;
 gap> D:=DELTA(3,F);
 Group([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])
@@ -70,7 +70,7 @@ gap> G:=AutBall(3,2);;
 gap> D^G=D1^G;
 true
 
-# doc/_Chapter_ukf_examples.xml:195-206
+# doc/_Chapter_ukf_examples.xml:196-207
 gap> F:=PrimitiveGroup(5,3);
 AGL(1, 5)
 gap> F1:=Stabilizer(F,1);
@@ -82,7 +82,7 @@ gap> Index(F1,C);
 gap> Index(DELTA(5,F,F1),DELTA(5,F,C));
 2
 
-# doc/_Chapter_ukf_examples.xml:243-254
+# doc/_Chapter_ukf_examples.xml:244-255
 gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
 gap> PHI(S3);
 Group([ (), (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])
@@ -94,7 +94,7 @@ Group([ (), (1,4,5)(2,3,6) ])
 gap> last=GAMMA(3,AlternatingGroup(3));
 true
 
-# doc/_Chapter_ukf_examples.xml:258-272
+# doc/_Chapter_ukf_examples.xml:259-273
 gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
 gap> groups:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
 [ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
@@ -109,13 +109,13 @@ gap> for G in groups do Print(Size(G),",",Size(PHI(G)),"\n"); od;
 24,192
 48,3072
 
-# doc/_Chapter_ukf_examples.xml:276-281
+# doc/_Chapter_ukf_examples.xml:277-282
 gap> PHI(3,LocalAction(4,1,SymmetricGroup(4)));
 <permutation group with 34 generators>
 gap> last=AutBall(4,3);
 true
 
-# doc/_Chapter_ukf_examples.xml:285-295
+# doc/_Chapter_ukf_examples.xml:286-296
 gap> rho:=SignHomomorphism(SymmetricGroup(3));;
 gap> F:=PI(2,3,SymmetricGroup(3),rho,[1]);; Size(F);
 24
@@ -126,7 +126,7 @@ true
 gap> SatisfiesC(P);
 true
 
-# doc/_Chapter_ukf_examples.xml:340-354
+# doc/_Chapter_ukf_examples.xml:341-355
 gap> F:=SymmetricGroup(4);;
 gap> F1:=Stabilizer(F,1);
 Sym( [ 2 .. 4 ] )
@@ -141,7 +141,7 @@ gap> Index(F1,N);
 gap> Index(PHI(4,F,F1),PHI(4,F,N));
 16
 
-# doc/_Chapter_ukf_examples.xml:358-375
+# doc/_Chapter_ukf_examples.xml:359-376
 gap> F:=TransitiveGroup(4,3);
 D(4)
 gap> P:=Blocks(F,[1..4]);
@@ -159,7 +159,7 @@ gap> LocalAction(1,4,2,aut,[2]); LocalAction(1,4,2,aut,[4]);
 (1,3)(2,4)
 (1,3)(2,4)
 
-# doc/_Chapter_ukf_examples.xml:379-389
+# doc/_Chapter_ukf_examples.xml:380-390
 gap> H:=TransitiveGroup(4,3);
 D(4)
 gap> P:=Blocks(H,[1..4]);
@@ -170,7 +170,7 @@ gap> G:=PHI(F,P);
 gap> SatisfiesC(G);
 true
 
-# doc/_Chapter_ukf_examples.xml:415-423
+# doc/_Chapter_ukf_examples.xml:416-424
 gap> F:=SymmetricGroup(3);;
 gap> sign:=SignHomomorphism(F);
 MappingByFunction( Sym( [ 1 .. 3 ] ), Sym( [ 1 .. 2 ] ), function( g ) ... end )
@@ -179,7 +179,7 @@ gap> Image(sign,(2,3));
 gap> Image(sign,(1,2,3));
 ()
 
-# doc/_Chapter_ukf_examples.xml:440-449
+# doc/_Chapter_ukf_examples.xml:441-450
 gap> F:=PrimitiveGroup(5,3);
 AGL(1, 5)
 gap> ab:=AbelianizationHomomorphism(PrimitiveGroup(5,3));
@@ -189,14 +189,14 @@ gap> Elements(Range(ab));
 gap> StructureDescription(Range(ab));
 "C4"
 
-# doc/_Chapter_ukf_examples.xml:466-472
+# doc/_Chapter_ukf_examples.xml:467-473
 gap> rho:=SignHomomorphism(SymmetricGroup(3));;
 gap> SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0]);
 (1,2)
 gap> SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0,1]);
 ()
 
-# doc/_Chapter_ukf_examples.xml:476-493
+# doc/_Chapter_ukf_examples.xml:477-494
 gap> F:=PrimitiveGroup(5,3);
 AGL(1, 5)
 gap> rho:=AbelianizationHomomorphism(F);;
@@ -214,7 +214,7 @@ f1
 gap> SpheresProduct(5,3,LocalElement(3,5,aut),rho,[0,1,2]);
 f2
 
-# doc/_Chapter_ukf_examples.xml:510-523
+# doc/_Chapter_ukf_examples.xml:511-524
 gap> F:=LocalAction(5,1,PrimitiveGroup(5,3));
 AGL(1, 5)
 gap> rho1:=AbelianizationHomomorphism(F);;
@@ -228,12 +228,12 @@ gap> PI(3,5,F,rho2,[0,1,2]);
 gap> Index(PHI(3,F),last);
 2
 
-# doc/_Chapter_ukf_examples.xml:560-564
+# doc/_Chapter_ukf_examples.xml:561-565
 gap> CompatibleKernels(3,SymmetricGroup(3));
 [ Group(()), Group([ (1,2)(3,4)(5,6) ]), Group([ (3,4)(5,6), (1,2)(5,6) ]), 
   Group([ (5,6), (3,4), (1,2) ]) ]
 
-# doc/_Chapter_ukf_examples.xml:568-577
+# doc/_Chapter_ukf_examples.xml:569-578
 gap> P:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(P);;
 gap> F:=PI(2,3,P,rho,[1]);;
@@ -243,7 +243,7 @@ gap> CompatibleKernels(F,z);
   Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
   Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
 
-# doc/_Chapter_ukf_examples.xml:606-616
+# doc/_Chapter_ukf_examples.xml:607-617
 gap> S3:=SymmetricGroup(3);;
 gap> kernels:=CompatibleKernels(3,S3);
 [ Group(()), Group([ (1,2)(3,4)(5,6) ]), Group([ (3,4)(5,6), (1,2)(5,6) ]), 
@@ -254,7 +254,7 @@ gap> for K in kernels do Print(Size(SIGMA(3,S3,K)),"\n"); od;
 24
 48
 
-# doc/_Chapter_ukf_examples.xml:620-634
+# doc/_Chapter_ukf_examples.xml:621-635
 gap> P:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(P);;
 gap> F:=PI(2,3,P,rho,[1]);;

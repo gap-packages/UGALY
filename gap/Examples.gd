@@ -17,6 +17,7 @@
 #!
 #! @BeginGroup LocalElement
 #! @GroupTitle LocalElement
+#! <Index>gamma, see LocalElement</Index>
 #!
 #! <List>
 #!	<Mark>for the arguments <A>d</A>, <A>a</A></Mark>
