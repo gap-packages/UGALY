@@ -19,7 +19,7 @@
 
 #! The second author owes thanks to Marc Burger and George Willis for their support and acknowledges contributions from the SNSF Doc.Mobility fellowship 172120 and the ARC Discovery Project DP120100996 to the development of an early version of this codebase. In its present form, the development of <Package>UGALY</Package> was made possible by the ARC Laureate Fellowship FL170100032 and the ARC DECRA Fellowship DE210100180.
 #!
-#! Finally, we owe thanks to Laurent Bartholdi for guiding us through a reviewing process that has resulted in a substantial number of improvements, and to Max Horn for helping with a documentation issue.
+#! Finally, we owe thanks to Laurent Bartholdi for guiding us through a reviewing process that has resulted in substantial improvements, and to Max Horn for helping with a documentation issue.
 
 ##################################################################################################################
 ##################################################################################################################
@@ -67,7 +67,7 @@
 #! 2
 #! @EndExampleSession
 
-#! In general, a subgroup $F$ of the permutation group $\mathrm{Aut}(B_{d,k})$ can be turned into an object of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/> by calling the creator operation <Ref Oper="LocalAction" Label="for r, d, k, aut, addr"/> with the degree $d$, the radius $k$ and the permutation group $F$ itself. For example, the subgroup $A_{3}\le\mathrm{Aut}(B_{3,1})\cong S_{3}$ can be generated as follows.
+#! In general, a subgroup $F$ of the permutation group $\mathrm{Aut}(B_{d,k})$ can be turned into an object of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/> by calling the creator operation <Ref Oper="LocalAction" Label="for IsInt, IsInt, IsPermGroup"/> with the degree $d$, the radius $k$ and the permutation group $F$ itself. For example, the subgroup $A_{3}\le\mathrm{Aut}(B_{3,1})\cong S_{3}$ can be generated as follows.
 
 #!
 #! @BeginExampleSession
@@ -256,7 +256,12 @@
 #! In this package, local actions $F\le\mathrm{Aut}(B_{d,k})$ are handled as objects of the category <Ref Filt="IsLocalAction" Label="for IsPermGroup"/> and have several attributes and properties introduced throughout this manual. Most importantly, a local action always stores the degree $d$ and the radius $k$ of the ball $B_{d,k}$ that it acts on.
 
 #! @Description
-#! Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (see <Ref Attr="LocalActionDegree" Label="for IsLocalAction"/>), radius (see <Ref Attr="LocalActionRadius" Label="for IsLocalAction"/>) as well as other attributes and properties in this category.
+#! Local actions $F\le\mathrm{Aut}(B_{d,k})$ are stored together with their degree (see <Ref Attr="LocalActionDegree" Label="for IsLocalAction"/>), radius (see <Ref Attr="LocalActionRadius" Label="for IsLocalAction"/>) as well as other attributes and properties in this category. They can be initialised using the creator operation <Ref Oper="LocalAction" Label="for IsInt, IsInt, IsPermGroup"/>.
+#!
+#! @Returns
+#! <K>true</K> if $F$ is an object of the category <K>IsLocalAction</K>, and <K>false</K> otherwise.
+#!
+#! @Arguments F
 #!
 DeclareCategory( "IsLocalAction" , IsPermGroup );
 #!

@@ -72,7 +72,7 @@ ArchiveFormats := ".tar.gz",
 ##
 Status := "accepted",
 CommunicatedBy := "Laurent Bartholdi (Göttingen)",
-AcceptDate := "21/07/2021",
+AcceptDate := "07/2021", # 21/07/2021
 AbstractHTML   :=  "",
 
 PackageDoc := rec(

@@ -10,7 +10,7 @@
 #! @SectionLabel condition_C
 ##################################################################################################################
 
-#! A subgroup $F\le\mathrm{Aut}(B_{d,k})$ satifies the compatibility condition (C) if and only if if $\mathrm{U}_{k}(F)$ is locally action isomorphic to $F$, see <Cite Key="Tor20" Where="Proposition 3.8"/>. The term <E>compatibility</E> comes from the following translation of this condition into properties of the $(k-1)$-local actions of elements of $F$: The group $F$ satisfies (C) if and only if $$\forall \alpha\in F\ \forall\omega\in\Omega\ \exists\beta\in F:\ \sigma_{k-1}(\alpha,b)=\sigma_{k-1}(\beta,b_{\omega}),\ \sigma_{k-1}(\alpha,b_{\omega})=\sigma_{k-1}(\beta,b).$$
+#! A subgroup $F\le\mathrm{Aut}(B_{d,k})$ satifies the compatibility condition (C) if and only if $\mathrm{U}_{k}(F)$ is locally action isomorphic to $F$, see <Cite Key="Tor20" Where="Proposition 3.8"/>. The term <E>compatibility</E> comes from the following translation of this condition into properties of the $(k-1)$-local actions of elements of $F$: The group $F$ satisfies (C) if and only if $$\forall \alpha\in F\ \forall\omega\in\Omega\ \exists\beta\in F:\ \sigma_{k-1}(\alpha,b)=\sigma_{k-1}(\beta,b_{\omega}),\ \sigma_{k-1}(\alpha,b_{\omega})=\sigma_{k-1}(\beta,b).$$
 
 ##################################################################################################################
 #! @Section Compatible elements

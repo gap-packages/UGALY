@@ -14,7 +14,7 @@
 #! @SectionLabel condition_D
 ##################################################################################################################
 
-#! Said proposition shows that for a given $F\le \mathrm{Aut}(B_{d,k})$ the group $\mathrm{U}_{k}(F)$ is discrete if and only if the maximal compatible subgroup $C(F)$ of $F$ satisfies condition (D): $$\forall \omega \in \Omega: F_{T_{\omega}}=\{\mathrm{id}\},$$ where $T_{\omega}$ is the $k-1$-neighbourhood of the the edge $(b,b_{\omega})$ inside $B_{d,k}$. In other words, $F$ satisfies (D) if and only if the compatibility set $C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}$.
+#! Said proposition shows that for a given $F\le \mathrm{Aut}(B_{d,k})$ the group $\mathrm{U}_{k}(F)$ is discrete if and only if the maximal compatible subgroup $C(F)$ of $F$ satisfies condition (D): $$\forall \omega \in \Omega: F_{T_{\omega}}=\{\mathrm{id}\},$$ where $T_{\omega}$ is the $k-1$-neighbourhood of the edge $(b,b_{\omega})$ inside $B_{d,k}$. In other words, $F$ satisfies (D) if and only if the compatibility set $C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}$.
 #! We distinguish between $F$ satisfying condition (D) and $\mathrm{U}_{k}(F)$ being discrete with the methods <Ref Prop="SatisfiesD" Label="for IsLocalAction"/> and <Ref Prop="IsDiscrete" Label="for IsLocalAction"/> below.
 
 ##################################################################################################################
