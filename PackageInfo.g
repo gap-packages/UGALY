@@ -6,47 +6,58 @@
 # manual of the "Example" package as well as the comments in its
 # PackageInfo.g file.
 #
+
 SetPackageInfo( rec(
 
 PackageName := "UGALY",
 Subtitle := "Universal Groups Acting LocallY",
-Version := "v2.0.1",
-Date := "14/07/2021", # dd/mm/yyyy format
+Version := "v3.0",
+Date := "22/07/2021", # dd/mm/yyyy format
 License := "GPL-3.0-or-later",
 
-Persons := [
-  rec(
-    FirstNames := "Khalil",
-    LastName := "Hannouch",
-    WWWHome := "https://www.newcastle.edu.au/profile/khalil-hannouch",
-    Email := "khalil.hannouch@newcastle.edu.au",
-    IsAuthor := true,
-    IsMaintainer := false,
-    #PostalAddress := TODO,
-    #Place := TODO,
-    Institution := "The University of Newcastle",
-  ),
-  rec(
-    FirstNames := "Stephan",
-    LastName := "Tornier",
-    WWWHome := "https://www.newcastle.edu.au/profile/stephan-tornier",
-    Email := "stephan.tornier@newcastle.edu.au",
-    IsAuthor := true,
-    IsMaintainer := true,
-    #PostalAddress := TODO,
-    #Place := TODO,
-    Institution := "The University of Newcastle",
-  ),
+Persons := [ rec(
+		FirstNames := "Khalil",
+		LastName := "Hannouch",
+		WWWHome := "https://www.newcastle.edu.au/profile/khalil-hannouch",
+		Email := "khalil.hannouch@newcastle.edu.au",
+		IsAuthor := true,
+		IsMaintainer := false,
+		PostalAddress := Concatenation( [
+			"Khalil Hannouch\n",
+			"School of Information and Physical Sciences\n",
+			"University Drive\n",
+			"2308 Callaghan NSW\n",
+			"Australia" ] ),
+		Place := "Newcastle",
+		Institution := "The University of Newcastle",
+	),
+	rec(
+		FirstNames := "Stephan",
+		LastName := "Tornier",
+		WWWHome := "https://www.newcastle.edu.au/profile/stephan-tornier",
+		Email := "stephan.tornier@newcastle.edu.au",
+		IsAuthor := true,
+		IsMaintainer := true,
+		PostalAddress := Concatenation( [
+			"Stephan Tornier\n",
+			"School of Information and Physical Sciences\n",
+			"University Drive\n",
+			"2308 Callaghan NSW\n",
+			"Australia" ] ),
+		Place := "Newcastle",
+		Institution := "The University of Newcastle",
+	)
 ],
 
-#SourceRepository := rec( Type := "TODO", URL := "URL" ),
-#IssueTrackerURL := "TODO",
-PackageWWWHome := "https://TODO/",
+SourceRepository := rec(
+	Type := "git",
+	URL := "https://github.com/torniers/UGALY",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+PackageWWWHome := "https://github.com/torniers/UGALY",
 PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
-ArchiveURL     := Concatenation( ~.PackageWWWHome,
-                                 "/", ~.PackageName, "-", ~.Version ),
-
+ArchiveURL     := Concatenation( ~.PackageWWWHome, "/", ~.PackageName, "-", ~.Version ),
 ArchiveFormats := ".tar.gz",
 
 ##  Status information. Currently the following cases are recognized:
@@ -57,42 +68,42 @@ ArchiveFormats := ".tar.gz",
 ##    "dev"           for development versions of packages
 ##    "other"         for all other packages
 ##
-Status := "dev",
-
+Status := "accepted",
+CommunicatedBy := "Laurent Bartholdi (Göttingen)",
+AcceptDate := "21/07/2021",
 AbstractHTML   :=  "",
 
 PackageDoc := rec(
-  BookName  := "UGALY",
-  ArchiveURLSubset := ["doc"],
-  HTMLStart := "doc/chap0.html",
-  PDFFile   := "doc/manual.pdf",
-  SixFile   := "doc/manual.six",
-  LongTitle := "Universal Groups Acting LocallY. Methods to create, analyse and find local actions of universal groups acting on locally finite regular trees",
+	BookName  := "UGALY",
+	ArchiveURLSubset := ["doc"],
+	HTMLStart := "doc/chap0.html",
+	PDFFile   := "doc/manual.pdf",
+	SixFile   := "doc/manual.six",
+	LongTitle := "Universal Groups Acting LocallY. Methods to create, analyse and find local actions of universal groups acting on locally finite regular trees",
 ),
 
 Dependencies := rec(
-  GAP := ">= 4.10.2",
-  NeededOtherPackages := [ ],
-  SuggestedOtherPackages := [ ],
-  ExternalConditions := [ ],
+	GAP := ">= 4.10.2",
+	NeededOtherPackages := [ ],
+	SuggestedOtherPackages := [ ],
+	ExternalConditions := [ ],
 ),
 
 AvailabilityTest := ReturnTrue,
 
 BannerString := Concatenation( 
-"\nVersion ", ~.Version,
-"\n __  __     ______     ______     __         __  __    ",
-"\n/\\ \\/\\ \\   /\\  ___\\   /\\  __ \\   /\\ \\       /\\ \\_\\ \\   ",
-"\n\\ \\ \\_\\ \\  \\ \\ \\__ \\  \\ \\  __ \\  \\ \\ \\____  \\ \\____ \\  by Khalil Hannouch",
-"\n \\ \\_____\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\ \\_____\\  \\/\\_____\\   and Stephan Tornier",
-"\n  \\/_____/   \\/_____/   \\/_/\\/_/   \\/_____/   \\/_____/ ",
-"\n                                                       ",
-"\n Universal      Groups      Acting        LocallY    \n"),
+	"\nVersion ", ~.Version,
+	"\n __  __     ______     ______     __         __  __    ",
+	"\n/\\ \\/\\ \\   /\\  ___\\   /\\  __ \\   /\\ \\       /\\ \\_\\ \\   ",
+	"\n\\ \\ \\_\\ \\  \\ \\ \\__ \\  \\ \\  __ \\  \\ \\ \\____  \\ \\____ \\  by Khalil Hannouch",
+	"\n \\ \\_____\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\ \\_____\\  \\/\\_____\\   and Stephan Tornier",
+	"\n  \\/_____/   \\/_____/   \\/_/\\/_/   \\/_____/   \\/_____/ ",
+	"\n                                                       ",
+	"\n Universal      Groups      Acting        LocallY    \n"
+),
 
 TestFile := "tst/testall.g",
 
 Keywords := [ "universal group", "local action", "regular tree", "groups acting on trees", "locally compact group", "totally disconnected" ],
 
 ));
-
-

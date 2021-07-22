@@ -29,7 +29,7 @@
 /doc/_*.xml
 /doc/maketest.g
 /doc/manual.lab
-/doc/manual.six
+# /doc/manual.six
 /doc/QuickReference/*
 /doc/title.xml
 *.actual/
