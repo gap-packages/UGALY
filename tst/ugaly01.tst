@@ -10,11 +10,11 @@
 #
 gap> START_TEST( "ugaly01.tst");
 
-# doc/_Chapter_Introduction.xml:22-25
+# doc/_Chapter_Introduction.xml:23-26
 gap> mt:=RandomSource(IsMersenneTwister,1);
 <RandomSource in IsMersenneTwister>
 
-# doc/_Chapter_Introduction.xml:32-41
+# doc/_Chapter_Introduction.xml:33-42
 gap> F:=AutBall(3,2);
 Group([ (1,2), (3,4), (5,6), (1,3,5)(2,4,6), (1,3)(2,4) ])
 gap> IsLocalAction(F);
@@ -24,7 +24,7 @@ gap> LocalActionDegree(F);
 gap> LocalActionRadius(F);
 2
 
-# doc/_Chapter_Introduction.xml:46-55
+# doc/_Chapter_Introduction.xml:47-56
 gap> A3:=LocalAction(3,1,AlternatingGroup(3));
 Alt( [ 1 .. 3 ] )
 gap> IsLocalAction(A3);
@@ -34,13 +34,13 @@ gap> LocalActionDegree(A3);
 gap> LocalActionRadius(A3);
 1
 
-# doc/_Chapter_Introduction.xml:60-65
+# doc/_Chapter_Introduction.xml:61-66
 gap> A3:=LocalAction(3,1,TransitiveGroup(3,1));
 A3
 gap> S3:=LocalAction(3,1,TransitiveGroup(3,2));
 S3
 
-# doc/_Chapter_Introduction.xml:70-79
+# doc/_Chapter_Introduction.xml:71-80
 gap> A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);
 [ Group([ (1,4,5)(2,3,6) ]) ]
 gap> S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
@@ -50,7 +50,7 @@ gap> S3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);
   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 
-# doc/_Chapter_Introduction.xml:84-100
+# doc/_Chapter_Introduction.xml:85-101
 gap> PHI(A3)=A3_extn[1];
 true
 gap> GAMMA(3,S3)=S3_extn[1];
@@ -67,13 +67,13 @@ true
 gap> PHI(S3)=S3_extn[5];
 true
 
-# doc/_Chapter_Introduction.xml:105-110
+# doc/_Chapter_Introduction.xml:106-111
 gap> NrPrimitiveGroups(4);
 2
 gap> A4:=LocalAction(4,1,PrimitiveGroup(4,1));;
 gap> S4:=LocalAction(4,1,PrimitiveGroup(4,2));;
 
-# doc/_Chapter_Introduction.xml:115-124
+# doc/_Chapter_Introduction.xml:116-125
 gap> A4_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A4);;
 gap> Size(A4_extn); Size(Filtered(A4_extn,SatisfiesD));
 5
@@ -83,14 +83,14 @@ gap> Size(S4_extn); Size(Filtered(S4_extn,SatisfiesD));
 13
 3
 
-# doc/_Chapter_Introduction.xml:131-137
+# doc/_Chapter_Introduction.xml:132-138
 gap> S3:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(S3);;
 gap> H:=PI(2,3,S3,rho,[1]);;
 gap> [SatisfiesC(H), SatisfiesD(H), not InvolutiveCompatibilityCocycle(H)=fail];
 [ true, false, true ]
 
-# doc/_Chapter_Introduction.xml:141-149
+# doc/_Chapter_Introduction.xml:142-150
 gap> grps:=ConjugacyClassRepsCompatibleGroupsWithProjection(3,H);; Size(grps);
 4
 gap> Size(Filtered(grps,SatisfiesD));
@@ -99,7 +99,7 @@ gap> z:=InvolutiveCompatibilityCocycle(H);;
 gap> Size(Intersection(GAMMA(H,z)^AutBall(3,3),grps));
 1
 
-# doc/_Chapter_Introduction.xml:154-168
+# doc/_Chapter_Introduction.xml:155-169
 gap> mt:=RandomSource(IsMersenneTwister,1);;
 gap> aut:=Random(mt,AutBall(3,2));
 (1,4,5,2,3,6)
@@ -114,7 +114,7 @@ gap> aut_3:=LocalAction(1,3,2,aut,[3]);
 gap> AssembleAutomorphism(3,1,[aut_1,aut_2,aut_3]);
 (1,4,5,2,3,6)
 
-# doc/_Chapter_Introduction.xml:173-188
+# doc/_Chapter_Introduction.xml:174-189
 gap> A3:=LocalAction(3,1,TransitiveGroup(3,1));;
 gap> S3:=LocalAction(3,1,TransitiveGroup(3,2));;
 gap> A3_extn:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,A3);
@@ -130,7 +130,7 @@ gap> Apply(A3_extn,SatisfiesD); A3_extn;
 gap> Apply(S3_extn,SatisfiesD); S3_extn;
 [ true, true, false, false, false ]
 
-# doc/_Chapter_Introduction.xml:193-202
+# doc/_Chapter_Introduction.xml:194-203
 gap> S3:=SymmetricGroup(3);;
 gap> rho:=SignHomomorphism(S3);;
 gap> H:=PI(2,3,S3,rho,[1]);;

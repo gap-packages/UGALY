@@ -24,6 +24,7 @@ Persons := [ rec(
 		IsMaintainer := false,
 		PostalAddress := Concatenation( [
 			"Khalil Hannouch\n",
+			"The University of Newcastle\n",
 			"School of Information and Physical Sciences\n",
 			"University Drive\n",
 			"2308 Callaghan NSW\n",
@@ -40,7 +41,8 @@ Persons := [ rec(
 		IsMaintainer := true,
 		PostalAddress := Concatenation( [
 			"Stephan Tornier\n",
-			"School of Information and Physical Sciences\n",
+			"The University of Newcastle\n",
+			"School of Information and Physical Sciences\n",			
 			"University Drive\n",
 			"2308 Callaghan NSW\n",
 			"Australia" ] ),
