@@ -32,3 +32,5 @@
 /doc/QuickReference/*
 /doc/title.xml
 *.actual/
+
+/tst/ugaly*.tst
