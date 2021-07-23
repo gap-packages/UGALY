@@ -34,3 +34,5 @@
 *.actual/
 
 /tst/ugaly*.tst
+
+read_test.g
