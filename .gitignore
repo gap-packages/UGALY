@@ -1,8 +1,8 @@
 *.DS_Store
 *~
 
-# /gh-pages/
-# /tmp
+/gh-pages/
+/tmp
 
 /doc/*.aux
 /doc/*.bbl
@@ -34,5 +34,3 @@
 *.actual/
 
 /tst/ugaly*.tst
-
-read_test.g
