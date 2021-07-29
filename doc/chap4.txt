@@ -1,0 +1,579 @@
+  
+  [1X4 [33X[0;0YExamples[133X[101X
+  
+  [33X[0;0YSeveral  classes  of  examples  of  subgroups  of [23X\mathrm{Aut}(B_{d,k})[123X that
+  satisfy  (C)  and  or (D) are constructed in [Tor20] and implemented in this
+  section.  For  a  given  permutation  group [23XF\le S_{d}[123X, there are always the
+  three    local    actions    [23X\Gamma(F)[123X,    [23X\Delta(F)[123X    and    [23X\Phi(F)[123X    on
+  [23X\mathrm{Aut}(B_{d,2})[123X  that  project  onto  [23XF[123X.  For  some  [23XF[123X,  these are all
+  distinct and yield all universal groups that have [23XF[123X as their [23X1[123X-local action,
+  see  [Tor20,  Theorem  3.32].  More examples arise in particular when either
+  point  stabilizers in [23XF[123X are not simple, [23XF[123X preserves a partition, or [23XF[123X is not
+  perfect.[133X
+  
+  
+  [1X4.1 [33X[0;0YDiscrete groups[133X[101X
+  
+  [33X[0;0YHere,         we         implement         the         local         actions
+  [23X\Gamma(F),\Delta(F)\le\mathrm{Aut}(B_{d,2})[123X,  both of which satisfy both (C)
+  and (D), see [Tor20, Section 3.4.1].[133X
+  
+  
+  [1X4.1-1 [33X[0;0YLocalElement[133X[101X
+  
+  [33X[1;0Y[29X[2XLocalElement[102X( [3Xd[103X, [3Xa[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XLocalElement[102X( [3Xl[103X, [3Xd[103X, [3Xa[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XLocalElement[102X( [3Xl[103X, [3Xd[103X, [3Xs[103X, [3Xaddr[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XLocalElement[102X( [3Xd[103X, [3Xk[103X, [3Xaut[103X, [3Xz[103X ) [32X operation[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3Xa[103X[8X[108X
+        [33X[0;6YReturns:                        the                       automorphism
+        [23X\gamma([123X[3Xa[103X[23X)=([123X[3Xa[103X[23X,([123X[3Xa[103X[23X)_{\omega\in\Omega})\in\mathrm{Aut}(B_{d,2})[123X.[133X
+  
+        [33X[0;6YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X and
+        a permutation [3Xa[103X [23X\in S_d[123X.[133X
+  
+  [8Xfor the arguments [3Xl[103X[8X, [3Xd[103X[8X, [3Xa[103X[8X[108X
+        [33X[0;6YReturns: the automorphism [23X\gamma^{l}([123X[3Xa[103X[23X)\in\mathrm{Aut}(B_{d,l})[123X all of
+        whose [23X1[123X-local actions are given by [3Xa[103X.[133X
+  
+        [33X[0;6YThe  arguments of this method are a radius [3Xl[103X [23X\in\mathbb{N}[123X, a degree [3Xd[103X
+        [23X\in\mathbb{N}_{\ge 3}[123X and a permutation [3Xa[103X [23X\in S_d[123X.[133X
+  
+  [8Xfor the arguments [3Xl[103X[8X, [3Xd[103X[8X, [3Xs[103X[8X, [3Xaddr[103X[8X[108X
+        [33X[0;6YReturns:  the  automorphism of [23XB_{d,l}[123X whose [23X1[123X-local actions are given
+        by  [3Xs[103X  at  vertices whose address has [3Xaddr[103X as a prefix and are trivial
+        elsewhere.[133X
+  
+        [33X[0;6YThe  arguments of this method are a radius [3Xl[103X [23X\in\mathbb{N}[123X, a degree [3Xd[103X
+        [23X\in\mathbb{N}_{\ge  3}[123X, a permutation [3Xs[103X [23X\in S_d[123X and an address [3Xaddr[103X of
+        a vertex in [23XB_{d,l}[123X whose last entry is fixed by [3Xs[103X.[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3Xk[103X[8X, [3Xaut[103X[8X, [3Xz[103X[8X[108X
+        [33X[0;6YReturns:                        the                       automorphism
+        [23X\gamma_{z}([123X[3Xaut[103X[23X)=([123X[3Xaut[103X[23X,([123X[3Xz[103X[23X([123X[3Xaut[103X[23X,\omega))_{\omega\in\Omega})\in\mathrm{Aut}(B_{d,k+1})[123X.[133X
+  
+        [33X[0;6YThe  arguments  of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a
+        radius  [3Xk[103X  [23X\in\mathbb{N}[123X,  an  automorphism  [3Xaut[103X  of  [23XB_{d,k}[123X,  and an
+        involutive    compatibility    cocycle    [3Xz[103X    of    a   subgroup   of
+        [23X\mathrm{Aut}(B_{d,k})[123X        that        contains       [3Xaut[103X       (see
+        [2XInvolutiveCompatibilityCocycle[102X ([14X5.3-1[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLocalElement(3,(1,2));[127X[104X
+    [4X[28X(1,3)(2,4)(5,6)[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLocalElement(2,3,(1,2));[127X[104X
+    [4X[28X(1,3)(2,4)(5,6)[128X[104X
+    [4X[25Xgap>[125X [27XLocalElement(3,3,(1,2));[127X[104X
+    [4X[28X(1,5)(2,6)(3,8)(4,7)(9,11)(10,12)[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLocalElement(3,3,(1,2),[1,3]);[127X[104X
+    [4X[28X(3,4)[128X[104X
+    [4X[25Xgap>[125X [27XLocalElement(3,3,(1,2),[]);[127X[104X
+    [4X[28X(1,5)(2,6)(3,8)(4,7)(9,11)(10,12)[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS3:=LocalAction(3,1,SymmetricGroup(3));;[127X[104X
+    [4X[25Xgap>[125X [27Xz1:=AllInvolutiveCompatibilityCocycles(S3)[1];;[127X[104X
+    [4X[25Xgap>[125X [27XLocalElement(3,1,(1,2),z1);[127X[104X
+    [4X[28X(1,4)(2,3)(5,6)[128X[104X
+    [4X[25Xgap>[125X [27Xz3:=AllInvolutiveCompatibilityCocycles(S3)[3];;[127X[104X
+    [4X[25Xgap>[125X [27XLocalElement(3,1,(1,2),z3);[127X[104X
+    [4X[28X(1,3)(2,4)(5,6)[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.1-2 [33X[0;0YGAMMA[133X[101X
+  
+  [33X[1;0Y[29X[2XGAMMA[102X( [3Xd[103X, [3XF[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XGAMMA[102X( [3Xl[103X, [3Xd[103X, [3XF[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XGAMMA[102X( [3XF[103X, [3Xz[103X ) [32X operation[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X[108X
+        [33X[0;6YReturns:   the   local  action  [23X\Gamma([123X[3XF[103X[23X)=\{(a,(a)_{\omega})\mid  a\in
+        F\}\le\mathrm{Aut}(B_{d,2})[123X.[133X
+  
+        [33X[0;6YThe arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, and
+        a subgroup [3XF[103X of [23XS_{d}[123X.[133X
+  
+  [8Xfor the arguments [3Xl[103X[8X, [3Xd[103X[8X, [3XF[103X[8X[108X
+        [33X[0;6YReturns: the group [23X\Gamma^{l}([123X[3XF[103X[23X)\le\mathrm{Aut}(B_{d,l})[123X.[133X
+  
+        [33X[0;6YThe  arguments of this method are a radius [3Xl[103X [23X\in\mathbb{N}[123X, a degree [3Xd[103X
+        [23X\in\mathbb{N}_{\ge 3}[123X, and a subgroup [3XF[103X of [23XS_d[123X.[133X
+  
+  [8Xfor the arguments [3XF[103X[8X, [3Xz[103X[8X[108X
+        [33X[0;6YReturns:                           the                           group
+        [23X\Gamma_{z}([123X[3XF[103X[23X)=\{(a,([123X[3Xz[103X[23X(a,\omega))_{\omega\in\Omega})\mid
+        a\in[123X[3XF[103X[23X\}\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
+  
+        [33X[0;6YThe    arguments    of    this   method   are   a   local   action   [3XF[103X
+        [23X\le\mathrm{Aut}(B_{d,k})[123X  and an involutive compatibility cocycle [3Xz[103X of
+        [3XF[103X (see [2XInvolutiveCompatibilityCocycle[102X ([14X5.3-1[114X)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=TransitiveGroup(4,3);;[127X[104X
+    [4X[25Xgap>[125X [27XGAMMA(4,F);[127X[104X
+    [4X[28XGroup([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,8)(2,7)(3,9)(4,5)(10,12) ])[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XGAMMA(3,SymmetricGroup(3));[127X[104X
+    [4X[28XGroup([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])[128X[104X
+    [4X[25Xgap>[125X [27XGAMMA(2,3,SymmetricGroup(3));[127X[104X
+    [4X[28XGroup([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])[128X[104X
+    [4X[25Xgap>[125X [27XGAMMA(3,3,SymmetricGroup(3));[127X[104X
+    [4X[28XGroup([ (1,8,10)(2,7,9)(3,5,12)(4,6,11), (1,5)(2,6)(3,8)(4,7)(9,11)(10,12) ])[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(F);;[127X[104X
+    [4X[25Xgap>[125X [27XH:=PI(2,3,F,rho,[1]);;[127X[104X
+    [4X[25Xgap>[125X [27Xz:=InvolutiveCompatibilityCocycle(H);;[127X[104X
+    [4X[25Xgap>[125X [27XGAMMA(H,z);[127X[104X
+    [4X[28XGroup([ (), (), (1,12)(2,11)(3,9)(4,10)(5,6), (1,2)(5,12)(6,11)(7,10)(8,9), [128X[104X
+    [4X[28X  (1,7,12)(2,8,11)(3,6,10)(4,5,9) ])[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.1-3 [33X[0;0YDELTA[133X[101X
+  
+  [33X[1;0Y[29X[2XDELTA[102X( [3Xd[103X, [3XF[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XDELTA[102X( [3Xd[103X, [3XF[103X, [3XC[103X ) [32X operation[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X[108X
+        [33X[0;6YReturns: the group [23X\Delta([123X[3XF[103X[23X)\le\mathrm{Aut}(B_{d,2})[123X.[133X
+  
+        [33X[0;6YThe arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, and
+        a [13Xtransitive[113X subgroup [3XF[103X of [23XS_{d}[123X.[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X, [3XC[103X[8X[108X
+        [33X[0;6YReturns: the group [23X\Delta([123X[3XF[103X[23X,[123X[3XC[103X[23X)\le\mathrm{Aut}(B_{d,2})[123X.[133X
+  
+        [33X[0;6YThe  arguments  of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a
+        [13Xtransitive[113X  subgroup  [3XF[103X  of  [23XS_d[123X,  and  a  central  subgroup  [3XC[103X of the
+        stabilizer [3XF[103X[23X_{1}[123X of [23X1[123X in [3XF[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XD:=DELTA(3,F);[127X[104X
+    [4X[28XGroup([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])[128X[104X
+    [4X[25Xgap>[125X [27XF1:=Stabilizer(F,1);;[127X[104X
+    [4X[25Xgap>[125X [27XD1:=DELTA(3,F,F1);[127X[104X
+    [4X[28XGroup([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2)(3,4)(5,6) ])[128X[104X
+    [4X[25Xgap>[125X [27XD=D1;[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XG:=AutBall(3,2);;[127X[104X
+    [4X[25Xgap>[125X [27XD^G=D1^G;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=PrimitiveGroup(5,3);[127X[104X
+    [4X[28XAGL(1, 5)[128X[104X
+    [4X[25Xgap>[125X [27XF1:=Stabilizer(F,1);[127X[104X
+    [4X[28XGroup([ (2,3,4,5) ])[128X[104X
+    [4X[25Xgap>[125X [27XC:=Group((2,4)(3,5));[127X[104X
+    [4X[28XGroup([ (2,4)(3,5) ])[128X[104X
+    [4X[25Xgap>[125X [27XIndex(F1,C);[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XIndex(DELTA(5,F,F1),DELTA(5,F,C));[127X[104X
+    [4X[28X2[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.2 [33X[0;0YMaximal extensions[133X[101X
+  
+  [33X[0;0YFor   any   [23XF\le\mathrm{Aut}(B_{d,k})[123X   that   satisfies   (C),   the  group
+  [23X\Phi(F)\le\mathrm{Aut}(B_{d,k+1})[123X   is  the  maximal  extension  of  [23XF[123X  that
+  satisfies  (C)  as  well.  It  stems from the action of [23X\mathrm{U}_{k}(F)[123X on
+  balls of radius [23Xk+1[123X in [23XT_{d}[123X.[133X
+  
+  
+  [1X4.2-1 [33X[0;0YPHI[133X[101X
+  
+  [33X[1;0Y[29X[2XPHI[102X( [3XF[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XPHI[102X( [3Xl[103X, [3XF[103X ) [32X operation[133X
+  
+  [8Xfor the argument [3XF[103X[8X[108X
+        [33X[0;6YReturns:  the  group  [23X\Phi_{k}([123X[3XF[103X[23X)=\{(a,(a_{\omega})_{\omega})\mid a\in
+        [123X[3XF[103X[23X,\          \forall          \omega\in\Omega:\          a_{\omega}\in
+        C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
+  
+        [33X[0;6YThe    argument    of    this    method    is   a   local   action   [3XF[103X
+        [23X\le\mathrm{Aut}(B_{d,k})[123X.[133X
+  
+  [8Xfor the arguments [3Xl[103X[8X, [3XF[103X[8X[108X
+        [33X[0;6YReturns:                           the                           group
+        [23X\Phi^{l}([123X[3XF[103X[23X)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}([123X[3XF[103X[23X)\le\mathrm{Aut}(B_{d,l})[123X.[133X
+  
+        [33X[0;6YThe  arguments of this method are a radius [3Xl[103X [23X\in\mathbb{N}[123X and a local
+        action [3XF[103X [23X\le\mathrm{Aut}(B_{d,k})[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS3:=LocalAction(3,1,SymmetricGroup(3));;[127X[104X
+    [4X[25Xgap>[125X [27XPHI(S3);[127X[104X
+    [4X[28XGroup([ (), (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])[128X[104X
+    [4X[25Xgap>[125X [27Xlast=AutBall(3,2);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XA3:=LocalAction(3,1,AlternatingGroup(3));;[127X[104X
+    [4X[25Xgap>[125X [27XPHI(A3);[127X[104X
+    [4X[28XGroup([ (), (1,4,5)(2,3,6) ])[128X[104X
+    [4X[25Xgap>[125X [27Xlast=GAMMA(3,AlternatingGroup(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS3:=LocalAction(3,1,SymmetricGroup(3));;[127X[104X
+    [4X[25Xgap>[125X [27Xgroups:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);[127X[104X
+    [4X[28X[ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), [128X[104X
+    [4X[28X  Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), [128X[104X
+    [4X[28X  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), [128X[104X
+    [4X[28X  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), [128X[104X
+    [4X[28X  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ][128X[104X
+    [4X[25Xgap>[125X [27Xfor G in groups do Print(Size(G),",",Size(PHI(G)),"\n"); od;[127X[104X
+    [4X[28X6,6[128X[104X
+    [4X[28X12,12[128X[104X
+    [4X[28X24,192[128X[104X
+    [4X[28X24,192[128X[104X
+    [4X[28X48,3072[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XPHI(3,LocalAction(4,1,SymmetricGroup(4)));[127X[104X
+    [4X[28X<permutation group with 34 generators>[128X[104X
+    [4X[25Xgap>[125X [27Xlast=AutBall(4,3);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(SymmetricGroup(3));;[127X[104X
+    [4X[25Xgap>[125X [27XF:=PI(2,3,SymmetricGroup(3),rho,[1]);; Size(F);[127X[104X
+    [4X[28X24[128X[104X
+    [4X[25Xgap>[125X [27XP:=PHI(4,F);; Size(P);[127X[104X
+    [4X[28X12288[128X[104X
+    [4X[25Xgap>[125X [27XIsSubgroup(AutBall(3,4),P);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSatisfiesC(P);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.3 [33X[0;0YNormal subgroups and partitions[133X[101X
+  
+  [33X[0;0YWhen  point  stabilizers  in  [23XF\le  S_{d}[123X  are  not simple, or [23XF[123X preserves a
+  partition, more universal groups can be constructed as follows.[133X
+  
+  
+  [1X4.3-1 [33X[0;0YPHI[133X[101X
+  
+  [33X[1;0Y[29X[2XPHI[102X( [3Xd[103X, [3XF[103X, [3XN[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XPHI[102X( [3Xd[103X, [3XF[103X, [3XP[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XPHI[102X( [3XF[103X, [3XP[103X ) [32X operation[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X, [3XN[103X[8X[108X
+        [33X[0;6YReturns: the group [23X\Phi([123X[3XF[103X[23X,[123X[3XN[103X[23X)\le\mathrm{Aut}(B_{d,2})[123X.[133X
+  
+        [33X[0;6YThe  arguments  of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a
+        [13Xtransitive[113X  permutation  group  [3XF[103X [23X\le S_{d}[123X and a normal subgroup [3XN[103X of
+        the stabilizer [3XF[103X[23X_{1}[123X of [23X1[123X in [3XF[103X.[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X, [3XP[103X[8X[108X
+        [33X[0;6YReturns:  the group [23X\Phi([123X[3XF[103X[23X,[123X[3XP[103X[23X)=\{(a,(a_{\omega})_{\omega})\mid a\in [123X[3XF[103X[23X,\
+        a_{\omega}\in          C_{F}(a,\omega)[123X         constant         w.r.t.
+        [3XP[103X[23X\}\le\mathrm{Aut}(B_{d,2})[123X.[133X
+  
+        [33X[0;6YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X and
+        a  permutation group [3XF[103X [23X\le S_{d}[123X and a partition [3XP[103X of [10X[1..d][110X preserved
+        by [3XF[103X.[133X
+  
+  [8Xfor the arguments [3XF[103X[8X, [3XP[103X[8X[108X
+        [33X[0;6YReturns:                           the                           group
+        [23X\Phi_{k}([123X[3XF[103X[23X,[123X[3XP[103X[23X)=\{(\alpha,(\alpha_{\omega})_{\omega})\mid  \alpha\in [3XF[103X,\
+        \alpha_{\omega}\in      C_{F}(\alpha,\omega)[123X      constant      w.r.t.
+        [3XP[103X[23X\}\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
+  
+        [33X[0;6YThe    arguments    of    this   method   are   a   local   action   [3XF[103X
+        [23X\le\mathrm{Aut}(B_{d,k})[123X  and  a  partition  [3XP[103X of [10X[1..d][110X preserverd by
+        [23X\pi[123X[3XF[103X  [23X\le  S_{d}[123X. This method assumes that all compatibility sets with
+        respect   to   a   partition   element  are  non-empty  and  that  all
+        compatibility sets of the identity with respect to a partition element
+        are non-trivial.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=SymmetricGroup(4);;[127X[104X
+    [4X[25Xgap>[125X [27XF1:=Stabilizer(F,1);[127X[104X
+    [4X[28XSym( [ 2 .. 4 ] )[128X[104X
+    [4X[25Xgap>[125X [27Xgrps:=NormalSubgroups(F1);[127X[104X
+    [4X[28X[ Sym( [ 2 .. 4 ] ), Alt( [ 2 .. 4 ] ), Group(()) ][128X[104X
+    [4X[25Xgap>[125X [27XN:=grps[2];[127X[104X
+    [4X[28XAlt( [ 2 .. 4 ] )[128X[104X
+    [4X[25Xgap>[125X [27XPHI(4,F,N);[127X[104X
+    [4X[28XGroup([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,4)(2,5)(3,6)(7,8)(10,11), (1,2,3) ])[128X[104X
+    [4X[25Xgap>[125X [27XIndex(F1,N);[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XIndex(PHI(4,F,F1),PHI(4,F,N));[127X[104X
+    [4X[28X16[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=TransitiveGroup(4,3);[127X[104X
+    [4X[28XD(4)[128X[104X
+    [4X[25Xgap>[125X [27XP:=Blocks(F,[1..4]);[127X[104X
+    [4X[28X[ [ 1, 3 ], [ 2, 4 ] ][128X[104X
+    [4X[25Xgap>[125X [27XG:=PHI(4,F,P);[127X[104X
+    [4X[28XGroup([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,8)(2,7)(3,9)(4,5)(10,12), (1,3)[128X[104X
+    [4X[28X  (8,9), (4,5)(10,12) ])[128X[104X
+    [4X[25Xgap>[125X [27Xmt:=RandomSource(IsMersenneTwister,1);;[127X[104X
+    [4X[25Xgap>[125X [27Xaut:=Random(mt,G);[127X[104X
+    [4X[28X(1,3)(4,12)(5,10)(6,11)(8,9)[128X[104X
+    [4X[25Xgap>[125X [27XLocalAction(1,4,2,aut,[1]); LocalAction(1,4,2,aut,[3]);[127X[104X
+    [4X[28X(2,4)[128X[104X
+    [4X[28X(2,4)[128X[104X
+    [4X[25Xgap>[125X [27XLocalAction(1,4,2,aut,[2]); LocalAction(1,4,2,aut,[4]);[127X[104X
+    [4X[28X(1,3)(2,4)[128X[104X
+    [4X[28X(1,3)(2,4)[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XH:=TransitiveGroup(4,3);[127X[104X
+    [4X[28XD(4)[128X[104X
+    [4X[25Xgap>[125X [27XP:=Blocks(H,[1..4]);[127X[104X
+    [4X[28X[ [ 1, 3 ], [ 2, 4 ] ][128X[104X
+    [4X[25Xgap>[125X [27XF:=PHI(4,H,P);;[127X[104X
+    [4X[25Xgap>[125X [27XG:=PHI(F,P);[127X[104X
+    [4X[28X<permutation group with 5 generators>[128X[104X
+    [4X[25Xgap>[125X [27XSatisfiesC(G);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.4 [33X[0;0YAbelian quotients[133X[101X
+  
+  [33X[0;0YWhen  a  permutation  group  [23XF\le  S_{d}[123X  is  not perfect, i.e. it admits an
+  abelian  quotient  [23X\rho:F\twoheadrightarrow  A[123X, more universal groups can be
+  constructed  by  imposing restrictions of the form [23X\prod_{r\in R}\prod_{x\in
+  S(b,r)}\rho(\sigma_{1}(\alpha,x))=1[123X                on               elements
+  [23X\alpha\in\Phi^{k}(F)\le\mathrm{Aut}(B_{d,k})[123X.[133X
+  
+  [1X4.4-1 SignHomomorphism[101X
+  
+  [33X[1;0Y[29X[2XSignHomomorphism[102X( [3XF[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ythe sign homomorphism from [3XF[103X to [23XS_{2}[123X.[133X
+  
+  [33X[0;0YThe  argument of this method is a permutation group [3XF[103X [23X\le S_{d}[123X. This method
+  can be used as an example for the argument [3Xrho[103X in the methods [2XSpheresProduct[102X
+  ([14X4.4-3[114X) and [2XPI[102X ([14X4.4-4[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27Xsign:=SignHomomorphism(F);[127X[104X
+    [4X[28XMappingByFunction( Sym( [ 1 .. 3 ] ), Sym( [ 1 .. 2 ] ), function( g ) ... end )[128X[104X
+    [4X[25Xgap>[125X [27XImage(sign,(2,3));[127X[104X
+    [4X[28X(1,2)[128X[104X
+    [4X[25Xgap>[125X [27XImage(sign,(1,2,3));[127X[104X
+    [4X[28X()[128X[104X
+  [4X[32X[104X
+  
+  [1X4.4-2 AbelianizationHomomorphism[101X
+  
+  [33X[1;0Y[29X[2XAbelianizationHomomorphism[102X( [3XF[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ythe homomorphism from [3XF[103X to [23XF/[F,F][123X.[133X
+  
+  [33X[0;0YThe  argument of this method is a permutation group [3XF[103X [23X\le S_{d}[123X. This method
+  can be used as an example for the argument [3Xrho[103X in the methods [2XSpheresProduct[102X
+  ([14X4.4-3[114X) and [2XPI[102X ([14X4.4-4[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=PrimitiveGroup(5,3);[127X[104X
+    [4X[28XAGL(1, 5)[128X[104X
+    [4X[25Xgap>[125X [27Xab:=AbelianizationHomomorphism(PrimitiveGroup(5,3));[127X[104X
+    [4X[28X[ (2,3,4,5), (1,2,3,5,4) ] -> [ f1, <identity> of ... ][128X[104X
+    [4X[25Xgap>[125X [27XElements(Range(ab));[127X[104X
+    [4X[28X[ <identity> of ..., f1, f2, f1*f2 ][128X[104X
+    [4X[25Xgap>[125X [27XStructureDescription(Range(ab));[127X[104X
+    [4X[28X"C4"[128X[104X
+  [4X[32X[104X
+  
+  [1X4.4-3 SpheresProduct[101X
+  
+  [33X[1;0Y[29X[2XSpheresProduct[102X( [3Xd[103X, [3Xk[103X, [3Xaut[103X, [3Xrho[103X, [3XR[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ythe           product           [23X\prod_{r\in          R}\prod_{x\in
+            S(b,r)}[123X[3Xrho[103X[23X(\sigma_{1}([123X[3Xaut[103X[23X,x))\in\mathrm{im}([123X[3Xrho[103X[23X)[123X.[133X
+  
+  [33X[0;0YThe  arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a radius
+  [3Xk[103X [23X\in\mathbb{N}[123X, an automorphism [3Xaut[103X of [23XB_{d,k}[123X all of whose [23X1[123X-local actions
+  are  in  the  domain  of  the  homomorphism [3Xrho[103X from a subgroup of [23XS_d[123X to an
+  abelian  group,  and  a  sublist  [3XR[103X  of [10X[0..k-1][110X. This method is used in the
+  implementation of [2XPI[102X ([14X4.4-4[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(SymmetricGroup(3));;[127X[104X
+    [4X[25Xgap>[125X [27XSpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0]);[127X[104X
+    [4X[28X(1,2)[128X[104X
+    [4X[25Xgap>[125X [27XSpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0,1]);[127X[104X
+    [4X[28X()[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=PrimitiveGroup(5,3);[127X[104X
+    [4X[28XAGL(1, 5)[128X[104X
+    [4X[25Xgap>[125X [27Xrho:=AbelianizationHomomorphism(F);;[127X[104X
+    [4X[25Xgap>[125X [27XElements(Range(rho));[127X[104X
+    [4X[28X[ <identity> of ..., f1, f2, f1*f2 ][128X[104X
+    [4X[25Xgap>[125X [27XStructureDescription(Range(rho));[127X[104X
+    [4X[28X"C4"[128X[104X
+    [4X[25Xgap>[125X [27Xmt:=RandomSource(IsMersenneTwister,1);;[127X[104X
+    [4X[25Xgap>[125X [27Xaut:=Random(mt,F);[127X[104X
+    [4X[28X(1,4,3,5)[128X[104X
+    [4X[25Xgap>[125X [27XSpheresProduct(5,3,LocalElement(3,5,aut),rho,[2]);[127X[104X
+    [4X[28X<identity> of ...[128X[104X
+    [4X[25Xgap>[125X [27XSpheresProduct(5,3,LocalElement(3,5,aut),rho,[1,2]);[127X[104X
+    [4X[28Xf1[128X[104X
+    [4X[25Xgap>[125X [27XSpheresProduct(5,3,LocalElement(3,5,aut),rho,[0,1,2]);[127X[104X
+    [4X[28Xf2[128X[104X
+  [4X[32X[104X
+  
+  [1X4.4-4 PI[101X
+  
+  [33X[1;0Y[29X[2XPI[102X( [3Xl[103X, [3Xd[103X, [3XF[103X, [3Xrho[103X, [3XR[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ythe  group [23X\Pi^{l}([123X[3XF[103X[23X,[123X[3Xrho[103X[23X,[123X[3XR[103X[23X)=\{\alpha\in\Phi^{l}(F)\mid \prod_{r\in
+            R}\prod_{x\in
+            S(b,r)}[123X[3Xrho[103X[23X(\sigma_{1}(\alpha,x))=1\}\le\mathrm{Aut}(B_{d,l})[123X.[133X
+  
+  [33X[0;0YThe  arguments of this method are a degree [3Xl[103X [23X\in\mathbb{N}_{\ge 2}[123X, a radius
+  [3Xd[103X  [23X\in\mathbb{N}_{\ge 3}[123X, a permutation group [3XF[103X [23X\le S_d[123X, a homomorphism [23X\rho[123X
+  from  [3XF[103X  to an abelian group that is surjective on every point stabilizer in
+  [3XF[103X, and a non-empty, non-zero subset [3XR[103X of [10X[0..l-1][110X that contains [23Xl-1[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XF:=LocalAction(5,1,PrimitiveGroup(5,3));[127X[104X
+    [4X[28XAGL(1, 5)[128X[104X
+    [4X[25Xgap>[125X [27Xrho1:=AbelianizationHomomorphism(F);;[127X[104X
+    [4X[25Xgap>[125X [27Xrho2:=SignHomomorphism(F);;[127X[104X
+    [4X[25Xgap>[125X [27XPI(3,5,F,rho1,[0,1,2]);[127X[104X
+    [4X[28X<permutation group with 4 generators>[128X[104X
+    [4X[25Xgap>[125X [27XIndex(PHI(3,F),last);[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XPI(3,5,F,rho2,[0,1,2]);[127X[104X
+    [4X[28X<permutation group with 5 generators>[128X[104X
+    [4X[25Xgap>[125X [27XIndex(PHI(3,F),last);[127X[104X
+    [4X[28X2[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.5 [33X[0;0YSemidirect products[133X[101X
+  
+  [33X[0;0YWhen  a  subgroup  [23XF\le\mathrm{Aut}(B_{d,k})[123X  satisfies  (C)  and  admits an
+  involutive  compatibility  cocycle  [23Xz[123X  (which is automatic when [23Xk=1[123X) one can
+  characterise  the  kernels  [23XK\le\Phi_{k}(F)\cap\ker(\pi_{k})[123X that fit into a
+  [23Xz[123X-split  exact  sequence  [23X1\to  K\to\Sigma(F,K)\to  F\to 1[123X for some subgroup
+  [23X\Sigma(F,K)\le\mathrm{Aut}(B_{d,k+1})[123X     that     satisfies    (C).    This
+  characterisation is implemented in this section.[133X
+  
+  
+  [1X4.5-1 [33X[0;0YCompatibleKernels[133X[101X
+  
+  [33X[1;0Y[29X[2XCompatibleKernels[102X( [3Xd[103X, [3XF[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XCompatibleKernels[102X( [3XF[103X, [3Xz[103X ) [32X operation[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X[108X
+        [33X[0;6YReturns:            the            list           of           kernels
+        [23XK\le\prod_{\omega\in\Omega}F_{\omega}\cong\ker\pi\le\mathrm{Aut}(B_{d,2})[123X
+        that       are       preserved       by       the       action       [3XF[103X
+        [23X\curvearrowright\prod_{\omega\in\Omega}F_{\omega}[123X,
+        [23Xa\cdot(a_{\omega})_{\omega}:=(aa_{a^{-1}\omega}a^{-1})_{\omega}[123X.[133X
+  
+        [33X[0;6YThe arguments of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, and
+        a permutation group [3XF[103X [23X\le S_{d}[123X. The kernels output by this method are
+        compatible   with   [3XF[103X  with  respect  to  the  standard  cocycle  (see
+        [2XInvolutiveCompatibilityCocycle[102X  ([14X5.3-1[114X)) and can be used in the method
+        [2XSIGMA[102X ([14X4.5-2[114X).[133X
+  
+  [8Xfor the arguments [3XF[103X[8X, [3Xz[103X[8X[108X
+        [33X[0;6YReturns:            the            list           of           kernels
+        [23XK\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})[123X   that  are
+        normalized  by  [23X\Gamma_{z}([123X[3XF[103X[23X)[123X  and  such  that  for  all  [23Xk\in  K[123X  and
+        [23X\omega\in\Omega[123X      there      is      [23Xk_{\omega}\in      K[123X      with
+        [23X\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}[123X.[133X
+  
+        [33X[0;6YThe    arguments    of    this   method   are   a   local   action   [3XF[103X
+        [23X\le\mathrm{Aut}(B_{d,k})[123X   that   satisfies   (C)  and  an  involutive
+        compatibility  cocycle  [3Xz[103X  of  [3XF[103X  (see  [2XInvolutiveCompatibilityCocycle[102X
+        ([14X5.3-1[114X)). It can be used in the method [2XSIGMA[102X ([14X4.5-2[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XCompatibleKernels(3,SymmetricGroup(3));[127X[104X
+    [4X[28X[ Group(()), Group([ (1,2)(3,4)(5,6) ]), Group([ (3,4)(5,6), (1,2)(5,6) ]), [128X[104X
+    [4X[28X  Group([ (5,6), (3,4), (1,2) ]) ][128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XP:=SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(P);;[127X[104X
+    [4X[25Xgap>[125X [27XF:=PI(2,3,P,rho,[1]);;[127X[104X
+    [4X[25Xgap>[125X [27Xz:=InvolutiveCompatibilityCocycle(F);;[127X[104X
+    [4X[25Xgap>[125X [27XCompatibleKernels(F,z);[127X[104X
+    [4X[28X[ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), [128X[104X
+    [4X[28X  Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), [128X[104X
+    [4X[28X  Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.5-2 [33X[0;0YSIGMA[133X[101X
+  
+  [33X[1;0Y[29X[2XSIGMA[102X( [3Xd[103X, [3XF[103X, [3XK[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XSIGMA[102X( [3XF[103X, [3XK[103X, [3Xz[103X ) [32X operation[133X
+  
+  [8Xfor the arguments [3Xd[103X[8X, [3XF[103X[8X, [3XK[103X[8X[108X
+        [33X[0;6YReturns: the semidirect product [23X\Sigma([123X[3XF[103X[23X,[123X[3XK[103X[23X)\le\mathrm{Aut}(B_{d,2})[123X.[133X
+  
+        [33X[0;6YThe  arguments  of this method are a degree [3Xd[103X [23X\in\mathbb{N}_{\ge 3}[123X, a
+        subgroup   [3XF[103X   of   [23XS_{d}[123X  and  a  compatible  kernel  [3XK[103X  for  [3XF[103X  (see
+        [2XCompatibleKernels[102X ([14X4.5-1[114X)).[133X
+  
+  [8Xfor the arguments [3XF[103X[8X, [3XK[103X[8X, [3Xz[103X[8X[108X
+        [33X[0;6YReturns:              the              semidirect              product
+        [23X\Sigma_{z}([123X[3XF[103X[23X,[123X[3XK[103X[23X)\le\mathrm{Aut}(B_{d,k+1})[123X.[133X
+  
+        [33X[0;6YThe   arguments   of   this   method   are   a   local   action  [3XF[103X  of
+        [23X\mathrm{Aut}(B_{d,k})[123X  that  satisfies  (C)  and  a  kernel  [3XK[103X that is
+        compatible  for [3XF[103X with respect to the involutive compatibility cocycle
+        [3Xz[103X  (see  [2XInvolutiveCompatibilityCocycle[102X  ([14X5.3-1[114X) and [2XCompatibleKernels[102X
+        ([14X4.5-1[114X)) of [3XF[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XS3:=SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27Xkernels:=CompatibleKernels(3,S3);[127X[104X
+    [4X[28X[ Group(()), Group([ (1,2)(3,4)(5,6) ]), Group([ (3,4)(5,6), (1,2)(5,6) ]), [128X[104X
+    [4X[28X  Group([ (5,6), (3,4), (1,2) ]) ][128X[104X
+    [4X[25Xgap>[125X [27Xfor K in kernels do Print(Size(SIGMA(3,S3,K)),"\n"); od;[127X[104X
+    [4X[28X6[128X[104X
+    [4X[28X12[128X[104X
+    [4X[28X24[128X[104X
+    [4X[28X48[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XP:=SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(P);;[127X[104X
+    [4X[25Xgap>[125X [27XF:=PI(2,3,P,rho,[1]);;[127X[104X
+    [4X[25Xgap>[125X [27Xz:=InvolutiveCompatibilityCocycle(F);;[127X[104X
+    [4X[25Xgap>[125X [27Xkernels:=CompatibleKernels(F,z);[127X[104X
+    [4X[28X[ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), [128X[104X
+    [4X[28X  Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), [128X[104X
+    [4X[28X  Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ][128X[104X
+    [4X[25Xgap>[125X [27Xfor K in kernels do Print(Size(SIGMA(F,K,z)),"\n"); od;[127X[104X
+    [4X[28X24[128X[104X
+    [4X[28X48[128X[104X
+    [4X[28X96[128X[104X
+    [4X[28X192[128X[104X
+  [4X[32X[104X
+  

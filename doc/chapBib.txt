@@ -1,0 +1,36 @@
+  
+  
+  [1XReferences[101X
+  
+  [[20XBEW15[120X]  [16XBanks, C., Elder, M. and Willis, G.[116X, [17XSimple groups of automorphisms
+  of  trees  determined  by their actions on finite subtrees[117X, [18XJournal of Group
+  Theory[118X, [19X18[119X, 2 (2015), 235--261.
+  
+  [[20XBM00[120X]  [16XBurger,  M.  and  Mozes,  S.[116X,  [17XGroups acting on trees: from local to
+  global  structure[117X,  [18XPublications  Math{\'e}matiques de l'IH{\'E}S[118X, Springer,
+  [19X92[119X, 1 (2000), 113--150.
+  
+  [[20XKM08[120X]  [16XKr{\"o}n,  B.  and  M{\"o}ller,  R.[116X,  [17XAnalogues of Cayley graphs for
+  topological groups[117X, [18XMathematische Zeitschrift[118X, Springer, [19X258[119X, 3 (2008), 637.
+  
+  [[20XSer80[120X] [16XSerre, J. P.[116X, [17XTrees[117X, Springer (1980).
+  
+  [[20XTit70[120X]  [16XTits, J.[116X, [17XSur le groupe des automorphismes d'un arbre[117X, in Essays on
+  topology and related topics, Springer (1970), 188--211.
+  
+  [[20XTor20[120X]  [16XTornier,  S.[116X,  [17XGroups acting on trees with prescribed local action[117X,
+  [18Xarxiv preprint: 2002.09876[118X (2020).
+  
+  [[20XTut47[120X]   [16XTutte,  W.  T.[116X,  [17XA  family  of  cubical  graphs[117X,  in  Mathematical
+  Proceedings  of  the  Cambridge  Philosophical Society, Cambridge University
+  Press, [19X43[119X (1947), 459--474.
+  
+  [[20XTut59[120X]  [16XTutte,  W. T.[116X, [17XOn the symmetry of cubic graphs[117X, [18XCanadian Journal of
+  Mathematics[118X, [19X11[119X (1959), 621--624.
+  
+  [[20XWei78[120X]  [16XWeiss,  R.[116X, [17Xs-Transitive graphs[117X, [18XAlgebraic methods in graph theory[118X,
+  Colloquia Mathematica Societatis J{\'a}nos Bolyai, [19X25[119X (1978), 827--847.
+  
+  
+  
+  [32X

@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (UGALY) - Chapter 4: Examples</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap4"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap3.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap5.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap4_mj.html">[MathJax on]</a></p>
+<p><a id="X7A489A5D79DA9E5C" name="X7A489A5D79DA9E5C"></a></p>
+<div class="ChapSects"><a href="chap4.html#X7A489A5D79DA9E5C">4 <span class="Heading">Examples</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X7A91225C7FCEBA7D">4.1 <span class="Heading">Discrete groups</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X795B7F58851E3354">4.1-1 <span class="Heading">LocalElement</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X87E33E187FE7341A">4.1-2 <span class="Heading">GAMMA</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X82C33CF282FC5A73">4.1-3 <span class="Heading">DELTA</span></a>
+</span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X7F731157843279EC">4.2 <span class="Heading">Maximal extensions</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X85A0C67982D9057A">4.2-1 <span class="Heading">PHI</span></a>
+</span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X80EDDA597A66421E">4.3 <span class="Heading">Normal subgroups and partitions</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X85A0C67982D9057A">4.3-1 <span class="Heading">PHI</span></a>
+</span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X784DFD007FE78DE9">4.4 <span class="Heading">Abelian quotients</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7F4CC068860BA22F">4.4-1 SignHomomorphism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7D8D1FC07BC90971">4.4-2 AbelianizationHomomorphism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X83A7A23D875BFAA2">4.4-3 SpheresProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X87EBFB50781D4B4D">4.4-4 PI</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X87FE512E7DB7346C">4.5 <span class="Heading">Semidirect products</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7F425DFC8760388F">4.5-1 <span class="Heading">CompatibleKernels</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X823707DF821E79A0">4.5-2 <span class="Heading">SIGMA</span></a>
+</span>
+</div></div>
+</div>
+
+<h3>4 <span class="Heading">Examples</span></h3>
+
+<p>Several classes of examples of subgroups of <span class="Math">\mathrm{Aut}(B_{d,k})</span> that satisfy (C) and or (D) are constructed in <a href="chapBib.html#biBTor20">[Tor20]</a> and implemented in this section. For a given permutation group <span class="Math">F\le S_{d}</span>, there are always the three local actions <span class="Math">\Gamma(F)</span>, <span class="Math">\Delta(F)</span> and <span class="Math">\Phi(F)</span> on <span class="Math">\mathrm{Aut}(B_{d,2})</span> that project onto <span class="Math">F</span>. For some <span class="Math">F</span>, these are all distinct and yield all universal groups that have <span class="Math">F</span> as their <span class="Math">1</span>-local action, see <a href="chapBib.html#biBTor20">[Tor20, Theorem 3.32]</a>. More examples arise in particular when either point stabilizers in <span class="Math">F</span> are not simple, <span class="Math">F</span> preserves a partition, or <span class="Math">F</span> is not perfect.</p>
+
+<p><a id="X7A91225C7FCEBA7D" name="X7A91225C7FCEBA7D"></a></p>
+
+<h4>4.1 <span class="Heading">Discrete groups</span></h4>
+
+<p>Here, we implement the local actions <span class="Math">\Gamma(F),\Delta(F)\le\mathrm{Aut}(B_{d,2})</span>, both of which satisfy both (C) and (D), see <a href="chapBib.html#biBTor20">[Tor20, Section 3.4.1]</a>.</p>
+
+<p><a id="X795B7F58851E3354" name="X795B7F58851E3354"></a></p>
+
+<h5>4.1-1 <span class="Heading">LocalElement</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalElement</code>( <var class="Arg">d</var>, <var class="Arg">a</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalElement</code>( <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">a</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalElement</code>( <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">s</var>, <var class="Arg">addr</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalElement</code>( <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">aut</var>, <var class="Arg">z</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+
+<dl>
+<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">a</var></strong></dt>
+<dd><p>Returns: the automorphism <span class="Math">\gamma(</span><var class="Arg">a</var><span class="Math">)=(</span><var class="Arg">a</var><span class="Math">,(</span><var class="Arg">a</var><span class="Math">)_{\omega\in\Omega})\in\mathrm{Aut}(B_{d,2})</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span> and a permutation <var class="Arg">a</var> <span class="Math">\in S_d</span>.</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">a</var></strong></dt>
+<dd><p>Returns: the automorphism <span class="Math">\gamma^{l}(</span><var class="Arg">a</var><span class="Math">)\in\mathrm{Aut}(B_{d,l})</span> all of whose <span class="Math">1</span>-local actions are given by <var class="Arg">a</var>.</p>
+
+<p>The arguments of this method are a radius <var class="Arg">l</var> <span class="Math">\in\mathbb{N}</span>, a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span> and a permutation <var class="Arg">a</var> <span class="Math">\in S_d</span>.</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">s</var>, <var class="Arg">addr</var></strong></dt>
+<dd><p>Returns: the automorphism of <span class="Math">B_{d,l}</span> whose <span class="Math">1</span>-local actions are given by <var class="Arg">s</var> at vertices whose address has <var class="Arg">addr</var> as a prefix and are trivial elsewhere.</p>
+
+<p>The arguments of this method are a radius <var class="Arg">l</var> <span class="Math">\in\mathbb{N}</span>, a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a permutation <var class="Arg">s</var> <span class="Math">\in S_d</span> and an address <var class="Arg">addr</var> of a vertex in <span class="Math">B_{d,l}</span> whose last entry is fixed by <var class="Arg">s</var>.</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">aut</var>, <var class="Arg">z</var></strong></dt>
+<dd><p>Returns: the automorphism <span class="Math">\gamma_{z}(</span><var class="Arg">aut</var><span class="Math">)=(</span><var class="Arg">aut</var><span class="Math">,(</span><var class="Arg">z</var><span class="Math">(</span><var class="Arg">aut</var><span class="Math">,\omega))_{\omega\in\Omega})\in\mathrm{Aut}(B_{d,k+1})</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a radius <var class="Arg">k</var> <span class="Math">\in\mathbb{N}</span>, an automorphism <var class="Arg">aut</var> of <span class="Math">B_{d,k}</span>, and an involutive compatibility cocycle <var class="Arg">z</var> of a subgroup of <span class="Math">\mathrm{Aut}(B_{d,k})</span> that contains <var class="Arg">aut</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>)).</p>
+
+</dd>
+</dl>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,(1,2));</span>
+(1,3)(2,4)(5,6)
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(2,3,(1,2));</span>
+(1,3)(2,4)(5,6)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,3,(1,2));</span>
+(1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,3,(1,2),[1,3]);</span>
+(3,4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,3,(1,2),[]);</span>
+(1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z1:=AllInvolutiveCompatibilityCocycles(S3)[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,1,(1,2),z1);</span>
+(1,4)(2,3)(5,6)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z3:=AllInvolutiveCompatibilityCocycles(S3)[3];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalElement(3,1,(1,2),z3);</span>
+(1,3)(2,4)(5,6)
+</pre></div>
+
+<p><a id="X87E33E187FE7341A" name="X87E33E187FE7341A"></a></p>
+
+<h5>4.1-2 <span class="Heading">GAMMA</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GAMMA</code>( <var class="Arg">d</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GAMMA</code>( <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GAMMA</code>( <var class="Arg">F</var>, <var class="Arg">z</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+
+<dl>
+<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">F</var></strong></dt>
+<dd><p>Returns: the local action <span class="Math">\Gamma(</span><var class="Arg">F</var><span class="Math">)=\{(a,(a)_{\omega})\mid a\in F\}\le\mathrm{Aut}(B_{d,2})</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, and a subgroup <var class="Arg">F</var> of <span class="Math">S_{d}</span>.</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">F</var></strong></dt>
+<dd><p>Returns: the group <span class="Math">\Gamma^{l}(</span><var class="Arg">F</var><span class="Math">)\le\mathrm{Aut}(B_{d,l})</span>.</p>
+
+<p>The arguments of this method are a radius <var class="Arg">l</var> <span class="Math">\in\mathbb{N}</span>, a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, and a subgroup <var class="Arg">F</var> of <span class="Math">S_d</span>.</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">z</var></strong></dt>
+<dd><p>Returns: the group <span class="Math">\Gamma_{z}(</span><var class="Arg">F</var><span class="Math">)=\{(a,(</span><var class="Arg">z</var><span class="Math">(a,\omega))_{\omega\in\Omega})\mid a\in</span><var class="Arg">F</var><span class="Math">\}\le\mathrm{Aut}(B_{d,k+1})</span>.</p>
+
+<p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> and an involutive compatibility cocycle <var class="Arg">z</var> of <var class="Arg">F</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>)).</p>
+
+</dd>
+</dl>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=TransitiveGroup(4,3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GAMMA(4,F);</span>
+Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,8)(2,7)(3,9)(4,5)(10,12) ])
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GAMMA(3,SymmetricGroup(3));</span>
+Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GAMMA(2,3,SymmetricGroup(3));</span>
+Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GAMMA(3,3,SymmetricGroup(3));</span>
+Group([ (1,8,10)(2,7,9)(3,5,12)(4,6,11), (1,5)(2,6)(3,8)(4,7)(9,11)(10,12) ])
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=PI(2,3,F,rho,[1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(H);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GAMMA(H,z);</span>
+Group([ (), (), (1,12)(2,11)(3,9)(4,10)(5,6), (1,2)(5,12)(6,11)(7,10)(8,9), 
+  (1,7,12)(2,8,11)(3,6,10)(4,5,9) ])
+</pre></div>
+
+<p><a id="X82C33CF282FC5A73" name="X82C33CF282FC5A73"></a></p>
+
+<h5>4.1-3 <span class="Heading">DELTA</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DELTA</code>( <var class="Arg">d</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DELTA</code>( <var class="Arg">d</var>, <var class="Arg">F</var>, <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+
+<dl>
+<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">F</var></strong></dt>
+<dd><p>Returns: the group <span class="Math">\Delta(</span><var class="Arg">F</var><span class="Math">)\le\mathrm{Aut}(B_{d,2})</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, and a <em>transitive</em> subgroup <var class="Arg">F</var> of <span class="Math">S_{d}</span>.</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">F</var>, <var class="Arg">C</var></strong></dt>
+<dd><p>Returns: the group <span class="Math">\Delta(</span><var class="Arg">F</var><span class="Math">,</span><var class="Arg">C</var><span class="Math">)\le\mathrm{Aut}(B_{d,2})</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a <em>transitive</em> subgroup <var class="Arg">F</var> of <span class="Math">S_d</span>, and a central subgroup <var class="Arg">C</var> of the stabilizer <var class="Arg">F</var><span class="Math">_{1}</span> of <span class="Math">1</span> in <var class="Arg">F</var>.</p>
+
+</dd>
+</dl>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DELTA(3,F);</span>
+Group([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F1:=Stabilizer(F,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D1:=DELTA(3,F,F1);</span>
+Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2)(3,4)(5,6) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D=D1;</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=AutBall(3,2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D^G=D1^G;</span>
+true
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PrimitiveGroup(5,3);</span>
+AGL(1, 5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F1:=Stabilizer(F,1);</span>
+Group([ (2,3,4,5) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=Group((2,4)(3,5));</span>
+Group([ (2,4)(3,5) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(F1,C);</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(DELTA(5,F,F1),DELTA(5,F,C));</span>
+2
+</pre></div>
+
+<p><a id="X7F731157843279EC" name="X7F731157843279EC"></a></p>
+
+<h4>4.2 <span class="Heading">Maximal extensions</span></h4>
+
+<p>For any <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> that satisfies (C), the group <span class="Math">\Phi(F)\le\mathrm{Aut}(B_{d,k+1})</span> is the maximal extension of <span class="Math">F</span> that satisfies (C) as well. It stems from the action of <span class="Math">\mathrm{U}_{k}(F)</span> on balls of radius <span class="Math">k+1</span> in <span class="Math">T_{d}</span>.</p>
+
+<p><a id="X85A0C67982D9057A" name="X85A0C67982D9057A"></a></p>
+
+<h5>4.2-1 <span class="Heading">PHI</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PHI</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PHI</code>( <var class="Arg">l</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+
+<dl>
+<dt><strong class="Mark">for the argument <var class="Arg">F</var></strong></dt>
+<dd><p>Returns: the group <span class="Math">\Phi_{k}(</span><var class="Arg">F</var><span class="Math">)=\{(a,(a_{\omega})_{\omega})\mid a\in </span><var class="Arg">F</var><span class="Math">,\ \forall \omega\in\Omega:\ a_{\omega}\in C_{F}(a,\omega)\}\le\mathrm{Aut}(B_{d,k+1})</span>.</p>
+
+<p>The argument of this method is a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span>.</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">l</var>, <var class="Arg">F</var></strong></dt>
+<dd><p>Returns: the group <span class="Math">\Phi^{l}(</span><var class="Arg">F</var><span class="Math">)=\Phi_{l-1}\circ\cdots\circ\Phi_{k+1}\circ\Phi_{k}(</span><var class="Arg">F</var><span class="Math">)\le\mathrm{Aut}(B_{d,l})</span>.</p>
+
+<p>The arguments of this method are a radius <var class="Arg">l</var> <span class="Math">\in\mathbb{N}</span> and a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span>.</p>
+
+</dd>
+</dl>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(S3);</span>
+Group([ (), (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=AutBall(3,2);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A3:=LocalAction(3,1,AlternatingGroup(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(A3);</span>
+Group([ (), (1,4,5)(2,3,6) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=GAMMA(3,AlternatingGroup(3));</span>
+true
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">groups:=ConjugacyClassRepsCompatibleGroupsWithProjection(2,S3);</span>
+[ Group([ (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+  Group([ (1,2)(3,4)(5,6), (1,2)(3,5)(4,6), (1,4,5)(2,3,6) ]), 
+  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
+  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
+  Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for G in groups do Print(Size(G),",",Size(PHI(G)),"\n"); od;</span>
+6,6
+12,12
+24,192
+24,192
+48,3072
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(3,LocalAction(4,1,SymmetricGroup(4)));</span>
+&lt;permutation group with 34 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=AutBall(4,3);</span>
+true
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(SymmetricGroup(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PI(2,3,SymmetricGroup(3),rho,[1]);; Size(F);</span>
+24
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=PHI(4,F);; Size(P);</span>
+12288
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSubgroup(AutBall(3,4),P);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SatisfiesC(P);</span>
+true
+</pre></div>
+
+<p><a id="X80EDDA597A66421E" name="X80EDDA597A66421E"></a></p>
+
+<h4>4.3 <span class="Heading">Normal subgroups and partitions</span></h4>
+
+<p>When point stabilizers in <span class="Math">F\le S_{d}</span> are not simple, or <span class="Math">F</span> preserves a partition, more universal groups can be constructed as follows.</p>
+
+<p><a id="X85A0C67982D9057A" name="X85A0C67982D9057A"></a></p>
+
+<h5>4.3-1 <span class="Heading">PHI</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PHI</code>( <var class="Arg">d</var>, <var class="Arg">F</var>, <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PHI</code>( <var class="Arg">d</var>, <var class="Arg">F</var>, <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PHI</code>( <var class="Arg">F</var>, <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+
+<dl>
+<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">F</var>, <var class="Arg">N</var></strong></dt>
+<dd><p>Returns: the group <span class="Math">\Phi(</span><var class="Arg">F</var><span class="Math">,</span><var class="Arg">N</var><span class="Math">)\le\mathrm{Aut}(B_{d,2})</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a <em>transitive</em> permutation group <var class="Arg">F</var> <span class="Math">\le S_{d}</span> and a normal subgroup <var class="Arg">N</var> of the stabilizer <var class="Arg">F</var><span class="Math">_{1}</span> of <span class="Math">1</span> in <var class="Arg">F</var>.</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">F</var>, <var class="Arg">P</var></strong></dt>
+<dd><p>Returns: the group <span class="Math">\Phi(</span><var class="Arg">F</var><span class="Math">,</span><var class="Arg">P</var><span class="Math">)=\{(a,(a_{\omega})_{\omega})\mid a\in </span><var class="Arg">F</var><span class="Math">,\ a_{\omega}\in C_{F}(a,\omega)</span> constant w.r.t. <var class="Arg">P</var><span class="Math">\}\le\mathrm{Aut}(B_{d,2})</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span> and a permutation group <var class="Arg">F</var> <span class="Math">\le S_{d}</span> and a partition <var class="Arg">P</var> of <code class="code">[1..d]</code> preserved by <var class="Arg">F</var>.</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">P</var></strong></dt>
+<dd><p>Returns: the group <span class="Math">\Phi_{k}(</span><var class="Arg">F</var><span class="Math">,</span><var class="Arg">P</var><span class="Math">)=\{(\alpha,(\alpha_{\omega})_{\omega})\mid \alpha\in <var class="Arg">F</var>,\ \alpha_{\omega}\in C_{F}(\alpha,\omega)</span> constant w.r.t. <var class="Arg">P</var><span class="Math">\}\le\mathrm{Aut}(B_{d,k+1})</span>.</p>
+
+<p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> and a partition <var class="Arg">P</var> of <code class="code">[1..d]</code> preserverd by <span class="Math">\pi</span><var class="Arg">F</var> <span class="Math">\le S_{d}</span>. This method assumes that all compatibility sets with respect to a partition element are non-empty and that all compatibility sets of the identity with respect to a partition element are non-trivial.</p>
+
+</dd>
+</dl>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=SymmetricGroup(4);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F1:=Stabilizer(F,1);</span>
+Sym( [ 2 .. 4 ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">grps:=NormalSubgroups(F1);</span>
+[ Sym( [ 2 .. 4 ] ), Alt( [ 2 .. 4 ] ), Group(()) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N:=grps[2];</span>
+Alt( [ 2 .. 4 ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PHI(4,F,N);</span>
+Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,4)(2,5)(3,6)(7,8)(10,11), (1,2,3) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(F1,N);</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(PHI(4,F,F1),PHI(4,F,N));</span>
+16
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=TransitiveGroup(4,3);</span>
+D(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=Blocks(F,[1..4]);</span>
+[ [ 1, 3 ], [ 2, 4 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=PHI(4,F,P);</span>
+Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,8)(2,7)(3,9)(4,5)(10,12), (1,3)
+  (8,9), (4,5)(10,12) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mt:=RandomSource(IsMersenneTwister,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(mt,G);</span>
+(1,3)(4,12)(5,10)(6,11)(8,9)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(1,4,2,aut,[1]); LocalAction(1,4,2,aut,[3]);</span>
+(2,4)
+(2,4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalAction(1,4,2,aut,[2]); LocalAction(1,4,2,aut,[4]);</span>
+(1,3)(2,4)
+(1,3)(2,4)
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=TransitiveGroup(4,3);</span>
+D(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=Blocks(H,[1..4]);</span>
+[ [ 1, 3 ], [ 2, 4 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PHI(4,H,P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=PHI(F,P);</span>
+&lt;permutation group with 5 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SatisfiesC(G);</span>
+true
+</pre></div>
+
+<p><a id="X784DFD007FE78DE9" name="X784DFD007FE78DE9"></a></p>
+
+<h4>4.4 <span class="Heading">Abelian quotients</span></h4>
+
+<p>When a permutation group <span class="Math">F\le S_{d}</span> is not perfect, i.e. it admits an abelian quotient <span class="Math">\rho:F\twoheadrightarrow A</span>, more universal groups can be constructed by imposing restrictions of the form <span class="Math">\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1</span> on elements <span class="Math">\alpha\in\Phi^{k}(F)\le\mathrm{Aut}(B_{d,k})</span>.</p>
+
+<p><a id="X7F4CC068860BA22F" name="X7F4CC068860BA22F"></a></p>
+
+<h5>4.4-1 SignHomomorphism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SignHomomorphism</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: the sign homomorphism from <var class="Arg">F</var> to <span class="Math">S_{2}</span>.</p>
+
+<p>The argument of this method is a permutation group <var class="Arg">F</var> <span class="Math">\le S_{d}</span>. This method can be used as an example for the argument <var class="Arg">rho</var> in the methods <code class="func">SpheresProduct</code> (<a href="chap4.html#X83A7A23D875BFAA2"><span class="RefLink">4.4-3</span></a>) and <code class="func">PI</code> (<a href="chap4.html#X87EBFB50781D4B4D"><span class="RefLink">4.4-4</span></a>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">sign:=SignHomomorphism(F);</span>
+MappingByFunction( Sym( [ 1 .. 3 ] ), Sym( [ 1 .. 2 ] ), function( g ) ... end )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Image(sign,(2,3));</span>
+(1,2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Image(sign,(1,2,3));</span>
+()
+</pre></div>
+
+<p><a id="X7D8D1FC07BC90971" name="X7D8D1FC07BC90971"></a></p>
+
+<h5>4.4-2 AbelianizationHomomorphism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbelianizationHomomorphism</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: the homomorphism from <var class="Arg">F</var> to <span class="Math">F/[F,F]</span>.</p>
+
+<p>The argument of this method is a permutation group <var class="Arg">F</var> <span class="Math">\le S_{d}</span>. This method can be used as an example for the argument <var class="Arg">rho</var> in the methods <code class="func">SpheresProduct</code> (<a href="chap4.html#X83A7A23D875BFAA2"><span class="RefLink">4.4-3</span></a>) and <code class="func">PI</code> (<a href="chap4.html#X87EBFB50781D4B4D"><span class="RefLink">4.4-4</span></a>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PrimitiveGroup(5,3);</span>
+AGL(1, 5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ab:=AbelianizationHomomorphism(PrimitiveGroup(5,3));</span>
+[ (2,3,4,5), (1,2,3,5,4) ] -&gt; [ f1, &lt;identity&gt; of ... ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Elements(Range(ab));</span>
+[ &lt;identity&gt; of ..., f1, f2, f1*f2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">StructureDescription(Range(ab));</span>
+"C4"
+</pre></div>
+
+<p><a id="X83A7A23D875BFAA2" name="X83A7A23D875BFAA2"></a></p>
+
+<h5>4.4-3 SpheresProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SpheresProduct</code>( <var class="Arg">d</var>, <var class="Arg">k</var>, <var class="Arg">aut</var>, <var class="Arg">rho</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: the product <span class="Math">\prod_{r\in R}\prod_{x\in S(b,r)}</span><var class="Arg">rho</var><span class="Math">(\sigma_{1}(</span><var class="Arg">aut</var><span class="Math">,x))\in\mathrm{im}(</span><var class="Arg">rho</var><span class="Math">)</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a radius <var class="Arg">k</var> <span class="Math">\in\mathbb{N}</span>, an automorphism <var class="Arg">aut</var> of <span class="Math">B_{d,k}</span> all of whose <span class="Math">1</span>-local actions are in the domain of the homomorphism <var class="Arg">rho</var> from a subgroup of <span class="Math">S_d</span> to an abelian group, and a sublist <var class="Arg">R</var> of <code class="code">[0..k-1]</code>. This method is used in the implementation of <code class="func">PI</code> (<a href="chap4.html#X87EBFB50781D4B4D"><span class="RefLink">4.4-4</span></a>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(SymmetricGroup(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0]);</span>
+(1,2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0,1]);</span>
+()
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PrimitiveGroup(5,3);</span>
+AGL(1, 5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=AbelianizationHomomorphism(F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Elements(Range(rho));</span>
+[ &lt;identity&gt; of ..., f1, f2, f1*f2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">StructureDescription(Range(rho));</span>
+"C4"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mt:=RandomSource(IsMersenneTwister,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">aut:=Random(mt,F);</span>
+(1,4,3,5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,LocalElement(3,5,aut),rho,[2]);</span>
+&lt;identity&gt; of ...
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,LocalElement(3,5,aut),rho,[1,2]);</span>
+f1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SpheresProduct(5,3,LocalElement(3,5,aut),rho,[0,1,2]);</span>
+f2
+</pre></div>
+
+<p><a id="X87EBFB50781D4B4D" name="X87EBFB50781D4B4D"></a></p>
+
+<h5>4.4-4 PI</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PI</code>( <var class="Arg">l</var>, <var class="Arg">d</var>, <var class="Arg">F</var>, <var class="Arg">rho</var>, <var class="Arg">R</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: the group <span class="Math">\Pi^{l}(</span><var class="Arg">F</var><span class="Math">,</span><var class="Arg">rho</var><span class="Math">,</span><var class="Arg">R</var><span class="Math">)=\{\alpha\in\Phi^{l}(F)\mid \prod_{r\in R}\prod_{x\in S(b,r)}</span><var class="Arg">rho</var><span class="Math">(\sigma_{1}(\alpha,x))=1\}\le\mathrm{Aut}(B_{d,l})</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">l</var> <span class="Math">\in\mathbb{N}_{\ge 2}</span>, a radius <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a permutation group <var class="Arg">F</var> <span class="Math">\le S_d</span>, a homomorphism <span class="Math">\rho</span> from <var class="Arg">F</var> to an abelian group that is surjective on every point stabilizer in <var class="Arg">F</var>, and a non-empty, non-zero subset <var class="Arg">R</var> of <code class="code">[0..l-1]</code> that contains <span class="Math">l-1</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=LocalAction(5,1,PrimitiveGroup(5,3));</span>
+AGL(1, 5)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho1:=AbelianizationHomomorphism(F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho2:=SignHomomorphism(F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PI(3,5,F,rho1,[0,1,2]);</span>
+&lt;permutation group with 4 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(PHI(3,F),last);</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PI(3,5,F,rho2,[0,1,2]);</span>
+&lt;permutation group with 5 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index(PHI(3,F),last);</span>
+2
+</pre></div>
+
+<p><a id="X87FE512E7DB7346C" name="X87FE512E7DB7346C"></a></p>
+
+<h4>4.5 <span class="Heading">Semidirect products</span></h4>
+
+<p>When a subgroup <span class="Math">F\le\mathrm{Aut}(B_{d,k})</span> satisfies (C) and admits an involutive compatibility cocycle <span class="Math">z</span> (which is automatic when <span class="Math">k=1</span>) one can characterise the kernels <span class="Math">K\le\Phi_{k}(F)\cap\ker(\pi_{k})</span> that fit into a <span class="Math">z</span>-split exact sequence <span class="Math">1\to K\to\Sigma(F,K)\to F\to 1</span> for some subgroup <span class="Math">\Sigma(F,K)\le\mathrm{Aut}(B_{d,k+1})</span> that satisfies (C). This characterisation is implemented in this section.</p>
+
+<p><a id="X7F425DFC8760388F" name="X7F425DFC8760388F"></a></p>
+
+<h5>4.5-1 <span class="Heading">CompatibleKernels</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CompatibleKernels</code>( <var class="Arg">d</var>, <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CompatibleKernels</code>( <var class="Arg">F</var>, <var class="Arg">z</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+
+<dl>
+<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">F</var></strong></dt>
+<dd><p>Returns: the list of kernels <span class="Math">K\le\prod_{\omega\in\Omega}F_{\omega}\cong\ker\pi\le\mathrm{Aut}(B_{d,2})</span> that are preserved by the action <var class="Arg">F</var> <span class="Math">\curvearrowright\prod_{\omega\in\Omega}F_{\omega}</span>, <span class="Math">a\cdot(a_{\omega})_{\omega}:=(aa_{a^{-1}\omega}a^{-1})_{\omega}</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, and a permutation group <var class="Arg">F</var> <span class="Math">\le S_{d}</span>. The kernels output by this method are compatible with <var class="Arg">F</var> with respect to the standard cocycle (see <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>)) and can be used in the method <code class="func">SIGMA</code> (<a href="chap4.html#X823707DF821E79A0"><span class="RefLink">4.5-2</span></a>).</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">z</var></strong></dt>
+<dd><p>Returns: the list of kernels <span class="Math">K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})</span> that are normalized by <span class="Math">\Gamma_{z}(</span><var class="Arg">F</var><span class="Math">)</span> and such that for all <span class="Math">k\in K</span> and <span class="Math">\omega\in\Omega</span> there is <span class="Math">k_{\omega}\in K</span> with <span class="Math">\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}</span>.</p>
+
+<p>The arguments of this method are a local action <var class="Arg">F</var> <span class="Math">\le\mathrm{Aut}(B_{d,k})</span> that satisfies (C) and an involutive compatibility cocycle <var class="Arg">z</var> of <var class="Arg">F</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>)). It can be used in the method <code class="func">SIGMA</code> (<a href="chap4.html#X823707DF821E79A0"><span class="RefLink">4.5-2</span></a>).</p>
+
+</dd>
+</dl>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CompatibleKernels(3,SymmetricGroup(3));</span>
+[ Group(()), Group([ (1,2)(3,4)(5,6) ]), Group([ (3,4)(5,6), (1,2)(5,6) ]), 
+  Group([ (5,6), (3,4), (1,2) ]) ]
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PI(2,3,P,rho,[1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CompatibleKernels(F,z);</span>
+[ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
+  Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
+  Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
+</pre></div>
+
+<p><a id="X823707DF821E79A0" name="X823707DF821E79A0"></a></p>
+
+<h5>4.5-2 <span class="Heading">SIGMA</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SIGMA</code>( <var class="Arg">d</var>, <var class="Arg">F</var>, <var class="Arg">K</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SIGMA</code>( <var class="Arg">F</var>, <var class="Arg">K</var>, <var class="Arg">z</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+
+<dl>
+<dt><strong class="Mark">for the arguments <var class="Arg">d</var>, <var class="Arg">F</var>, <var class="Arg">K</var></strong></dt>
+<dd><p>Returns: the semidirect product <span class="Math">\Sigma(</span><var class="Arg">F</var><span class="Math">,</span><var class="Arg">K</var><span class="Math">)\le\mathrm{Aut}(B_{d,2})</span>.</p>
+
+<p>The arguments of this method are a degree <var class="Arg">d</var> <span class="Math">\in\mathbb{N}_{\ge 3}</span>, a subgroup <var class="Arg">F</var> of <span class="Math">S_{d}</span> and a compatible kernel <var class="Arg">K</var> for <var class="Arg">F</var> (see <code class="func">CompatibleKernels</code> (<a href="chap4.html#X7F425DFC8760388F"><span class="RefLink">4.5-1</span></a>)).</p>
+
+</dd>
+<dt><strong class="Mark">for the arguments <var class="Arg">F</var>, <var class="Arg">K</var>, <var class="Arg">z</var></strong></dt>
+<dd><p>Returns: the semidirect product <span class="Math">\Sigma_{z}(</span><var class="Arg">F</var><span class="Math">,</span><var class="Arg">K</var><span class="Math">)\le\mathrm{Aut}(B_{d,k+1})</span>.</p>
+
+<p>The arguments of this method are a local action <var class="Arg">F</var> of <span class="Math">\mathrm{Aut}(B_{d,k})</span> that satisfies (C) and a kernel <var class="Arg">K</var> that is compatible for <var class="Arg">F</var> with respect to the involutive compatibility cocycle <var class="Arg">z</var> (see <code class="func">InvolutiveCompatibilityCocycle</code> (<a href="chap5.html#X80ADE0E379590053"><span class="RefLink">5.3-1</span></a>) and <code class="func">CompatibleKernels</code> (<a href="chap4.html#X7F425DFC8760388F"><span class="RefLink">4.5-1</span></a>)) of <var class="Arg">F</var>.</p>
+
+</dd>
+</dl>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">kernels:=CompatibleKernels(3,S3);</span>
+[ Group(()), Group([ (1,2)(3,4)(5,6) ]), Group([ (3,4)(5,6), (1,2)(5,6) ]), 
+  Group([ (5,6), (3,4), (1,2) ]) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for K in kernels do Print(Size(SIGMA(3,S3,K)),"\n"); od;</span>
+6
+12
+24
+48
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PI(2,3,P,rho,[1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(F);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">kernels:=CompatibleKernels(F,z);</span>
+[ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
+  Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
+  Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">for K in kernels do Print(Size(SIGMA(F,K,z)),"\n"); od;</span>
+24
+48
+96
+192
+</pre></div>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap3.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap5.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>
