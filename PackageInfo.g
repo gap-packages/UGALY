@@ -11,7 +11,7 @@ SetPackageInfo( rec(
 
 PackageName := "UGALY",
 Subtitle := "Universal Groups Acting LocallY",
-Version := "v3.0",
+Version := "3.0",
 Date := "22/07/2021", # dd/mm/yyyy format
 License := "GPL-3.0-or-later",
 
@@ -53,13 +53,15 @@ Persons := [ rec(
 
 SourceRepository := rec(
 	Type := "git",
-	URL := "https://github.com/torniers/UGALY",
+	URL := Concatenation( "https://github.com/torniers/", ~.PackageName ),
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-PackageWWWHome := "https://github.com/torniers/UGALY",
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
-ArchiveURL     := Concatenation( ~.PackageWWWHome, "/", ~.PackageName, "-", ~.Version ),
+PackageWWWHome  := Concatenation( "https://torniers.github.io/", ~.PackageName ),
+README_URL      := Concatenation( ~.PackageWWWHome, "/README.md" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/", ~.PackageName, "-", ~.Version ),
 ArchiveFormats := ".tar.gz",
 
 ##  Status information. Currently the following cases are recognized:
