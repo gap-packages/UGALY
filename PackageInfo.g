@@ -53,10 +53,10 @@ Persons := [ rec(
 
 SourceRepository := rec(
 	Type := "git",
-	URL := Concatenation( "https://github.com/torniers/", ~.PackageName ),
+	URL := Concatenation( "https://github.com/gap-packages/", ~.PackageName ),
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-PackageWWWHome  := Concatenation( "https://torniers.github.io/", ~.PackageName ),
+PackageWWWHome  := Concatenation( "https://gap-packages.github.io/", ~.PackageName ),
 README_URL      := Concatenation( ~.PackageWWWHome, "/README.md" ),
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,
