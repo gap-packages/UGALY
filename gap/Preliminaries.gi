@@ -5,7 +5,7 @@
 #
 ##################################################################################################################
 
-InstallMethod(LocalAction, "for d,k,F (creator)", [IsInt, IsInt, IsPermGroup],
+InstallMethod(LocalAction, "for a degree d, a radius k and a local action F of B_{d,k} (creator)", [IsInt, IsInt, IsPermGroup],
 function(d,k,F)
 	local la_F;
 	
@@ -28,7 +28,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod(LocalActionNC, "for d,k,F (creator)", [IsInt, IsInt, IsPermGroup],
+InstallMethod(LocalActionNC, "for a degree d, a radius k and a local action F of B_{d,k} (creator, no checks)", [IsInt, IsInt, IsPermGroup],
 function(d,k,F)
 	local la_F;
 	
@@ -233,7 +233,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( LocalAction, "for r,d,k,aut,addr", [IsInt, IsInt, IsInt, IsPerm, IsList],
+InstallMethod( LocalAction, "for a radius r, a degree d, a radius k, an automorphism aut of B_{d,k} and an address addr", [IsInt, IsInt, IsInt, IsPerm, IsList],
 function(r,d,k,aut,addr)
 	local sphere_b_r, sphere_addr_r, a, perm, im_addr_rev, i, im_a;
 	
@@ -267,7 +267,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( Projection, "for F,r", [IsLocalAction, IsInt],
+InstallMethod( Projection, "for a local action F and a radius r", [IsLocalAction, IsInt],
 function(F,r)
 	local d, k, S_d_1, W, prs, i, pr;
 	

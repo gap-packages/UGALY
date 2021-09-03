@@ -96,7 +96,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( CompatibilitySet, "for F,aut,dir", [IsLocalAction, IsPerm, IsInt],
+InstallMethod( CompatibilitySet, "for a local action F, an element aut of F and a direction dir", [IsLocalAction, IsPerm, IsInt],
 function(F,aut,dir)
 	local d, k, r, K;
 
@@ -120,7 +120,7 @@ function(F,aut,dir)
 	fi;
 end );
 
-InstallMethod( CompatibilitySet, "for F,aut,dirs", [IsLocalAction, IsPerm, IsList],
+InstallMethod( CompatibilitySet, "for a local action F, an element aut of F and a list of directions dirs", [IsLocalAction, IsPerm, IsList],
 function(F,aut,dirs)
 	local d, k, comp_sets, dir, r, p, K;
 
@@ -173,7 +173,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( MaximalCompatibleSubgroup, "for F", [IsLocalAction],
+InstallMethod( MaximalCompatibleSubgroup, "for a local action F", [IsLocalAction],
 function(F)
 	local d, k, grps, poss, pos, i, G;
 	
@@ -203,7 +203,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( SatisfiesC, "for F", [IsLocalAction],
+InstallMethod( SatisfiesC, "for a local action F", [IsLocalAction],
 function(F)
 	local d, k, gens, a, dir, r, b;
 	
@@ -247,7 +247,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( ConjugacyClassRepsCompatibleSubgroups, "for F", [IsLocalAction],
+InstallMethod( ConjugacyClassRepsCompatibleSubgroups, "for a local action F", [IsLocalAction],
 function(F)
 	local d, k, reps, H, class;
 		

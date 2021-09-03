@@ -5,7 +5,7 @@
 #
 ##################################################################################################################
 
-InstallMethod( SatisfiesD, "for F", [IsLocalAction],
+InstallMethod( SatisfiesD, "for a local action F", [IsLocalAction],
 function(F)
 	local d, k, K, dir;
 	
@@ -30,7 +30,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( IsDiscrete, "for F", [IsLocalAction],
+InstallMethod( IsDiscrete, "for a local action F", [IsLocalAction],
 function(F)
 	local k, CF;
 
@@ -117,7 +117,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( InvolutiveCompatibilityCocycle, "for F", [IsLocalAction],
+InstallMethod( InvolutiveCompatibilityCocycle, "for a local action F", [IsLocalAction],
 function(F)
 	local d, k, gens, C, i, a, comp_sets, dir, iter, c, z;
 	
@@ -157,7 +157,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( AllInvolutiveCompatibilityCocycles, "for F", [IsLocalAction],
+InstallMethod( AllInvolutiveCompatibilityCocycles, "for a local action F", [IsLocalAction],
 function(F)
 	local d, k, iccs, gens, C, i, a, comp_sets, dir, iter, c, z;
 	

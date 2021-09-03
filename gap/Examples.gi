@@ -5,7 +5,7 @@
 #
 ##################################################################################################################
 
-InstallMethod( LocalElement, "for d,a", [IsInt, IsPerm],
+InstallMethod( LocalElement, "for a degree d and a permutation a of [1..d]", [IsInt, IsPerm],
 function(d,a)
 	local aut, lf;
 	
@@ -20,7 +20,7 @@ function(d,a)
 	fi;
 end );
 
-InstallMethod( LocalElement, "for l,d,a", [IsInt, IsInt, IsPerm],
+InstallMethod( LocalElement, "for a radius l, a degree d and a permutation a of [1..d]", [IsInt, IsInt, IsPerm],
 function(l,d,a)
 	local aut, lf;
 	
@@ -42,7 +42,7 @@ function(l,d,a)
 	fi;
 end );
 
-InstallMethod( LocalElement, "for l,d,s,addr", [IsInt, IsInt, IsPerm, IsList],
+InstallMethod( LocalElement, "for a radius l, a degree d, a permutation s of [1..d] and an address addr whose last entry is fixed by s", [IsInt, IsInt, IsPerm, IsList],
 function(l,d,s,addr)
 	local aut, lf, addr_lf, i;
 
@@ -68,7 +68,7 @@ function(l,d,s,addr)
 	fi;
 end );
 
-InstallMethod( LocalElement, "for d,k,aut,z", [IsInt, IsInt, IsPerm, IsMapping],
+InstallMethod( LocalElement, "for a degree d, a radius k, an automorphism aut of B_{d,k} and an involutive compatibility cocycle z whose domain contains aut", [IsInt, IsInt, IsPerm, IsMapping],
 function(d,k,aut,z)
 	local auts, dir;	
 	
@@ -85,7 +85,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( GAMMA, "for d,F", [IsInt, IsPermGroup],
+InstallMethod( GAMMA, "for a degree d and a permutation group F of [1..d]", [IsInt, IsPermGroup],
 function(d,F)
 	local a, gens;
 	
@@ -101,7 +101,7 @@ function(d,F)
 	fi;
 end );
 
-InstallMethod( GAMMA, "for l,d,F", [IsInt, IsInt, IsPermGroup],
+InstallMethod( GAMMA, "for a radius l, a degree d and a permutation group of [1..d]", [IsInt, IsInt, IsPermGroup],
 function(l,d,F)
 	local a, gens;
 	
@@ -123,7 +123,7 @@ function(l,d,F)
 	fi;
 end );
 
-InstallMethod( GAMMA, "for F,z", [IsLocalAction, IsMapping],
+InstallMethod( GAMMA, "for a local action F and an involutive compatibility cocycle of F", [IsLocalAction, IsMapping],
 function(F,z)
 	local d, k, gens, a, tuple, dir;
 	
@@ -142,7 +142,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( DELTA, "for d,F", [IsInt, IsPermGroup],
+InstallMethod( DELTA, "for a degree d and a permutation group F of [1..d]", [IsInt, IsPermGroup],
 function(d,F)
 	local gens, trans, i, a, auts;
 
@@ -172,7 +172,7 @@ function(d,F)
 	fi;
 end );
 
-InstallMethod( DELTA, "for d,F,C", [IsInt, IsPermGroup, IsPermGroup],
+InstallMethod( DELTA, "for a degree d, a permutation group F of [1..d] and central subgroup C of Stabilizer(F,1)", [IsInt, IsPermGroup, IsPermGroup],
 function(d,F,C)
 	local gens, trans, i, a, gens_C, auts;
 
@@ -203,7 +203,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( PHI, "for d,F,N", [IsInt, IsPermGroup, IsPermGroup],
+InstallMethod( PHI, "for a degree d, a permutation group F of [1..d] and a normal subgroup N of Stabilizer(F,1)", [IsInt, IsPermGroup, IsPermGroup],
 function(d,F,N)
 	local gens, a, auts;
 
@@ -230,7 +230,7 @@ function(d,F,N)
 	fi;
 end );
 
-InstallMethod( PHI, "for d,F,P", [IsInt, IsPermGroup, IsList],
+InstallMethod( PHI, "for a degree d, a permutation group F of [1..d] and a partition P of [1..d] preserved by F", [IsInt, IsPermGroup, IsList],
 function(d,F,P)
 	local gens, a, i, auts, j;
 
@@ -259,7 +259,7 @@ function(d,F,P)
 	fi;
 end );
 
-InstallMethod( PHI, "for F", [IsLocalAction],
+InstallMethod( PHI, "for a local action F", [IsLocalAction],
 function(F)
 	local d, k, gens, gens_F, comp_sets, dir, a, auts;
 	
@@ -295,7 +295,7 @@ function(F)
 	fi;
 end );
 
-InstallMethod( PHI, "for l,F", [IsInt, IsLocalAction],
+InstallMethod( PHI, "for a radius l and a local action F", [IsInt, IsLocalAction],
 function(l,F)
 	local d, k, gens, a, addrs, gens_stabs, addr, G, i;
 	
@@ -334,7 +334,7 @@ function(l,F)
 	fi;
 end );
 
-InstallMethod( PHI, "for F,P", [IsLocalAction, IsList],
+InstallMethod( PHI, "for a local action F and a partition P of [1..LocalActionDegree(F)] preserved by ImageOfProjection(F,1)", [IsLocalAction, IsList],
 function(F,P)
 	local d, k, gens, gens_F, a, auts, i, r, dir;
 	
@@ -471,7 +471,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( CompatibleKernels, "for d,F", [IsInt, IsPermGroup],
+InstallMethod( CompatibleKernels, "for a degree d and a permutation group F of [1..d]", [IsInt, IsPermGroup],
 function(d,F)
 	local kernels, G, D, class, K, compatible, a, c, dir, c_dir;
 
@@ -512,7 +512,7 @@ function(d,F)
 	fi;
 end) ;
 
-InstallMethod( CompatibleKernels, "for F,z", [IsLocalAction, IsMapping],
+InstallMethod( CompatibleKernels, "for a local action F and an involutive compatibility cocycle z of F", [IsLocalAction, IsMapping],
 function(F,z)
 	local d, k, kernels, G, D, class, K, compatible, a, c, dir, c_dir;
 
@@ -556,7 +556,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( SIGMA, "for d,F,K", [IsInt, IsPermGroup, IsPermGroup],
+InstallMethod( SIGMA, "for a degree d, a permutation group F of [1..d] and a compatible kernel K", [IsInt, IsPermGroup, IsPermGroup],
 function(d,F,K)
 	local gens, a;
 
@@ -572,7 +572,7 @@ function(d,F,K)
 	fi;
 end );
 
-InstallMethod( SIGMA, "for F,K,z", [IsLocalAction, IsPermGroup, IsMapping],
+InstallMethod( SIGMA, "for a local action F, a compatible kernel K and an involutive compatibility cocycle z", [IsLocalAction, IsPermGroup, IsMapping],
 function(F,K,z)
 	local d, k, gens, a;
 	
