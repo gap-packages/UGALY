@@ -47,33 +47,37 @@ function(F)
 end );
 
 ##################################################################################################################
+##################################################################################################################
+##################################################################################################################
 
-InstallGlobalFunction( IsCocycle,
-function(d,k,F,z)
-	local a, b, dir;
-
-	for a in F do
-		for b in GeneratorsOfGroup(F) do
-			for dir in [1..d] do
-				if not Image(z,[b*a,dir])=Image(z,[b,dir])*Image(z,[a,dir^LocalAction(1,d,k,b,[])]) then
-					return false;
-				fi;
-			od;
+InstallGlobalFunction( IsCocycleViaGeneratorData,
+function(F,c,pr,rel)
+	local d, r, dir;
+	
+	d:=LocalActionDegree(F);
+	
+	# suffices to check $z(r,dir)=1$ for all relations r and directions dir	(?)
+	for r in rel do
+		for dir in [1..d] do
+			if not ()=EvaluateCocycleViaWords(F,c,pr,LetterRepAssocWord(r),dir) then return false; fi;
 		od;
 	od;
+	
 	return true;
 end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( IsInvolutive,
-function(d,k,F,z)
-	local a, dir;
+InstallGlobalFunction( IsInvolutiveViaGeneratorData,
+function(F,c,pr)
+	local d, a, dir;
+	
+	d:=LocalActionDegree(F);
 
 	# suffices to check on generators: z(z(ab,i),i)=z(z(a,bi)z(b,i),i)=z(z(a,bi),z(b,i)*i)z(z(b,i),i)=z(z(a,bi),bi)*b=a*b
 	for a in GeneratorsOfGroup(F) do
 		for dir in [1..d] do
-			if not Image(z,[Image(z,[a,dir]),dir])=a then return false; fi;
+			if not EvaluateCocycleViaElements(F,c,pr,EvaluateCocycleViaElements(F,c,pr,a,dir),dir)=a then return false; fi;
 		od;
 	od;
 	return true;
@@ -81,45 +85,74 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( Cocycle,
-function(d,k,F,c,pr,gens_free,w,dir)
+InstallGlobalFunction( EvaluateCocycleViaWords,
+function(F,c,pr,w,dir)
+	local d, k, gens, value, act, i;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+	gens:=GeneratorsOfGroup(F);
 
-	if Length(w)=0 then
-		return ();
-	elif Length(w)=1 then
-		if SignInt(w[1])=1 then
-			return c[w[1]][dir];
+	value:=();
+	act:=();
+	for i in [1..Length(w)] do
+		if SignInt(w[i])=1 then
+			value:=value*c[w[i]][dir^act];
 		else
-			return c[-w[1]][dir^LocalAction(1,d,k,Image(pr,gens_free[-w[1]])^(-1),[])]^(-1);
+			# z(a^{-1},i)=z(a,a^{-1}i)^{-1}
+			value:=value*c[-w[i]][(dir^act)^(LocalAction(1,d,k,gens[-w[i]],[])^(-1))]^(-1);
 		fi;
-	else
-		# Length(w)>1
-		if SignInt(w[1])=1 then							
-			return Cocycle(d,k,F,c,pr,gens_free,w{[1]},dir)*Cocycle(d,k,F,c,pr,gens_free,w{[2..Length(w)]},dir^LocalAction(1,d,k,Image(pr,gens_free[w[1]]),[]));
-		else
-			return Cocycle(d,k,F,c,pr,gens_free,w{[1]},dir)*Cocycle(d,k,F,c,pr,gens_free,w{[2..Length(w)]},dir^(LocalAction(1,d,k,Image(pr,gens_free[-w[1]]),[])^(-1)));
-		fi;
-	fi;
+		act:=act*LocalAction(1,d,k,gens[AbsInt(w[i])],[])^SignInt(w[i]);
+	od;
+
+	return value;
+
 end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( CocycleMap,
-function(d,k,F,c)
-	local pr, gens_free;
+InstallGlobalFunction( EvaluateCocycleViaElements,
+function(F,c,pr,a,dir)
+	local d, k, gens, w, value, act, i;
+	
+	d:=LocalActionDegree(F);
+	k:=LocalActionRadius(F);
+	gens:=GeneratorsOfGroup(F);
+	w:=LetterRepAssocWord(PreImagesRepresentative(pr,a));
 
-	pr:=EpimorphismFromFreeGroup(F);
+	value:=();
+	act:=();
+	for i in [1..Length(w)] do
+		if SignInt(w[i])=1 then
+			value:=value*c[w[i]][dir^act];
+		else
+			# z(a^{-1},i)=z(a,a^{-1}i)^{-1}
+			value:=value*c[-w[i]][(dir^act)^(LocalAction(1,d,k,gens[-w[i]],[])^(-1))]^(-1);
+		fi;
+		act:=act*LocalAction(1,d,k,gens[AbsInt(w[i])],[])^SignInt(w[i]);
+	od;
+	
+	return value;
+end );
+
+##################################################################################################################
+
+InstallGlobalFunction( CocycleMapFromGeneratorData,
+function(F,c,pr)
+	local d, gens_free;
+	
+	d:=LocalActionDegree(F);
 	gens_free:=MappingGeneratorsImages(pr)[1];
 	
 	return MappingByFunction(Domain(Cartesian(F,Domain([1..d]))),F,
-		s->Cocycle(d,k,F,c,pr,gens_free,LetterRepAssocWord(PreImagesRepresentative(pr,s[1])),s[2]));
+		s->EvaluateCocycleViaElements(F,c,pr,s[1],s[2]));
 end );
 
 ##################################################################################################################
 
 InstallMethod( InvolutiveCompatibilityCocycle, "for a local action F", [IsLocalAction],
 function(F)
-	local d, k, gens, C, i, a, comp_sets, dir, iter, c, z;
+	local d, k, gens, C, a, comp_sets, dir, iter, pr, rel, c;
 	
 	d:=LocalActionDegree(F);
 	k:=LocalActionRadius(F);
@@ -129,7 +162,7 @@ function(F)
 		gens:=GeneratorsOfGroup(F);
 		c:=[];
 		for a in gens do Add(c,ListWithIdenticalEntries(d,a)); od;
-		return CocycleMap(d,k,F,c);
+		return MappingByFunction(Domain(Cartesian(F,Domain([1..d]))),F,s->s[1]);
 	else
 		# change to a small generating set of F
 		gens:=SmallGeneratingSet(F);
@@ -142,13 +175,14 @@ function(F)
 				Add(comp_sets,CompatibilitySet(F,a,dir));
 			od;
 			Add(C,Cartesian(comp_sets));
-		od;	
+		od;
 		# for each possibility, check i.c.c.
 		iter:=IteratorOfCartesianProduct(C);
+		pr:=EpimorphismFromFreeGroup(F);
+		rel:=SmallGeneratingSet(Kernel(pr));
 		for c in iter do
-			z:=CocycleMap(d,k,F,c);
-			if IsInvolutive(d,k,F,z) and IsCocycle(d,k,F,z) then
-				return z;
+			if IsCocycleViaGeneratorData(F,c,pr,rel) and IsInvolutiveViaGeneratorData(F,c,pr) then
+				return CocycleMapFromGeneratorData(F,c,pr);
 			fi;
 		od;
 		return fail;
@@ -159,7 +193,7 @@ end );
 
 InstallMethod( AllInvolutiveCompatibilityCocycles, "for a local action F", [IsLocalAction],
 function(F)
-	local d, k, iccs, gens, C, i, a, comp_sets, dir, iter, c, z;
+	local d, k, iccs, gens, C, a, comp_sets, dir, iter, pr, rel, c;
 	
 	d:=LocalActionDegree(F);
 	k:=LocalActionRadius(F);
@@ -182,10 +216,11 @@ function(F)
 		od;
 		# for each possibility, check i.c.c.
 		iter:=IteratorOfCartesianProduct(C);
+		pr:=EpimorphismFromFreeGroup(F);
+		rel:=SmallGeneratingSet(Kernel(pr));
 		for c in iter do
-			z:=CocycleMap(d,k,F,c);
-			if IsInvolutive(d,k,F,z) and IsCocycle(d,k,F,z) then
-				Add(iccs,z);
+			if IsCocycleViaGeneratorData(F,c,pr,rel) and IsInvolutiveViaGeneratorData(F,c,pr) then
+				Add(iccs,CocycleMapFromGeneratorData(F,c,pr));
 			fi;
 		od;
 		return iccs;

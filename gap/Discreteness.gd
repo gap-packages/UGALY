@@ -77,22 +77,27 @@ DeclareProperty( "IsDiscrete" , IsLocalAction );
 #! Subgroups $F\le\mathrm{Aut}(B_{d,k})$ that satisfy both (C) and (D) admit an involutive compatibility cocycle, i.e. a map $z:F\times\{1,\ldots,d\}\to F$ that satisfies certain properties, see <Cite Key="Tor20" Where="Section 3.2.2"/>. When $F$ satisfies just (C), it may still admit an involutive compatibility cocycle. In this case, F admits an extension $\Gamma_{z}(F)\le\mathrm{Aut}(B_{d,k})$ that satisfies both (C) and (D). Involutive compatibility cocycles can be searched for using <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/> and <Ref Attr="AllInvolutiveCompatibilityCocycles" Label="for IsLocalAction"/> below.
 
 # internal function
-DeclareGlobalFunction( "IsCocycle" );
+DeclareGlobalFunction( "IsCocycleViaGeneratorData" );
 
 ##################################################################################################################
 
 # internal function
-DeclareGlobalFunction( "IsInvolutive" );
+DeclareGlobalFunction( "IsInvolutiveViaGeneratorData" );
 
 ##################################################################################################################
 
 # internal function
-DeclareGlobalFunction( "Cocycle" );
+DeclareGlobalFunction( "EvaluateCocycleViaWords" );
 
 ##################################################################################################################
 
 # internal function
-DeclareGlobalFunction( "CocycleMap" );
+DeclareGlobalFunction( "EvaluateCocycleViaElements" );
+
+##################################################################################################################
+
+# internal function
+DeclareGlobalFunction( "CocycleMapFromGeneratorData" );
 
 ##################################################################################################################
 

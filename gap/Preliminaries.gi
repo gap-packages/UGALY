@@ -247,7 +247,9 @@ function(r,d,k,aut,addr)
 		Error("input argument add=",addr," must be an address of length at most ",k-1);
 	elif not r+Length(addr)<=k then
 		Error("the sum of input argument r=",r," and the length of input argument addr=",addr," must not exceed input argument k=",k);
-	else
+	elif k=1 and addr=[] then
+		return aut;
+	else		
 		# generate addresses of the r-sphere around b (center)
 		sphere_b_r:=LeafAddresses(d,r);
 		# generate addresses of the r-sphere around addr
