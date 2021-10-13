@@ -15,7 +15,7 @@
 ##################################################################################################################
 
 #! Said proposition shows that for a given $F\le \mathrm{Aut}(B_{d,k})$ the group $\mathrm{U}_{k}(F)$ is discrete if and only if the maximal compatible subgroup $C(F)$ of $F$ satisfies condition (D): $$\forall \omega \in \Omega: F_{T_{\omega}}=\{\mathrm{id}\},$$ where $T_{\omega}$ is the $k-1$-neighbourhood of the edge $(b,b_{\omega})$ inside $B_{d,k}$. In other words, $F$ satisfies (D) if and only if the compatibility set $C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}$.
-#! We distinguish between $F$ satisfying condition (D) and $\mathrm{U}_{k}(F)$ being discrete with the methods <Ref Prop="SatisfiesD" Label="for IsLocalAction"/> and <Ref Prop="IsDiscrete" Label="for IsLocalAction"/> below.
+#! We distinguish between $F$ satisfying condition (D) and $\mathrm{U}_{k}(F)$ being discrete with the methods <Ref Prop="SatisfiesD" Label="for IsLocalAction"/> and <Ref Prop="YieldsDiscreteUniversalGroup" Label="for IsLocalAction"/> below.
 
 ##################################################################################################################
 #! @Section Discreteness
@@ -48,19 +48,19 @@ DeclareProperty( "SatisfiesD", IsLocalAction );
 #!
 #! @Arguments F
 #!
-DeclareProperty( "IsDiscrete" , IsLocalAction );
+DeclareProperty( "YieldsDiscreteUniversalGroup" , IsLocalAction );
 #!
 #! @BeginExampleSession
 #! gap> G:=GAMMA(3,SymmetricGroup(3));
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
-#! gap> IsDiscrete(G);
+#! gap> YieldsDiscreteUniversalGroup(G);
 #! true
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
 #! gap> F:=LocalAction(3,2,Group((1,2)));
 #! Group([ (1,2) ])
-#! gap> IsDiscrete(F);
+#! gap> YieldsDiscreteUniversalGroup(F);
 #! true
 #! gap> SatisfiesD(F);
 #! false

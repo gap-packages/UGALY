@@ -30,7 +30,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( IsDiscrete, "for a local action F", [IsLocalAction],
+InstallMethod( YieldsDiscreteUniversalGroup, "for a local action F", [IsLocalAction],
 function(F)
 	local k, CF;
 
