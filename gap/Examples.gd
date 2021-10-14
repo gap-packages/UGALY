@@ -15,9 +15,9 @@
 
 #! Here, we implement the local actions $\Gamma(F),\Delta(F)\le\mathrm{Aut}(B_{d,2})$, both of which satisfy both (C) and (D), see <Cite Key="Tor20" Where="Section 3.4.1"/>.
 #!
-#! @BeginGroup LocalElement
-#! @GroupTitle LocalElement
-#! <Index>gamma, see LocalElement</Index>
+#! @BeginGroup LocalActionElement
+#! @GroupTitle LocalActionElement
+#! <Index>gamma, see LocalActionElement</Index>
 #!
 #! <List>
 #!	<Mark>for the arguments <A>d</A>, <A>a</A></Mark>
@@ -48,46 +48,46 @@
 #!
 #! @Arguments d,a
 #! @Label for d, a
-DeclareOperation( "LocalElement" , [IsInt, IsPerm] );
+DeclareOperation( "LocalActionElement" , [IsInt, IsPerm] );
 #!
 #! @Arguments l,d,a
 #! @Label for l, d, a
-DeclareOperation( "LocalElement" , [IsInt, IsInt, IsPerm] );
+DeclareOperation( "LocalActionElement" , [IsInt, IsInt, IsPerm] );
 #!
 #! @Arguments l,d,s,addr
 #! @Label for l, d, s, addr
-DeclareOperation( "LocalElement" , [IsInt, IsInt, IsPerm, IsList] );
+DeclareOperation( "LocalActionElement" , [IsInt, IsInt, IsPerm, IsList] );
 #!
 #! @Arguments d,k,aut,z
 #! @Label for d, k, aut, z
-DeclareOperation( "LocalElement" , [IsInt, IsInt, IsPerm, IsMapping] );
+DeclareOperation( "LocalActionElement" , [IsInt, IsInt, IsPerm, IsMapping] );
 #!
 #! @BeginExampleSession
-#! gap> LocalElement(3,(1,2));
+#! gap> LocalActionElement(3,(1,2));
 #! (1,3)(2,4)(5,6)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> LocalElement(2,3,(1,2));
+#! gap> LocalActionElement(2,3,(1,2));
 #! (1,3)(2,4)(5,6)
-#! gap> LocalElement(3,3,(1,2));
+#! gap> LocalActionElement(3,3,(1,2));
 #! (1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> LocalElement(3,3,(1,2),[1,3]);
+#! gap> LocalActionElement(3,3,(1,2),[1,3]);
 #! (3,4)
-#! gap> LocalElement(3,3,(1,2),[]);
+#! gap> LocalActionElement(3,3,(1,2),[]);
 #! (1,5)(2,6)(3,8)(4,7)(9,11)(10,12)
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
 #! gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
 #! gap> z1:=AllInvolutiveCompatibilityCocycles(S3)[1];;
-#! gap> LocalElement(3,1,(1,2),z1);
+#! gap> LocalActionElement(3,1,(1,2),z1);
 #! (1,4)(2,3)(5,6)
 #! gap> z3:=AllInvolutiveCompatibilityCocycles(S3)[3];;
-#! gap> LocalElement(3,1,(1,2),z3);
+#! gap> LocalActionElement(3,1,(1,2),z3);
 #! (1,3)(2,4)(5,6)
 #! @EndExampleSession
 #!
@@ -95,8 +95,8 @@ DeclareOperation( "LocalElement" , [IsInt, IsInt, IsPerm, IsMapping] );
 
 ##################################################################################################################
 
-#! @BeginGroup GAMMA
-#! @GroupTitle GAMMA
+#! @BeginGroup LocalActionGamma
+#! @GroupTitle LocalActionGamma
 
 #! <List>
 #!	<Mark>for the arguments <A>d</A>, <A>F</A></Mark>
@@ -121,37 +121,37 @@ DeclareOperation( "LocalElement" , [IsInt, IsInt, IsPerm, IsMapping] );
 #!
 #! @Arguments d,F
 #! @Label for d, F
-DeclareOperation( "GAMMA" , [IsInt, IsPermGroup] );
+DeclareOperation( "LocalActionGamma" , [IsInt, IsPermGroup] );
 #!
 #! @Arguments l,d,F
 #! @Label for l, d, F
-DeclareOperation( "GAMMA" , [IsInt, IsInt, IsPermGroup] );
+DeclareOperation( "LocalActionGamma" , [IsInt, IsInt, IsPermGroup] );
 #!
 #! @Arguments F,z
 #! @Label for F, z
-DeclareOperation( "GAMMA" , [IsLocalAction, IsMapping] );
+DeclareOperation( "LocalActionGamma" , [IsLocalAction, IsMapping] );
 #!
 #! @BeginExampleSession
 #! gap> F:=TransitiveGroup(4,3);;
-#! gap> GAMMA(4,F);
+#! gap> LocalActionGamma(4,F);
 #! Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,8)(2,7)(3,9)(4,5)(10,12) ])
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> GAMMA(3,SymmetricGroup(3));
+#! gap> LocalActionGamma(3,SymmetricGroup(3));
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
-#! gap> GAMMA(2,3,SymmetricGroup(3));
+#! gap> LocalActionGamma(2,3,SymmetricGroup(3));
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
-#! gap> GAMMA(3,3,SymmetricGroup(3));
+#! gap> LocalActionGamma(3,3,SymmetricGroup(3));
 #! Group([ (1,8,10)(2,7,9)(3,5,12)(4,6,11), (1,5)(2,6)(3,8)(4,7)(9,11)(10,12) ])
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
 #! gap> F:=SymmetricGroup(3);;
 #! gap> rho:=SignHomomorphism(F);;
-#! gap> H:=PI(2,3,F,rho,[1]);;
+#! gap> H:=LocalActionPi(2,3,F,rho,[1]);;
 #! gap> z:=InvolutiveCompatibilityCocycle(H);;
-#! gap> GAMMA(H,z);
+#! gap> LocalActionGamma(H,z);
 #! Group([ (), (), (1,12)(2,11)(3,9)(4,10)(5,6), (1,2)(5,12)(6,11)(7,10)(8,9), 
 #!   (1,7,12)(2,8,11)(3,6,10)(4,5,9) ])
 #! @EndExampleSession
@@ -159,8 +159,8 @@ DeclareOperation( "GAMMA" , [IsLocalAction, IsMapping] );
 
 ##################################################################################################################
 
-#! @BeginGroup DELTA
-#! @GroupTitle DELTA
+#! @BeginGroup LocalActionDelta
+#! @GroupTitle LocalActionDelta
 #!	
 #! <List>
 #!	<Mark>for the arguments <A>d</A>, <A>F</A></Mark>
@@ -179,18 +179,18 @@ DeclareOperation( "GAMMA" , [IsLocalAction, IsMapping] );
 #!
 #! @Arguments d,F
 #! @Label for d, F
-DeclareOperation( "DELTA" , [IsInt, IsPermGroup] );
+DeclareOperation( "LocalActionDelta" , [IsInt, IsPermGroup] );
 #!
 #! @Arguments d,F,C
 #! @Label for d, F, C
-DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup] );
+DeclareOperation( "LocalActionDelta" , [IsInt, IsPermGroup, IsPermGroup] );
 #!
 #! @BeginExampleSession
 #! gap> F:=SymmetricGroup(3);;
-#! gap> D:=DELTA(3,F);
+#! gap> D:=LocalActionDelta(3,F);
 #! Group([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])
 #! gap> F1:=Stabilizer(F,1);;
-#! gap> D1:=DELTA(3,F,F1);
+#! gap> D1:=LocalActionDelta(3,F,F1);
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2)(3,4)(5,6) ])
 #! gap> D=D1;
 #! false
@@ -208,7 +208,7 @@ DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup] );
 #! Group([ (2,4)(3,5) ])
 #! gap> Index(F1,C);
 #! 2
-#! gap> Index(DELTA(5,F,F1),DELTA(5,F,C));
+#! gap> Index(LocalActionDelta(5,F,F1),LocalActionDelta(5,F,C));
 #! 2
 #! @EndExampleSession
 #!	
@@ -220,8 +220,8 @@ DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup] );
 
 #! For any $F\le\mathrm{Aut}(B_{d,k})$ that satisfies (C), the group $\Phi(F)\le\mathrm{Aut}(B_{d,k+1})$ is the maximal extension of $F$ that satisfies (C) as well. It stems from the action of $\mathrm{U}_{k}(F)$ on balls of radius $k+1$ in $T_{d}$.
 #!
-#! @BeginGroup PHI1
-#! @GroupTitle PHI
+#! @BeginGroup LocalActionPhi1
+#! @GroupTitle LocalActionPhi
 
 #! <List>
 #!	<Mark>for the argument <A>F</A></Mark>
@@ -240,22 +240,22 @@ DeclareOperation( "DELTA" , [IsInt, IsPermGroup, IsPermGroup] );
 #!
 #! @Arguments F
 #! @Label for F
-DeclareOperation( "PHI" , [IsLocalAction] );
+DeclareOperation( "LocalActionPhi" , [IsLocalAction] );
 #!
 #! @Arguments l,F
 #! @Label for l, F
-DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
+DeclareOperation( "LocalActionPhi" , [IsInt, IsLocalAction] );
 #!
 #! @BeginExampleSession
 #! gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
-#! gap> PHI(S3);
+#! gap> LocalActionPhi(S3);
 #! Group([ (), (1,4,5)(2,3,6), (1,3)(2,4)(5,6), (1,2), (3,4), (5,6) ])
 #! gap> last=AutBall(3,2);
 #! true
 #! gap> A3:=LocalAction(3,1,AlternatingGroup(3));;
-#! gap> PHI(A3);
+#! gap> LocalActionPhi(A3);
 #! Group([ (), (1,4,5)(2,3,6) ])
-#! gap> last=GAMMA(3,AlternatingGroup(3));
+#! gap> last=LocalActionGamma(3,AlternatingGroup(3));
 #! true
 #! @EndExampleSession
 #!
@@ -267,7 +267,7 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5,4,6) ]), 
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (3,5)(4,6) ]), 
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
-#! gap> for G in groups do Print(Size(G),",",Size(PHI(G)),"\n"); od;
+#! gap> for G in groups do Print(Size(G),",",Size(LocalActionPhi(G)),"\n"); od;
 #! 6,6
 #! 12,12
 #! 24,192
@@ -276,7 +276,7 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> PHI(3,LocalAction(4,1,SymmetricGroup(4)));
+#! gap> LocalActionPhi(3,LocalAction(4,1,SymmetricGroup(4)));
 #! <permutation group with 34 generators>
 #! gap> last=AutBall(4,3);
 #! true
@@ -284,9 +284,9 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #!
 #! @BeginExampleSession
 #! gap> rho:=SignHomomorphism(SymmetricGroup(3));;
-#! gap> F:=PI(2,3,SymmetricGroup(3),rho,[1]);; Size(F);
+#! gap> F:=LocalActionPi(2,3,SymmetricGroup(3),rho,[1]);; Size(F);
 #! 24
-#! gap> P:=PHI(4,F);; Size(P);
+#! gap> P:=LocalActionPhi(4,F);; Size(P);
 #! 12288
 #! gap> IsSubgroup(AutBall(3,4),P);
 #! true
@@ -294,7 +294,7 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #! true
 #! @EndExampleSession
 #!
-#! @EndGroup PHI1
+#! @EndGroup LocalActionPhi1
 
 ##################################################################################################################
 #! @Section Normal subgroups and partitions
@@ -302,8 +302,8 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 
 #! When point stabilizers in $F\le S_{d}$ are not simple, or $F$ preserves a partition, more universal groups can be constructed as follows.
 #!
-#! @BeginGroup PHI2
-#! @GroupTitle PHI
+#! @BeginGroup LocalActionPhi2
+#! @GroupTitle LocalActionPhi
 #!
 #! <List>
 #!	<Mark>for the arguments <A>d</A>, <A>F</A>, <A>N</A></Mark>
@@ -328,15 +328,15 @@ DeclareOperation( "PHI" , [IsInt, IsLocalAction] );
 #!
 #! @Arguments d,F,N
 #! @Label for d, F, N
-DeclareOperation( "PHI" , [IsInt, IsPermGroup, IsPermGroup] );
+DeclareOperation( "LocalActionPhi" , [IsInt, IsPermGroup, IsPermGroup] );
 #!
 #! @Arguments d,F,P
 #! @Label for d, F, P
-DeclareOperation( "PHI" , [IsInt, IsPermGroup, IsList] );
+DeclareOperation( "LocalActionPhi" , [IsInt, IsPermGroup, IsList] );
 #!
 #! @Arguments F,P
 #! @Label for F, P
-DeclareOperation( "PHI" , [IsLocalAction, IsList] );
+DeclareOperation( "LocalActionPhi" , [IsLocalAction, IsList] );
 #!
 #! @BeginExampleSession
 #! gap> F:=SymmetricGroup(4);;
@@ -346,11 +346,11 @@ DeclareOperation( "PHI" , [IsLocalAction, IsList] );
 #! [ Sym( [ 2 .. 4 ] ), Alt( [ 2 .. 4 ] ), Group(()) ]
 #! gap> N:=grps[2];
 #! Alt( [ 2 .. 4 ] )
-#! gap> PHI(4,F,N);
+#! gap> LocalActionPhi(4,F,N);
 #! Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,4)(2,5)(3,6)(7,8)(10,11), (1,2,3) ])
 #! gap> Index(F1,N);
 #! 2
-#! gap> Index(PHI(4,F,F1),PHI(4,F,N));
+#! gap> Index(LocalActionPhi(4,F,F1),LocalActionPhi(4,F,N));
 #! 16
 #! @EndExampleSession
 #!
@@ -359,7 +359,7 @@ DeclareOperation( "PHI" , [IsLocalAction, IsList] );
 #! D(4)
 #! gap> P:=Blocks(F,[1..4]);
 #! [ [ 1, 3 ], [ 2, 4 ] ]
-#! gap> G:=PHI(4,F,P);
+#! gap> G:=LocalActionPhi(4,F,P);
 #! Group([ (1,5,9,10)(2,6,7,11)(3,4,8,12), (1,8)(2,7)(3,9)(4,5)(10,12), (1,3)
 #!   (8,9), (4,5)(10,12) ])
 #! gap> mt:=RandomSource(IsMersenneTwister,1);;
@@ -378,14 +378,14 @@ DeclareOperation( "PHI" , [IsLocalAction, IsList] );
 #! D(4)
 #! gap> P:=Blocks(H,[1..4]);
 #! [ [ 1, 3 ], [ 2, 4 ] ]
-#! gap> F:=PHI(4,H,P);;
-#! gap> G:=PHI(F,P);
+#! gap> F:=LocalActionPhi(4,H,P);;
+#! gap> G:=LocalActionPhi(F,P);
 #! <permutation group with 5 generators>
 #! gap> SatisfiesC(G);
 #! true
 #! @EndExampleSession
 #!
-#! @EndGroup PHI2
+#! @EndGroup LocalActionPhi2
 
 ##################################################################################################################
 #! @Section Abelian quotients
@@ -394,7 +394,7 @@ DeclareOperation( "PHI" , [IsLocalAction, IsList] );
 #! When a permutation group $F\le S_{d}$ is not perfect, i.e. it admits an abelian quotient $\rho:F\twoheadrightarrow A$, more universal groups can be constructed by imposing restrictions of the form $\prod_{r\in R}\prod_{x\in S(b,r)}\rho(\sigma_{1}(\alpha,x))=1$ on elements $\alpha\in\Phi^{k}(F)\le\mathrm{Aut}(B_{d,k})$.
 #!
 #! @Description
-#! The argument of this method is a permutation group <A>F</A> $\le S_{d}$. This method can be used as an example for the argument <A>rho</A> in the methods <Ref Func="SpheresProduct"/> and <Ref Func="PI"/>.
+#! The argument of this method is a permutation group <A>F</A> $\le S_{d}$. This method can be used as an example for the argument <A>rho</A> in the methods <Ref Func="SpheresProduct"/> and <Ref Func="LocalActionPi"/>.
 #!
 #! @Returns
 #! the sign homomorphism from <A>F</A> to $S_{2}$.
@@ -416,7 +416,7 @@ DeclareGlobalFunction( "SignHomomorphism" );
 ##################################################################################################################
 
 #! @Description
-#! The argument of this method is a permutation group <A>F</A> $\le S_{d}$. This method can be used as an example for the argument <A>rho</A> in the methods <Ref Func="SpheresProduct"/> and <Ref Func="PI"/>.
+#! The argument of this method is a permutation group <A>F</A> $\le S_{d}$. This method can be used as an example for the argument <A>rho</A> in the methods <Ref Func="SpheresProduct"/> and <Ref Func="LocalActionPi"/>.
 #!
 #! @Returns
 #! the homomorphism from <A>F</A> to $F/[F,F]$.
@@ -439,7 +439,7 @@ DeclareGlobalFunction( "AbelianizationHomomorphism" );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, an automorphism <A>aut</A> of $B_{d,k}$ all of whose $1$-local actions are in the domain of the homomorphism <A>rho</A> from a subgroup of $S_d$ to an abelian group, and a sublist <A>R</A> of <C>[0..k-1]</C>. This method is used in the implementation of <Ref Func="PI"/>.
+#! The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a radius <A>k</A> $\in\mathbb{N}$, an automorphism <A>aut</A> of $B_{d,k}$ all of whose $1$-local actions are in the domain of the homomorphism <A>rho</A> from a subgroup of $S_d$ to an abelian group, and a sublist <A>R</A> of <C>[0..k-1]</C>. This method is used in the implementation of <Ref Func="LocalActionPi"/>.
 #!
 #! @Returns
 #! the product $\prod_{r\in R}\prod_{x\in S(b,r)}$<A>rho</A>$(\sigma_{1}($<A>aut</A>$,x))\in\mathrm{im}($<A>rho</A>$)$.
@@ -450,9 +450,9 @@ DeclareGlobalFunction( "SpheresProduct" );
 #!
 #! @BeginExampleSession
 #! gap> rho:=SignHomomorphism(SymmetricGroup(3));;
-#! gap> SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0]);
+#! gap> SpheresProduct(3,2,LocalActionElement(2,3,(1,2)),rho,[0]);
 #! (1,2)
-#! gap> SpheresProduct(3,2,LocalElement(2,3,(1,2)),rho,[0,1]);
+#! gap> SpheresProduct(3,2,LocalActionElement(2,3,(1,2)),rho,[0,1]);
 #! ()
 #! @EndExampleSession
 #!
@@ -467,11 +467,11 @@ DeclareGlobalFunction( "SpheresProduct" );
 #! gap> mt:=RandomSource(IsMersenneTwister,1);;
 #! gap> aut:=Random(mt,F);
 #! (1,4,3,5)
-#! gap> SpheresProduct(5,3,LocalElement(3,5,aut),rho,[2]);
+#! gap> SpheresProduct(5,3,LocalActionElement(3,5,aut),rho,[2]);
 #! <identity> of ...
-#! gap> SpheresProduct(5,3,LocalElement(3,5,aut),rho,[1,2]);
+#! gap> SpheresProduct(5,3,LocalActionElement(3,5,aut),rho,[1,2]);
 #! f1
-#! gap> SpheresProduct(5,3,LocalElement(3,5,aut),rho,[0,1,2]);
+#! gap> SpheresProduct(5,3,LocalActionElement(3,5,aut),rho,[0,1,2]);
 #! f2
 #! @EndExampleSession
 
@@ -485,20 +485,20 @@ DeclareGlobalFunction( "SpheresProduct" );
 #!
 #! @Arguments l,d,F,rho,R
 #!
-DeclareGlobalFunction( "PI" );
+DeclareGlobalFunction( "LocalActionPi" );
 #!
 #! @BeginExampleSession
 #! gap> F:=LocalAction(5,1,PrimitiveGroup(5,3));
 #! AGL(1, 5)
 #! gap> rho1:=AbelianizationHomomorphism(F);;
 #! gap> rho2:=SignHomomorphism(F);;
-#! gap> PI(3,5,F,rho1,[0,1,2]);
+#! gap> LocalActionPi(3,5,F,rho1,[0,1,2]);
 #! <permutation group with 4 generators>
-#! gap> Index(PHI(3,F),last);
+#! gap> Index(LocalActionPhi(3,F),last);
 #! 4
-#! gap> PI(3,5,F,rho2,[0,1,2]);
+#! gap> LocalActionPi(3,5,F,rho2,[0,1,2]);
 #! <permutation group with 5 generators>
-#! gap> Index(PHI(3,F),last);
+#! gap> Index(LocalActionPhi(3,F),last);
 #! 2
 #! @EndExampleSession
 
@@ -516,13 +516,13 @@ DeclareGlobalFunction( "PI" );
 #!	<Item> 
 #!		Returns: the list of kernels $K\le\prod_{\omega\in\Omega}F_{\omega}\cong\ker\pi\le\mathrm{Aut}(B_{d,2})$ that are preserved by the action <A>F</A> $\curvearrowright\prod_{\omega\in\Omega}F_{\omega}$, $a\cdot(a_{\omega})_{\omega}:=(aa_{a^{-1}\omega}a^{-1})_{\omega}$.
 #!
-#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, and a permutation group <A>F</A> $\le S_{d}$. The kernels output by this method are compatible with <A>F</A> with respect to the standard cocycle (see <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/>) and can be used in the method <Ref Oper="SIGMA"/>.
+#!		The arguments of this method are a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, and a permutation group <A>F</A> $\le S_{d}$. The kernels output by this method are compatible with <A>F</A> with respect to the standard cocycle (see <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/>) and can be used in the method <Ref Oper="LocalActionSigma"/>.
 #!	</Item>
 #!	<Mark>for the arguments <A>F</A>, <A>z</A></Mark>
 #!	<Item>
 #!		Returns: the list of kernels $K\le\Phi_{k}(F)\cap\ker(\pi_{k})\le\mathrm{Aut}(B_{d,k+1})$ that are normalized by $\Gamma_{z}($<A>F</A>$)$ and such that for all $k\in K$ and $\omega\in\Omega$ there is $k_{\omega}\in K$ with $\mathrm{pr}_{\omega}k_{\omega}=z(\mathrm{pr}_{\omega}k,\omega)^{-1}$.
 #!
-#!		The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ that satisfies (C) and an involutive compatibility cocycle <A>z</A> of <A>F</A> (see <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/>). It can be used in the method <Ref Oper="SIGMA"/>.
+#!		The arguments of this method are a local action <A>F</A> $\le\mathrm{Aut}(B_{d,k})$ that satisfies (C) and an involutive compatibility cocycle <A>z</A> of <A>F</A> (see <Ref Attr="InvolutiveCompatibilityCocycle" Label="for IsLocalAction"/>). It can be used in the method <Ref Oper="LocalActionSigma"/>.
 #!	</Item>
 #! </List>
 #!
@@ -543,7 +543,7 @@ DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping] );
 #! @BeginExampleSession
 #! gap> P:=SymmetricGroup(3);;
 #! gap> rho:=SignHomomorphism(P);;
-#! gap> F:=PI(2,3,P,rho,[1]);;
+#! gap> F:=LocalActionPi(2,3,P,rho,[1]);;
 #! gap> z:=InvolutiveCompatibilityCocycle(F);;
 #! gap> CompatibleKernels(F,z);
 #! [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
@@ -555,8 +555,8 @@ DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping] );
 
 ##################################################################################################################
 
-#! @BeginGroup SIGMA
-#! @GroupTitle SIGMA
+#! @BeginGroup LocalActionSigma
+#! @GroupTitle LocalActionSigma
 #!
 #! <List>
 #!	<Mark>for the arguments <A>d</A>, <A>F</A>, <A>K</A></Mark>
@@ -575,18 +575,18 @@ DeclareOperation( "CompatibleKernels" , [IsLocalAction, IsMapping] );
 #!
 #! @Arguments d,F,K
 #! @Label for d, F, K
-DeclareOperation( "SIGMA" , [IsInt, IsPermGroup, IsPermGroup] );
+DeclareOperation( "LocalActionSigma" , [IsInt, IsPermGroup, IsPermGroup] );
 #!
 #! @Arguments F,K,z
 #! @Label for F, K, z
-DeclareOperation( "SIGMA" , [IsLocalAction, IsPermGroup, IsMapping] );
+DeclareOperation( "LocalActionSigma" , [IsLocalAction, IsPermGroup, IsMapping] );
 #!
 #! @BeginExampleSession
 #! gap> S3:=SymmetricGroup(3);;
 #! gap> kernels:=CompatibleKernels(3,S3);
 #! [ Group(()), Group([ (1,2)(3,4)(5,6) ]), Group([ (3,4)(5,6), (1,2)(5,6) ]), 
 #!   Group([ (5,6), (3,4), (1,2) ]) ]
-#! gap> for K in kernels do Print(Size(SIGMA(3,S3,K)),"\n"); od;
+#! gap> for K in kernels do Print(Size(LocalActionSigma(3,S3,K)),"\n"); od;
 #! 6
 #! 12
 #! 24
@@ -596,20 +596,20 @@ DeclareOperation( "SIGMA" , [IsLocalAction, IsPermGroup, IsMapping] );
 #! @BeginExampleSession
 #! gap> P:=SymmetricGroup(3);;
 #! gap> rho:=SignHomomorphism(P);;
-#! gap> F:=PI(2,3,P,rho,[1]);;
+#! gap> F:=LocalActionPi(2,3,P,rho,[1]);;
 #! gap> z:=InvolutiveCompatibilityCocycle(F);;
 #! gap> kernels:=CompatibleKernels(F,z);
 #! [ Group(()), Group([ (1,2)(3,4)(5,6)(7,8)(9,10)(11,12) ]), 
 #!   Group([ (1,2)(3,4)(5,6)(7,8), (5,6)(7,8)(9,10)(11,12) ]), 
 #!   Group([ (5,6)(7,8), (1,2)(3,4), (9,10)(11,12) ]) ]
-#! gap> for K in kernels do Print(Size(SIGMA(F,K,z)),"\n"); od;
+#! gap> for K in kernels do Print(Size(LocalActionSigma(F,K,z)),"\n"); od;
 #! 24
 #! 48
 #! 96
 #! 192
 #! @EndExampleSession
 
-#! @EndGroup SIGMA
+#! @EndGroup LocalActionSigma
 
 ##################################################################################################################
 

@@ -32,7 +32,7 @@
 DeclareProperty( "SatisfiesD", IsLocalAction );
 #!
 #! @BeginExampleSession
-#! gap> G:=GAMMA(3,SymmetricGroup(3));
+#! gap> G:=LocalActionGamma(3,SymmetricGroup(3));
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 #! gap> SatisfiesD(G);
 #! true
@@ -51,7 +51,7 @@ DeclareProperty( "SatisfiesD", IsLocalAction );
 DeclareProperty( "YieldsDiscreteUniversalGroup" , IsLocalAction );
 #!
 #! @BeginExampleSession
-#! gap> G:=GAMMA(3,SymmetricGroup(3));
+#! gap> G:=LocalActionGamma(3,SymmetricGroup(3));
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 #! gap> YieldsDiscreteUniversalGroup(G);
 #! true
@@ -124,7 +124,7 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #! @EndExampleSession
 #!
 #! @BeginExampleSession
-#! gap> G:=GAMMA(3,AlternatingGroup(3));
+#! gap> G:=LocalActionGamma(3,AlternatingGroup(3));
 #! Group([ (1,4,5)(2,3,6) ])
 #! gap> InvolutiveCompatibilityCocycle(G);
 #! MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], 
@@ -150,6 +150,6 @@ DeclareAttribute( "AllInvolutiveCompatibilityCocycles" , IsLocalAction );
 #! gap> S3:=LocalAction(3,1,SymmetricGroup(3));;
 #! gap> Size(AllInvolutiveCompatibilityCocycles(S3));
 #! 4
-#! gap> Size(AllInvolutiveCompatibilityCocycles(GAMMA(3,SymmetricGroup(3))));
+#! gap> Size(AllInvolutiveCompatibilityCocycles(LocalActionGamma(3,SymmetricGroup(3))));
 #! 1
 #! @EndExampleSession

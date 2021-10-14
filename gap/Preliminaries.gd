@@ -105,24 +105,24 @@
 #!   Group([ (3,4)(5,6), (1,2)(3,4), (1,4,5)(2,3,6), (5,6), (3,5,4,6) ]) ]
 #! @EndExampleSession
 
-#! All of these groups have been identified to stem from general constructions of groups $\widetilde{F}\le\mathrm{Aut}(B_{d,2})$ satisfying (C) from a given group $F\le\mathrm{Aut}(B_{d,1})$, much like some finite transitive groups have been organised into families. Specifically, the constructions $\Gamma(F)$, $\Delta(F)$, $\Pi(F,\rho,X)$ and $\Phi(F)$ introduced in the article <Cite Key="Tor20" Where="Section 3.4"/> can be accessed via the <Package>UGALY</Package> functions <Ref Func="GAMMA"/>, <Ref Func="DELTA"/>, <Ref Func="PI"/> and <Ref Oper="PHI" Label="for F"/> respectively, see Chapter <Ref Chap="Chapter_ukf_examples"/>. Below, we use these functions to identify all six groups of the previous output.
+#! All of these groups have been identified to stem from general constructions of groups $\widetilde{F}\le\mathrm{Aut}(B_{d,2})$ satisfying (C) from a given group $F\le\mathrm{Aut}(B_{d,1})$, much like some finite transitive groups have been organised into families. Specifically, the constructions $\Gamma(F)$, $\Delta(F)$, $\Pi(F,\rho,X)$ and $\Phi(F)$ introduced in the article <Cite Key="Tor20" Where="Section 3.4"/> can be accessed via the <Package>UGALY</Package> functions <Ref Func="LocalActionGamma"/>, <Ref Func="LocalActionDelta"/>, <Ref Func="LocalActionPi"/> and <Ref Oper="LocalActionPhi" Label="for F"/> respectively, see Chapter <Ref Chap="Chapter_ukf_examples"/>. Below, we use these functions to identify all six groups of the previous output.
 
 #!
 #! @BeginExampleSession
-#! gap> PHI(A3)=A3_extn[1];
+#! gap> LocalActionPhi(A3)=A3_extn[1];
 #! true
-#! gap> GAMMA(3,S3)=S3_extn[1];
+#! gap> LocalActionGamma(3,S3)=S3_extn[1];
 #! true
-#! gap> DELTA(3,S3)=S3_extn[2];
+#! gap> LocalActionDelta(3,S3)=S3_extn[2];
 #! false
-#! gap> IsConjugate(AutBall(3,2),DELTA(3,S3),S3_extn[2]);
+#! gap> IsConjugate(AutBall(3,2),LocalActionDelta(3,S3),S3_extn[2]);
 #! true
 #! gap> rho:=SignHomomorphism(S3);;
-#! gap> PI(2,3,S3,rho,[0,1])=S3_extn[3];
+#! gap> LocalActionPi(2,3,S3,rho,[0,1])=S3_extn[3];
 #! true
-#! gap> PI(2,3,S3,rho,[1])=S3_extn[4];
+#! gap> LocalActionPi(2,3,S3,rho,[1])=S3_extn[4];
 #! true
-#! gap> PHI(S3)=S3_extn[5];
+#! gap> LocalActionPhi(S3)=S3_extn[5];
 #! true
 #! @EndExampleSession
 
@@ -158,12 +158,12 @@
 #! @BeginExampleSession
 #! gap> S3:=SymmetricGroup(3);;
 #! gap> rho:=SignHomomorphism(S3);;
-#! gap> H:=PI(2,3,S3,rho,[1]);;
+#! gap> H:=LocalActionPi(2,3,S3,rho,[1]);;
 #! gap> [SatisfiesC(H), SatisfiesD(H), not InvolutiveCompatibilityCocycle(H)=fail];
 #! [ true, false, true ]
 #! @EndExampleSession
 
-#! We then find that there are four conjugacy classes of subgroups of $\mathrm{Aut}(B_{3,3})$ that satisfy (C) and project onto $\Pi(S_{3},\mathrm{sgn},\{1\})$ under the natural projection map $\mathrm{Aut}(B_{3,3})\to\mathrm{Aut}(B_{3,2})$. Of these four groups, two also satisy (D) and one is conjugate to $\Gamma_{z}(\Pi(S_{3},\mathrm{sgn},\{1\}))$, which we construct using <Ref Func="GAMMA"/>.
+#! We then find that there are four conjugacy classes of subgroups of $\mathrm{Aut}(B_{3,3})$ that satisfy (C) and project onto $\Pi(S_{3},\mathrm{sgn},\{1\})$ under the natural projection map $\mathrm{Aut}(B_{3,3})\to\mathrm{Aut}(B_{3,2})$. Of these four groups, two also satisy (D) and one is conjugate to $\Gamma_{z}(\Pi(S_{3},\mathrm{sgn},\{1\}))$, which we construct using <Ref Func="LocalActionGamma"/>.
 
 #! @BeginExampleSession
 #! gap> grps:=ConjugacyClassRepsCompatibleGroupsWithProjection(3,H);; Size(grps);
@@ -171,7 +171,7 @@
 #! gap> Size(Filtered(grps,SatisfiesD));
 #! 2
 #! gap> z:=InvolutiveCompatibilityCocycle(H);;
-#! gap> Size(Intersection(GAMMA(H,z)^AutBall(3,3),grps));
+#! gap> Size(Intersection(LocalActionGamma(H,z)^AutBall(3,3),grps));
 #! 1
 #! @EndExampleSession
 
@@ -231,7 +231,7 @@
 #! @BeginExampleSession
 #! gap> S3:=SymmetricGroup(3);;
 #! gap> rho:=SignHomomorphism(S3);;
-#! gap> H:=PI(2,3,S3,rho,[1]);;
+#! gap> H:=LocalActionPi(2,3,S3,rho,[1]);;
 #! gap> z:=InvolutiveCompatibilityCocycle(H);;
 #! gap> mt:=RandomSource(IsMersenneTwister,1);;
 #! gap> a:=Random(mt,H); Image(z,[Image(z,[a,1]),1]);
@@ -330,7 +330,7 @@ DeclareAttribute( "LocalActionDegree" , IsLocalAction);
 #! @BeginExampleSession
 #! gap> A4:=LocalAction(4,1,AlternatingGroup(4));
 #! Alt( [ 1 .. 4 ] )
-#! gap> F:=PHI(3,A4);
+#! gap> F:=LocalActionPhi(3,A4);
 #! <permutation group with 18 generators>
 #! gap> LocalActionDegree(F);
 #! 4
@@ -351,7 +351,7 @@ DeclareAttribute( "LocalActionRadius" , IsLocalAction );
 #! @BeginExampleSession
 #! gap> A4:=LocalAction(4,1,AlternatingGroup(4));
 #! Alt( [ 1 .. 4 ] )
-#! gap> F:=PHI(3,A4);
+#! gap> F:=LocalActionPhi(3,A4);
 #! <permutation group with 18 generators>
 #! gap> LocalActionRadius(F);
 #! 3
@@ -550,7 +550,7 @@ DeclareOperation( "LocalAction" , [IsInt, IsInt, IsInt, IsPerm, IsList] );
 DeclareOperation( "Projection" , [IsLocalAction, IsInt] );
 #!
 #! @BeginExampleSession
-#! gap> F:=GAMMA(4,3,SymmetricGroup(3));
+#! gap> F:=LocalActionGamma(4,3,SymmetricGroup(3));
 #! Group([ (1,16,19)(2,15,20)(3,13,18)(4,14,17)(5,10,23)(6,9,24)(7,12,22)
 #!   (8,11,21), (1,9)(2,10)(3,12)(4,11)(5,15)(6,16)(7,13)(8,14)(17,21)(18,22)
 #!   (19,24)(20,23) ])

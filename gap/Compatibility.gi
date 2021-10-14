@@ -291,7 +291,7 @@ function(l,F)
 			G_k:=AutBall(d,k);
 			G_l:=AutBall(d,l);
 			# initialize Phi^{l}(F)
-			C:=PHI(l,F);
+			C:=LocalActionPhi(l,F);
 			# search
 			for class in ConjugacyClassesSubgroups(C) do
 				if not IsConjugate(G_k,ImageOfProjection(LocalActionNC(d,l,class[1]),k),F) then continue; fi;

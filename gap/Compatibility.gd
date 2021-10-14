@@ -194,7 +194,7 @@ DeclareAttribute( "MaximalCompatibleSubgroup", IsLocalAction );
 DeclareProperty( "SatisfiesC" , IsLocalAction );
 #!
 #! @BeginExampleSession
-#! gap> D:=DELTA(3,SymmetricGroup(3));
+#! gap> D:=LocalActionDelta(3,SymmetricGroup(3));
 #! Group([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])
 #! gap> SatisfiesC(D);
 #! true
@@ -212,7 +212,7 @@ DeclareProperty( "SatisfiesC" , IsLocalAction );
 DeclareGlobalFunction( "CompatibleSubgroups" );
 #!
 #! @BeginExampleSession
-#! gap> G:=GAMMA(3,SymmetricGroup(3));
+#! gap> G:=LocalActionGamma(3,SymmetricGroup(3));
 #! Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 #! gap> list:=CompatibleSubgroups(G);
 #! [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,3)(2,4)(5,6) ]), 
@@ -275,8 +275,8 @@ DeclareGlobalFunction( "ConjugacyClassRepsCompatibleGroupsWithProjection" );
 #! @BeginExampleSession
 #! gap> F:=SymmetricGroup(3);;
 #! gap> rho:=SignHomomorphism(F);;
-#! gap> H1:=PI(2,3,F,rho,[0,1]);;
-#! gap> H2:=PI(2,3,F,rho,[1]);;
+#! gap> H1:=LocalActionPi(2,3,F,rho,[0,1]);;
+#! gap> H2:=LocalActionPi(2,3,F,rho,[1]);;
 #! gap> Size(ConjugacyClassRepsCompatibleGroupsWithProjection(3,H1));
 #! 2
 #! gap> Size(ConjugacyClassRepsCompatibleGroupsWithProjection(3,H2));

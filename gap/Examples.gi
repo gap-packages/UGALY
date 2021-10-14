@@ -5,7 +5,7 @@
 #
 ##################################################################################################################
 
-InstallMethod( LocalElement, "for a degree d and a permutation a of [1..d]", [IsInt, IsPerm],
+InstallMethod( LocalActionElement, "for a degree d and a permutation a of [1..d]", [IsInt, IsPerm],
 function(d,a)
 	local aut, lf;
 	
@@ -20,7 +20,7 @@ function(d,a)
 	fi;
 end );
 
-InstallMethod( LocalElement, "for a radius l, a degree d and a permutation a of [1..d]", [IsInt, IsInt, IsPerm],
+InstallMethod( LocalActionElement, "for a radius l, a degree d and a permutation a of [1..d]", [IsInt, IsInt, IsPerm],
 function(l,d,a)
 	local aut, lf;
 	
@@ -42,7 +42,7 @@ function(l,d,a)
 	fi;
 end );
 
-InstallMethod( LocalElement, "for a radius l, a degree d, a permutation s of [1..d] and an address addr whose last entry is fixed by s", [IsInt, IsInt, IsPerm, IsList],
+InstallMethod( LocalActionElement, "for a radius l, a degree d, a permutation s of [1..d] and an address addr whose last entry is fixed by s", [IsInt, IsInt, IsPerm, IsList],
 function(l,d,s,addr)
 	local aut, lf, addr_lf, i;
 
@@ -52,7 +52,7 @@ function(l,d,s,addr)
 		Error("input argument d=",d," must be an integer greater than or equal to 3");
 	else
 		if addr=[] then
-			return LocalElement(l,d,s);
+			return LocalActionElement(l,d,s);
 		else
 			# addr is non-empty
 			aut:=[];
@@ -68,7 +68,7 @@ function(l,d,s,addr)
 	fi;
 end );
 
-InstallMethod( LocalElement, "for a degree d, a radius k, an automorphism aut of B_{d,k} and an involutive compatibility cocycle z whose domain contains aut", [IsInt, IsInt, IsPerm, IsMapping],
+InstallMethod( LocalActionElement, "for a degree d, a radius k, an automorphism aut of B_{d,k} and an involutive compatibility cocycle z whose domain contains aut", [IsInt, IsInt, IsPerm, IsMapping],
 function(d,k,aut,z)
 	local auts, dir;	
 	
@@ -85,7 +85,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( GAMMA, "for a degree d and a permutation group F of [1..d]", [IsInt, IsPermGroup],
+InstallMethod( LocalActionGamma, "for a degree d and a permutation group F of [1..d]", [IsInt, IsPermGroup],
 function(d,F)
 	local a, gens;
 	
@@ -96,12 +96,12 @@ function(d,F)
 		Error("input argument F=",F," must be a subgroup of Sym(d=",d,")");
 	else
 		gens:=[];
-		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(2,d,a)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalActionElement(2,d,a)); od;
 		return LocalActionNC(d,2,Group(gens));
 	fi;
 end );
 
-InstallMethod( GAMMA, "for a radius l, a degree d and a permutation group of [1..d]", [IsInt, IsInt, IsPermGroup],
+InstallMethod( LocalActionGamma, "for a radius l, a degree d and a permutation group of [1..d]", [IsInt, IsInt, IsPermGroup],
 function(l,d,F)
 	local a, gens;
 	
@@ -117,13 +117,13 @@ function(l,d,F)
 			return F;
 		else
 			gens:=[];
-			for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(l,d,a)); od;
+			for a in GeneratorsOfGroup(F) do Add(gens,LocalActionElement(l,d,a)); od;
 			return LocalActionNC(d,l,Group(gens));
 		fi;
 	fi;
 end );
 
-InstallMethod( GAMMA, "for a local action F and an involutive compatibility cocycle of F", [IsLocalAction, IsMapping],
+InstallMethod( LocalActionGamma, "for a local action F and an involutive compatibility cocycle of F", [IsLocalAction, IsMapping],
 function(F,z)
 	local d, k, gens, a, tuple, dir;
 	
@@ -135,14 +135,14 @@ function(F,z)
 		return LocalActionNC(d,1,Group(()));
 	else
 		gens:=[()];
-		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(d,k,a,z)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalActionElement(d,k,a,z)); od;
 		return LocalActionNC(d,k+1,Group(gens));
 	fi;
 end );
 
 ##################################################################################################################
 
-InstallMethod( DELTA, "for a degree d and a permutation group F of [1..d]", [IsInt, IsPermGroup],
+InstallMethod( LocalActionDelta, "for a degree d and a permutation group F of [1..d]", [IsInt, IsPermGroup],
 function(d,F)
 	local gens, trans, i, a, auts;
 
@@ -172,7 +172,7 @@ function(d,F)
 	fi;
 end );
 
-InstallMethod( DELTA, "for a degree d, a permutation group F of [1..d] and central subgroup C of Stabilizer(F,1)", [IsInt, IsPermGroup, IsPermGroup],
+InstallMethod( LocalActionDelta, "for a degree d, a permutation group F of [1..d] and central subgroup C of Stabilizer(F,1)", [IsInt, IsPermGroup, IsPermGroup],
 function(d,F,C)
 	local gens, trans, i, a, gens_C, auts;
 
@@ -189,7 +189,7 @@ function(d,F,C)
 		trans:=[];
 		for i in [1..d] do Add(trans,RepresentativeAction(F,1,i)); od;			
 		# F-section
-		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(d,a)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalActionElement(d,a)); od;
 		# kernel
 		gens_C:=GeneratorsOfGroup(C);
 		for a in gens_C do
@@ -203,7 +203,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( PHI, "for a degree d, a permutation group F of [1..d] and a normal subgroup N of Stabilizer(F,1)", [IsInt, IsPermGroup, IsPermGroup],
+InstallMethod( LocalActionPhi, "for a degree d, a permutation group F of [1..d] and a normal subgroup N of Stabilizer(F,1)", [IsInt, IsPermGroup, IsPermGroup],
 function(d,F,N)
 	local gens, a, auts;
 
@@ -219,7 +219,7 @@ function(d,F,N)
 	else
 		gens:=[];
 		# F-section
-		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(2,d,a)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalActionElement(2,d,a)); od;
 		# kernel (F can be assumed transitive)
 		for a in GeneratorsOfGroup(N) do
 			auts:=ListWithIdenticalEntries(d,());
@@ -230,7 +230,7 @@ function(d,F,N)
 	fi;
 end );
 
-InstallMethod( PHI, "for a degree d, a permutation group F of [1..d] and a partition P of [1..d] preserved by F", [IsInt, IsPermGroup, IsList],
+InstallMethod( LocalActionPhi, "for a degree d, a permutation group F of [1..d] and a partition P of [1..d] preserved by F", [IsInt, IsPermGroup, IsList],
 function(d,F,P)
 	local gens, a, i, auts, j;
 
@@ -244,7 +244,7 @@ function(d,F,P)
 	else
 		gens:=[];
 		# F-section
-		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(2,d,a)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalActionElement(2,d,a)); od;
 		# kernel (not assuming F transitive)
 		for i in [1..Length(P)] do
 			for a in GeneratorsOfGroup(Stabilizer(F,P[i],OnTuples)) do
@@ -259,7 +259,7 @@ function(d,F,P)
 	fi;
 end );
 
-InstallMethod( PHI, "for a local action F", [IsLocalAction],
+InstallMethod( LocalActionPhi, "for a local action F", [IsLocalAction],
 function(F)
 	local d, k, gens, gens_F, comp_sets, dir, a, auts;
 	
@@ -295,7 +295,7 @@ function(F)
 	fi;
 end );
 
-InstallMethod( PHI, "for a radius l and a local action F", [IsInt, IsLocalAction],
+InstallMethod( LocalActionPhi, "for a radius l and a local action F", [IsInt, IsLocalAction],
 function(l,F)
 	local d, k, gens, a, addrs, gens_stabs, addr, G, i;
 	
@@ -311,7 +311,7 @@ function(l,F)
 		elif k=1 then
 			gens:=[];
 			# subgroup $\Gamma^{l}(F)$
-			for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(l,d,a)); od;
+			for a in GeneratorsOfGroup(F) do Add(gens,LocalActionElement(l,d,a)); od;
 			# initialize addresses and generators of stabilizers
 			addrs:=BallAddresses(d,l-1);
 			Remove(addrs,1);
@@ -322,19 +322,19 @@ function(l,F)
 			# other generators
 			for addr in addrs do
 				for a in gens_stabs[addr[Length(addr)]] do
-					Add(gens,LocalElement(l,d,a,addr));
+					Add(gens,LocalActionElement(l,d,a,addr));
 				od;
 			od;
 			return LocalActionNC(d,l,Group(gens));
 		else
 			G:=F;
-			for i in [k..l-1] do G:=PHI(G); od;
+			for i in [k..l-1] do G:=LocalActionPhi(G); od;
 			return G;
 		fi;
 	fi;
 end );
 
-InstallMethod( PHI, "for a local action F and a partition P of [1..LocalActionDegree(F)] preserved by ImageOfProjection(F,1)", [IsLocalAction, IsList],
+InstallMethod( LocalActionPhi, "for a local action F and a partition P of [1..LocalActionDegree(F)] preserved by ImageOfProjection(F,1)", [IsLocalAction, IsList],
 function(F,P)
 	local d, k, gens, gens_F, a, auts, i, r, dir;
 	
@@ -427,7 +427,7 @@ end );
 
 ##################################################################################################################
 
-InstallGlobalFunction( PI,
+InstallGlobalFunction( LocalActionPi,
 function(l,d,F,rho,R)
 	local i, G, A, indx, gens, mt, a;
 
@@ -443,9 +443,9 @@ function(l,d,F,rho,R)
 		Error("input argument R=",R," must be a list of radii");
 	else
 		if R=[] then
-			return PHI(l,LocalActionNC(d,1,F));
+			return LocalActionPhi(l,LocalActionNC(d,1,F));
 		elif R=[0] then
-			return PHI(l,LocalActionNC(d,1,Kernel(rho)));
+			return LocalActionPhi(l,LocalActionNC(d,1,Kernel(rho)));
 		else
 			# check point stabilizer surjectivity
 			for i in [1..l] do
@@ -454,7 +454,7 @@ function(l,d,F,rho,R)
 				fi;
 			od;
 			# construction
-			G:=PHI(l,LocalActionNC(d,1,F));
+			G:=LocalActionPhi(l,LocalActionNC(d,1,F));
 			A:=Range(rho);
 			indx:=Size(A);
 			gens:=[()];
@@ -481,8 +481,8 @@ function(d,F)
 		Error("input argument F=",F," must be a subgroup of Sym(d=",d,")");
 	else
 		kernels:=[];
-		G:=Kernel(RestrictedMapping(Projection(AutBall(d,2)),PHI(2,LocalActionNC(d,1,F))));
-		D:=GAMMA(d,F);
+		G:=Kernel(RestrictedMapping(Projection(AutBall(d,2)),LocalActionPhi(2,LocalActionNC(d,1,F))));
+		D:=LocalActionGamma(d,F);
 		for class in ConjugacyClassesSubgroups(G) do
 			for K in class do
 				compatible:=true;
@@ -523,8 +523,8 @@ function(F,z)
 		k:=LocalActionRadius(F);
 	
 		kernels:=[];	
-		G:=Kernel(RestrictedMapping(Projection(AutBall(d,k+1)),PHI(F)));
-		D:=GAMMA(F,z);
+		G:=Kernel(RestrictedMapping(Projection(AutBall(d,k+1)),LocalActionPhi(F)));
+		D:=LocalActionGamma(F,z);
 		for class in ConjugacyClassesSubgroups(G) do
 			for K in class do
 				compatible:=true;
@@ -556,7 +556,7 @@ end );
 
 ##################################################################################################################
 
-InstallMethod( SIGMA, "for a degree d, a permutation group F of [1..d] and a compatible kernel K", [IsInt, IsPermGroup, IsPermGroup],
+InstallMethod( LocalActionSigma, "for a degree d, a permutation group F of [1..d] and a compatible kernel K", [IsInt, IsPermGroup, IsPermGroup],
 function(d,F,K)
 	local gens, a;
 
@@ -566,13 +566,13 @@ function(d,F,K)
 		Error("input argument F=",F," must be a subgroup of Sym(d=",d,")");
 	else
 		gens:=[];
-		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(d,a)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalActionElement(d,a)); od;
 		Append(gens,ShallowCopy(GeneratorsOfGroup(K)));
 		return LocalActionNC(d,2,Group(gens));
 	fi;
 end );
 
-InstallMethod( SIGMA, "for a local action F, a compatible kernel K and an involutive compatibility cocycle z", [IsLocalAction, IsPermGroup, IsMapping],
+InstallMethod( LocalActionSigma, "for a local action F, a compatible kernel K and an involutive compatibility cocycle z", [IsLocalAction, IsPermGroup, IsMapping],
 function(F,K,z)
 	local d, k, gens, a;
 	
@@ -583,7 +583,7 @@ function(F,K,z)
 		k:=LocalActionRadius(F);	
 	
 		gens:=[];
-		for a in GeneratorsOfGroup(F) do Add(gens,LocalElement(d,k,a,z)); od;
+		for a in GeneratorsOfGroup(F) do Add(gens,LocalActionElement(d,k,a,z)); od;
 		Append(gens,ShallowCopy(GeneratorsOfGroup(K)));
 		return LocalActionNC(d,k+1,Group(gens));
 	fi;
