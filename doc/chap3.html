@@ -226,7 +226,7 @@ Group(())
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DELTA(3,SymmetricGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=LocalActionDelta(3,SymmetricGroup(3));</span>
 Group([ (1,3,6)(2,4,5), (1,3)(2,4), (1,2)(3,4)(5,6) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SatisfiesC(D);</span>
 true
@@ -243,7 +243,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=GAMMA(3,SymmetricGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=LocalActionGamma(3,SymmetricGroup(3));</span>
 Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">list:=CompatibleSubgroups(G);</span>
 [ Group(()), Group([ (1,2)(3,5)(4,6) ]), Group([ (1,3)(2,4)(5,6) ]), 
@@ -304,8 +304,8 @@ Alt( [ 1 .. 3 ] )
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=SymmetricGroup(3);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rho:=SignHomomorphism(F);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H1:=PI(2,3,F,rho,[0,1]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H2:=PI(2,3,F,rho,[1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H1:=LocalActionPi(2,3,F,rho,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H2:=LocalActionPi(2,3,F,rho,[1]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ConjugacyClassRepsCompatibleGroupsWithProjection(3,H1));</span>
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ConjugacyClassRepsCompatibleGroupsWithProjection(3,H2));</span>

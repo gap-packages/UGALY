@@ -11,8 +11,8 @@ SetPackageInfo( rec(
 
 PackageName := "UGALY",
 Subtitle := "Universal Groups Acting LocallY",
-Version := "3.0",
-Date := "29/07/2021", # dd/mm/yyyy format
+Version := "4.0",
+Date := "14/10/2021", # dd/mm/yyyy format
 License := "GPL-3.0-or-later",
 
 Persons := [ rec(
@@ -53,10 +53,10 @@ Persons := [ rec(
 
 SourceRepository := rec(
 	Type := "git",
-	URL := Concatenation( "https://github.com/torniers/", ~.PackageName ),
+	URL := Concatenation( "https://github.com/gap-packages/", ~.PackageName ),
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-PackageWWWHome  := Concatenation( "https://torniers.github.io/", ~.PackageName ),
+PackageWWWHome  := Concatenation( "https://gap-packages.github.io/", ~.PackageName ),
 README_URL      := Concatenation( ~.PackageWWWHome, "/README.md" ),
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,

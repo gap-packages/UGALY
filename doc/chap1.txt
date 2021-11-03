@@ -174,26 +174,26 @@
   group  [23XF\le\mathrm{Aut}(B_{d,1})[123X,  much  like  some finite transitive groups
   have   been   organised   into  families.  Specifically,  the  constructions
   [23X\Gamma(F)[123X,  [23X\Delta(F)[123X,  [23X\Pi(F,\rho,X)[123X  and [23X\Phi(F)[123X introduced in the article
-  [Tor20,  Section 3.4] can be accessed via the [5XUGALY[105X functions [2XGAMMA[102X ([14X4.1-2[114X),
-  [2XDELTA[102X  ([14X4.1-3[114X),  [2XPI[102X  ([14X4.4-4[114X)  and  [2XPHI[102X  ([14X4.2-1[114X) respectively, see Chapter [14X4[114X.
-  Below,  we  use  these  functions to identify all six groups of the previous
-  output.[133X
+  [Tor20,   Section   3.4]   can   be   accessed   via   the  [5XUGALY[105X  functions
+  [2XLocalActionGamma[102X  ([14X4.1-2[114X),  [2XLocalActionDelta[102X  ([14X4.1-3[114X), [2XLocalActionPi[102X ([14X4.4-4[114X)
+  and  [2XLocalActionPhi[102X ([14X4.2-1[114X) respectively, see Chapter [14X4[114X. Below, we use these
+  functions to identify all six groups of the previous output.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XPHI(A3)=A3_extn[1];[127X[104X
+    [4X[25Xgap>[125X [27XLocalActionPhi(A3)=A3_extn[1];[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XGAMMA(3,S3)=S3_extn[1];[127X[104X
+    [4X[25Xgap>[125X [27XLocalActionGamma(3,S3)=S3_extn[1];[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XDELTA(3,S3)=S3_extn[2];[127X[104X
+    [4X[25Xgap>[125X [27XLocalActionDelta(3,S3)=S3_extn[2];[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsConjugate(AutBall(3,2),DELTA(3,S3),S3_extn[2]);[127X[104X
+    [4X[25Xgap>[125X [27XIsConjugate(AutBall(3,2),LocalActionDelta(3,S3),S3_extn[2]);[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(S3);;[127X[104X
-    [4X[25Xgap>[125X [27XPI(2,3,S3,rho,[0,1])=S3_extn[3];[127X[104X
+    [4X[25Xgap>[125X [27XLocalActionPi(2,3,S3,rho,[0,1])=S3_extn[3];[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XPI(2,3,S3,rho,[1])=S3_extn[4];[127X[104X
+    [4X[25Xgap>[125X [27XLocalActionPi(2,3,S3,rho,[1])=S3_extn[4];[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XPHI(S3)=S3_extn[5];[127X[104X
+    [4X[25Xgap>[125X [27XLocalActionPhi(S3)=S3_extn[5];[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
@@ -262,7 +262,7 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS3:=SymmetricGroup(3);;[127X[104X
     [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(S3);;[127X[104X
-    [4X[25Xgap>[125X [27XH:=PI(2,3,S3,rho,[1]);;[127X[104X
+    [4X[25Xgap>[125X [27XH:=LocalActionPi(2,3,S3,rho,[1]);;[127X[104X
     [4X[25Xgap>[125X [27X[SatisfiesC(H), SatisfiesD(H), not InvolutiveCompatibilityCocycle(H)=fail];[127X[104X
     [4X[28X[ true, false, true ][128X[104X
   [4X[32X[104X
@@ -272,8 +272,8 @@
   [23X\Pi(S_{3},\mathrm{sgn},\{1\})[123X    under    the    natural    projection   map
   [23X\mathrm{Aut}(B_{3,3})\to\mathrm{Aut}(B_{3,2})[123X.  Of  these  four  groups, two
   also       satisy       (D)      and      one      is      conjugate      to
-  [23X\Gamma_{z}(\Pi(S_{3},\mathrm{sgn},\{1\}))[123X,  which  we  construct using [2XGAMMA[102X
-  ([14X4.1-2[114X).[133X
+  [23X\Gamma_{z}(\Pi(S_{3},\mathrm{sgn},\{1\}))[123X,    which   we   construct   using
+  [2XLocalActionGamma[102X ([14X4.1-2[114X).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xgrps:=ConjugacyClassRepsCompatibleGroupsWithProjection(3,H);; Size(grps);[127X[104X
@@ -281,8 +281,22 @@
     [4X[25Xgap>[125X [27XSize(Filtered(grps,SatisfiesD));[127X[104X
     [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27Xz:=InvolutiveCompatibilityCocycle(H);;[127X[104X
-    [4X[25Xgap>[125X [27XSize(Intersection(GAMMA(H,z)^AutBall(3,3),grps));[127X[104X
+    [4X[25Xgap>[125X [27XSize(Intersection(LocalActionGamma(H,z)^AutBall(3,3),grps));[127X[104X
     [4X[28X1[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  number  of  different  (involutive) compatibility cocycles that a group
+  [23XF\le\mathrm{Aut}(B_{d,k})[123X  may  admit  is  also mysterious, including in the
+  case  [23Xk=1[123X. For example, consider the case [23X(d,k)=(4,1)[123X. We compute the set of
+  all  involutive  compatibility cocycles of a local action using the function
+  [2XAllInvolutiveCompatibilityCocycles[102X ([14X5.3-2[114X):[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xgrps:=AllTransitiveGroups(NrMovedPoints,4);[127X[104X
+    [4X[28X[ C(4) = 4, E(4) = 2[x]2, D(4), A4, S4 ][128X[104X
+    [4X[25Xgap>[125X [27XApply(grps,H->Size(AllInvolutiveCompatibilityCocycles(LocalAction(4,1,H))));;[127X[104X
+    [4X[25Xgap>[125X [27Xgrps;[127X[104X
+    [4X[28X[ 1, 1, 8, 28, 256 ][128X[104X
   [4X[32X[104X
   
   [33X[0;0YFrom  an  educational point of view, we envision that [5XUGALY[105X could be used to
@@ -358,7 +372,7 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XS3:=SymmetricGroup(3);;[127X[104X
     [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(S3);;[127X[104X
-    [4X[25Xgap>[125X [27XH:=PI(2,3,S3,rho,[1]);;[127X[104X
+    [4X[25Xgap>[125X [27XH:=LocalActionPi(2,3,S3,rho,[1]);;[127X[104X
     [4X[25Xgap>[125X [27Xz:=InvolutiveCompatibilityCocycle(H);;[127X[104X
     [4X[25Xgap>[125X [27Xmt:=RandomSource(IsMersenneTwister,1);;[127X[104X
     [4X[25Xgap>[125X [27Xa:=Random(mt,H); Image(z,[Image(z,[a,1]),1]);[127X[104X

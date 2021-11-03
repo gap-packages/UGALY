@@ -136,7 +136,7 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A4:=LocalAction(4,1,AlternatingGroup(4));</span>
 Alt( [ 1 .. 4 ] )
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PHI(3,A4);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=LocalActionPhi(3,A4);</span>
 &lt;permutation group with 18 generators&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalActionDegree(F);</span>
 4
@@ -155,7 +155,7 @@ Alt( [ 1 .. 4 ] )
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A4:=LocalAction(4,1,AlternatingGroup(4));</span>
 Alt( [ 1 .. 4 ] )
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=PHI(3,A4);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=LocalActionPhi(3,A4);</span>
 &lt;permutation group with 18 generators&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalActionRadius(F);</span>
 3
@@ -205,7 +205,7 @@ addr=[ 3, 1 ] must not exceed input argument k=4
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=GAMMA(4,3,SymmetricGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=LocalActionGamma(4,3,SymmetricGroup(3));</span>
 Group([ (1,16,19)(2,15,20)(3,13,18)(4,14,17)(5,10,23)(6,9,24)(7,12,22)
   (8,11,21), (1,9)(2,10)(3,12)(4,11)(5,15)(6,16)(7,13)(8,14)(17,21)(18,22)
   (19,24)(20,23) ])

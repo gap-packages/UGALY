@@ -18,42 +18,42 @@
   [2XComposeAddresses[102X 2.3-6 
   [2XConjugacyClassRepsCompatibleGroupsWithProjection[102X 3.3-5 
   [2XConjugacyClassRepsCompatibleSubgroups[102X, for IsLocalAction 3.3-4 
-  [2XDELTA[102X, for d, F 4.1-3 
-      for d, F, C 4.1-3 
-  [2XGAMMA[102X, for d, F 4.1-2 
-      for F, z 4.1-2 
-      for l, d, F 4.1-2 
-  gamma, see LocalElement 4.1-1 
+  gamma, see LocalActionElement 4.1-1 
   [2XImageAddress[102X 2.3-5 
   [2XImageOfProjection[102X 2.1-8 
   [2XInvolutiveCompatibilityCocycle[102X, for IsLocalAction 5.3-1 
-  [2XIsDiscrete[102X, for IsLocalAction 5.2-2 
   [2XIsLocalAction[102X, for IsPermGroup 2.1-1 
   [2XLeafAddresses[102X 2.3-2 
   [2XLeafOfAddress[102X 2.3-4 
   [2XLocalAction[102X, for IsInt, IsInt, IsPermGroup 2.1-2 
       for r, d, k, aut, addr 2.1-6 
   [2XLocalActionDegree[102X, for IsLocalAction 2.1-4 
-  [2XLocalActionNC[102X, for IsInt, IsInt, IsPermGroup 2.1-3 
-  [2XLocalActionRadius[102X, for IsLocalAction 2.1-5 
-  [2XLocalElement[102X, for d, a 4.1-1 
+  [2XLocalActionDelta[102X, for d, F 4.1-3 
+      for d, F, C 4.1-3 
+  [2XLocalActionElement[102X, for d, a 4.1-1 
       for d, k, aut, z 4.1-1 
       for l, d, a 4.1-1 
       for l, d, s, addr 4.1-1 
-  [2XMaximalCompatibleSubgroup[102X, for IsLocalAction 3.3-1 
-  [2XPHI[102X, for d, F, N 4.3-1 
+  [2XLocalActionGamma[102X, for d, F 4.1-2 
+      for F, z 4.1-2 
+      for l, d, F 4.1-2 
+  [2XLocalActionNC[102X, for IsInt, IsInt, IsPermGroup 2.1-3 
+  [2XLocalActionPhi[102X, for d, F, N 4.3-1 
       for d, F, P 4.3-1 
       for F 4.2-1 
       for F, P 4.3-1 
       for l, F 4.2-1 
-  [2XPI[102X 4.4-4 
+  [2XLocalActionPi[102X 4.4-4 
+  [2XLocalActionRadius[102X, for IsLocalAction 2.1-5 
+  [2XLocalActionSigma[102X, for d, F, K 4.5-2 
+      for F, K, z 4.5-2 
+  [2XMaximalCompatibleSubgroup[102X, for IsLocalAction 3.3-1 
   [2XProjection[102X, for F, r 2.1-7 
   [2XSatisfiesC[102X, for IsLocalAction 3.3-2 
   [2XSatisfiesD[102X, for IsLocalAction 5.2-1 
-  [2XSIGMA[102X, for d, F, K 4.5-2 
-      for F, K, z 4.5-2 
   [2XSignHomomorphism[102X 4.4-1 
   [2XSpheresProduct[102X 4.4-3 
+  [2XYieldsDiscreteUniversalGroup[102X, for IsLocalAction 5.2-2 
   
   
   -------------------------------------------------------

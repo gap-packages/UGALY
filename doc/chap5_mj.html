@@ -32,7 +32,7 @@
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X87A11A3E7BDC0549">5.2-1 SatisfiesD</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7C2F10AC79AC7213">5.2-2 IsDiscrete</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7C1C3A8386A91E6C">5.2-2 YieldsDiscreteUniversalGroup</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5_mj.html#X85A9B66278AF63D9">5.3 <span class="Heading">Cocycles</span></a>
 </span>
@@ -54,7 +54,7 @@
 
 <p class="center">\[\forall \omega \in \Omega: F_{T_{\omega}}=\{\mathrm{id}\},\]</p>
 
-<p>where <span class="SimpleMath">\(T_{\omega}\)</span> is the <span class="SimpleMath">\(k-1\)</span>-neighbourhood of the edge <span class="SimpleMath">\((b,b_{\omega})\)</span> inside <span class="SimpleMath">\(B_{d,k}\)</span>. In other words, <span class="SimpleMath">\(F\)</span> satisfies (D) if and only if the compatibility set <span class="SimpleMath">\(C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}\)</span>. We distinguish between <span class="SimpleMath">\(F\)</span> satisfying condition (D) and <span class="SimpleMath">\(\mathrm{U}_{k}(F)\)</span> being discrete with the methods <code class="func">SatisfiesD</code> (<a href="chap5_mj.html#X87A11A3E7BDC0549"><span class="RefLink">5.2-1</span></a>) and <code class="func">IsDiscrete</code> (<a href="chap5_mj.html#X7C2F10AC79AC7213"><span class="RefLink">5.2-2</span></a>) below.</p>
+<p>where <span class="SimpleMath">\(T_{\omega}\)</span> is the <span class="SimpleMath">\(k-1\)</span>-neighbourhood of the edge <span class="SimpleMath">\((b,b_{\omega})\)</span> inside <span class="SimpleMath">\(B_{d,k}\)</span>. In other words, <span class="SimpleMath">\(F\)</span> satisfies (D) if and only if the compatibility set <span class="SimpleMath">\(C_{F}(\mathrm{id},\omega)=\{\mathrm{id}\}\)</span>. We distinguish between <span class="SimpleMath">\(F\)</span> satisfying condition (D) and <span class="SimpleMath">\(\mathrm{U}_{k}(F)\)</span> being discrete with the methods <code class="func">SatisfiesD</code> (<a href="chap5_mj.html#X87A11A3E7BDC0549"><span class="RefLink">5.2-1</span></a>) and <code class="func">YieldsDiscreteUniversalGroup</code> (<a href="chap5_mj.html#X7C1C3A8386A91E6C"><span class="RefLink">5.2-2</span></a>) below.</p>
 
 <p><a id="X7875F15E81CDBD6C" name="X7875F15E81CDBD6C"></a></p>
 
@@ -71,26 +71,26 @@
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=GAMMA(3,SymmetricGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=LocalActionGamma(3,SymmetricGroup(3));</span>
 Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SatisfiesD(G);</span>
 true
 </pre></div>
 
-<p><a id="X7C2F10AC79AC7213" name="X7C2F10AC79AC7213"></a></p>
+<p><a id="X7C1C3A8386A91E6C" name="X7C1C3A8386A91E6C"></a></p>
 
-<h5>5.2-2 IsDiscrete</h5>
+<h5>5.2-2 YieldsDiscreteUniversalGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDiscrete</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; YieldsDiscreteUniversalGroup</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <span class="SimpleMath">\(\mathrm{U}_{k}(F)\)</span> is discrete, and <code class="keyw">false</code> otherwise.</p>
 
 <p>The argument of this attribute is a local action <var class="Arg">F</var> <span class="SimpleMath">\(\le\mathrm{Aut}(B_{d,k})\)</span> (see <code class="func">IsLocalAction</code> (<a href="chap2_mj.html#X7FCF15167D3A44B7"><span class="RefLink">2.1-1</span></a>)).</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=GAMMA(3,SymmetricGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=LocalActionGamma(3,SymmetricGroup(3));</span>
 Group([ (1,4,5)(2,3,6), (1,3)(2,4)(5,6) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsDiscrete(G);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">YieldsDiscreteUniversalGroup(G);</span>
 true
 </pre></div>
 
@@ -98,7 +98,7 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=LocalAction(3,2,Group((1,2)));</span>
 Group([ (1,2) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsDiscrete(F);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">YieldsDiscreteUniversalGroup(F);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SatisfiesD(F);</span>
 false
@@ -139,7 +139,7 @@ MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], [ (1,3,2), 1 ],
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=GAMMA(3,AlternatingGroup(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=LocalActionGamma(3,AlternatingGroup(3));</span>
 Group([ (1,4,5)(2,3,6) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InvolutiveCompatibilityCocycle(G);</span>
 MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], 
@@ -164,7 +164,7 @@ fail
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S3:=LocalAction(3,1,SymmetricGroup(3));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(AllInvolutiveCompatibilityCocycles(S3));</span>
 4
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(AllInvolutiveCompatibilityCocycles(GAMMA(3,SymmetricGroup(3))));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(AllInvolutiveCompatibilityCocycles(LocalActionGamma(3,SymmetricGroup(3))));</span>
 1
 </pre></div>
 
