@@ -113,9 +113,7 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #! @BeginExampleSession
 #! gap> F:=LocalAction(3,1,AlternatingGroup(3));;
 #! gap> z:=InvolutiveCompatibilityCocycle(F);
-#! MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], [ (1,3,2), 1 ], 
-#!   [ (1,3,2), 2 ], [ (1,3,2), 3 ], [ (1,2,3), 1 ], [ (1,2,3), 2 ], 
-#!   [ (1,2,3), 3 ] ]), Alt( [ 1 .. 3 ] ), function( s ) ... end )
+#! MappingByFunction( <object>, Alt( [ 1 .. 3 ] ), function( s ) ... end )
 #! gap> mt:=RandomSource(IsMersenneTwister,1);;
 #! gap> a:=Random(mt,F);; dir:=Random(mt,[1..3]);;
 #! gap> a; Image(z,[a,dir]);
@@ -127,10 +125,7 @@ DeclareAttribute( "InvolutiveCompatibilityCocycle" , IsLocalAction );
 #! gap> G:=LocalActionGamma(3,AlternatingGroup(3));
 #! Group([ (1,4,5)(2,3,6) ])
 #! gap> InvolutiveCompatibilityCocycle(G);
-#! MappingByFunction( Domain([ [ (), 1 ], [ (), 2 ], [ (), 3 ], 
-#!   [ (1,5,4)(2,6,3), 1 ], [ (1,5,4)(2,6,3), 2 ], [ (1,5,4)(2,6,3), 3 ], 
-#!   [ (1,4,5)(2,3,6), 1 ], [ (1,4,5)(2,3,6), 2 ], [ (1,4,5)(2,3,6), 3 ] 
-#!  ]), Group([ (1,4,5)(2,3,6) ]), function( s ) ... end )
+#! MappingByFunction( <object>, Group([ (1,4,5)(2,3,6) ]), function( s ) ... end )
 #! gap> InvolutiveCompatibilityCocycle(AutBall(3,2));
 #! fail
 #! @EndExampleSession
