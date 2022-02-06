@@ -11,8 +11,8 @@ SetPackageInfo( rec(
 
 PackageName := "UGALY",
 Subtitle := "Universal Groups Acting LocallY",
-Version := "4.0",
-Date := "14/10/2021", # dd/mm/yyyy format
+Version := "4.0.1",
+Date := "07/02/2022", # dd/mm/yyyy format
 License := "GPL-3.0-or-later",
 
 Persons := [ rec(
@@ -75,7 +75,7 @@ ArchiveFormats := ".tar.gz",
 Status := "accepted",
 CommunicatedBy := "Laurent Bartholdi (Göttingen)",
 AcceptDate := "07/2021", # 21/07/2021
-AbstractHTML   :=  "",
+AbstractHTML   :=  "<span class=\"pkgname\">UGALY</span> (Universal Groups Acting LocallY) is a <span class=\"pkgname\">GAP</span> package that provides methods to create, analyse and find local actions of generalised universal groups acting on locally finite regular trees, following Burger-Mozes and Tornier.",
 
 PackageDoc := rec(
 	BookName  := "UGALY",
