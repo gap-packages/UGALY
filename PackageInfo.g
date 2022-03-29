@@ -88,7 +88,7 @@ PackageDoc := rec(
 
 Dependencies := rec(
 	GAP := ">= 4.10.2",
-	NeededOtherPackages := [ ],
+	NeededOtherPackages := [ ["fga", ">= 1.0"] ],
 	SuggestedOtherPackages := [ ],
 	ExternalConditions := [ ],
 ),
