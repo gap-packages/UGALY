@@ -126,8 +126,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=LocalAction(3,1,AlternatingGroup(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(F);</span>
-MappingByFunction( &lt;object&gt;, Alt( [ 1 .. 3 ] ), function( s ) ... end )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">z:=InvolutiveCompatibilityCocycle(F);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mt:=RandomSource(IsMersenneTwister,1);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Random(mt,F);; dir:=Random(mt,[1..3]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a; Image(z,[a,dir]);</span>
@@ -139,8 +138,8 @@ MappingByFunction( &lt;object&gt;, Alt( [ 1 .. 3 ] ), function( s ) ... end )
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=LocalActionGamma(3,AlternatingGroup(3));</span>
 Group([ (1,4,5)(2,3,6) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InvolutiveCompatibilityCocycle(G);</span>
-MappingByFunction( &lt;object&gt;, Group([ (1,4,5)(2,3,6) ]), function( s ) ... end )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InvolutiveCompatibilityCocycle(G) &lt;&gt; fail;</span>
+true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InvolutiveCompatibilityCocycle(AutBall(3,2));</span>
 fail
 </pre></div>

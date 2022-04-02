@@ -1,7 +1,7 @@
 name: UGALY
-version: "4.0.1"
+version: "4.0.2"
 license: "GPL-3.0-or-later"
-date: 2022-02-07
+date: 2022-04-02
 description: |
     Universal Groups Acting LocallY
 
@@ -17,13 +17,18 @@ maintainers:
 
 GAP: ">= 4.10.2"
 
+needed-pkgs:
+    - name: "fga"
+      version: ">= 1.0"
+      url: "http://www.icm.tu-bs.de/ag_algebra/software/FGA/"
+
 www: https://gap-packages.github.io/UGALY
 readme: README.md
 packageinfo: https://gap-packages.github.io/UGALY/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/UGALY/releases/download/v4.0.1/UGALY-4.0.1.tar.gz
+      url: https://github.com/gap-packages/UGALY/releases/download/v4.0.2/UGALY-4.0.2.tar.gz
 
 abstract: |
     <span class="pkgname">UGALY</span> (Universal Groups Acting LocallY) is a <span class="pkgname">GAP</span> package that provides methods to create, analyse and find local actions of generalised universal groups acting on locally finite regular trees, following Burger-Mozes and Tornier.
@@ -37,7 +42,7 @@ citeas: |
     <p class='BibEntry'>
     [<span class='BibKey'>HT22</span>]   <b class='BibAuthor'>Hannouch, K. and Tornier, S.</b>,
      <i class='BibTitle'>UGALY, Universal Groups Acting LocallY,
-             Version 4.0.1</i>
+             Version 4.0.2</i>
      (<span class='BibYear'>2022</span>)<br />
     (<span class='BibNote'>Refereed GAP package</span>),
     <span class='BibHowpublished'><a href="https://gap-packages.github.io/UGALY">https://gap-packages.github.io/UGALY</a></span>.
@@ -45,11 +50,11 @@ citeas: |
     
 
 bibtex: |
-    @misc{ UGALY4.0.1,
+    @misc{ UGALY4.0.2,
       author =           {Hannouch, K. and Tornier, S.},
       title =            {{UGALY},  Universal  Groups  Acting LocallY, {V}ersion
-                          4.0.1},
-      month =            {Feb},
+                          4.0.2},
+      month =            {Apr},
       year =             {2022},
       note =             {Refereed GAP package},
       howpublished =     {\href           {https://gap-packages.github.io/UGALY}
