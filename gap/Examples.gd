@@ -151,9 +151,9 @@ DeclareOperation( "LocalActionGamma" , [IsLocalAction, IsMapping] );
 #! gap> rho:=SignHomomorphism(F);;
 #! gap> H:=LocalActionPi(2,3,F,rho,[1]);;
 #! gap> z:=InvolutiveCompatibilityCocycle(H);;
-#! gap> LocalActionGamma(H,z);
-#! Group([ (), (), (1,12)(2,11)(3,9)(4,10)(5,6), (1,2)(5,12)(6,11)(7,10)(8,9), 
-#!   (1,7,12)(2,8,11)(3,6,10)(4,5,9) ])
+#! gap> g:=LocalActionGamma(H,z);;
+#! gap> [NrMovedPoints(g),TransitiveIdentification(g)];
+#! [ 12, 8 ]
 #! @EndExampleSession
 #! @EndGroup
 
