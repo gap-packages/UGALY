@@ -80,7 +80,7 @@ AbstractHTML   :=  "<span class=\"pkgname\">UGALY</span> (Universal Groups Actin
 PackageDoc := rec(
 	BookName  := "UGALY",
 	ArchiveURLSubset := ["doc"],
-	HTMLStart := "doc/chap0.html",
+	HTMLStart := "doc/chap0_mj.html",
 	PDFFile   := "doc/manual.pdf",
 	SixFile   := "doc/manual.six",
 	LongTitle := "Universal Groups Acting LocallY. Methods to create, analyse and find local actions of universal groups acting on locally finite regular trees",
