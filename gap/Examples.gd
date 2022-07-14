@@ -379,8 +379,7 @@ DeclareOperation( "LocalActionPhi" , [IsLocalAction, IsList] );
 #! gap> P:=Blocks(H,[1..4]);
 #! [ [ 1, 3 ], [ 2, 4 ] ]
 #! gap> F:=LocalActionPhi(4,H,P);;
-#! gap> G:=LocalActionPhi(F,P);
-#! <permutation group with 5 generators>
+#! gap> G:=LocalActionPhi(F,P);;
 #! gap> SatisfiesC(G);
 #! true
 #! @EndExampleSession
