@@ -6,10 +6,10 @@
                        [1X Universal Groups Acting LocallY [101X
   
   
-                                     4.0.2
+                                     4.0.3
   
   
-                                  2 April 2022
+                                  14 July 2022
   
   
                                 Khalil Hannouch
@@ -53,7 +53,7 @@
   [1XCopyright[101X
   [33X[0;0Y[5XUGALY[105X  is  free software; you can redistribute it and/or modify it under the
   terms        of       the       GNU       General       Public       License
-  ([7Xhttp://www.fsf.org/licenses/gpl.html[107X)  as  published  by  the Free Software
+  ([7Xhttps://www.fsf.org/licenses/gpl.html[107X)  as  published  by the Free Software
   Foundation;  either  version 3 of the License, or (at your option) any later
   version.[133X
   

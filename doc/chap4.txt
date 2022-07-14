@@ -137,9 +137,9 @@
     [4X[25Xgap>[125X [27Xrho:=SignHomomorphism(F);;[127X[104X
     [4X[25Xgap>[125X [27XH:=LocalActionPi(2,3,F,rho,[1]);;[127X[104X
     [4X[25Xgap>[125X [27Xz:=InvolutiveCompatibilityCocycle(H);;[127X[104X
-    [4X[25Xgap>[125X [27XLocalActionGamma(H,z);[127X[104X
-    [4X[28XGroup([ (), (), (1,12)(2,11)(3,9)(4,10)(5,6), (1,2)(5,12)(6,11)(7,10)(8,9), [128X[104X
-    [4X[28X  (1,7,12)(2,8,11)(3,6,10)(4,5,9) ])[128X[104X
+    [4X[25Xgap>[125X [27Xg:=LocalActionGamma(H,z);;[127X[104X
+    [4X[25Xgap>[125X [27X[NrMovedPoints(g),TransitiveIdentification(g)];[127X[104X
+    [4X[28X[ 12, 8 ][128X[104X
   [4X[32X[104X
   
   
@@ -348,8 +348,7 @@
     [4X[25Xgap>[125X [27XP:=Blocks(H,[1..4]);[127X[104X
     [4X[28X[ [ 1, 3 ], [ 2, 4 ] ][128X[104X
     [4X[25Xgap>[125X [27XF:=LocalActionPhi(4,H,P);;[127X[104X
-    [4X[25Xgap>[125X [27XG:=LocalActionPhi(F,P);[127X[104X
-    [4X[28X<permutation group with 5 generators>[128X[104X
+    [4X[25Xgap>[125X [27XG:=LocalActionPhi(F,P);;[127X[104X
     [4X[25Xgap>[125X [27XSatisfiesC(G);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
