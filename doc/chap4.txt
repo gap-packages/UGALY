@@ -9,7 +9,9 @@
   distinct and yield all universal groups that have [23XF[123X as their [23X1[123X-local action,
   see  [Tor20,  Theorem  3.32].  More examples arise in particular when either
   point  stabilizers in [23XF[123X are not simple, [23XF[123X preserves a partition, or [23XF[123X is not
-  perfect.[133X
+  perfect. This section also includes functions to provide the [23Xk[123X-local actions
+  of        the        groups        [23X\mathrm{PGL}(2,\mathbb{Q}_{p})[123X        and
+  [23X\mathrm{PSL}(2,\mathbb{Q}_{p})[123X acting on [23XT_{p+1}[123X.[133X
   
   
   [1X4.1 [33X[0;0YDiscrete groups[133X[101X
@@ -574,5 +576,52 @@
     [4X[28X48[128X[104X
     [4X[28X96[128X[104X
     [4X[28X192[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X4.6 [33X[0;0YPGL₂ over the p-adic numbers[133X[101X
+  
+  [33X[0;0YHere,  we  implement  functions to provide the [23Xk[123X-local actions of the groups
+  [23X\mathrm{PGL}(2,\mathbb{Q}_{p})[123X  and [23X\mathrm{PSL}(2,\mathbb{Q}_{p})[123X acting on
+  [23XT_{p+1}[123X. This section is due to Tasman Fell.[133X
+  
+  [1X4.6-1 LocalActionPGL2Qp[101X
+  
+  [33X[1;0Y[29X[2XLocalActionPGL2Qp[102X( [3Xp[103X, [3Xk[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ythe  subgroup  of [23X\mathrm{Aut}(B_{p+1,k})[123X induced by the action of
+            [23X\mathrm{PGL}(2,\mathbb{Z}_{p})[123X  on the ball of radius [3Xk[103X around the
+            vertex  corresponding  to  the identity lattice of the Bruhat-Tits
+            tree of [23X\mathrm{PGL}(2,\mathbb{Q}_{p})[123X.[133X
+  
+  [33X[0;0YThe arguments of this method are a prime [3Xp[103X and a radius [3Xk[103X [23X\in\mathbb{N}_{\ge
+  1}[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLocalActionPGL2Qp(3,1)=SymmetricGroup(4);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XF:=LocalActionPGL2Qp(5,3);; Size(F);[127X[104X
+    [4X[28X1875000[128X[104X
+    [4X[25Xgap>[125X [27XSatisfiesC(F);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X4.6-2 LocalActionPSL2Qp[101X
+  
+  [33X[1;0Y[29X[2XLocalActionPSL2Qp[102X( [3Xp[103X, [3Xk[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ythe  subgroup  of [23X\mathrm{Aut}(B_{p+1,k})[123X induced by the action of
+            [23X\mathrm{PSL}(2,\mathbb{Z}_{p})[123X  on the ball of radius [3Xk[103X around the
+            vertex  corresponding  to  the identity lattice of the Bruhat-Tits
+            tree of [23X\mathrm{PGL}(2,\mathbb{Q}_{p})[123X.[133X
+  
+  [33X[0;0YThe arguments of this method are a prime [3Xp[103X and a radius [3Xk[103X [23X\in\mathbb{N}_{\ge
+  1}[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLocalActionPSL2Qp(3,1)=AlternatingGroup(4);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XF:=LocalActionPSL2Qp(5,3);; Size(F);[127X[104X
+    [4X[28X937500[128X[104X
+    [4X[25Xgap>[125X [27XSatisfiesC(F);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   

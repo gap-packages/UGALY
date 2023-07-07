@@ -60,11 +60,17 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X83920A2C7CC46AC9">4.5-2 <span class="Heading">LocalActionSigma</span></a>
 </span>
 </div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X7A8A46F4856570BE">4.6 <span class="Heading">PGL₂ over the p-adic numbers</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7E80A4A27E8D846C">4.6-1 LocalActionPGL2Qp</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X87D6A7B679C668A8">4.6-2 LocalActionPSL2Qp</a></span>
+</div></div>
 </div>
 
 <h3>4 <span class="Heading">Examples</span></h3>
 
-<p>Several classes of examples of subgroups of <span class="Math">\mathrm{Aut}(B_{d,k})</span> that satisfy (C) and or (D) are constructed in <a href="chapBib.html#biBTor20">[Tor20]</a> and implemented in this section. For a given permutation group <span class="Math">F\le S_{d}</span>, there are always the three local actions <span class="Math">\Gamma(F)</span>, <span class="Math">\Delta(F)</span> and <span class="Math">\Phi(F)</span> on <span class="Math">\mathrm{Aut}(B_{d,2})</span> that project onto <span class="Math">F</span>. For some <span class="Math">F</span>, these are all distinct and yield all universal groups that have <span class="Math">F</span> as their <span class="Math">1</span>-local action, see <a href="chapBib.html#biBTor20">[Tor20, Theorem 3.32]</a>. More examples arise in particular when either point stabilizers in <span class="Math">F</span> are not simple, <span class="Math">F</span> preserves a partition, or <span class="Math">F</span> is not perfect.</p>
+<p>Several classes of examples of subgroups of <span class="Math">\mathrm{Aut}(B_{d,k})</span> that satisfy (C) and or (D) are constructed in <a href="chapBib.html#biBTor20">[Tor20]</a> and implemented in this section. For a given permutation group <span class="Math">F\le S_{d}</span>, there are always the three local actions <span class="Math">\Gamma(F)</span>, <span class="Math">\Delta(F)</span> and <span class="Math">\Phi(F)</span> on <span class="Math">\mathrm{Aut}(B_{d,2})</span> that project onto <span class="Math">F</span>. For some <span class="Math">F</span>, these are all distinct and yield all universal groups that have <span class="Math">F</span> as their <span class="Math">1</span>-local action, see <a href="chapBib.html#biBTor20">[Tor20, Theorem 3.32]</a>. More examples arise in particular when either point stabilizers in <span class="Math">F</span> are not simple, <span class="Math">F</span> preserves a partition, or <span class="Math">F</span> is not perfect. This section also includes functions to provide the <span class="Math">k</span>-local actions of the groups <span class="Math">\mathrm{PGL}(2,\mathbb{Q}_{p})</span> and <span class="Math">\mathrm{PSL}(2,\mathbb{Q}_{p})</span> acting on <span class="Math">T_{p+1}</span>.</p>
 
 <p><a id="X7A91225C7FCEBA7D" name="X7A91225C7FCEBA7D"></a></p>
 
@@ -613,6 +619,50 @@ AGL(1, 5)
 48
 96
 192
+</pre></div>
+
+<p><a id="X7A8A46F4856570BE" name="X7A8A46F4856570BE"></a></p>
+
+<h4>4.6 <span class="Heading">PGL₂ over the p-adic numbers</span></h4>
+
+<p>Here, we implement functions to provide the <span class="Math">k</span>-local actions of the groups <span class="Math">\mathrm{PGL}(2,\mathbb{Q}_{p})</span> and <span class="Math">\mathrm{PSL}(2,\mathbb{Q}_{p})</span> acting on <span class="Math">T_{p+1}</span>. This section is due to Tasman Fell.</p>
+
+<p><a id="X7E80A4A27E8D846C" name="X7E80A4A27E8D846C"></a></p>
+
+<h5>4.6-1 LocalActionPGL2Qp</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalActionPGL2Qp</code>( <var class="Arg">p</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: the subgroup of <span class="Math">\mathrm{Aut}(B_{p+1,k})</span> induced by the action of <span class="Math">\mathrm{PGL}(2,\mathbb{Z}_{p})</span> on the ball of radius <var class="Arg">k</var> around the vertex corresponding to the identity lattice of the Bruhat-Tits tree of <span class="Math">\mathrm{PGL}(2,\mathbb{Q}_{p})</span>.</p>
+
+<p>The arguments of this method are a prime <var class="Arg">p</var> and a radius <var class="Arg">k</var> <span class="Math">\in\mathbb{N}_{\ge 1}</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalActionPGL2Qp(3,1)=SymmetricGroup(4);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=LocalActionPGL2Qp(5,3);; Size(F);</span>
+1875000
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SatisfiesC(F);</span>
+true
+</pre></div>
+
+<p><a id="X87D6A7B679C668A8" name="X87D6A7B679C668A8"></a></p>
+
+<h5>4.6-2 LocalActionPSL2Qp</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LocalActionPSL2Qp</code>( <var class="Arg">p</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: the subgroup of <span class="Math">\mathrm{Aut}(B_{p+1,k})</span> induced by the action of <span class="Math">\mathrm{PSL}(2,\mathbb{Z}_{p})</span> on the ball of radius <var class="Arg">k</var> around the vertex corresponding to the identity lattice of the Bruhat-Tits tree of <span class="Math">\mathrm{PGL}(2,\mathbb{Q}_{p})</span>.</p>
+
+<p>The arguments of this method are a prime <var class="Arg">p</var> and a radius <var class="Arg">k</var> <span class="Math">\in\mathbb{N}_{\ge 1}</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LocalActionPSL2Qp(3,1)=AlternatingGroup(4);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=LocalActionPSL2Qp(5,3);; Size(F);</span>
+937500
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SatisfiesC(F);</span>
+true
 </pre></div>
 
 
