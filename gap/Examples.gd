@@ -616,9 +616,10 @@ DeclareOperation( "LocalActionSigma" , [IsLocalAction, IsPermGroup, IsMapping] )
 
 ##################################################################################################################
 #! @Section PGL&#8322; over the p-adic numbers
+#! @SectionLabel pgl
 ##################################################################################################################
 
-#! Here, we implement functions to provide the $k$-local actions of the groups $\mathrm{PGL}(2,\mathbb{Q}_{p})$ and $\mathrm{PSL}(2,\mathbb{Q}_{p})$ acting on $T_{p+1}$. 
+#! Here, we implement functions to provide the $k$-local actions of the groups $\mathrm{PGL}(2,\mathbb{Q}_{p})$ and $\mathrm{PSL}(2,\mathbb{Q}_{p})$ acting on $T_{p+1}$. This section is due to Tasman Fell.
 
 # internal function
 # outputs the representative in P1(Zp/p^kZp) of the lattice in Qp^2 represented by the integer matrix L

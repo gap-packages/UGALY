@@ -17,7 +17,7 @@
 #! @Acknowledgements
 ##################################################################################################################
 
-#! The second author owes thanks to Marc Burger and George Willis for their support and acknowledges contributions from the SNSF Doc.Mobility fellowship 172120 and the ARC Discovery Project DP120100996 to the development of an early version of this codebase. In its present form, the development of <Package>UGALY</Package> was made possible by the ARC Laureate Fellowship FL170100032 and the ARC DECRA Fellowship DE210100180.
+#! Section <Ref Sect="Section_pgl"/> is due to Tasman Fell. The second author owes thanks to Marc Burger and George Willis for their support and acknowledges contributions from the SNSF Doc.Mobility fellowship 172120 and the ARC Discovery Project DP120100996 to the development of an early version of this codebase. In its present form, the development of <Package>UGALY</Package> was made possible by the ARC Laureate Fellowship FL170100032 and the ARC DECRA Fellowship DE210100180.
 #!
 #! Finally, we owe thanks to Laurent Bartholdi for guiding us through a reviewing process that has resulted in substantial improvements, and to Max Horn for helping with a documentation issue.
 
