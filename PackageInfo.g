@@ -11,8 +11,8 @@ SetPackageInfo( rec(
 
 PackageName := "UGALY",
 Subtitle := "Universal Groups Acting LocallY",
-Version := "4.0.3",
-Date := "14/07/2022", # dd/mm/yyyy format
+Version := "4.1.3",
+Date := "07/07/2023", # dd/mm/yyyy format
 License := "GPL-3.0-or-later",
 
 Persons := [ rec(
@@ -48,6 +48,13 @@ Persons := [ rec(
 			"Australia" ] ),
 		Place := "Newcastle",
 		Institution := "The University of Newcastle",
+	),	
+	# Contributors:
+	rec(
+		FirstNames := "Tasman",
+		LastName := "Fell",
+		IsAuthor := false,
+		IsMaintainer := false,
 	)
 ],
 
@@ -97,11 +104,11 @@ AvailabilityTest := ReturnTrue,
 
 BannerString := Concatenation( 
 	"\nVersion ", ~.Version,
-	"\n __  __     ______     ______     __         __  __    ",
-	"\n/\\ \\/\\ \\   /\\  ___\\   /\\  __ \\   /\\ \\       /\\ \\_\\ \\   ",
-	"\n\\ \\ \\_\\ \\  \\ \\ \\__ \\  \\ \\  __ \\  \\ \\ \\____  \\ \\____ \\  by Khalil Hannouch",
-	"\n \\ \\_____\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\ \\_____\\  \\/\\_____\\   and Stephan Tornier",
-	"\n  \\/_____/   \\/_____/   \\/_/\\/_/   \\/_____/   \\/_____/ ",
+	"\n __  __     ______     ______     __         __  __",
+	"\n/\\ \\/\\ \\   /\\  ___\\   /\\  __ \\   /\\ \\       /\\ \\_\\ \\    by Khalil Hannouch",
+	"\n\\ \\ \\_\\ \\  \\ \\ \\__ \\  \\ \\  __ \\  \\ \\ \\____  \\ \\____ \\    and Stephan Tornier",
+	"\n \\ \\_____\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\ \\_____\\  \\/\\_____\\  with contributions by",
+	"\n  \\/_____/   \\/_____/   \\/_/\\/_/   \\/_____/   \\/_____/   Tasman Fell",
 	"\n                                                       ",
 	"\n Universal      Groups      Acting        LocallY    \n"
 ),

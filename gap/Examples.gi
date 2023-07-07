@@ -589,3 +589,64 @@ function(F,K,z)
 	fi;
 end );
 
+##################################################################################################################
+
+InstallGlobalFunction( GetP1RepresentativeFromLattice,
+function(p, k, L)
+	local M, c1, c2, units;
+
+	M := L/Gcd(Integers, Flat(L));
+	c1 := [M[1,1], M[2,1]];
+	c2 := [M[1,2], M[2,2]];
+	units := Filtered([1 .. p^k], x -> not x mod p = 0);
+	if not c1 mod p = [0, 0] then
+		return Minimum(List(units, u -> u*c1 mod p^k));
+	else
+		return Minimum(List(units, u -> u*c2 mod p^k));
+	fi;
+end );
+
+InstallGlobalFunction( GetPGL2QpPermutationFromMatrix,
+function(p, k, M)
+	local gens, lattices, points, images;
+	
+	# generate lattices corresponding to leaves
+	# gens: the p+1 matrices that represent the lattice classes of the neighbours of Id
+	gens := Union([[[0, 1], [p, 0]]], List([0 .. p-1], i -> [[i, p-i^2], [1, -i]]));
+	lattices := List(LeafAddresses(p+1, k), l -> Product(l, i -> gens[i]));
+	# compute corresponding points and their images
+	points := List(lattices, L -> GetP1RepresentativeFromLattice(p, k, L));
+	images := List(M*lattices, L -> GetP1RepresentativeFromLattice(p, k, L));
+	return PermListList(points, images);
+end );
+
+InstallGlobalFunction( LocalActionPGL2Qp,
+function(p, k)
+	local gens;
+
+	if not IsPrime(p) then
+		Error("input argument p=",p," must be prime");
+	elif not k>=1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	else
+		gens := ShallowCopy(GeneratorsOfGroup(GeneralLinearGroup(2, Integers mod p^k)));
+		Apply(gens, M -> GetPGL2QpPermutationFromMatrix(p, k, [[Int(M[1,1]), Int(M[1,2])],[Int(M[2,1]), Int(M[2,2])]]));
+		return LocalActionNC(p+1,k,Group(gens));
+	fi;
+end );
+
+InstallGlobalFunction( LocalActionPSL2Qp,
+function(p, k)
+	local gens;
+	
+	if not IsPrime(p) then
+		Error("input argument p=",p," must be prime");
+	elif not k>=1 then
+		Error("input argument k=",k," must be an integer greater than or equal to 1");
+	else
+		gens := ShallowCopy(GeneratorsOfGroup(SpecialLinearGroup(2, Integers mod p^k)));
+		Apply(gens, M -> GetPGL2QpPermutationFromMatrix(p, k, [[Int(M[1,1]), Int(M[1,2])],[Int(M[2,1]), Int(M[2,2])]]));
+		return LocalActionNC(p+1,k,Group(gens));
+	fi;
+end );
+

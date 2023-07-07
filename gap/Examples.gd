@@ -9,6 +9,8 @@
 #!
 #! Several classes of examples of subgroups of $\mathrm{Aut}(B_{d,k})$ that satisfy (C) and or (D) are constructed in <Cite Key="Tor20"/> and implemented in this section. For a given permutation group $F\le S_{d}$, there are always the three local actions $\Gamma(F)$, $\Delta(F)$ and $\Phi(F)$ on $\mathrm{Aut}(B_{d,2})$ that project onto $F$. For some $F$, these are all distinct and yield all universal groups that have $F$ as their $1$-local action, see <Cite Key="Tor20" Where="Theorem 3.32"/>. More examples arise in particular when either point stabilizers in $F$ are not simple, $F$ preserves a partition, or $F$ is not perfect.
 
+#! This section also includes functions to provide the $k$-local actions of the groups $\mathrm{PGL}(2,\mathbb{Q}_{p})$ and $\mathrm{PSL}(2,\mathbb{Q}_{p})$ acting on $T_{p+1}$.
+
 ##################################################################################################################
 #! @Section Discrete groups
 ##################################################################################################################
@@ -609,6 +611,66 @@ DeclareOperation( "LocalActionSigma" , [IsLocalAction, IsPermGroup, IsMapping] )
 #! @EndExampleSession
 
 #! @EndGroup LocalActionSigma
+
+##################################################################################################################
+
+##################################################################################################################
+#! @Section PGL&#8322; over the p-adic numbers
+##################################################################################################################
+
+#! Here, we implement functions to provide the $k$-local actions of the groups $\mathrm{PGL}(2,\mathbb{Q}_{p})$ and $\mathrm{PSL}(2,\mathbb{Q}_{p})$ acting on $T_{p+1}$. 
+
+# internal function
+# outputs the representative in P1(Zp/p^kZp) of the lattice in Qp^2 represented by the integer matrix L
+DeclareGlobalFunction( "GetP1RepresentativeFromLattice" );
+
+##################################################################################################################
+
+# internal function
+# outputs the action of an integer matrix M, representing an element of PGL2Zp, on the k-sphere as a permutation
+DeclareGlobalFunction( "GetPGL2QpPermutationFromMatrix" );
+
+##################################################################################################################
+
+#! @Description
+#! The arguments of this method are a prime <A>p</A> and a radius <A>k</A> $\in\mathbb{N}_{\ge 1}$.
+#!
+#! @Returns
+#! the subgroup of $\mathrm{Aut}(B_{p+1,k})$ induced by the action of $\mathrm{PGL}(2,\mathbb{Z}_{p})$ on the ball of radius <A>k</A> around the vertex corresponding to the identity lattice of the Bruhat-Tits tree of $\mathrm{PGL}(2,\mathbb{Q}_{p})$.
+#!
+#! @Arguments p,k
+#!
+DeclareGlobalFunction( "LocalActionPGL2Qp" );
+#!
+#! @BeginExampleSession
+#! gap> LocalActionPGL2Qp(3,1)=SymmetricGroup(4);
+#! true
+#! gap> F:=LocalActionPGL2Qp(5,3);; Size(F);
+#! 1875000
+#! gap> SatisfiesC(F);
+#! true
+#! @EndExampleSession
+
+##################################################################################################################
+
+#! @Description
+#! The arguments of this method are a prime <A>p</A> and a radius <A>k</A> $\in\mathbb{N}_{\ge 1}$.
+#!
+#! @Returns
+#! the subgroup of $\mathrm{Aut}(B_{p+1,k})$ induced by the action of $\mathrm{PSL}(2,\mathbb{Z}_{p})$ on the ball of radius <A>k</A> around the vertex corresponding to the identity lattice of the Bruhat-Tits tree of $\mathrm{PGL}(2,\mathbb{Q}_{p})$.
+#!
+#! @Arguments p,k
+#!
+DeclareGlobalFunction( "LocalActionPSL2Qp" );
+#!
+#! @BeginExampleSession
+#! gap> LocalActionPSL2Qp(3,1)=AlternatingGroup(4);
+#! true
+#! gap> F:=LocalActionPSL2Qp(5,3);; Size(F);
+#! 937500
+#! gap> SatisfiesC(F);
+#! true
+#! @EndExampleSession
 
 ##################################################################################################################
 

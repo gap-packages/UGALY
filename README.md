@@ -6,6 +6,8 @@
 
 <Package>UGALY</Package> was developed by <a href="https://www.newcastle.edu.au/profile/khalil-hannouch">Khalil Hannouch</a> and <a href="https://www.newcastle.edu.au/profile/stephan-tornier">Stephan Tornier</a> within the <a href="https://zerodimensional.group/">Zero-Dimensional Symmetry Research Group</a> in the <a href="https://www.newcastle.edu.au/school/mathematical-and-physical-sciences">School of Mathematical and Physical Sciences</a> at <a href="https://www.newcastle.edu.au/">The University of Newcastle</a>, Australia.
 
+Contributions were later made by Tasman Fell within the same research group.
+
 # Contact
 
 UGALY is maintained by <a href="https://www.newcastle.edu.au/profile/stephan-tornier">Stephan Tornier</a>.
