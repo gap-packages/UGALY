@@ -479,7 +479,7 @@ DeclareGlobalFunction( "SpheresProduct" );
 ##################################################################################################################
 
 #! @Description
-#! The arguments of this method are a degree <A>l</A> $\in\mathbb{N}_{\ge 2}$, a radius <A>d</A> $\in\mathbb{N}_{\ge 3}$, a permutation group <A>F</A> $\le S_d$, a homomorphism $\rho$ from <A>F</A> to an abelian group that is surjective on every point stabilizer in <A>F</A>, and a non-empty, non-zero subset <A>R</A> of <C>[0..l-1]</C> that contains $l-1$.
+#! The arguments of this method are a radius <A>l</A> $\in\mathbb{N}_{\ge 2}$, a degree <A>d</A> $\in\mathbb{N}_{\ge 3}$, a permutation group <A>F</A> $\le S_d$, a homomorphism $\rho$ from <A>F</A> to an abelian group that is surjective on every point stabilizer in <A>F</A>, and a non-empty, non-zero subset <A>R</A> of <C>[0..l-1]</C> that contains $l-1$.
 #!
 #! @Returns
 #! the group $\Pi^{l}($<A>F</A>$,$<A>rho</A>$,$<A>R</A>$)=\{\alpha\in\Phi^{l}(F)\mid \prod_{r\in R}\prod_{x\in S(b,r)}$<A>rho</A>$(\sigma_{1}(\alpha,x))=1\}\le\mathrm{Aut}(B_{d,l})$.
