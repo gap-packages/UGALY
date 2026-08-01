@@ -97,6 +97,7 @@ Dependencies := rec(
 	GAP := ">= 4.10.2",
 	NeededOtherPackages := [ ["fga", ">= 1.0"] ],
 	SuggestedOtherPackages := [ ],
+	TestPackages := [ ["primgrp", ">= 1.0"], ["transgrp", ">= 1.0"] ],
 	ExternalConditions := [ ],
 ),
 
