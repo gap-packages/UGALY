@@ -6,6 +6,11 @@
 #
 LoadPackage( "UGALY" );
 
+# The manual examples construct local actions from the standard libraries of
+# primitive and transitive groups, and print the names these libraries use.
+LoadPackage( "primgrp" );
+LoadPackage( "transgrp" );
+
 TestDirectory(DirectoriesPackageLibrary( "UGALY", "tst" ),
   rec( exitGAP := true, testOptions := rec( compareFunction := "uptowhitespace" )));
 
