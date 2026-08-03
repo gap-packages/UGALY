@@ -16,8 +16,8 @@
 # gap> Read("makedoc.g");  # when working directory is the package folder
 #
 
-if fail = LoadPackage("AutoDoc", "2018.02.14") then
-    Error("AutoDoc version 2018.02.14 or newer is required.");
+if fail = LoadPackage("AutoDoc", "2019.07.03") then
+    Error("AutoDoc version 2019.07.03 or newer is required.");
 fi;
 
 AutoDoc( rec( scaffold := true, autodoc := true, extract_examples := true ) );
