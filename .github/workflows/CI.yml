@@ -34,6 +34,13 @@ jobs:
       - uses: gap-actions/setup-gap@v3
         with:
           gap-version: ${{ matrix.gap-version }}
+      # The AutoDoc bundled with our minimal GAP version is too old to process
+      # our documentation. So install a newer one; 2022.10.20 is the most recent
+      # release that still works with the GAPDoc version bundled with GAP 4.10.
+      # For newer GAP versions this is a no-op, as they ship a newer AutoDoc.
+      - uses: gap-actions/install-pkg@v1
+        with:
+          packages: AutoDoc@2022.10.20
       - uses: gap-actions/build-pkg@v3
       - uses: gap-actions/build-pkg-docs@v2  # build docs so that manual examples are extracted as tests
       - uses: gap-actions/run-pkg-tests@v4
